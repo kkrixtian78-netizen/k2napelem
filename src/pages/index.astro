@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import GrantBanner from '../components/GrantBanner.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import { gallery, services, site } from '../data/site';
 import { formatHuf, products } from '../data/products';
 
@@ -15,6 +17,7 @@ const homeServices = services.slice(0, 4);
   ogImage="/images/hero-roof.jpeg"
   canonicalPath="/"
 >
+  <GrantBanner />
   <section class="relative isolate min-h-[100svh] overflow-hidden">
     <div class="absolute inset-0 -z-10">
       <img
@@ -112,27 +115,15 @@ const homeServices = services.slice(0, 4);
 
   <div class="soft-divider mx-auto max-w-6xl"></div>
 
-  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+  <TrustStrip />
+
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
     <div>
       <h2 class="font-display text-3xl font-bold sm:text-4xl">Miért a K2Napelem?</h2>
       <p class="mt-4 text-[var(--color-ink-soft)]">
         Közel tíz éve a napelemes szakmában — előbb nagy cégnél, majd saját vállalkozásként.
         Kollégáinkkal több száz lakossági és céges rendszeren vagyunk túl, hiba nélküli átadásokkal és továbbajánlásokkal.
       </p>
-      <dl class="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3">
-        <div>
-          <dt class="text-sm text-[var(--color-ink-soft)]">Tapasztalat</dt>
-          <dd class="mt-1 font-display text-3xl font-bold">10+ év</dd>
-        </div>
-        <div>
-          <dt class="text-sm text-[var(--color-ink-soft)]">Lakossági rendszer</dt>
-          <dd class="mt-1 font-display text-3xl font-bold">300+</dd>
-        </div>
-        <div>
-          <dt class="text-sm text-[var(--color-ink-soft)]">Székhely</dt>
-          <dd class="mt-1 font-display text-3xl font-bold">Pócsmegyer</dd>
-        </div>
-      </dl>
       <a href="/rolunk" class="mt-8 inline-flex text-sm font-semibold text-[var(--color-sky-deep)]">Rólunk bővebben</a>
     </div>
     <div class="overflow-hidden rounded-2xl">

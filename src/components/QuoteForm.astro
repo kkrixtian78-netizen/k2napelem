@@ -30,81 +30,57 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
     >
       <label class="grid gap-1.5 text-sm font-medium">
         Név *
-        <input
-          required
-          name="name"
-          autocomplete="name"
-          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
-        />
+        <input required name="name" autocomplete="name" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
       </label>
       <label class="grid gap-1.5 text-sm font-medium">
         Telefon *
-        <input
-          required
-          name="phone"
-          type="tel"
-          autocomplete="tel"
-          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
-        />
+        <input required name="phone" type="tel" autocomplete="tel" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
       </label>
       <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
         E-mail *
-        <input
-          required
-          name="email"
-          type="email"
-          autocomplete="email"
-          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
-        />
+        <input required name="email" type="email" autocomplete="email" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium">
+        Település / cím
+        <input name="address" autocomplete="address-level2" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium">
+        Havi fogyasztás (kWh vagy Ft)
+        <input name="consumption" placeholder="pl. 350 kWh vagy 45 000 Ft" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
       </label>
       <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
-        Település / cím
-        <input
-          name="address"
-          autocomplete="address-level2"
-          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
-        />
+        Tető / telepítés típusa
+        <select name="roof" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]">
+          <option value="">Még nem tudom</option>
+          <option>Cseréptető</option>
+          <option>Lemeztető</option>
+          <option>Lapostető</option>
+          <option>Földre telepítés</option>
+          <option>Egyéb / vegyes</option>
+        </select>
       </label>
       <fieldset class="sm:col-span-2">
         <legend class="mb-2 text-sm font-medium">Érdeklődés típusa</legend>
         <div class="flex flex-wrap gap-4 text-sm font-normal">
-          <label class="inline-flex items-center gap-2">
-            <input type="radio" name="intent" value="Árajánlat" checked />
-            Árajánlat
-          </label>
-          <label class="inline-flex items-center gap-2">
-            <input type="radio" name="intent" value="Konzultáció" />
-            Konzultáció
-          </label>
-          <label class="inline-flex items-center gap-2">
-            <input type="radio" name="intent" value="Pályázat" />
-            Pályázat
-          </label>
+          <label class="inline-flex items-center gap-2"><input type="radio" name="intent" value="Árajánlat" checked /> Árajánlat</label>
+          <label class="inline-flex items-center gap-2"><input type="radio" name="intent" value="Konzultáció" /> Konzultáció</label>
+          <label class="inline-flex items-center gap-2"><input type="radio" name="intent" value="Pályázat" /> Pályázat</label>
+          <label class="inline-flex items-center gap-2"><input type="radio" name="intent" value="Bolt" /> Bolt / termék</label>
         </div>
       </fieldset>
       <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
         Üzenet
-        <textarea
-          name="message"
-          rows="4"
-          placeholder="Pl. tető típusa, havi fogyasztás, hibrid érdeklődés…"
-          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
-        ></textarea>
+        <textarea name="message" rows="4" placeholder="Pl. hibrid érdekel, pályázat, villanyszerelés…" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"></textarea>
       </label>
       <p class="sm:col-span-2 text-xs text-[var(--color-ink-soft)]">
         A megadott adatokat csak az érdeklődés megválaszolásához használjuk. Részletek:
         <a href="/adatvedelem">adatvédelem</a>.
       </p>
       <div class="sm:col-span-2">
-        <button
-          type="submit"
-          class="inline-flex rounded-md bg-[var(--color-sun)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-sun-deep)]"
-        >
+        <button type="submit" class="inline-flex rounded-md bg-[var(--color-sun)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-sun-deep)]">
           Küldés
         </button>
-        <p class="mt-3 hidden text-sm text-[var(--color-leaf)]" data-form-success>
-          Köszönjük! Hamarosan jelentkezünk.
-        </p>
+        <p class="mt-3 hidden text-sm text-[var(--color-leaf)]" data-form-success>Köszönjük! Hamarosan jelentkezünk.</p>
         <p class="mt-3 hidden text-sm text-red-700" data-form-error></p>
       </div>
     </form>
@@ -125,7 +101,6 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
       }
 
       if (!endpoint) {
-        // mailto fallback: let the browser open the mail client with filled body
         event.preventDefault();
         const data = new FormData(form);
         const body = [
@@ -133,6 +108,8 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
           `Telefon: ${data.get('phone') || ''}`,
           `E-mail: ${data.get('email') || ''}`,
           `Cím: ${data.get('address') || ''}`,
+          `Fogyasztás: ${data.get('consumption') || ''}`,
+          `Tető: ${data.get('roof') || ''}`,
           `Típus: ${data.get('intent') || ''}`,
           '',
           `${data.get('message') || ''}`,
@@ -150,8 +127,7 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
           headers: { Accept: 'application/json' },
         });
         if (!res.ok) throw new Error('A küldés nem sikerült. Próbálja telefonon vagy e-mailben.');
-        form.reset();
-        if (success) success.classList.remove('hidden');
+        window.location.href = '/koszonjuk';
       } catch (err) {
         if (error) {
           error.textContent = err instanceof Error ? err.message : 'Váratlan hiba történt.';

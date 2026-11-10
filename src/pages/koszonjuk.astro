@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Köszönjük"
+  description="Árajánlatkérését megkaptuk. Hamarosan visszajelzünk — K2Napelem."
+>
+  <section class="mx-auto flex min-h-[70svh] max-w-2xl flex-col justify-center px-4 py-20 text-center sm:px-6">
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Sikeres küldés</p>
+    <h1 class="mt-4 font-display text-4xl font-bold sm:text-5xl">Köszönjük!</h1>
+    <p class="mt-5 text-lg text-[var(--color-ink-soft)]">
+      Megkaptuk az érdeklődését. Hamarosan visszahívjuk vagy írunk a megadott elérhetőségen.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={site.phoneHref} class="rounded-md bg-[var(--color-sun)] px-5 py-3 text-sm font-semibold text-white no-underline">
+        {site.phone}
+      </a>
+      <a href="/" class="rounded-md border border-[var(--color-line)] bg-white/70 px-5 py-3 text-sm font-semibold no-underline">
+        Vissza a kezdőlapra
+      </a>
+      <a href="/kalkulator" class="rounded-md border border-[var(--color-line)] bg-white/70 px-5 py-3 text-sm font-semibold no-underline">
+        Kalkulátor
+      </a>
+    </div>
+  </section>
+</BaseLayout>
