@@ -1,0 +1,241 @@
+---
+/**
+ * Orientáló napelem-kalkulátor a régi oldal számítási logikája alapján:
+ * ~1225 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel, ~385 e Ft/kWp tájékoztató költség.
+ */
+---
+
+<div
+  class="rounded-2xl border border-[var(--color-line)] bg-white/80 p-5 sm:p-8"
+  data-solar-calc
+>
+  <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+    <form class="grid gap-5" data-calc-form>
+      <fieldset class="grid gap-3">
+        <legend class="text-sm font-semibold">Miből induljunk?</legend>
+        <div class="flex flex-wrap gap-4 text-sm">
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="mode" value="bill" checked />
+            Havi villanyszámla (Ft)
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="mode" value="kwh" />
+            Havi fogyasztás (kWh)
+          </label>
+        </div>
+      </fieldset>
+
+      <label class="grid gap-1.5 text-sm font-medium" data-bill-wrap>
+        Havi villany + kapcsolódó áramköltség (Ft)
+        <input
+          type="number"
+          name="monthlyBill"
+          min="5000"
+          step="1000"
+          value="60000"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal"
+        />
+      </label>
+
+      <label class="hidden grid gap-1.5 text-sm font-medium" data-kwh-wrap>
+        Havi fogyasztás (kWh)
+        <input
+          type="number"
+          name="monthlyKwh"
+          min="50"
+          step="10"
+          value="400"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal"
+        />
+      </label>
+
+      <label class="grid gap-1.5 text-sm font-medium">
+        Áramdíj becslés (Ft/kWh)
+        <input
+          type="number"
+          name="pricePerKwh"
+          min="20"
+          step="1"
+          value="70"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal"
+        />
+        <span class="text-xs font-normal text-[var(--color-ink-soft)]">Csak a Ft → kWh átváltáshoz.</span>
+      </label>
+
+      <label class="grid gap-1.5 text-sm font-medium">
+        Tető tájolása
+        <select
+          name="orientation"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal"
+        >
+          <option value="1">Dél (100%)</option>
+          <option value="0.95">Délkelet / Délnyugat (~95%)</option>
+          <option value="0.9">Lapostető / közel ideális (~90%)</option>
+          <option value="0.85">Kelet / Nyugat (~85%)</option>
+          <option value="0.75">Északkelet / Északnyugat (~75%)</option>
+        </select>
+      </label>
+
+      <label class="grid gap-1.5 text-sm font-medium">
+        Rendszer típusa
+        <select
+          name="systemType"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal"
+        >
+          <option value="traditional">Hagyományos (hálózatos)</option>
+          <option value="hybrid">Hibrid + tároló</option>
+        </select>
+      </label>
+
+      <button
+        type="submit"
+        class="inline-flex w-fit rounded-md bg-[var(--color-sun)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-sun-deep)]"
+      >
+        Számolás
+      </button>
+    </form>
+
+    <div class="rounded-xl bg-[var(--color-mist)]/70 p-5 sm:p-6" data-calc-result aria-live="polite">
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">
+        Orientáló eredmény
+      </p>
+      <dl class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div>
+          <dt class="text-xs text-[var(--color-ink-soft)]">Ajánlott teljesítmény</dt>
+          <dd class="font-display text-3xl font-bold" data-out-kwp>—</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-[var(--color-ink-soft)]">Panelek száma (~420 W)</dt>
+          <dd class="font-display text-3xl font-bold" data-out-panels>—</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-[var(--color-ink-soft)]">Szükséges felület</dt>
+          <dd class="font-display text-3xl font-bold" data-out-area>—</dd>
+        </div>
+        <div>
+          <dt class="text-xs text-[var(--color-ink-soft)]">Becült beruházás</dt>
+          <dd class="font-display text-3xl font-bold" data-out-cost>—</dd>
+        </div>
+        <div class="sm:col-span-2">
+          <dt class="text-xs text-[var(--color-ink-soft)]">Orientáló megtérülés</dt>
+          <dd class="font-display text-3xl font-bold" data-out-payback>—</dd>
+        </div>
+      </dl>
+      <p class="mt-5 text-sm text-[var(--color-ink-soft)]" data-out-note></p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a
+          href="/kapcsolat#ajanlat"
+          class="rounded-md bg-[var(--color-ink)] px-4 py-2.5 text-sm font-semibold text-white no-underline"
+          data-calc-cta
+        >
+          Pontos árajánlatot kérek
+        </a>
+        <a href="/gyik" class="rounded-md border border-[var(--color-line)] bg-white/80 px-4 py-2.5 text-sm font-semibold no-underline">
+          GYIK / megtérülés
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
+    A kalkulátor tájékoztató. A régi oldalon használt arányokon alapul (kb. 1200–1250 kWh/kWp/év, ~420 W panel).
+    A tényleges méret és ár a tető, árnyék, hálózat és elszámolás függvénye — ezért adunk felmérés után pontos ajánlatot.
+  </p>
+</div>
+
+<script>
+  const root = document.querySelector('[data-solar-calc]');
+  if (root) {
+    const form = root.querySelector('[data-calc-form]') as HTMLFormElement;
+    const billWrap = root.querySelector('[data-bill-wrap]') as HTMLElement;
+    const kwhWrap = root.querySelector('[data-kwh-wrap]') as HTMLElement;
+    const out = {
+      kwp: root.querySelector('[data-out-kwp]') as HTMLElement,
+      panels: root.querySelector('[data-out-panels]') as HTMLElement,
+      area: root.querySelector('[data-out-area]') as HTMLElement,
+      cost: root.querySelector('[data-out-cost]') as HTMLElement,
+      payback: root.querySelector('[data-out-payback]') as HTMLElement,
+      note: root.querySelector('[data-out-note]') as HTMLElement,
+      cta: root.querySelector('[data-calc-cta]') as HTMLAnchorElement,
+    };
+
+    const fmt = (n: number) =>
+      new Intl.NumberFormat('hu-HU', { style: 'currency', currency: 'HUF', maximumFractionDigits: 0 }).format(n);
+
+    const syncMode = () => {
+      const mode = (form.elements.namedItem('mode') as RadioNodeList).value;
+      const bill = mode === 'bill';
+      billWrap.classList.toggle('hidden', !bill);
+      kwhWrap.classList.toggle('hidden', bill);
+      billWrap.classList.toggle('grid', bill);
+      kwhWrap.classList.toggle('grid', !bill);
+    };
+
+    form.addEventListener('change', (e) => {
+      if ((e.target as HTMLElement).getAttribute('name') === 'mode') syncMode();
+    });
+
+    const calculate = () => {
+      const data = new FormData(form);
+      const mode = String(data.get('mode') || 'bill');
+      const price = Math.max(1, Number(data.get('pricePerKwh') || 70));
+      const orientation = Number(data.get('orientation') || 1);
+      const systemType = String(data.get('systemType') || 'traditional');
+
+      let monthlyKwh = Number(data.get('monthlyKwh') || 0);
+      let monthlyBill = Number(data.get('monthlyBill') || 0);
+      if (mode === 'bill') {
+        monthlyKwh = monthlyBill / price;
+      } else {
+        monthlyBill = monthlyKwh * price;
+      }
+
+      const annualKwh = monthlyKwh * 12;
+      const yieldPerKwp = 1225 * orientation;
+      const kwp = Math.max(1, annualKwh / yieldPerKwp);
+      const panelW = 0.42;
+      const panels = Math.ceil(kwp / panelW);
+      const area = panels * (52 / 24); // old-site example ratio
+      const roundedKwp = Math.round(kwp * 10) / 10;
+
+      // Cost heuristics from legacy examples
+      let cost = roundedKwp * 385000;
+      if (systemType === 'hybrid') {
+        // Rough bridge between 5kWp/4.45M and 10kWp/6.5M
+        cost = 2400000 + roundedKwp * 410000;
+      }
+
+      const annualBill = monthlyBill * 12;
+      const selfUse = systemType === 'hybrid' ? 0.75 : 0.55;
+      const yearlySave = annualBill * selfUse;
+      const paybackYears = yearlySave > 0 ? cost / yearlySave : 0;
+
+      out.kwp.textContent = `${roundedKwp.toLocaleString('hu-HU')} kWp`;
+      out.panels.textContent = `${panels} db`;
+      out.area.textContent = `~${Math.round(area)} m²`;
+      out.cost.textContent = `~${fmt(Math.round(cost / 10000) * 10000)}`;
+      out.payback.textContent =
+        paybackYears > 0 ? `~${paybackYears.toFixed(1).replace('.', ',')} év` : '—';
+      out.note.textContent =
+        systemType === 'hybrid'
+          ? 'Hibridnél a tároló növeli a saját felhasználást; a megtérülés az energiaáraktól és a fogyasztási szokásoktól erősen függ.'
+          : 'Hagyományos rendszernél a megtérülés az elszámolási módtól függ. A 60 000 Ft/hó példa a régi oldalon ~10 kWp / ~3,85 M Ft sávban mozgott.';
+
+      const params = new URLSearchParams({
+        kwp: String(roundedKwp),
+        panels: String(panels),
+        type: systemType,
+        from: 'kalkulator',
+      });
+      out.cta.href = `/kapcsolat#ajanlat?${params.toString()}`;
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      calculate();
+    });
+
+    syncMode();
+    calculate();
+  }
+</script>

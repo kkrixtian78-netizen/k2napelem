@@ -1,19 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import PageHero from '../components/PageHero.astro';
+import { formatHuf, products } from '../data/products';
+
+const heating = products.filter((p) => p.category === 'futes').slice(0, 6);
 ---
 
 <BaseLayout
   title="Elektromos fűtési megoldások"
   description="Hőszivattyú, infrapanel, fűtőszőnyeg, fűtőkábel és okos fűtési megoldások. K2Napelem elektromos fűtés."
 >
-  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
-    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Szolgáltatás</p>
-    <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Elektromos fűtés</h1>
-    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
-      Többféle megoldás minden igényhez: hőszivattyútól az infrapanelig — személyre szabott konzultációval.
-    </p>
-  </section>
+  <PageHero
+    eyebrow="Szolgáltatás"
+    title="Elektromos fűtés"
+    lead="Többféle megoldás minden igényhez: hőszivattyútól az infrapanelig — személyre szabott konzultációval."
+  />
 
   <section class="mx-auto max-w-6xl px-4 sm:px-6">
     <img
@@ -33,22 +35,42 @@ import QuoteForm from '../components/QuoteForm.astro';
         </p>
       </article>
       <article>
-        <h2 class="font-display text-2xl font-bold">Panelek és padlófűtés</h2>
-        <ul class="mt-3 space-y-2 text-sm text-[var(--color-ink-soft)]">
-          <li>Noirot Spot-D fűtőpanelek (500–2500 W)</li>
-          <li>BVF infrapanelek fali és mennyezeti rögzítéssel</li>
-          <li>Fűtőszőnyeg (100 / 150 W/m²)</li>
-          <li>Beltéri fűtőkábel aljzatbetonba</li>
-          <li>BVF Adelig LED / okostükör</li>
-        </ul>
+        <h2 class="font-display text-2xl font-bold">Infrafűtés dióhéjban</h2>
+        <p class="mt-3 text-sm text-[var(--color-ink-soft)]">
+          Átlagos hőszigetelésnél kb. 20–35 W/légköbméter. Légköbméter = alapterület × belmagasság.
+          2,7 m belmagasságig gyakran elegendő a 300–350 W-os panel; felette 500 W+ javasolt.
+        </p>
+        <p class="mt-3 text-sm text-[var(--color-ink-soft)]">
+          Példa: 100 m² Kádár-kocka ≈ 250 m³ → kb. 6500 W infra. Orientáló anyagár ~150 Ft/W.
+        </p>
       </article>
     </div>
-    <p class="mt-8 text-xs text-[var(--color-ink-soft)]">
-      A termékárak a forgalmazói kínálattól függően változnak; aktuális árajánlatot felmérés után adunk.
-    </p>
   </section>
 
-  <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
+  <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 class="font-display text-3xl font-bold">Termékek a boltban</h2>
+      <a href="/bolt" class="text-sm font-semibold text-[var(--color-sky-deep)]">Összes termék</a>
+    </div>
+    <ul class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        heating.map((p) => (
+          <li>
+            <a href={`/bolt/${p.slug}`} class="group block no-underline">
+              <div class="overflow-hidden rounded-xl">
+                <img src={p.image} alt={p.name} class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
+              </div>
+              <h3 class="mt-4 font-display text-lg font-bold">{p.name}</h3>
+              <p class="mt-1 text-sm text-[var(--color-ink-soft)]">{p.short}</p>
+              <p class="mt-2 text-sm font-semibold">{formatHuf(p.priceFrom)}-tól</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-24 pt-12 sm:px-6">
     <QuoteForm heading="Fűtési megoldás érdekel?" />
   </section>
 </BaseLayout>

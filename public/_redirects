@@ -21,3 +21,8 @@
 /adatvedelmi-szabalyzat/ /adatvedelem 301
 /felhasznalasi-feltetelek /adatvedelem 301
 /felhasznalasi-feltetelek/ /adatvedelem 301
+
+# New tools (no old equivalents — listed for deploy docs)
+# /kalkulator  /kalkulator 200
+# /bolt        /bolt 200
+# /szolgaltatasok /szolgaltatasok 200

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import PageHero from '../components/PageHero.astro';
 
 const steps = [
   { title: 'Érdeklődés', text: 'Felmerülő kérdéseire szívesen válaszolunk — hívjon vagy írjon.' },
@@ -18,13 +19,11 @@ const steps = [
   title="Napelemes rendszerek"
   description="Napelemes rendszerek teljes kivitelezése: felmérés, engedélyeztetés, telepítés tetőre vagy földre. K2Napelem, Pócsmegyer."
 >
-  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
-    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Szolgáltatás</p>
-    <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Napelemes rendszerek</h1>
-    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
-      Az érdeklődéstől az átadásig. Vállalunk földre és szinte bármilyen héjazatú tetőre telepítést is — teljes ügyintézéssel, akár pályázattal.
-    </p>
-  </section>
+  <PageHero
+    eyebrow="Szolgáltatás"
+    title="Napelemes rendszerek"
+    lead="Az érdeklődéstől az átadásig. Vállalunk földre és szinte bármilyen héjazatú tetőre telepítést is — teljes ügyintézéssel, akár pályázattal."
+  />
 
   <section class="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-2">
     <img src="/images/hero-roof.webp" alt="Tetőre szerelt napelemes rendszer" class="rounded-2xl object-cover" />
@@ -32,7 +31,10 @@ const steps = [
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-    <h2 class="font-display text-3xl font-bold">A kivitelezés menete</h2>
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 class="font-display text-3xl font-bold">A kivitelezés menete</h2>
+      <a href="/kalkulator" class="text-sm font-semibold text-[var(--color-sky-deep)]">Előtte: kalkulátor →</a>
+    </div>
     <ol class="mt-8 grid gap-6 sm:grid-cols-2">
       {
         steps.map((step, i) => (
@@ -48,7 +50,27 @@ const steps = [
     </ol>
   </section>
 
-  <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
+  <section class="bg-[color-mix(in_oklab,var(--color-mist)_60%,transparent)] py-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <h2 class="font-display text-3xl font-bold">Megtérülés — röviden</h2>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        A számok alapján egy hagyományos, körülbelül 2,5 millió forintos beruházással létrehozott 5 kW-os rendszer
+        a korábbi szaldó alapú elszámolás mellett 8–9 év alatt térülhet meg. Egy ugyanekkora hibrid inverteres rendszer
+        5 kWh akkumulátorral nagyságrendileg 4 millió forint: megtérülése a jelenlegi feltételek mellett hosszabb lehet,
+        de magasabb energiaárak és jó optimalizálás mellett javul.
+      </p>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        <strong class="text-[var(--color-ink)]">Példa a régi oldalról:</strong> ha a havi villany és fűtés számlája összesen
+        60 000 Ft, a kiváltáshoz kb. 10 kWp kell (~24 panel, ~52 m²). Tájékoztató költség működésképesen átadva: ~3,85 M Ft.
+        A példák nem minősülnek ajánlatnak.
+      </p>
+      <a href="/kalkulator" class="mt-6 inline-flex rounded-md bg-[var(--color-sun)] px-4 py-2.5 text-sm font-semibold text-white no-underline">
+        Saját számítás a kalkulátorban
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6">
     <QuoteForm heading="Érdekel a napelem?" intro="Írja meg a települését és durván a havi fogyasztását — visszahívjuk." />
   </section>
 </BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SolarCalculator from '../components/SolarCalculator.astro';
+---
+
+<BaseLayout
+  title="Napelem kalkulátor"
+  description="Orientáló napelem kalkulátor: becsült kWp, panelszám, tetőfelület, beruházás és megtérülés. K2Napelem."
+>
+  <PageHero
+    eyebrow="Ingyenes orientáció"
+    title="Napelem kalkulátor"
+    lead="Adja meg a havi számláját vagy fogyasztását — másodpercek alatt kap egy tájékoztató méretet és ársávot. A pontos ajánlathoz felmérés kell."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 pb-12 sm:px-6">
+    <SolarCalculator />
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-24 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+    <div>
+      <h2 class="font-display text-3xl font-bold">Dőlésszög és tájolás</h2>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        A napelemek elhelyezésétől függően termeléscsökkenésre számíthatunk. A dél a legkedvezőbb;
+        kelet–nyugat felé és az északi irányban a veszteség nő. A kalkulátorban ezért választható tájolási tényező.
+      </p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">
+        Régi oldali példa: havi ~60 000 Ft villany+fűtés áram → kb. 10 kWp, ~24 panel, ~52 m², tájékoztatóan ~3,85 M Ft.
+      </p>
+    </div>
+    <img
+      src="/images/calc/orientation.png"
+      alt="Napelem dőlésszög és tájolás veszteségábra"
+      class="w-full max-w-md justify-self-center rounded-xl bg-white/70 p-4"
+      loading="lazy"
+    />
+  </section>
+</BaseLayout>

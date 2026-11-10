@@ -13,15 +13,26 @@ export const site = {
   formEndpoint: import.meta.env.PUBLIC_FORM_ENDPOINT || '',
 } as const;
 
+/** Primary nav — short and logical */
 export const nav = [
   { href: '/napelemes-rendszerek', label: 'Napelem' },
+  { href: '/kalkulator', label: 'Kalkulátor' },
+  { href: '/bolt', label: 'Bolt' },
+  { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+  { href: '/munkaink', label: 'Munkáink' },
+  { href: '/kapcsolat', label: 'Kapcsolat' },
+] as const;
+
+export const footerNav = [
+  { href: '/rolunk', label: 'Rólunk' },
+  { href: '/gyik', label: 'GYIK' },
   { href: '/hibrid-sziget', label: 'Hibrid / sziget' },
   { href: '/villanyszereles', label: 'Villanyszerelés' },
   { href: '/elektromos-futes', label: 'E-fűtés' },
   { href: '/palyazatiras', label: 'Pályázat' },
-  { href: '/munkaink', label: 'Munkáink' },
-  { href: '/rolunk', label: 'Rólunk' },
-  { href: '/kapcsolat', label: 'Kapcsolat' },
+  { href: '/otthoni-energiatarolo', label: 'Energiatároló program' },
+  { href: '/adatvedelem', label: 'Adatvédelem' },
+  { href: '/sutik', label: 'Sütik' },
 ] as const;
 
 export const services = [
@@ -92,12 +103,24 @@ export const faqs = [
     a: 'A gyártók általában 10 év termék- és 20–25 év teljesítménygaranciát adnak. A teljesítménygarancia tipikusan 10 év után legalább 90%, 25 év után legalább 80% termelést biztosít. Az inverterekre jellemzően 5–10 év a gyári jótállás, ami bővíthető. A hosszú távú működéshez azonban a pontos telepítés a kulcs.',
   },
   {
+    q: 'Napelemes rendszerek után is kell adót fizetni?',
+    a: 'Létezik napelemadó jogszabályi keret, de a gyakorlatban a releváns tétel jelenleg 0 Ft. A háztartási méretű rendszerek mellett a megújulók támogatása a kormányzati szándék része — a pontos aktuális szabályokról érdeklődéskor tájékoztatunk.',
+  },
+  {
     q: 'Kell-e engedély a napelemek felszereléséhez?',
     a: 'A háztartási méretű, hálózatra csatlakozó rendszerek általában nem építési engedélykötelesek, de be kell jelenteni őket a területileg illetékes áramszolgáltatónál. A nagyobb, 50 kW feletti vagy speciális rendszerekhez további hatósági lépések tartozhatnak — ebben is segítünk.',
   },
   {
+    q: '0 Ft-os villanyszámla lehetséges napelemekkel?',
+    a: 'Ideális méretezés és elszámolás mellett a villamosenergia-számla jelentősen csökkenthető, akár közel nullázható a fogyasztás fedezésével. A fűtés, a háztartási szokások és az elszámolási mód befolyásolja az eredményt — ezért készítünk egyedi kalkulációt.',
+  },
+  {
     q: 'Milyen karbantartást igényel a rendszer?',
     a: 'A napelemeknek nincs mozgó alkatrésze; az eső általában elegendő tisztítást biztosít. Érdemes időnként ellenőrizni a termelési adatokat, és ha rendellenességet tapasztal, jelezze felénk.',
+  },
+  {
+    q: 'A szélsőséges időjárás (pl. jégeső) kárt tehet a panelekben?',
+    a: 'A minősített panelek edzett üveggel készülnek, és bírják a szokásos időjárási terhelést (a gyári tesztek jégesőt is szimulálnak). Extrém esetben — ha a tető is komoly kárt szenved — a panelek is sérülhetnek.',
   },
   {
     q: 'Mi történik éjszaka a napelemekkel?',
@@ -106,6 +129,10 @@ export const faqs = [
   {
     q: 'Napelem vagy napkollektor?',
     a: 'A napkollektor hőt (meleg vizet) állít elő, a napelem villamos energiát. Otthoni áramtermeléshez napelem kell; melegvíz-készítéshez napkollektor vagy hőszivattyús megoldás jöhet szóba.',
+  },
+  {
+    q: 'Mennyi a hálózatra csatlakozás költsége?',
+    a: 'A rendelkezésre álló teljesítményig általában nincs külön csatlakozási díj a napelemes termelő berendezés miatt. A mérőcsere / átprogramozás az elosztó feladata saját költségén — az aktuális szolgáltatói feltételeket mindig egyeztetjük.',
   },
   {
     q: 'Mennyi idő a megtérülés?',

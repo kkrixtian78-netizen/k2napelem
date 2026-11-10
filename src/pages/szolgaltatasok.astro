@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { services } from '../data/site';
+---
+
+<BaseLayout
+  title="Szolgáltatások"
+  description="Napelem, hibrid, villanyszerelés, elektromos fűtés, pályázatírás és energiatároló program — K2Napelem."
+>
+  <PageHero
+    eyebrow="Átlátható kínálat"
+    title="Szolgáltatások"
+    lead="Egy partner a teljes energetikai úton. Válassza ki, miben tudunk segíteni — minden oldal végén árajánlat-űrlap van."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+    <ul class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((item) => (
+          <li>
+            <a href={item.href} class="group block no-underline">
+              <div class="overflow-hidden rounded-xl">
+                <img
+                  src={item.image}
+                  alt=""
+                  class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <h2 class="mt-4 font-display text-2xl font-bold group-hover:text-[var(--color-sky-deep)]">{item.title}</h2>
+              <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{item.lead}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-16 grid gap-6 rounded-2xl border border-[var(--color-line)] bg-white/70 p-6 sm:grid-cols-3 sm:p-8">
+      <a href="/kalkulator" class="no-underline">
+        <h3 class="font-display text-xl font-bold">Kalkulátor</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Becsült rendszer méret és ársáv másodpercek alatt.</p>
+      </a>
+      <a href="/bolt" class="no-underline">
+        <h3 class="font-display text-xl font-bold">Bolt</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Fűtési termékek és tájékoztató napelem-csomagok.</p>
+      </a>
+      <a href="/gyik" class="no-underline">
+        <h3 class="font-display text-xl font-bold">GYIK</h3>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Garancia, engedély, megtérülés, karbantartás.</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
