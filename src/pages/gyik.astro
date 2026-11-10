@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { faqs } from '../data/site';
+---
+
+<BaseLayout
+  title="GYIK"
+  description="Gyakori kérdések a napelemről: garancia, engedély, megtérülés, karbantartás. Válaszol a K2Napelem."
+>
+  <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <h1 class="font-display text-4xl font-bold sm:text-5xl">GYIK</h1>
+    <p class="mt-4 text-lg text-[var(--color-ink-soft)]">
+      A megtérülés és a rendszer kiválasztása összetett kérdés — ezért fontos a tapasztalt kivitelező és a körültekintő tervezés.
+    </p>
+
+    <div class="mt-10 space-y-4">
+      {
+        faqs.map((item) => (
+          <details class="group rounded-xl border border-[var(--color-line)] bg-white/70 px-5 py-4">
+            <summary class="cursor-pointer list-none font-display text-lg font-bold marker:content-none">
+              <span class="flex items-start justify-between gap-4">
+                {item.q}
+                <span class="mt-1 text-[var(--color-sun-deep)] transition group-open:rotate-45">+</span>
+              </span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-soft)]">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    })} />
+
+    <p class="mt-10 text-sm">
+      Nem találta a választ?
+      <a href="/kapcsolat" class="font-semibold text-[var(--color-sky-deep)]">Írjon nekünk</a>.
+    </p>
+  </section>
+</BaseLayout>

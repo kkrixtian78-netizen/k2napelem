@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+---
+
+<BaseLayout
+  title="Hibrid és szigetüzemű rendszerek"
+  description="Hibrid napelem energiatárolóval és szigetüzemű megoldások. Tárolja a nappali termelést, használja este. K2Napelem."
+>
+  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Szolgáltatás</p>
+    <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Hibrid és szigetüzem</h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      A megtermelt áramot ne adja el olcsón, majd vegye vissza drágán — tárolja otthon, és használja akkor, amikor kell.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 sm:px-6">
+    <img
+      src="/images/services/hybrid.webp"
+      alt="Hibrid napelemes rendszer energiatárolóval"
+      class="max-h-[28rem] w-full rounded-2xl object-cover"
+    />
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2">
+    <article>
+      <h2 class="font-display text-3xl font-bold">Hibrid rendszer</h2>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        Energiatároló kapacitással a napközben megtermelt felesleg este és éjszaka is felhasználható.
+        Komolyabb inverter és akkupakk mellett a beruházás nagyobb, de a saját felhasználás aránya — és így a megtérülés — javulhat a hagyományos, bruttó elszámolású rendszerhez képest.
+      </p>
+      <ul class="mt-6 space-y-3 text-sm text-[var(--color-ink-soft)]">
+        <li><strong class="text-[var(--color-ink)]">Orientáló ár:</strong> 5 kWp + Sofar hybrid + 5 kW akku — kb. 4,45 M Ft</li>
+        <li><strong class="text-[var(--color-ink)]">Orientáló ár:</strong> 10 kWp + Sofar hybrid + 10 kW akku — kb. 6,5 M Ft</li>
+      </ul>
+      <p class="mt-4 text-xs text-[var(--color-ink-soft)]">Az árak tájékoztató jellegűek, nem minősülnek ajánlatnak.</p>
+    </article>
+    <article>
+      <h2 class="font-display text-3xl font-bold">Szigetüzem</h2>
+      <p class="mt-4 text-[var(--color-ink-soft)]">
+        Ma már egy szigetüzemű rendszer nem kerül többe (sőt), mint egy hibrid változat — miközben nagyobb függetlenséget ad.
+        Szükség esetén a hálózatból vagy más forrásból is képes kiegészíteni, ha az akkuk lemerültek.
+      </p>
+      <ul class="mt-6 space-y-3 text-sm text-[var(--color-ink-soft)]">
+        <li><strong class="text-[var(--color-ink)]">1 fázis:</strong> 5 kWp + EASolar + 5 kW akku — kb. 4–4,5 M Ft</li>
+        <li><strong class="text-[var(--color-ink)]">3 fázis:</strong> 10 kWp + EASolar + 10 kW akku — kb. 5,5–6 M Ft</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
+    <QuoteForm heading="Hibrid érdekel?" />
+  </section>
+</BaseLayout>

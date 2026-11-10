@@ -1,0 +1,22 @@
+{
+  "redirects": [
+    { "source": "/masolat-villanyszereles2", "destination": "/napelemes-rendszerek", "permanent": true },
+    { "source": "/masolat-villanyszereles2/", "destination": "/napelemes-rendszerek", "permanent": true },
+    { "source": "/masolat-napelemes-rendszerek2", "destination": "/hibrid-sziget", "permanent": true },
+    { "source": "/masolat-napelemes-rendszerek2/", "destination": "/hibrid-sziget", "permanent": true },
+    { "source": "/masolat-villanyszereles", "destination": "/elektromos-futes", "permanent": true },
+    { "source": "/masolat-villanyszereles/", "destination": "/elektromos-futes", "permanent": true },
+    { "source": "/masolat-elektromos-futesi-megoldasok", "destination": "/palyazatiras", "permanent": true },
+    { "source": "/masolat-elektromos-futesi-megoldasok/", "destination": "/palyazatiras", "permanent": true },
+    { "source": "/masolat-palyazatiras", "destination": "/gyik", "permanent": true },
+    { "source": "/masolat-palyazatiras/", "destination": "/gyik", "permanent": true },
+    { "source": "/masolat-napelemes-rendszerek", "destination": "/munkaink", "permanent": true },
+    { "source": "/masolat-napelemes-rendszerek/", "destination": "/munkaink", "permanent": true },
+    { "source": "/napenergia-plusz-program", "destination": "/otthoni-energiatarolo", "permanent": true },
+    { "source": "/napenergia-plusz-program/", "destination": "/otthoni-energiatarolo", "permanent": true },
+    { "source": "/adatvedelmi-szabalyzat", "destination": "/adatvedelem", "permanent": true },
+    { "source": "/adatvedelmi-szabalyzat/", "destination": "/adatvedelem", "permanent": true },
+    { "source": "/felhasznalasi-feltetelek", "destination": "/adatvedelem", "permanent": true },
+    { "source": "/felhasznalasi-feltetelek/", "destination": "/adatvedelem", "permanent": true }
+  ]
+}

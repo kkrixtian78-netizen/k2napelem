@@ -1,0 +1,23 @@
+# Cloudflare Pages / Netlify style redirects (301)
+# Old Webnode URLs → new clean paths
+
+/masolat-villanyszereles2 /napelemes-rendszerek 301
+/masolat-villanyszereles2/ /napelemes-rendszerek 301
+/masolat-napelemes-rendszerek2 /hibrid-sziget 301
+/masolat-napelemes-rendszerek2/ /hibrid-sziget 301
+# NOTE: Old Webnode /rolunk/ was mislabeled (villanyszerelés content).
+# New /rolunk is the real About page — do not 301 /rolunk away.
+/masolat-villanyszereles /elektromos-futes 301
+/masolat-villanyszereles/ /elektromos-futes 301
+/masolat-elektromos-futesi-megoldasok /palyazatiras 301
+/masolat-elektromos-futesi-megoldasok/ /palyazatiras 301
+/masolat-palyazatiras /gyik 301
+/masolat-palyazatiras/ /gyik 301
+/masolat-napelemes-rendszerek /munkaink 301
+/masolat-napelemes-rendszerek/ /munkaink 301
+/napenergia-plusz-program /otthoni-energiatarolo 301
+/napenergia-plusz-program/ /otthoni-energiatarolo 301
+/adatvedelmi-szabalyzat /adatvedelem 301
+/adatvedelmi-szabalyzat/ /adatvedelem 301
+/felhasznalasi-feltetelek /adatvedelem 301
+/felhasznalasi-feltetelek/ /adatvedelem 301

@@ -1,0 +1,40 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="mt-20 border-t border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-ink)_94%,#0d1518)] text-[color-mix(in_oklab,white_88%,transparent)]">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <p class="font-display text-2xl font-bold tracking-tight text-white">{site.name}</p>
+      <p class="mt-3 max-w-sm text-sm text-white/70">
+        Napelemes rendszerek, villanyszerelés, elektromos fűtés és pályázatírás — saját kivitelezéssel, Pócsmegyerről.
+      </p>
+    </div>
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/50">Kapcsolat</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a class="text-white/85 no-underline hover:text-white" href={site.phoneHref}>{site.phone}</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href={site.emailHref}>{site.email}</a></li>
+        <li class="text-white/70">{site.address}</li>
+        <li class="text-white/70">{site.hours}</li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/50">Oldalak</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a class="text-white/85 no-underline hover:text-white" href="/rolunk">Rólunk</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href="/munkaink">Munkáink</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href="/gyik">GYIK</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href="/otthoni-energiatarolo">Energiatároló program</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href="/adatvedelem">Adatvédelem</a></li>
+        <li><a class="text-white/85 no-underline hover:text-white" href="/sutik">Sütik</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <p>© {new Date().getFullYear()} {site.legalName}. Minden jog fenntartva.</p>
+      <p>k2napelem.hu</p>
+    </div>
+  </div>
+</footer>

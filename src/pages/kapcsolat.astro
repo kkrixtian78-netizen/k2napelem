@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Kapcsolat"
+  description="Kapcsolat és árajánlat: +36 30 2677 665, k2@k2napelem.hu, 2017 Pócsmegyer, Táncsics út 10."
+>
+  <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <h1 class="font-display text-4xl font-bold sm:text-5xl">Kapcsolat</h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Állunk rendelkezésére a hét minden napján 9–18 óráig.
+    </p>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <aside class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Cég</p>
+          <p class="mt-2 font-display text-2xl font-bold">{site.legalName}</p>
+          <p class="mt-1 text-[var(--color-ink-soft)]">{site.address}</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Telefon</p>
+          <a class="mt-2 block text-xl font-semibold no-underline" href={site.phoneHref}>{site.phone}</a>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">E-mail</p>
+          <a class="mt-2 block text-xl font-semibold no-underline" href={site.emailHref}>{site.email}</a>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Munkaidő</p>
+          <p class="mt-2 text-[var(--color-ink-soft)]">{site.hours}</p>
+        </div>
+      </aside>
+
+      <QuoteForm />
+    </div>
+  </section>
+</BaseLayout>

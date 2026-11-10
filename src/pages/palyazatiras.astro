@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+---
+
+<BaseLayout
+  title="Pályázatírás"
+  description="Energetikai pályázatok lakossági és céges ügyfeleknek — előkészítéstől a záró dokumentumokig. K2Napelem pályázatírás."
+>
+  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Szolgáltatás</p>
+    <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Pályázatírás</h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Tapasztalt pályázatíró kollégánkkal megkeressük az Önnek legmegfelelőbb aktuális támogatást, és végigvisszük az előkészítéstől a zárásig.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-6 sm:px-6">
+    <div class="rounded-2xl border border-[var(--color-line)] bg-white/70 p-6 sm:p-8">
+      <h2 class="font-display text-2xl font-bold">Hogyan dolgozunk?</h2>
+      <ul class="mt-4 space-y-3 text-[var(--color-ink-soft)]">
+        <li>Aktuális lakossági és céges energetikai kiírások áttekintése</li>
+        <li>Egyedi árazás személyes megbeszélés után (fix + sikerdíj)</li>
+        <li>Ha a megvalósítást ránk bízza, sok esetben a pályázatírás költségét átvállaljuk</li>
+      </ul>
+      <p class="mt-6">
+        <a href="/otthoni-energiatarolo" class="font-semibold text-[var(--color-sky-deep)]">
+          Otthoni Energiatároló Program →
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-24 pt-10 sm:px-6">
+    <QuoteForm heading="Pályázati érdeklődés" intro="Röviden írja meg, milyen beruházást tervez — visszajelzünk a lehetőségekről." />
+  </section>
+</BaseLayout>

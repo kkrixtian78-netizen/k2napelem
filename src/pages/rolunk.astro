@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Rólunk"
+  description="Kántor Krisztián EV — K2Napelem. Közel 10 év napelemes tapasztalat, 300+ lakossági rendszer, Pócsmegyer."
+>
+  <section class="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    <div>
+      <h1 class="font-display text-4xl font-bold sm:text-5xl">Rólunk</h1>
+      <p class="mt-6 text-lg text-[var(--color-ink-soft)]">
+        A napelemes szakmával közel 10 éve kezdtem el foglalkozni az egyik legnagyobb magyarországi napelemes cégnél.
+        Az ott töltött idő alatt sokat tanultam — többek között azt is, hogy lehet ezt jobban is csinálni.
+        Tapasztalataimat felhasználva saját vállalkozást indítottam, ami azóta töretlenül működik.
+      </p>
+      <p class="mt-4 text-[var(--color-ink-soft)]">Kollégáimmal azóta túl vagyunk:</p>
+      <ul class="mt-4 space-y-2 text-[var(--color-ink-soft)]">
+        <li>300+ lakossági napelemes rendszer kivitelezésén</li>
+        <li>több tucatnyi céges kivitelezésen</li>
+        <li>néhány 50 kW feletti rendszer építésén</li>
+        <li>sok fűtéskorszerűsítésen és villanyszerelésen</li>
+        <li>és az ezekhez kapcsolódó megnyert pályázatokon</li>
+      </ul>
+      <p class="mt-6 font-medium">
+        És ami a legfontosabb: hiba nélkül, rengeteg köszönetet és továbbajánlást kapva.
+      </p>
+      <p class="mt-8 text-sm text-[var(--color-ink-soft)]">
+        {site.legalName}<br />
+        {site.address}<br />
+        <a href={site.phoneHref}>{site.phone}</a> · <a href={site.emailHref}>{site.email}</a>
+      </p>
+    </div>
+    <div class="overflow-hidden rounded-2xl">
+      <img
+        src="/images/services/about.webp"
+        alt="K2Napelem szakember napelemszerelés közben"
+        class="aspect-[4/5] w-full object-cover"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+
+const steps = [
+  { title: 'Érdeklődés', text: 'Felmerülő kérdéseire szívesen válaszolunk — hívjon vagy írjon.' },
+  { title: 'Felmérés', text: 'Helyszínen megnézzük a tetőt/területet, a hálózatot és az igényeket.' },
+  { title: 'Árajánlat', text: '1–2 napon belül pontos kalkulációt küldünk, amit együtt átbeszélünk.' },
+  { title: 'Szerződés', text: 'Egyeztetés után szerződéstervezet, majd közös aláírás.' },
+  { title: 'Engedélyeztetés', text: 'Igénybejelentés, MGT, csatlakozási dokumentáció — végigkísérjük.' },
+  { title: 'Kivitelezés', text: 'Egyeztetett időpontban megépítjük a rendszert (családi háznál gyakran 1 nap).' },
+  { title: 'Átadás', text: 'Próbaüzem, jegyzőkönyvek, végszámla, készre jelentés a szolgáltatónál.' },
+  { title: 'Üzembe helyezés', text: 'A szolgáltató alvállalkozója kapcsolja be — ettől termel a rendszer.' },
+];
+---
+
+<BaseLayout
+  title="Napelemes rendszerek"
+  description="Napelemes rendszerek teljes kivitelezése: felmérés, engedélyeztetés, telepítés tetőre vagy földre. K2Napelem, Pócsmegyer."
+>
+  <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Szolgáltatás</p>
+    <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Napelemes rendszerek</h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
+      Az érdeklődéstől az átadásig. Vállalunk földre és szinte bármilyen héjazatú tetőre telepítést is — teljes ügyintézéssel, akár pályázattal.
+    </p>
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-2">
+    <img src="/images/hero-roof.webp" alt="Tetőre szerelt napelemes rendszer" class="rounded-2xl object-cover" />
+    <img src="/images/services/ground-mount.webp" alt="Földre telepített napelemes rendszer" class="rounded-2xl object-cover" loading="lazy" />
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h2 class="font-display text-3xl font-bold">A kivitelezés menete</h2>
+    <ol class="mt-8 grid gap-6 sm:grid-cols-2">
+      {
+        steps.map((step, i) => (
+          <li class="border-t border-[var(--color-line)] pt-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sun-deep)]">
+              {String(i + 1).padStart(2, '0')}
+            </p>
+            <h3 class="mt-2 font-display text-xl font-bold">{step.title}</h3>
+            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
+    <QuoteForm heading="Érdekel a napelem?" intro="Írja meg a települését és durván a havi fogyasztását — visszahívjuk." />
+  </section>
+</BaseLayout>

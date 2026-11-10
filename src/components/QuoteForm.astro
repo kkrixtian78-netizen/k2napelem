@@ -1,0 +1,163 @@
+---
+import { site } from '../data/site';
+
+interface Props {
+  heading?: string;
+  intro?: string;
+}
+
+const {
+  heading = 'Kérek árajánlatot',
+  intro = 'Írja meg röviden, miben segíthetünk — visszahívjuk, és egyeztetünk felmérést.',
+} = Astro.props;
+
+const endpoint = site.formEndpoint;
+const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Árajánlatkérés — k2napelem.hu')}`;
+---
+
+<section id="ajanlat" class="scroll-mt-24">
+  <div class="rounded-2xl border border-[var(--color-line)] bg-white/75 p-6 sm:p-8">
+    <h2 class="font-display text-3xl font-bold text-[var(--color-ink)] sm:text-4xl">{heading}</h2>
+    <p class="mt-3 max-w-2xl text-[var(--color-ink-soft)]">{intro}</p>
+
+    <form
+      class="mt-8 grid gap-4 sm:grid-cols-2"
+      method="POST"
+      action={endpoint || mailtoFallback}
+      data-quote-form
+      data-endpoint={endpoint}
+      data-mailto={site.email}
+    >
+      <label class="grid gap-1.5 text-sm font-medium">
+        Név *
+        <input
+          required
+          name="name"
+          autocomplete="name"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
+        />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium">
+        Telefon *
+        <input
+          required
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
+        />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
+        E-mail *
+        <input
+          required
+          name="email"
+          type="email"
+          autocomplete="email"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
+        />
+      </label>
+      <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
+        Település / cím
+        <input
+          name="address"
+          autocomplete="address-level2"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
+        />
+      </label>
+      <fieldset class="sm:col-span-2">
+        <legend class="mb-2 text-sm font-medium">Érdeklődés típusa</legend>
+        <div class="flex flex-wrap gap-4 text-sm font-normal">
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="intent" value="Árajánlat" checked />
+            Árajánlat
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="intent" value="Konzultáció" />
+            Konzultáció
+          </label>
+          <label class="inline-flex items-center gap-2">
+            <input type="radio" name="intent" value="Pályázat" />
+            Pályázat
+          </label>
+        </div>
+      </fieldset>
+      <label class="grid gap-1.5 text-sm font-medium sm:col-span-2">
+        Üzenet
+        <textarea
+          name="message"
+          rows="4"
+          placeholder="Pl. tető típusa, havi fogyasztás, hibrid érdeklődés…"
+          class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]"
+        ></textarea>
+      </label>
+      <p class="sm:col-span-2 text-xs text-[var(--color-ink-soft)]">
+        A megadott adatokat csak az érdeklődés megválaszolásához használjuk. Részletek:
+        <a href="/adatvedelem">adatvédelem</a>.
+      </p>
+      <div class="sm:col-span-2">
+        <button
+          type="submit"
+          class="inline-flex rounded-md bg-[var(--color-sun)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-sun-deep)]"
+        >
+          Küldés
+        </button>
+        <p class="mt-3 hidden text-sm text-[var(--color-leaf)]" data-form-success>
+          Köszönjük! Hamarosan jelentkezünk.
+        </p>
+        <p class="mt-3 hidden text-sm text-red-700" data-form-error></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector('[data-quote-form]') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', async (event) => {
+      const endpoint = form.dataset.endpoint || '';
+      const success = form.querySelector('[data-form-success]') as HTMLElement | null;
+      const error = form.querySelector('[data-form-error]') as HTMLElement | null;
+      if (success) success.classList.add('hidden');
+      if (error) {
+        error.classList.add('hidden');
+        error.textContent = '';
+      }
+
+      if (!endpoint) {
+        // mailto fallback: let the browser open the mail client with filled body
+        event.preventDefault();
+        const data = new FormData(form);
+        const body = [
+          `Név: ${data.get('name') || ''}`,
+          `Telefon: ${data.get('phone') || ''}`,
+          `E-mail: ${data.get('email') || ''}`,
+          `Cím: ${data.get('address') || ''}`,
+          `Típus: ${data.get('intent') || ''}`,
+          '',
+          `${data.get('message') || ''}`,
+        ].join('\n');
+        const mail = form.dataset.mailto || 'k2@k2napelem.hu';
+        window.location.href = `mailto:${mail}?subject=${encodeURIComponent('Árajánlatkérés — k2napelem.hu')}&body=${encodeURIComponent(body)}`;
+        return;
+      }
+
+      event.preventDefault();
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error('A küldés nem sikerült. Próbálja telefonon vagy e-mailben.');
+        form.reset();
+        if (success) success.classList.remove('hidden');
+      } catch (err) {
+        if (error) {
+          error.textContent = err instanceof Error ? err.message : 'Váratlan hiba történt.';
+          error.classList.remove('hidden');
+        }
+      }
+    });
+  }
+</script>

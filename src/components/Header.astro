@@ -1,0 +1,95 @@
+---
+import { nav, site } from '../data/site';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="relative z-40 border-b border-[var(--color-line)] bg-[color-mix(in_oklab,white_72%,transparent)] backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="/" class="group flex items-center gap-3 no-underline" aria-label={`${site.name} kezdőlap`}>
+      <img
+        src="/images/brand/k2-logo.webp"
+        alt={site.name}
+        width="160"
+        height="48"
+        class="h-10 w-auto sm:h-11"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Főmenü">
+      {
+        nav.map((item) => {
+          const active = path === item.href || path.startsWith(item.href);
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                'rounded-md px-2.5 py-2 text-sm font-medium no-underline transition-colors',
+                active
+                  ? 'bg-[color-mix(in_oklab,var(--color-sky)_22%,transparent)] text-[var(--color-ink)]'
+                  : 'text-[var(--color-ink-soft)] hover:text-[var(--color-ink)]',
+              ]}
+              aria-current={active ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a
+        href="/kapcsolat#ajanlat"
+        class="hidden rounded-md bg-[var(--color-sun)] px-3.5 py-2 text-sm font-semibold text-white no-underline transition hover:bg-[var(--color-sun-deep)] sm:inline-flex"
+      >
+        Árajánlat
+      </a>
+      <button
+        type="button"
+        class="inline-flex items-center rounded-md border border-[var(--color-line)] bg-white/70 px-3 py-2 text-sm font-semibold text-[var(--color-ink)] lg:hidden"
+        data-menu-toggle
+        aria-expanded="false"
+        aria-controls="mobil-menu"
+      >
+        Menü
+      </button>
+    </div>
+  </div>
+
+  <div id="mobil-menu" class="hidden border-t border-[var(--color-line)] bg-white/90 lg:hidden" hidden>
+    <nav class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6" aria-label="Mobilmenü">
+      {
+        nav.map((item) => (
+          <a href={item.href} class="rounded-md px-2 py-2.5 text-base font-medium no-underline hover:bg-[var(--color-mist)]">
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href="/kapcsolat#ajanlat"
+        class="mt-2 rounded-md bg-[var(--color-sun)] px-3 py-2.5 text-center text-base font-semibold text-white no-underline"
+      >
+        Árajánlatot kérek
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const menu = document.getElementById('mobil-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.hasAttribute('hidden');
+      if (open) {
+        menu.removeAttribute('hidden');
+        menu.classList.remove('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        menu.setAttribute('hidden', '');
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
