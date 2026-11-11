@@ -2,7 +2,7 @@
 /**
  * Orientáló napelem-kalkulátor:
  * ~1150 kWh/kWp/év, ~450 W panel, ~2,17 m²/panel,
- * ár: 500 e Ft/kWp-ről indul, minden további kW fajlagosa 5%-kal alacsonyabb,
+ * ár: 500 e Ft/kWp-ről indul, kW-onként −5% fajlagos; 8 kWp felett −10%/kW,
  * hibridnél +850 e Ft (~10 kWh akkumulátor).
  */
 ---
@@ -141,8 +141,9 @@
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
     A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~450 W panel.
-    Beruházás: ~500 000 Ft/kWp-ről indul, a fajlagos költség kilowattonként ~5%-kal csökken.
-    Hibridnél +850 000 Ft — ez ~10 kWh akkumulátorra vonatkozik. A tényleges méret és ár felmérés után pontosodik.
+    Beruházás: ~500 000 Ft/kWp-ről indul, a fajlagos költség kilowattonként ~5%-kal csökken;
+    8 kWp felett pedig kilowattonként ~10%-kal. Hibridnél +850 000 Ft (~10 kWh akkumulátor).
+    A tényleges méret és ár felmérés után pontosodik.
   </p>
 </div>
 
@@ -165,15 +166,21 @@
     const fmt = (n: number) =>
       new Intl.NumberFormat('hu-HU', { style: 'currency', currency: 'HUF', maximumFractionDigits: 0 }).format(n);
 
-    /** 500 e Ft/kWp-ről indul; minden további kW fajlagosa 5%-kal alacsonyabb. */
+    /**
+     * 500 e Ft/kWp-ről indul; kW-onként −5% fajlagos.
+     * 8 kWp felett (9. kW-tól) a lépésenkénti csökkenés 10%.
+     */
     const pvCost = (kwp: number) => {
       const base = 500_000;
       let cost = 0;
       let remaining = kwp;
       let step = 0;
+      const rateAt8 = base * Math.pow(0.95, 7); // 8. kW egységára
       while (remaining > 1e-9) {
         const chunk = Math.min(1, remaining);
-        cost += chunk * base * Math.pow(0.95, step);
+        const unit =
+          step < 8 ? base * Math.pow(0.95, step) : rateAt8 * Math.pow(0.9, step - 7);
+        cost += chunk * unit;
         remaining -= chunk;
         step += 1;
       }
@@ -216,7 +223,7 @@
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
 
-      // 500 e Ft/kWp induló, kW-onként −5% fajlagos; hibrid +850 e Ft (~10 kWh)
+      // 500 e Ft/kWp, −5%/kW; 8 kWp felett −10%/kW; hibrid +850 e Ft (~10 kWh)
       let cost = pvCost(roundedKwp);
       if (systemType === 'hybrid') {
         cost += 850_000;
