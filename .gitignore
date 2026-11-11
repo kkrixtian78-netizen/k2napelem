@@ -10,6 +10,11 @@ node_modules/
 .env.*
 !.env.example
 
+# árajánlat runtime store (seed regenerates on first run)
+data/arajanlat/store.json
+data/arajanlat/store.json.tmp
+data/arajanlat/*.tmp
+
 # logs / OS
 npm-debug.log*
 .DS_Store

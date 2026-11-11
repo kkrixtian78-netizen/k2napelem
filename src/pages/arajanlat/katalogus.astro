@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import QuoteAppLayout from '../../layouts/QuoteAppLayout.astro';
+import CatalogManager from '../../components/arajanlat/CatalogManager';
+---
+
+<QuoteAppLayout title="Katalógus">
+  <CatalogManager client:load />
+</QuoteAppLayout>

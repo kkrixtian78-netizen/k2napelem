@@ -1,7 +1,7 @@
-# K2Napelem — marketing website
+# K2Napelem — marketing website + belső árajánlatkészítő
 
 Hungarian marketing site for **K2Napelem** (domain: [k2napelem.hu](https://k2napelem.hu)).  
-Stack: **Astro** + **Tailwind CSS**. Content salvaged from the previous Webnode site; assets re-hosted under `public/images/`.
+Stack: **Astro** + **Tailwind CSS** + **React** (árajánlat UI) + **Node adapter** (API + JSON tárolás).
 
 ## Quick start
 
@@ -11,12 +11,42 @@ cp .env.example .env
 npm run dev
 ```
 
-Build:
+Nyisd meg:
+
+- Marketing: [http://localhost:4321](http://localhost:4321)
+- **Árajánlatkészítő (belső):** [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat)
+
+Build + Node szerver (SSR útvonalakhoz, pl. árajánlat API):
 
 ```bash
 npm run build
-npm run preview
+npm start
 ```
+
+`npm run preview` a statikus marketing előnézetére való; az `/arajanlat` API-khoz használd a `dev` vagy `start` módot.
+
+## Árajánlatkészítő (MVP)
+
+Belső eszköz három témakörre:
+
+1. **Napelemes rendszer** — felhasználó csak panelt, inverttert, energiatárolót és tetőfelületet választ; a BOM (tartószerkezet, kábel, MC4, DC/AC védelem, munkadíj) automatikus.
+2. **Villanyszerelés** — főanyagok pipálása → fogyóanyag + munkadíj.
+3. **Elektromos fűtés** — főanyagok pipálása → rögzítés, kábel, védelem, munkadíj.
+
+**Árazás:** eladási ár = beszerzési ár × **1,25** (25% árrés). A tételsoron és az összesen megjelenik.
+
+**Adattárolás:** `data/arajanlat/store.json` (helyi JSON). Első indításkor a seed katalógus kitöltődik. A fájl gitignore-olt; a seed forrás: `src/lib/arajanlat/seed.ts`.
+
+| Útvonal | Funkció |
+|---|---|
+| `/arajanlat` | Új ajánlat (témakör → főanyagok → auto tételsor → mentés) |
+| `/arajanlat/lista` | Mentett ajánlatok |
+| `/arajanlat/ajanlat/:id` | Megtekintés / nyomtatás (PDF a böngésző Nyomtatás dialógusából) |
+| `/arajanlat/katalogus` | Katalógus szerkesztés (beszerzési ár, új tétel, seed reset) |
+
+API: `/api/arajanlat/catalog`, `/api/arajanlat/quotes`, `/api/arajanlat/preview`.
+
+**Megjegyzés:** a JSON fájl írása helyi / Node szerveren működik. Cloudflare Pages / Vercel serverless környezetben a fájlperzisztencia nem tartós — belső használatra `astro dev` vagy `npm start` ajánlott.
 
 ## Environment variables
 

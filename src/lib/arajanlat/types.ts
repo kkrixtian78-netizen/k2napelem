@@ -1,0 +1,106 @@
+/** Árajánlatkészítő — közös típusok */
+
+export type TopicId = 'napelem' | 'villany' | 'futes';
+
+export type CatalogCategory =
+  | 'panel'
+  | 'inverter'
+  | 'tarolo'
+  | 'tetotipus'
+  | 'tartoszerkezet'
+  | 'kabel'
+  | 'csatlakozo'
+  | 'vedelem'
+  | 'munkadij'
+  | 'fogyocikk'
+  | 'foanyag'
+  | 'egyeb';
+
+export type CatalogItem = {
+  id: string;
+  name: string;
+  topic: TopicId | 'all';
+  category: CatalogCategory;
+  unit: string;
+  /** Beszerzési / vételár (nettó Ft) */
+  buyPrice: number;
+  notes?: string;
+  /** Ha false, csak automatikusan kerülhet ajánlatba (nem választható főanyag) */
+  selectable?: boolean;
+  active: boolean;
+};
+
+export type QuoteLine = {
+  catalogId: string;
+  name: string;
+  unit: string;
+  quantity: number;
+  buyPrice: number;
+  /** Eladási egységár = buyPrice × 1.25 */
+  sellPrice: number;
+  auto: boolean;
+  category: CatalogCategory;
+};
+
+export type SolarSelection = {
+  panelId: string;
+  panelCount: number;
+  inverterId: string;
+  storageId: string | null;
+  roofTypeId: string;
+};
+
+export type ManualSelection = {
+  /** Főanyagok, amiket a felhasználó választott */
+  mainItemIds: string[];
+  /** Opcionális mennyiségek főanyagonként (alapértelmezett 1) */
+  quantities?: Record<string, number>;
+};
+
+export type Quote = {
+  id: string;
+  number: string;
+  topic: TopicId;
+  customerName: string;
+  customerAddress: string;
+  customerNote: string;
+  createdAt: string;
+  updatedAt: string;
+  status: 'draft' | 'final';
+  selection: SolarSelection | ManualSelection;
+  lines: QuoteLine[];
+  /** Összesített beszerzés */
+  totalBuy: number;
+  /** Összesített eladás (25% árrés) */
+  totalSell: number;
+};
+
+export type QuoteStore = {
+  version: 1;
+  catalog: CatalogItem[];
+  quotes: Quote[];
+  nextQuoteSeq: number;
+};
+
+export const MARGIN_MULTIPLIER = 1.25;
+
+export const TOPIC_LABELS: Record<TopicId, string> = {
+  napelem: 'Napelemes rendszer',
+  villany: 'Villanyszerelés',
+  futes: 'Elektromos fűtés',
+};
+
+export const CATEGORY_LABELS: Record<CatalogCategory, string> = {
+  panel: 'Napelem panel',
+  inverter: 'Inverter',
+  tarolo: 'Energiatároló',
+  tetotipus: 'Tetőfelület',
+  tartoszerkezet: 'Tartószerkezet',
+  kabel: 'Kábel',
+  csatlakozo: 'Csatlakozó',
+  vedelem: 'Védelem / biztosíték',
+  munkadij: 'Munkadíj',
+  fogyocikk: 'Fogyóanyag',
+  foanyag: 'Főanyag',
+  egyeb: 'Egyéb',
+};

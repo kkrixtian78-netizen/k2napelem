@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Belső árajánlatkészítő — K2Napelem' } = Astro.props;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/arajanlat';
+---
+
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <title>{fullTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Patrick+Hand&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen">
+    <div class="relative z-10 min-h-screen">
+      <header class="border-b border-line bg-paper/80 backdrop-blur-md print:hidden">
+        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <a href="/arajanlat" class="group flex items-baseline gap-2 no-underline">
+            <span class="font-brand text-2xl text-sky-deep sm:text-3xl">{site.name}</span>
+            <span class="text-xs font-medium uppercase tracking-[0.14em] text-ink-soft">Árajánlat</span>
+          </a>
+          <nav class="flex flex-wrap items-center gap-1 text-sm font-medium">
+            <a
+              href="/arajanlat"
+              class:list={[
+                'rounded-md px-3 py-1.5 no-underline transition-colors',
+                path === '/arajanlat' || path.startsWith('/arajanlat/uj')
+                  ? 'bg-sky-deep text-white'
+                  : 'text-ink-soft hover:bg-mist hover:text-ink',
+              ]}>Új ajánlat</a
+            >
+            <a
+              href="/arajanlat/lista"
+              class:list={[
+                'rounded-md px-3 py-1.5 no-underline transition-colors',
+                path.startsWith('/arajanlat/lista') || path.startsWith('/arajanlat/ajanlat')
+                  ? 'bg-sky-deep text-white'
+                  : 'text-ink-soft hover:bg-mist hover:text-ink',
+              ]}>Ajánlatok</a
+            >
+            <a
+              href="/arajanlat/katalogus"
+              class:list={[
+                'rounded-md px-3 py-1.5 no-underline transition-colors',
+                path.startsWith('/arajanlat/katalogus')
+                  ? 'bg-sky-deep text-white'
+                  : 'text-ink-soft hover:bg-mist hover:text-ink',
+              ]}>Katalógus</a
+            >
+          </nav>
+        </div>
+      </header>
+      <main class="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+        <slot />
+      </main>
+      <footer class="print:hidden border-t border-line py-4 text-center text-xs text-ink-soft">
+        Belső eszköz · {site.name} · Árrés: beszerzés × 1,25
+      </footer>
+    </div>
+  </body>
+</html>

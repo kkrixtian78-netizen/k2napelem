@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import QuoteAppLayout from '../../layouts/QuoteAppLayout.astro';
+import QuoteList from '../../components/arajanlat/QuoteList';
+---
+
+<QuoteAppLayout title="Ajánlatok">
+  <QuoteList client:load />
+</QuoteAppLayout>
