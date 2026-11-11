@@ -67,22 +67,10 @@ export const services = [
     image: '/images/services/heating.webp',
   },
   {
-    href: '/palyazati-lehetosegek',
-    title: 'Pályázati lehetőségek',
-    lead: 'OETP energiatároló és Wekerle+ energetikai felújítás — egy helyen.',
-    image: '/images/services/storage.jpeg',
-  },
-  {
     href: '/palyazatiras',
     title: 'Pályázatírás',
     lead: 'Lakossági és céges energetikai támogatások — előkészítéstől a zárásig.',
-    image: '/images/services/storage.jpeg',
-  },
-  {
-    href: '/otthoni-energiatarolo',
-    title: 'Otthoni Energiatároló Program',
-    lead: 'OETP: igazolási szakasz és max. 2,5 M Ft támogatás tájékoztatója.',
-    image: '/images/services/about.webp',
+    image: '/images/services/grants.webp',
   },
 ] as const;
 
