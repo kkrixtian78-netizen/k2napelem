@@ -11,7 +11,7 @@ import { site } from '../data/site';
   <section class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
     <h1 class="font-display text-4xl font-bold sm:text-5xl">Kapcsolat</h1>
     <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
-      Állunk rendelkezésére a hét minden napján 9–18 óráig.
+      Kérdésével forduljon hozzánk bizalommal írásban bármikor vagy telefonon hétköznapokon 9–16 óráig.
     </p>
 
     <div class="mt-10 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
@@ -24,14 +24,12 @@ import { site } from '../data/site';
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Telefon</p>
           <a class="mt-2 block text-xl font-semibold no-underline" href={site.phoneHref}>{site.phone}</a>
+          <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Hétköznapokon 9–16 óráig</p>
         </div>
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">E-mail</p>
           <a class="mt-2 block text-xl font-semibold no-underline" href={site.emailHref}>{site.email}</a>
-        </div>
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Munkaidő</p>
-          <p class="mt-2 text-[var(--color-ink-soft)]">{site.hours}</p>
+          <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Írásban bármikor</p>
         </div>
       </aside>
 

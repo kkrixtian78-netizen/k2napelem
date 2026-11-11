@@ -8,7 +8,7 @@ export const site = {
   email: 'k2@k2napelem.hu',
   emailHref: 'mailto:k2@k2napelem.hu',
   address: '2017 Pócsmegyer, Táncsics út 10.',
-  hours: 'Hétfő–vasárnap 9–18',
+  hours: 'Telefon: hétköznap 9–16 · írásban bármikor',
   gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-542MMSL',
   // Formspree AJAX endpoint (overridable on Vercel via FORM_ENDPOINT).
   formEndpoint:
