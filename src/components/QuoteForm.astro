@@ -93,6 +93,29 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
 </section>
 
 <script>
+  const CONSENT_KEY = 'k2-cookie-consent';
+
+  function analyticsAllowed(): boolean {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === 'accepted';
+    } catch {
+      return false;
+    }
+  }
+
+  /** GTM Custom Event — only if cookie consent accepted (same gate as GTM load). */
+  function pushFormSubmit(extra: Record<string, string>) {
+    if (!analyticsAllowed()) return;
+    const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({
+      event: 'form_submit',
+      form_id: 'quote-form',
+      page_path: window.location.pathname,
+      ...extra,
+    });
+  }
+
   const form = document.querySelector('[data-quote-form]') as HTMLFormElement | null;
   if (form) {
     form.addEventListener('submit', async (event) => {
@@ -104,6 +127,9 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
         error.classList.add('hidden');
         error.textContent = '';
       }
+
+      const intent =
+        (form.querySelector('input[name="intent"]:checked') as HTMLInputElement | null)?.value || '';
 
       if (!endpoint) {
         event.preventDefault();
@@ -140,6 +166,11 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
             'A küldés nem sikerült. Próbálja telefonon vagy e-mailben.';
           throw new Error(typeof msg === 'string' ? msg : 'A küldés nem sikerült.');
         }
+        // Conversion: before redirect (consent-gated)
+        pushFormSubmit({ intent });
+        try {
+          sessionStorage.setItem('k2-form-submitted', '1');
+        } catch {}
         window.location.href = '/koszonjuk';
       } catch (err) {
         if (error) {

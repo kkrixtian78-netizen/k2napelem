@@ -101,6 +101,22 @@ Set `FORM_ENDPOINT` (and optionally `PUBLIC_GTM_ID`) in the host’s env setting
 2. Set `FORM_ENDPOINT` to the form’s POST URL (Vercel → Settings → Environment Variables).
 3. Until then, submit opens a prefilled mailto draft (client-side fallback).
 
+## GTM — form conversion
+
+Consent: events fire **only** if `localStorage.k2-cookie-consent === 'accepted'` (same gate as GTM load).
+
+| Event | When | Params |
+|---|---|---|
+| `form_submit` | Successful Formspree AJAX submit, **before** redirect to `/koszonjuk` | `form_id`, `page_path`, `intent` |
+| `form_submit_thanks` | `/koszonjuk` page load (fallback) | `form_id`, `page_path`, `from_form_submit` |
+
+### GTM setup (pick **one** as conversion to avoid double-counting)
+
+1. **Trigger:** Custom Event → Event name `form_submit` (primary).
+2. Optional fallback trigger: Custom Event → `form_submit_thanks`.
+3. **Tag:** GA4 Event (or Conversion linker / Ads conversion) on that trigger; mark as conversion in GA4 if needed.
+4. Preview in GTM, submit a test quote with cookies accepted, confirm `dataLayer` push.
+
 ## License / ownership
 
 Private business marketing site for Kántor Krisztián EV / K2Napelem. Photos and logo are the business’s own assets, exported from the previous Webnode CDN.

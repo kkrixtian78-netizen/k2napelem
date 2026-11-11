@@ -26,3 +26,27 @@ import { site } from '../data/site';
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    // Fallback conversion pageview — same consent gate as GTM load (k2-cookie-consent).
+    // Primary event is form_submit on AJAX success; use ONE of these as GA4 conversion in GTM.
+    try {
+      if (localStorage.getItem('k2-cookie-consent') !== 'accepted') return;
+    } catch (e) {
+      return;
+    }
+    window.dataLayer = window.dataLayer || [];
+    var fromForm = false;
+    try {
+      fromForm = sessionStorage.getItem('k2-form-submitted') === '1';
+      if (fromForm) sessionStorage.removeItem('k2-form-submitted');
+    } catch (e) {}
+    window.dataLayer.push({
+      event: 'form_submit_thanks',
+      form_id: 'quote-form',
+      page_path: '/koszonjuk',
+      from_form_submit: fromForm,
+    });
+  })();
+</script>
