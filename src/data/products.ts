@@ -168,11 +168,11 @@ export const products: Product[] = [
     slug: 'canadiansolar-hiku6-420w',
     name: 'CanadianSolar HiKu6 CS6R-420MS BF 420 W',
     category: 'napelem',
-    priceFrom: 29500,
+    priceFrom: 23200,
     unit: 'db',
     short: 'Fekete keretes 420 W panel — 35 db / raklap.',
     description:
-      'CanadianSolar HiKu6 CS6R-420MS BF 420 W, fekete keret. Raklap: 35 db. Nettó ár 29 500 Ft-tól (+ ÁFA).',
+      'CanadianSolar HiKu6 CS6R-420MS BF 420 W, fekete keret. Raklap: 35 db. Bruttó irányár kb. 29 500 Ft.',
     image: '/images/shop/pv/canadiansolar-420.webp',
     highlights: ['420 W', 'Fekete keret', '35 db/raklap'],
   },
@@ -181,10 +181,10 @@ export const products: Product[] = [
     slug: 'dah-solar-460w',
     name: 'DAH Solar 460 W N-type',
     category: 'napelem',
-    priceFrom: 30500,
+    priceFrom: 24000,
     unit: 'db',
-    short: 'DHN-48Z16/DG(BW) — nettó 30 500 Ft-tól.',
-    description: 'DAH Solar 460 W N-type bifaciális panel. Nettó ár 30 500 Ft-tól (+ ÁFA).',
+    short: 'DHN-48Z16/DG(BW) — bruttó kb. 30 500 Ft-tól.',
+    description: 'DAH Solar 460 W N-type bifaciális panel. Bruttó irányár kb. 30 500 Ft.',
     image: '/images/shop/pv/dah-460.webp',
     highlights: ['460 W', 'N-type', 'Bifaciális'],
   },
@@ -193,11 +193,11 @@ export const products: Product[] = [
     slug: 'astronergy-chsm54rn-515w',
     name: 'Astronergy CHSM54RN(DG)(BF)/F-BH 515 W',
     category: 'napelem',
-    priceFrom: 34900,
+    priceFrom: 27500,
     unit: 'db',
     short: 'N-type fekete keretes 515 W panel.',
     description:
-      'Astronergy CHSM54RN(DG)(BF)/F-BH 515 W N-type, fekete keret. Nettó ár 34 900 Ft-tól (+ ÁFA).',
+      'Astronergy CHSM54RN(DG)(BF)/F-BH 515 W N-type, fekete keret. Bruttó irányár kb. 34 900 Ft.',
     image: '/images/shop/pv/astronergy-515.webp',
     highlights: ['515 W', 'N-type', 'Fekete keret'],
   },
@@ -438,7 +438,7 @@ export function grossFromNet(net: number): number {
   return Math.round(net * (1 + VAT_RATE));
 }
 
-/** pl. 29 500 Ft + ÁFA (37 465 Ft) */
+/** pl. 23 200 Ft-tól + ÁFA (29 464 Ft) */
 export function formatNetVat(net: number, opts?: { from?: boolean }): string {
   const gross = grossFromNet(net);
   const suffix = opts?.from ? '-tól' : '';
