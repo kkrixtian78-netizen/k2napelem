@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
 import ShopApp from '../../components/ShopApp.astro';
 ---
 
@@ -13,7 +14,22 @@ import ShopApp from '../../components/ShopApp.astro';
     lead="Ha nem egy egész rendszerre van szükséged, azt itt megtalálhatod… érdeklődj!"
   />
 
-  <section class="mx-auto max-w-6xl px-4 pb-28 sm:px-6">
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
     <ShopApp />
+
+    <p class="mt-14 max-w-2xl text-center text-lg text-[var(--color-ink-soft)] sm:mx-auto sm:text-xl">
+      <a href="#ajanlat" class="font-semibold text-[var(--color-ink)] no-underline transition hover:text-[var(--color-sky-deep)]">
+        Ha nem találod, amit keresel, írj!
+      </a>
+      {' '}
+      Mindent be tudunk szerezni, ami egy napelemes rendszerhez szükséges!
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-28 sm:px-6">
+    <QuoteForm
+      heading="Nem találod a keresett terméket?"
+      intro="Írd meg, mire van szükséged — beszerezzük, és visszahívunk."
+    />
   </section>
 </BaseLayout>
