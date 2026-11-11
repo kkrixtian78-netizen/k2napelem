@@ -21,6 +21,7 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
     <p class="mt-3 max-w-2xl text-[var(--color-ink-soft)]">{intro}</p>
 
     <form
+      id="quote-form"
       class="mt-8 grid gap-4 sm:grid-cols-2"
       method="POST"
       action={endpoint || mailtoFallback}
@@ -115,6 +116,7 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
           `Fogyasztás: ${data.get('consumption') || ''}`,
           `Tető: ${data.get('roof') || ''}`,
           `Típus: ${data.get('intent') || ''}`,
+          `OETP csomag: ${data.get('oetp_package') || ''}`,
           '',
           `${data.get('message') || ''}`,
         ].join('\n');

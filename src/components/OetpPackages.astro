@@ -1,0 +1,79 @@
+---
+import { oetpExtras, oetpPackages } from '../data/oetp-packages';
+import { formatHuf } from '../data/products';
+
+const categories = [...new Set(oetpPackages.map((p) => p.category))];
+---
+
+<section class="mx-auto max-w-6xl px-4 pb-12 sm:px-6" aria-labelledby="oetp-csomagok-cim">
+  <div class="max-w-3xl">
+    <h2 id="oetp-csomagok-cim" class="font-display text-3xl font-bold sm:text-4xl">Választható csomagok</h2>
+    <p class="mt-3 text-[var(--color-ink-soft)]">
+      Válasszon csomagot — a kapcsolatfelvételnél automatikusan továbbítjuk. Az árak tájékoztató jellegűek; a hivatalos OETP feltételek az irányadók.
+    </p>
+  </div>
+
+  <div class="mt-8 space-y-10">
+    {
+      categories.map((category) => (
+        <div>
+          <h3 class="font-display text-xl font-bold">{category}</h3>
+          <ul class="mt-4 grid gap-4 lg:grid-cols-2">
+            {oetpPackages
+              .filter((p) => p.category === category)
+              .map((pkg) => (
+                <li>
+                  <label class="flex h-full cursor-pointer flex-col rounded-2xl border border-[var(--color-line)] bg-white/75 p-5 transition has-[:checked]:border-[var(--color-sun)] has-[:checked]:bg-[color-mix(in_oklab,var(--color-sun)_10%,white)] hover:bg-white">
+                    <div class="flex items-start gap-3">
+                      <input
+                        type="radio"
+                        name="oetp_package"
+                        value={`${pkg.title} | bruttó ${formatHuf(pkg.total)} | támogatás ${formatHuf(pkg.grant)} | önrész ${formatHuf(pkg.own)}`}
+                        class="mt-1"
+                        form="quote-form"
+                        data-oetp-package
+                      />
+                      <div class="min-w-0 flex-1">
+                        <p class="font-display text-lg font-bold">{pkg.title}</p>
+                        <ul class="mt-3 space-y-1.5 text-sm text-[var(--color-ink-soft)]">
+                          {pkg.items.map((item) => (
+                            <li>{item}</li>
+                          ))}
+                        </ul>
+                        <dl class="mt-4 grid grid-cols-3 gap-2 text-sm">
+                          <div>
+                            <dt class="text-xs uppercase tracking-[0.12em] text-[var(--color-ink-soft)]">Bruttó</dt>
+                            <dd class="font-semibold">{formatHuf(pkg.total)}</dd>
+                          </div>
+                          <div>
+                            <dt class="text-xs uppercase tracking-[0.12em] text-[var(--color-ink-soft)]">Támogatás</dt>
+                            <dd class="font-semibold text-[var(--color-leaf)]">{formatHuf(pkg.grant)}</dd>
+                          </div>
+                          <div>
+                            <dt class="text-xs uppercase tracking-[0.12em] text-[var(--color-ink-soft)]">Önrész</dt>
+                            <dd class="font-semibold text-[var(--color-sun-deep)]">{formatHuf(pkg.own)}</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </div>
+                  </label>
+                </li>
+              ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="mt-8 max-w-3xl space-y-2 text-sm text-[var(--color-ink-soft)]">
+    {
+      oetpExtras.map((note) => (
+        <p>{note}</p>
+      ))
+    }
+  </div>
+
+  <p class="mt-6">
+    <a href="#ajanlat" class="text-sm font-semibold text-[var(--color-sky-deep)]">Tovább a kapcsolatfelvételhez →</a>
+  </p>
+</section>
