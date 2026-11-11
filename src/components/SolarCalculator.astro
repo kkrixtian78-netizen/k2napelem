@@ -1,7 +1,7 @@
 ---
 /**
  * Orientáló napelem-kalkulátor:
- * ~1150 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel,
+ * ~1150 kWh/kWp/év, ~450 W panel, ~2,17 m²/panel,
  * ár: 450 e Ft/kWp 5 kWp-ig, felette minden további kW-nál 5%-kal alacsonyabb fajlagos,
  * hibridnél +~1 M Ft (~10 kWh tároló).
  */
@@ -107,7 +107,7 @@
           <dd class="font-display text-3xl font-bold" data-out-kwp>—</dd>
         </div>
         <div>
-          <dt class="text-xs text-[var(--color-ink-soft)]">Panelek száma (~420 W)</dt>
+          <dt class="text-xs text-[var(--color-ink-soft)]">Panelek száma (~450 W)</dt>
           <dd class="font-display text-3xl font-bold" data-out-panels>—</dd>
         </div>
         <div>
@@ -140,7 +140,7 @@
   </div>
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
-    A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~420 W panel.
+    A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~450 W panel.
     Beruházás: ~450 000 Ft/kWp 5 kWp-ig; felette a fajlagos költség kilowattonként ~5%-kal csökken.
     Hibridnél +~1 M Ft (~10 kWh tároló). A tényleges méret és ár felmérés után pontosodik.
   </p>
@@ -212,7 +212,7 @@
       const annualKwh = monthlyKwh * 12;
       const yieldPerKwp = 1150 * orientation;
       const kwp = Math.max(1, annualKwh / yieldPerKwp);
-      const panelW = 0.42;
+      const panelW = 0.45;
       const panels = Math.ceil(kwp / panelW);
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
