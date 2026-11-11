@@ -2,8 +2,8 @@
 /**
  * Orientáló napelem-kalkulátor:
  * ~1150 kWh/kWp/év, ~450 W panel, ~2,17 m²/panel,
- * ár: 500 e Ft/kWp-ről indul; 1–5 kW −5%/kW; 6–8 kW a 5. kW árán;
- * 8 kWp felett −10%/kW; hibridnél +850 e Ft (~10 kWh akkumulátor).
+ * ár: 500 e Ft/kWp-ről indul; 1–8 kW −5%/kW; 8 kWp felett −10%/kW;
+ * hibridnél +850 e Ft (~10 kWh akkumulátor).
  */
 ---
 
@@ -141,7 +141,7 @@
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
     A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~450 W panel.
-    Beruházás: ~500 000 Ft/kWp-ről indul; 1–5 kW között kilowattonként ~5%-kal csökken a fajlagos;
+    Beruházás: ~500 000 Ft/kWp-ről indul; 1–8 kW között kilowattonként ~5%-kal csökken a fajlagos;
     8 kWp felett a további kW-oknál ~10%-kal. Hibridnél +850 000 Ft (~10 kWh akkumulátor).
     A tényleges méret és ár felmérés után pontosodik.
   </p>
@@ -168,22 +168,20 @@
 
     /**
      * 500 e Ft/kWp-ről indul.
-     * 1–5 kW: kilowattonként −5% fajlagos.
-     * 6–8 kW: a 5. kW egységárán marad.
-     * 8 kWp felett (9. kW-tól): −10%/kW a 5. kW árához képest lépésenként.
+     * 1–5 kW: −5%/kW.
+     * 6–8 kW: a 5. kW-hoz képest tovább −5%/kW.
+     * 8 kWp felett (9. kW-tól): −10%/kW.
      */
     const pvCost = (kwp: number) => {
       const base = 500_000;
-      const rateAt5 = base * Math.pow(0.95, 4);
+      const rateAt8 = base * Math.pow(0.95, 7);
       let cost = 0;
       let remaining = kwp;
       let step = 0;
       while (remaining > 1e-9) {
         const chunk = Math.min(1, remaining);
-        let unit: number;
-        if (step < 5) unit = base * Math.pow(0.95, step);
-        else if (step < 8) unit = rateAt5;
-        else unit = rateAt5 * Math.pow(0.9, step - 7);
+        const unit =
+          step < 8 ? base * Math.pow(0.95, step) : rateAt8 * Math.pow(0.9, step - 7);
         cost += chunk * unit;
         remaining -= chunk;
         step += 1;
@@ -227,7 +225,7 @@
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
 
-      // 1–5 kW: −5%/kW; 6–8: flat; 8+ : −10%/kW; hibrid +850 e Ft (~10 kWh)
+      // 1–8 kW: −5%/kW; 8+ : −10%/kW; hibrid +850 e Ft (~10 kWh)
       let cost = pvCost(roundedKwp);
       if (systemType === 'hybrid') {
         cost += 850_000;
