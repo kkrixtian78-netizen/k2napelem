@@ -235,7 +235,7 @@
         paybackYears > 0 ? `~${paybackYears.toFixed(1).replace('.', ',')} év` : '—';
       out.note.textContent =
         systemType === 'hybrid'
-          ? 'A hibrid pluszköltség 10 kWh akkumulátorra vonatkozik. A megtérülés az energiaáraktól és a fogyasztási szokásoktól függ.'
+          ? '10 kWh akkumulátorral értendő! A megtérülés az energiaáraktól és a fogyasztási szokásoktól függ.'
           : 'Hagyományos rendszernél a megtérülés az elszámolási módtól függ. A számok tájékoztatók — felmérés után pontosítunk.';
 
       const params = new URLSearchParams({
