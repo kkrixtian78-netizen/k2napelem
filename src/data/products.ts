@@ -3,7 +3,9 @@ export type Product = {
   slug: string;
   name: string;
   category: 'futes' | 'napelem' | 'ev';
+  /** Nettó Ft (ÁFA nélkül) */
   priceFrom: number;
+  /** Nettó Ft (ÁFA nélkül) */
   priceTo?: number;
   unit?: string;
   short: string;
@@ -18,7 +20,7 @@ export const products: Product[] = [
     slug: 'bvf-ng-300',
     name: 'BVF NG infrapanel 300 W',
     category: 'futes',
-    priceFrom: 56500,
+    priceFrom: 44500,
     unit: 'db',
     short: 'Fali / mennyezeti NG infrapanel — partner: BVF Heating.',
     description:
@@ -31,7 +33,7 @@ export const products: Product[] = [
     slug: 'bvf-ng-450',
     name: 'BVF NG infrapanel 450 W',
     category: 'futes',
-    priceFrom: 75000,
+    priceFrom: 59100,
     unit: 'db',
     short: 'Népszerű NG teljesítmény átlagos helyiségekhez.',
     description:
@@ -44,7 +46,7 @@ export const products: Product[] = [
     slug: 'bvf-ng-600',
     name: 'BVF NG infrapanel 600 W',
     category: 'futes',
-    priceFrom: 91500,
+    priceFrom: 72000,
     unit: 'db',
     short: 'Nagyobb terekhez ajánlott NG infrapanel.',
     description:
@@ -57,8 +59,8 @@ export const products: Product[] = [
     slug: 'bvf-h-mat-100',
     name: 'BVF H-MAT fűtőszőnyeg 100 W/m²',
     category: 'futes',
-    priceFrom: 16000,
-    priceTo: 136500,
+    priceFrom: 12600,
+    priceTo: 107500,
     unit: 'csomag',
     short: 'Vékony padlófűtés járólap / ragasztott burkolat alá.',
     description:
@@ -71,8 +73,8 @@ export const products: Product[] = [
     slug: 'bvf-h-mat-150',
     name: 'BVF H-MAT fűtőszőnyeg 150 W/m²',
     category: 'futes',
-    priceFrom: 12500,
-    priceTo: 134500,
+    priceFrom: 9800,
+    priceTo: 105900,
     unit: 'csomag',
     short: 'Átlagos hőszigeteléshez és fürdőszobába javasolt.',
     description:
@@ -85,8 +87,8 @@ export const products: Product[] = [
     slug: 'bvf-wfd-10w',
     name: 'BVF WFD fűtőkábel 10 W/m',
     category: 'futes',
-    priceFrom: 24000,
-    priceTo: 142500,
+    priceFrom: 18900,
+    priceTo: 112200,
     unit: 'csomag',
     short: 'Hőtároló padlófűtés aljzatbetonba — 20–200 m sáv.',
     description:
@@ -99,7 +101,7 @@ export const products: Product[] = [
     slug: 'bvf-adelig-200',
     name: 'BVF Adelig fűthető tükör 200 W',
     category: 'futes',
-    priceFrom: 48000,
+    priceFrom: 37800,
     unit: 'db',
     short: '60×60 cm Bluetooth hangszórós fűthető tükör.',
     description:
@@ -112,7 +114,7 @@ export const products: Product[] = [
     slug: 'bvf-adelig-350',
     name: 'BVF Adelig fűthető tükör 350 W',
     category: 'futes',
-    priceFrom: 57500,
+    priceFrom: 45300,
     unit: 'db',
     short: '100×60 cm Bluetooth hangszórós fűthető tükör.',
     description:
@@ -125,7 +127,7 @@ export const products: Product[] = [
     slug: 'intuis-ezybain-500',
     name: 'Intuis Ezybain törölközőszárító 500 W',
     category: 'futes',
-    priceFrom: 135500,
+    priceFrom: 106700,
     unit: 'db',
     short: 'Elektromos törölközőszárító radiátor — fehér / fekete.',
     description:
@@ -138,8 +140,8 @@ export const products: Product[] = [
     slug: 'intuis-tactic',
     name: 'Intuis Tactic fűtőpanel',
     category: 'futes',
-    priceFrom: 55500,
-    priceTo: 83500,
+    priceFrom: 43700,
+    priceTo: 65700,
     unit: 'db',
     short: '500–2500 W elektromos fűtőpanel — népszerű Intuis széria.',
     description:
@@ -152,8 +154,8 @@ export const products: Product[] = [
     slug: 'bvf-cp1-wifi',
     name: 'BVF CP1 WiFi fűtőpanel',
     category: 'futes',
-    priceFrom: 31500,
-    priceTo: 38000,
+    priceFrom: 24800,
+    priceTo: 29900,
     unit: 'db',
     short: 'WiFi-s elektromos fűtőpanel 1000–2000 W.',
     description:
@@ -170,7 +172,7 @@ export const products: Product[] = [
     unit: 'db',
     short: 'Fekete keretes 420 W panel — 35 db / raklap.',
     description:
-      'CanadianSolar HiKu6 CS6R-420MS BF 420 W, fekete keret. Raklap: 35 db. Ár 29 500 Ft-tól.',
+      'CanadianSolar HiKu6 CS6R-420MS BF 420 W, fekete keret. Raklap: 35 db. Nettó ár 29 500 Ft-tól (+ ÁFA).',
     image: '/images/shop/pv/canadiansolar-420.webp',
     highlights: ['420 W', 'Fekete keret', '35 db/raklap'],
   },
@@ -181,8 +183,8 @@ export const products: Product[] = [
     category: 'napelem',
     priceFrom: 30500,
     unit: 'db',
-    short: 'DHN-48Z16/DG(BW) — 30 500 Ft-tól.',
-    description: 'DAH Solar 460 W N-type bifaciális panel. Ár 30 500 Ft-tól.',
+    short: 'DHN-48Z16/DG(BW) — nettó 30 500 Ft-tól.',
+    description: 'DAH Solar 460 W N-type bifaciális panel. Nettó ár 30 500 Ft-tól (+ ÁFA).',
     image: '/images/shop/pv/dah-460.webp',
     highlights: ['460 W', 'N-type', 'Bifaciális'],
   },
@@ -195,7 +197,7 @@ export const products: Product[] = [
     unit: 'db',
     short: 'N-type fekete keretes 515 W panel.',
     description:
-      'Astronergy CHSM54RN(DG)(BF)/F-BH 515 W N-type, fekete keret. Ár 34 900 Ft-tól.',
+      'Astronergy CHSM54RN(DG)(BF)/F-BH 515 W N-type, fekete keret. Nettó ár 34 900 Ft-tól (+ ÁFA).',
     image: '/images/shop/pv/astronergy-515.webp',
     highlights: ['515 W', 'N-type', 'Fekete keret'],
   },
@@ -204,7 +206,7 @@ export const products: Product[] = [
     slug: 'deye-sun-5k-sg05lp1',
     name: 'Deye SUN-5K-SG05LP1-EU hibrid 5 kW',
     category: 'napelem',
-    priceFrom: 463900,
+    priceFrom: 365300,
     unit: 'db',
     short: '1 fázisú LV hibrid inverter — háztartási kedvenc.',
     description:
@@ -217,7 +219,7 @@ export const products: Product[] = [
     slug: 'deye-sun-5k-sg05lp3',
     name: 'Deye SUN-5K-SG05LP3-EU hibrid 5 kW',
     category: 'napelem',
-    priceFrom: 628900,
+    priceFrom: 495200,
     unit: 'db',
     short: '3 fázisú aszimmetrikus LV hibrid inverter.',
     description:
@@ -230,7 +232,7 @@ export const products: Product[] = [
     slug: 'deye-sun-10k-sg02hp3',
     name: 'Deye SUN-10K-SG02HP3-EU-AM2 hibrid 10 kW',
     category: 'napelem',
-    priceFrom: 624900,
+    priceFrom: 492000,
     unit: 'db',
     short: '3 fázisú HV hibrid — nagyobb rendszerekhez.',
     description:
@@ -243,7 +245,7 @@ export const products: Product[] = [
     slug: 'deye-se-f-5-1-pro-c',
     name: 'Deye SE-F 5.1 Pro-C 5,12 kWh',
     category: 'napelem',
-    priceFrom: 369900,
+    priceFrom: 291300,
     unit: 'db',
     short: 'LV LiFePO4 energiatároló kijelzővel — stackelhető.',
     description:
@@ -256,7 +258,7 @@ export const products: Product[] = [
     slug: 'deye-se-f12-c',
     name: 'Deye SE-F12-C 11,8 kWh',
     category: 'napelem',
-    priceFrom: 597900,
+    priceFrom: 470800,
     unit: 'db',
     short: 'Lakossági LV energiatároló — egy egységben ~12 kWh.',
     description:
@@ -269,7 +271,7 @@ export const products: Product[] = [
     slug: 'enerack-szerelosin-36',
     name: 'Enerack alumínium szerelősín 3,6 m',
     category: 'napelem',
-    priceFrom: 7490,
+    priceFrom: 5900,
     unit: 'db',
     short: 'Alumínium tartósín napelem rögzítéshez.',
     description:
@@ -282,7 +284,7 @@ export const products: Product[] = [
     slug: 'enerack-tetokampo-180',
     name: 'Enerack állítható tetőkampó 180 mm',
     category: 'napelem',
-    priceFrom: 1790,
+    priceFrom: 1400,
     unit: 'db',
     short: 'Cseréptetőhöz — állítható kampó.',
     description:
@@ -295,7 +297,7 @@ export const products: Product[] = [
     slug: 'enerack-leszorito-30-40',
     name: 'Enerack leszorító szett 30–40 mm',
     category: 'napelem',
-    priceFrom: 490,
+    priceFrom: 400,
     unit: 'db',
     short: 'Köztes / szélső leszorító — fekete vagy ezüst.',
     description:
@@ -308,7 +310,7 @@ export const products: Product[] = [
     slug: 'mc4-csatlakozo-par',
     name: 'MC4 csatlakozó pár (apa–anya)',
     category: 'napelem',
-    priceFrom: 490,
+    priceFrom: 400,
     unit: 'pár',
     short: 'Szabványos MC4 csatlakozópár napelem kábelezéshez.',
     description: 'MC4 apa–anya csatlakozó pár. Ár: Solarfutár −2,5%.',
@@ -320,7 +322,7 @@ export const products: Product[] = [
     slug: 'solar-kabel-6mm2',
     name: 'Solar kábel 6 mm² (fm)',
     category: 'napelem',
-    priceFrom: 410,
+    priceFrom: 300,
     unit: 'fm',
     short: '6 mm² PV kábel — fekete vagy piros, méterre.',
     description:
@@ -333,7 +335,7 @@ export const products: Product[] = [
     slug: 'pv-csatlakozodoboz-2string',
     name: 'PV csatlakozódoboz 2 string + túlfeszvédelem',
     category: 'napelem',
-    priceFrom: 46900,
+    priceFrom: 36900,
     unit: 'db',
     short: '2 stringes DC doboz, 600 V DC, 32 A MCB.',
     description:
@@ -346,7 +348,7 @@ export const products: Product[] = [
     slug: 'besen-smart-74kw',
     name: 'Besen SMART fali töltő 7,4 kW',
     category: 'ev',
-    priceFrom: 203900,
+    priceFrom: 160600,
     unit: 'db',
     short: 'Type 2, fix 6 m kábel, app + kijelző — partnerünk: EVsOLUTION.',
     description:
@@ -359,7 +361,7 @@ export const products: Product[] = [
     slug: 'besen-smart-11kw',
     name: 'Besen SMART fali töltő 11 kW',
     category: 'ev',
-    priceFrom: 218900,
+    priceFrom: 172400,
     unit: 'db',
     short: '3 fázis, Type 2, 6 m kábel, okos app — népszerű otthoni választás.',
     description:
@@ -372,7 +374,7 @@ export const products: Product[] = [
     slug: 'besen-smart-22kw',
     name: 'Besen SMART fali töltő 22 kW',
     category: 'ev',
-    priceFrom: 235900,
+    priceFrom: 185700,
     unit: 'db',
     short: '22 kW Type 2, 6 m kábel — az EVsOLUTION kiemelt népszerű modellje.',
     description:
@@ -385,7 +387,7 @@ export const products: Product[] = [
     slug: 'besen-basic-22kw',
     name: 'Besen BASIC fali töltő 22 kW',
     category: 'ev',
-    priceFrom: 223900,
+    priceFrom: 176300,
     unit: 'db',
     short: 'Megbízható 22 kW BASIC wallbox fix 6 m kábellel — erős ár/érték.',
     description:
@@ -398,7 +400,7 @@ export const products: Product[] = [
     slug: 'rheidon-11kw',
     name: 'Rheidon Wallbox 11 kW',
     category: 'ev',
-    priceFrom: 262900,
+    priceFrom: 207000,
     unit: 'db',
     short: 'Vékony Rheidon fali töltő 11 kW, app + RFID, 6 m Type 2.',
     description:
@@ -411,7 +413,7 @@ export const products: Product[] = [
     slug: 'wallbox-pulsar-plus-74kw',
     name: 'Wallbox Pulsar Plus 7,4 kW',
     category: 'ev',
-    priceFrom: 291900,
+    priceFrom: 229800,
     unit: 'db',
     short: 'Prémium Pulsar Plus + Power Boost + kábel dokk, 5 m Type 2.',
     description:
@@ -421,12 +423,33 @@ export const products: Product[] = [
   },
 ];
 
+/** Árak a katalógusban nettó Ft (ÁFA nélkül). */
+export const VAT_RATE = 0.27;
+
 export function formatHuf(value: number): string {
   return new Intl.NumberFormat('hu-HU', {
     style: 'currency',
     currency: 'HUF',
     maximumFractionDigits: 0,
   }).format(value);
+}
+
+export function grossFromNet(net: number): number {
+  return Math.round(net * (1 + VAT_RATE));
+}
+
+/** pl. 29 500 Ft + ÁFA (37 465 Ft) */
+export function formatNetVat(net: number, opts?: { from?: boolean }): string {
+  const gross = grossFromNet(net);
+  const suffix = opts?.from ? '-tól' : '';
+  return `${formatHuf(net)}${suffix} + ÁFA (${formatHuf(gross)})`;
+}
+
+export function formatProductPrice(priceFrom: number, priceTo?: number): string {
+  if (priceTo != null) {
+    return `${formatHuf(priceFrom)} – ${formatHuf(priceTo)} + ÁFA (${formatHuf(grossFromNet(priceFrom))} – ${formatHuf(grossFromNet(priceTo))})`;
+  }
+  return formatNetVat(priceFrom, { from: true });
 }
 
 export function productBySlug(slug: string): Product | undefined {

@@ -1,5 +1,5 @@
 ---
-import { formatHuf, products, type Product } from '../data/products';
+import { formatProductPrice, products, type Product } from '../data/products';
 
 interface Props {
   items?: Product[];
@@ -60,10 +60,8 @@ const { items = products, showFilters = true } = Astro.props;
             </div>
             <h2 class="mt-4 font-display text-xl font-bold">{p.name}</h2>
             <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{p.short}</p>
-            <p class="mt-3 text-base font-semibold">
-              {p.priceTo
-                ? `${formatHuf(p.priceFrom)} – ${formatHuf(p.priceTo)}`
-                : `${formatHuf(p.priceFrom)}-tól`}
+            <p class="mt-3 text-sm font-semibold leading-snug">
+              {formatProductPrice(p.priceFrom, p.priceTo)}
             </p>
           </a>
           <button
@@ -120,13 +118,17 @@ const { items = products, showFilters = true } = Astro.props;
     function fmt(n) {
       return new Intl.NumberFormat('hu-HU', { style: 'currency', currency: 'HUF', maximumFractionDigits: 0 }).format(n);
     }
+    function fmtNetVat(n) {
+      var gross = Math.round(n * 1.27);
+      return fmt(n) + ' + ÁFA (' + fmt(gross) + ')';
+    }
     function render() {
       var items = read();
       var count = items.reduce(function (s, i) { return s + i.qty; }, 0);
       var sum = items.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
       document.querySelectorAll('[data-inquiry-count]').forEach(function (el) { el.textContent = String(count); });
       document.querySelectorAll('[data-inquiry-total]').forEach(function (el) {
-        el.textContent = count ? 'Összesen (tájékoztató): ' + fmt(sum) : '';
+        el.textContent = count ? 'Összesen nettó (tájékoztató): ' + fmtNetVat(sum) : '';
       });
       document.querySelectorAll('[data-inquiry-list]').forEach(function (list) {
         list.innerHTML = items.length
@@ -193,9 +195,9 @@ const { items = products, showFilters = true } = Astro.props;
       if (t.closest('[data-inquiry-send]')) {
         var cart = read();
         if (!cart.length) return;
-        var body = ['Érdeklődés a K2Napelem boltból:', '']
-          .concat(cart.map(function (i) { return '- ' + i.qty + '× ' + i.name + ' (tájékoztató: ' + fmt(i.price) + '/egység)'; }))
-          .concat(['', 'Összesen (tájékoztató): ' + fmt(cart.reduce(function (s, i) { return s + i.price * i.qty; }, 0)), '', 'Kérem, visszahívást / árajánlatot.'])
+        var body = ['Érdeklődés a K2Napelem boltból (nettó árak + ÁFA):', '']
+          .concat(cart.map(function (i) { return '- ' + i.qty + '× ' + i.name + ' (nettó tájékoztató: ' + fmtNetVat(i.price) + '/egység)'; }))
+          .concat(['', 'Összesen nettó (tájékoztató): ' + fmtNetVat(cart.reduce(function (s, i) { return s + i.price * i.qty; }, 0)), '', 'Kérem, visszahívást / árajánlatot.'])
           .join('\n');
         window.location.href = 'mailto:k2@k2napelem.hu?subject=' +
           encodeURIComponent('Bolt érdeklődés — k2napelem.hu') +

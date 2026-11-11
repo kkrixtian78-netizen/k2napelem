@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import PageHero from '../components/PageHero.astro';
-import { formatHuf, products } from '../data/products';
+import { formatProductPrice, products } from '../data/products';
 
 const heating = products.filter((p) => p.category === 'futes').slice(0, 6);
 ---
@@ -62,7 +62,7 @@ const heating = products.filter((p) => p.category === 'futes').slice(0, 6);
               </div>
               <h3 class="mt-4 font-display text-lg font-bold">{p.name}</h3>
               <p class="mt-1 text-sm text-[var(--color-ink-soft)]">{p.short}</p>
-              <p class="mt-2 text-sm font-semibold">{formatHuf(p.priceFrom)}-tól</p>
+              <p class="mt-2 text-sm font-semibold leading-snug">{formatProductPrice(p.priceFrom, p.priceTo)}</p>
             </a>
           </li>
         ))
