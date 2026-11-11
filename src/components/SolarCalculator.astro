@@ -2,8 +2,8 @@
 /**
  * Orientáló napelem-kalkulátor:
  * ~1150 kWh/kWp/év, ~450 W panel, ~2,17 m²/panel,
- * ár: 450 e Ft/kWp 5 kWp-ig, felette minden további kW-nál 5%-kal alacsonyabb fajlagos,
- * hibridnél +~1 M Ft (~10 kWh tároló).
+ * ár: 500 e Ft/kWp-ről indul, minden további kW fajlagosa 5%-kal alacsonyabb,
+ * hibridnél +850 e Ft (~10 kWh akkumulátor).
  */
 ---
 
@@ -141,8 +141,8 @@
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
     A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~450 W panel.
-    Beruházás: ~450 000 Ft/kWp 5 kWp-ig; felette a fajlagos költség kilowattonként ~5%-kal csökken.
-    Hibridnél +~1 M Ft (~10 kWh tároló). A tényleges méret és ár felmérés után pontosodik.
+    Beruházás: ~500 000 Ft/kWp-ről indul, a fajlagos költség kilowattonként ~5%-kal csökken.
+    Hibridnél +850 000 Ft — ez ~10 kWh akkumulátorra vonatkozik. A tényleges méret és ár felmérés után pontosodik.
   </p>
 </div>
 
@@ -165,13 +165,12 @@
     const fmt = (n: number) =>
       new Intl.NumberFormat('hu-HU', { style: 'currency', currency: 'HUF', maximumFractionDigits: 0 }).format(n);
 
-    /** 5 kWp-ig 450 e Ft/kWp; minden további kW fajlagosa 5%-kal alacsonyabb. */
+    /** 500 e Ft/kWp-ről indul; minden további kW fajlagosa 5%-kal alacsonyabb. */
     const pvCost = (kwp: number) => {
-      const base = 450_000;
-      if (kwp <= 5) return kwp * base;
-      let cost = 5 * base;
-      let remaining = kwp - 5;
-      let step = 1;
+      const base = 500_000;
+      let cost = 0;
+      let remaining = kwp;
+      let step = 0;
       while (remaining > 1e-9) {
         const chunk = Math.min(1, remaining);
         cost += chunk * base * Math.pow(0.95, step);
@@ -217,10 +216,10 @@
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
 
-      // 450 e Ft/kWp ≤5 kWp; felette kW-onként −5% fajlagos; hibrid +~1 M Ft
+      // 500 e Ft/kWp induló, kW-onként −5% fajlagos; hibrid +850 e Ft (~10 kWh)
       let cost = pvCost(roundedKwp);
       if (systemType === 'hybrid') {
-        cost += 1_000_000;
+        cost += 850_000;
       }
 
       const annualBill = monthlyBill * 12;
@@ -236,7 +235,7 @@
         paybackYears > 0 ? `~${paybackYears.toFixed(1).replace('.', ',')} év` : '—';
       out.note.textContent =
         systemType === 'hybrid'
-          ? 'Hibridnél a tároló (~10 kWh, tájékoztatóan +1 M Ft) növeli a saját felhasználást; a megtérülés az energiaáraktól és a fogyasztási szokásoktól függ.'
+          ? 'Hibridnél a tároló plusz ~850 000 Ft — ez 10 kWh akkumulátorra vonatkozik. A megtérülés az energiaáraktól és a fogyasztási szokásoktól függ.'
           : 'Hagyományos rendszernél a megtérülés az elszámolási módtól függ. A számok tájékoztatók — felmérés után pontosítunk.';
 
       const params = new URLSearchParams({
