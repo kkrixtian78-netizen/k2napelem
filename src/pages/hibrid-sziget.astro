@@ -18,7 +18,7 @@ import QuoteForm from '../components/QuoteForm.astro';
   <section class="mx-auto max-w-6xl px-4 sm:px-6">
     <img
       src="/images/services/hybrid.webp"
-      alt="Hibrid napelemes rendszer energiatárolóval"
+      alt="Hibrid inverter és energiatároló beltéri telepítése"
       class="max-h-[28rem] w-full rounded-2xl object-cover"
     />
   </section>
@@ -31,10 +31,19 @@ import QuoteForm from '../components/QuoteForm.astro';
         Komolyabb inverter és akkupakk mellett a beruházás nagyobb, de a saját felhasználás aránya — és így a megtérülés — javulhat a hagyományos, bruttó elszámolású rendszerhez képest.
       </p>
       <ul class="mt-6 space-y-3 text-sm text-[var(--color-ink-soft)]">
-        <li><strong class="text-[var(--color-ink)]">Orientáló ár:</strong> 5 kWp + Sofar hybrid + 5 kW akku — kb. 4,45 M Ft</li>
-        <li><strong class="text-[var(--color-ink)]">Orientáló ár:</strong> 10 kWp + Sofar hybrid + 10 kW akku — kb. 6,5 M Ft</li>
+        <li>
+          <strong class="text-[var(--color-ink)]">Orientáló ár (kalkulátor):</strong>
+          5&nbsp;kWp hibrid + ~10&nbsp;kWh tároló — kb. 3,35&nbsp;M&nbsp;Ft
+        </li>
+        <li>
+          <strong class="text-[var(--color-ink)]">Orientáló ár (kalkulátor):</strong>
+          10&nbsp;kWp hibrid + ~10&nbsp;kWh tároló — kb. 4,54&nbsp;M&nbsp;Ft
+        </li>
       </ul>
-      <p class="mt-4 text-xs text-[var(--color-ink-soft)]">Az árak tájékoztató jellegűek, nem minősülnek ajánlatnak.</p>
+      <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
+        Az árak a <a href="/kalkulator" class="font-semibold text-[var(--color-sky-deep)]">napelem-kalkulátor</a>
+        hibrid számításával egyeznek (10&nbsp;kWh akkumulátorral értendő). Tájékoztató jellegűek — pontos kalkuláció felmérés után.
+      </p>
     </article>
     <article>
       <h2 class="font-display text-3xl font-bold">Szigetüzem</h2>
@@ -43,9 +52,19 @@ import QuoteForm from '../components/QuoteForm.astro';
         Szükség esetén a hálózatból vagy más forrásból is képes kiegészíteni, ha az akkuk lemerültek.
       </p>
       <ul class="mt-6 space-y-3 text-sm text-[var(--color-ink-soft)]">
-        <li><strong class="text-[var(--color-ink)]">1 fázis:</strong> 5 kWp + EASolar + 5 kW akku — kb. 4–4,5 M Ft</li>
-        <li><strong class="text-[var(--color-ink)]">3 fázis:</strong> 10 kWp + EASolar + 10 kW akku — kb. 5,5–6 M Ft</li>
+        <li>
+          <strong class="text-[var(--color-ink)]">Orientáló ár:</strong>
+          megegyezik a kalkulátor hibrid (+tároló) becslésével — lásd a bal oldali példákat.
+        </li>
+        <li>
+          <strong class="text-[var(--color-ink)]">Pontos ajánlat:</strong>
+          fogyasztás, tartalékigény és fázisszám alapján felmérés után.
+        </li>
       </ul>
+      <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
+        Az orientáló árak a <a href="/kalkulator" class="font-semibold text-[var(--color-sky-deep)]">kalkulátor</a>
+        hibrid (+tároló) számításával egyeznek.
+      </p>
     </article>
   </section>
 
