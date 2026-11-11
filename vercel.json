@@ -27,6 +27,8 @@
     { "source": "/bolt/futoszonyeg-150", "destination": "/bolt/bvf-h-mat-150", "permanent": true },
     { "source": "/bolt/futokabel-10w", "destination": "/bolt/bvf-wfd-10w", "permanent": true },
     { "source": "/bolt/hibrid-csomag-5kwp", "destination": "/bolt?cat=napelem", "permanent": true },
-    { "source": "/bolt/hibrid-csomag-10kwp", "destination": "/bolt?cat=napelem", "permanent": true }
+    { "source": "/bolt/hibrid-csomag-10kwp", "destination": "/bolt?cat=napelem", "permanent": true },
+    { "source": "/bolt/qcells-qpeak-410w", "destination": "/bolt/canadiansolar-hiku6-420w", "permanent": true },
+    { "source": "/bolt/das-solar-450w", "destination": "/bolt/astronergy-chsm54rn-515w", "permanent": true }
   ]
 }
