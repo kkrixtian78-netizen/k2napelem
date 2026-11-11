@@ -11,6 +11,9 @@ export const site = {
   hours: 'Telefon: hétköznap 9–16 · írásban bármikor',
   /** Google Cégem / Maps profil URL — ha megvan, a schema sameAs és a kapcsolat oldal használja */
   googleBusinessUrl: 'https://share.google/WkhDZrxtdrCk8DQZV',
+  whatsapp: '+36 30 2677 665',
+  whatsappHref: 'https://wa.me/36302677665',
+  serviceArea: 'Országos lefedettség — központ: Pócsmegyer',
   gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-542MMSL',
   // Formspree AJAX endpoint (overridable on Vercel via FORM_ENDPOINT).
   formEndpoint:
@@ -98,6 +101,40 @@ export const gallery = [
   { src: '/images/gallery/MAHART.webp', alt: 'Céges / különleges napelemes telepítés' },
   { src: '/images/gallery/IMG_1647.webp', alt: 'Napelem kivitelezés' },
   { src: '/images/gallery/received1.webp', alt: 'Elkészült napelemes rendszer' },
+] as const;
+
+/** Rövid, számokkal alátámasztott referenciapéldák (tájékoztató) */
+export const references = [
+  {
+    title: 'Családi ház — tető',
+    place: 'Pest megye',
+    stats: [
+      { label: 'Méret', value: '10 kWp' },
+      { label: 'Panelek', value: '~24 db' },
+      { label: 'Havi számla előtte', value: '~60 000 Ft' },
+    ],
+    note: 'Villany + fűtés áram kiváltására méretezve, teljes ügyintézéssel.',
+  },
+  {
+    title: 'Földtelepítés',
+    place: 'TreeSystem tartószerkezet',
+    stats: [
+      { label: 'Méret', value: '12,3 kWp' },
+      { label: 'Típus', value: 'N-cellás' },
+      { label: 'Helyszín', value: 'udvar / telek' },
+    ],
+    note: 'Ahol a tető nem volt ideális — földre telepített, saját kivitelezés.',
+  },
+  {
+    title: 'Céges rendszer',
+    place: 'Lapostető',
+    stats: [
+      { label: 'Méret', value: '50 kWp' },
+      { label: 'Ügyfél', value: 'vállalkozás' },
+      { label: 'Kivitelezés', value: 'egy kézből' },
+    ],
+    note: 'Nagyobb teljesítmény, engedélyeztetéssel és átadással.',
+  },
 ] as const;
 
 export const faqs = [

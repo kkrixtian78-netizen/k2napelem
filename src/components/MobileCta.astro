@@ -6,15 +6,35 @@ import { site } from '../data/site';
   <div class="mx-auto flex max-w-6xl gap-2">
     <a
       href={site.phoneHref}
-      class="flex-1 rounded-md border border-[var(--color-line)] px-3 py-3 text-center text-sm font-semibold no-underline"
+      class="flex-1 rounded-md border border-[var(--color-line)] px-2 py-3 text-center text-sm font-semibold no-underline"
     >
       Hívás
     </a>
     <a
+      href={site.whatsappHref}
+      class="flex-1 rounded-md border border-[color-mix(in_oklab,var(--color-leaf)_45%,var(--color-line))] bg-[color-mix(in_oklab,var(--color-leaf)_12%,white)] px-2 py-3 text-center text-sm font-semibold text-[var(--color-leaf)] no-underline"
+      rel="noopener noreferrer"
+      target="_blank"
+      aria-label="WhatsApp üzenet"
+    >
+      WhatsApp
+    </a>
+    <a
       href="/kapcsolat#ajanlat"
-      class="flex-[1.4] rounded-md bg-[var(--color-sun)] px-3 py-3 text-center text-sm font-semibold text-white no-underline"
+      class="flex-[1.3] rounded-md bg-[var(--color-sun)] px-2 py-3 text-center text-sm font-semibold text-white no-underline"
     >
       Árajánlat
     </a>
   </div>
 </div>
+
+<!-- Asztali: lebegő WhatsApp -->
+<a
+  href={site.whatsappHref}
+  class="fixed bottom-6 right-6 z-30 hidden items-center gap-2 rounded-md bg-[var(--color-leaf)] px-4 py-3 text-sm font-semibold text-white no-underline shadow-lg transition hover:brightness-110 md:inline-flex"
+  rel="noopener noreferrer"
+  target="_blank"
+  aria-label="Írjon WhatsApp-on"
+>
+  WhatsApp
+</a>

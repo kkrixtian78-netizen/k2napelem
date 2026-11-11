@@ -27,9 +27,25 @@ import { site } from '../data/site';
           <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Hétköznapokon 9–16 óráig</p>
         </div>
         <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">WhatsApp</p>
+          <a
+            class="mt-2 block text-xl font-semibold text-[var(--color-leaf)] no-underline"
+            href={site.whatsappHref}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Üzenet küldése
+          </a>
+          <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Gyors kérdéshez kényelmes</p>
+        </div>
+        <div>
           <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">E-mail</p>
           <a class="mt-2 block text-xl font-semibold no-underline" href={site.emailHref}>{site.email}</a>
           <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Írásban bármikor</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Szolgáltatási kör</p>
+          <p class="mt-2 text-[var(--color-ink-soft)]">{site.serviceArea}</p>
         </div>
         {
           site.googleBusinessUrl ? (
