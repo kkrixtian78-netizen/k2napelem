@@ -137,6 +137,6 @@ export const faqs = [
   },
   {
     q: 'Mennyi idő a megtérülés?',
-    a: 'A megtérülés a rendszer méretétől, a fogyasztástól, az elszámolási módtól és az energiaáraktól függ. Hagyományos rendszereknél gyakran 8–10 év körüli sávról beszélünk; hibrid tárolós rendszereknél a beruházás nagyobb, de a saját felhasználás aránya javítja a hosszú távú egyenleget. Pontos számot felmérés után adunk.',
+    a: 'A megtérülés azt mutatja, hány év alatt jön vissza a beruházás a megspórolt áramon. Függ a fogyasztástól, a saját felhasználás arányától, a tájolástól, az elszámolási módtól, az energiaáraktól és attól, van-e támogatás. Hagyományos hálózatos rendszereknél jó feltételek mellett gyakran kb. 8–10 évről beszélünk; a panelek viszont 20–25+ évig termelnek. Hibrid + tároló esetén a beruházás nagyobb, a szimpla megtérülés hosszabb lehet — cserébe több saját áramot használ fel, és kevésbé függ a hálózattól. Pályázattal a saját rész csökkenhet. Pontos számot felmérés és egyedi kalkuláció után adunk.',
   },
 ] as const;
