@@ -15,7 +15,7 @@ const steps = [
   { title: 'Üzembe helyezés', text: 'A szolgáltató alvállalkozója kapcsolja be — ettől termel a rendszer.' },
 ];
 
-/** 3×3 montázs — teljes négyzet, minden cella kitöltve */
+/** 2×3 montázs — teljes téglalap, minden cella kitöltve */
 const montage = [
   gallery[0],
   gallery[11],
@@ -23,9 +23,6 @@ const montage = [
   gallery[7],
   gallery[16],
   gallery[4],
-  gallery[18],
-  gallery[19],
-  gallery[9],
 ] as const;
 ---
 
@@ -40,8 +37,8 @@ const montage = [
   />
 
   <section class="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Saját kivitelezések montázsa">
-    <div class="mx-auto aspect-square max-w-4xl overflow-hidden rounded-2xl">
-      <div class="grid h-full w-full grid-cols-3 grid-rows-3 gap-1.5 sm:gap-2">
+    <div class="mx-auto aspect-[3/2] max-w-4xl overflow-hidden rounded-2xl">
+      <div class="grid h-full w-full grid-cols-3 grid-rows-2 gap-1.5 sm:gap-2">
         {
           montage.map((photo, i) => (
             <figure class="relative m-0 min-h-0 overflow-hidden bg-[var(--color-mist)]">
