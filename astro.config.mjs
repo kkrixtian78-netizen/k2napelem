@@ -8,6 +8,8 @@ export default defineConfig({
   site: 'https://k2napelem.hu',
   trailingSlash: 'never',
   vite: {
+    // Expose FORM_* and PUBLIC_* to the Astro build (Vercel env vars).
+    envPrefix: ['PUBLIC_', 'FORM_'],
     plugins: [tailwindcss()],
   },
   integrations: [sitemap()],

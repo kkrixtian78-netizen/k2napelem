@@ -22,7 +22,8 @@ npm run preview
 
 | Variable | Purpose |
 |---|---|
-| `PUBLIC_FORM_ENDPOINT` | Formspree / Basin / Getform (or similar) POST URL for the quote form. If empty, the form falls back to a `mailto:k2@k2napelem.hu` draft. |
+| `FORM_ENDPOINT` | Recommended on Vercel. Formspree / Basin / Getform POST URL for the quote form. |
+| `PUBLIC_FORM_ENDPOINT` | Optional fallback (same purpose as `FORM_ENDPOINT`). If both empty, the form falls back to a `mailto:k2@k2napelem.hu` draft. |
 | `PUBLIC_GTM_ID` | Google Tag Manager ID (default in code: `GTM-542MMSL`). |
 
 ## Contact (from live site)
@@ -65,7 +66,7 @@ npm run preview
 2. Framework preset: Astro (or static).
 3. `vercel.json` holds the same 301 map.
 
-Set `PUBLIC_FORM_ENDPOINT` (and optionally `PUBLIC_GTM_ID`) in the host’s env settings.
+Set `FORM_ENDPOINT` (and optionally `PUBLIC_GTM_ID`) in the host’s env settings.
 
 ## Domain cutover (Webnode → new host)
 
@@ -97,7 +98,7 @@ Set `PUBLIC_FORM_ENDPOINT` (and optionally `PUBLIC_GTM_ID`) in the host’s env 
 ## Form backend
 
 1. Create a Formspree (or Basin/Getform) form that delivers to `k2@k2napelem.hu`.
-2. Set `PUBLIC_FORM_ENDPOINT` to the form’s POST URL.
+2. Set `FORM_ENDPOINT` to the form’s POST URL (Vercel → Settings → Environment Variables).
 3. Until then, submit opens a prefilled mailto draft (client-side fallback).
 
 ## License / ownership
