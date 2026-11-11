@@ -3,6 +3,7 @@
 @theme {
   --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
   --font-sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  --font-brand: "Caveat", "Segoe UI", cursive;
 
   --color-ink: #1c2a30;
   --color-ink-soft: #3d4f57;
@@ -57,6 +58,18 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     line-height: 1.12;
+  }
+
+  /* Matches the handwritten K² mark in the logo */
+  .font-brand {
+    font-family: var(--font-brand);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    background-image: linear-gradient(95deg, #6fbf3a 0%, #d4c01a 48%, #ef8f1c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   a {
