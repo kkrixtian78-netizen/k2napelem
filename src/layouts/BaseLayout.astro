@@ -58,22 +58,43 @@ const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
 
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
+      '@type': ['LocalBusiness', 'Electrician'],
+      '@id': `${site.url}/#business`,
       name: site.name,
       legalName: site.legalName,
       url: site.url,
       telephone: site.phone,
       email: site.email,
       image: ogImageUrl,
+      priceRange: '$$',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Táncsics út 10.',
         addressLocality: 'Pócsmegyer',
         postalCode: '2017',
+        addressRegion: 'Pest',
         addressCountry: 'HU',
       },
-      areaServed: 'HU',
-      openingHours: 'Mo-Su 09:00-18:00',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 47.6569,
+        longitude: 19.0747,
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'Hungary',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '16:00',
+        },
+      ],
+      ...(site.googleBusinessUrl
+        ? { sameAs: [site.googleBusinessUrl] }
+        : {}),
     })} />
   </head>
   <body>

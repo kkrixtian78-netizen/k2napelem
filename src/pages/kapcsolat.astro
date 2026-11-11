@@ -31,6 +31,21 @@ import { site } from '../data/site';
           <a class="mt-2 block text-xl font-semibold no-underline" href={site.emailHref}>{site.email}</a>
           <p class="mt-1 text-sm text-[var(--color-ink-soft)]">Írásban bármikor</p>
         </div>
+        {
+          site.googleBusinessUrl ? (
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Google</p>
+              <a
+                class="mt-2 block text-lg font-semibold text-[var(--color-sky-deep)] no-underline"
+                href={site.googleBusinessUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Google Cégem / értékelések →
+              </a>
+            </div>
+          ) : null
+        }
       </aside>
 
       <QuoteForm />
