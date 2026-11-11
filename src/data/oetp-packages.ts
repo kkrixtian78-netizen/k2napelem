@@ -31,9 +31,9 @@ export const oetpPackages: OetpPackage[] = [
       'Huawei Power Modul LUNA2000-5KW-C0',
       'Teljes pályázati és engedélyeztetési ügyintézés',
     ],
-    total: 2_900_000,
+    total: 2_500_000,
     grant: 1_800_000,
-    own: 1_100_000,
+    own: 700_000,
   },
   {
     id: 'inv-storage-10',
