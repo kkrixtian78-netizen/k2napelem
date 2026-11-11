@@ -87,7 +87,7 @@ const shopPreview = products.filter((p) => p.category === 'futes').slice(0, 3);
 
   <TrustStrip />
 
-  <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 pb-20 sm:px-6 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
     <div>
       <h2 class="font-display text-3xl font-bold sm:text-4xl">Miért a K2Napelem?</h2>
       <p class="mt-4 text-[var(--color-ink-soft)]">
@@ -96,12 +96,14 @@ const shopPreview = products.filter((p) => p.category === 'futes').slice(0, 3);
       </p>
       <a href="/rolunk" class="mt-8 inline-flex text-sm font-semibold text-[var(--color-sky-deep)]">Rólunk bővebben</a>
     </div>
-    <div class="overflow-hidden rounded-2xl">
+    <div class="mx-auto w-full max-w-sm overflow-hidden rounded-xl lg:mx-0 lg:justify-self-end">
       <img
-        src="/images/services/about.webp"
-        alt="K2Napelem kivitelezés a tetőn"
-        class="aspect-[4/5] w-full object-cover"
+        src="/images/services/handover.webp"
+        alt="Napelemes rendszer átadása az ügyfélnek"
+        class="aspect-[4/3] w-full object-cover"
         loading="lazy"
+        width="600"
+        height="450"
       />
     </div>
   </section>
