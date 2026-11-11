@@ -24,6 +24,7 @@ export const nav = [
   { href: '/kalkulator', label: 'Kalkulátor' },
   { href: '/bolt', label: 'Bolt' },
   { href: '/szolgaltatasok', label: 'Szolgáltatások' },
+  { href: '/palyazati-lehetosegek', label: 'Pályázatok' },
   { href: '/munkaink', label: 'Munkáink' },
   { href: '/kapcsolat', label: 'Kapcsolat' },
 ] as const;
