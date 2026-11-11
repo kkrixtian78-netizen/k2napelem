@@ -5,14 +5,17 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 <header class="relative z-40 border-b border-[var(--color-line)] bg-[color-mix(in_oklab,white_78%,transparent)] backdrop-blur-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href="/" class="flex items-center no-underline" aria-label={`${site.name} kezdőlap`}>
+    <a href="/" class="flex items-center gap-2.5 no-underline" aria-label={`${site.name} kezdőlap`}>
       <img
-        src="/images/brand/k2-logo.webp"
-        alt={site.name}
-        width="160"
-        height="48"
-        class="h-10 w-auto sm:h-11"
+        src="/images/brand/k2-mark.webp"
+        alt=""
+        width="40"
+        height="40"
+        class="h-9 w-9 sm:h-10 sm:w-10"
       />
+      <span class="font-display text-lg font-bold tracking-tight text-[var(--color-ink)] sm:text-xl">
+        {site.name}
+      </span>
     </a>
 
     <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Főmenü">
