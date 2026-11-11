@@ -10,7 +10,7 @@ export const site = {
   address: '2017 Pócsmegyer, Táncsics út 10.',
   hours: 'Telefon: hétköznap 9–16 · írásban bármikor',
   /** Google Cégem / Maps profil URL — ha megvan, a schema sameAs és a kapcsolat oldal használja */
-  googleBusinessUrl: '' as string,
+  googleBusinessUrl: 'https://share.google/WkhDZrxtdrCk8DQZV',
   gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-542MMSL',
   // Formspree AJAX endpoint (overridable on Vercel via FORM_ENDPOINT).
   formEndpoint:

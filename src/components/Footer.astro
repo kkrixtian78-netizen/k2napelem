@@ -21,6 +21,20 @@ import { footerNav, site } from '../data/site';
         <li><a class="text-white/85 no-underline hover:text-white" href={site.emailHref}>{site.email}</a></li>
         <li class="text-white/70">{site.address}</li>
         <li class="text-white/70">{site.hours}</li>
+        {
+          site.googleBusinessUrl ? (
+            <li>
+              <a
+                class="text-white/85 no-underline hover:text-white"
+                href={site.googleBusinessUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Google értékelések →
+              </a>
+            </li>
+          ) : null
+        }
       </ul>
     </div>
     <div>
