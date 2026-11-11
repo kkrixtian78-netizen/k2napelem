@@ -1,0 +1,168 @@
+---
+/**
+ * Becsült zöld hatás a telepített flotta alapján.
+ * Számítás: kWp × 1150 kWh/kWp/év × eltelt idő (effektív indulás),
+ * CO₂: 0,35 kg/kWh (hálózati villamosenergia-kibocsátás helyettesítése),
+ * fa: ~21 kg CO₂/év elnyelés egyenérték.
+ * Az értékek tájékoztató jellegűek — manuálisan finomhangolhatók.
+ */
+const INSTALLED_KWP = 2400;
+const KWH_PER_KWP_YEAR = 1150;
+const CO2_KG_PER_KWH = 0.35;
+const TREE_KG_CO2_PER_YEAR = 21;
+/** Effektív flotta-indulás (átlagolt kapacitásnövekedés) */
+const EPOCH_ISO = '2021-03-01T00:00:00Z';
+---
+
+<section
+  class="border-y border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-leaf)_8%,white)]"
+  data-green-impact
+  data-kwp={INSTALLED_KWP}
+  data-yield={KWH_PER_KWP_YEAR}
+  data-co2={CO2_KG_PER_KWH}
+  data-tree={TREE_KG_CO2_PER_YEAR}
+  data-epoch={EPOCH_ISO}
+  aria-label="Zöld hatás"
+>
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14">
+    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-leaf)]">Zöld hatás</p>
+    <h3 class="mt-2 max-w-2xl font-display text-2xl font-bold sm:text-3xl">
+      Amit együtt termelünk a Nappal
+    </h3>
+    <p class="mt-3 max-w-2xl text-[var(--color-ink-soft)]">
+      A telepített rendszereink becsült, összesített környezeti hatása — folyamatosan növekszik.
+    </p>
+
+    <dl class="mt-10 grid gap-8 sm:grid-cols-3">
+      <div class="border-t border-[color-mix(in_oklab,var(--color-leaf)_28%,var(--color-line))] pt-5">
+        <dt class="text-xs uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Megtermelt energia</dt>
+        <dd class="mt-2 font-display text-3xl font-bold tabular-nums sm:text-4xl">
+          <span data-count="mwh">0</span>
+          <span class="text-xl font-semibold text-[var(--color-ink-soft)] sm:text-2xl"> MWh</span>
+        </dd>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">tiszta áram a napból</p>
+      </div>
+      <div class="border-t border-[color-mix(in_oklab,var(--color-leaf)_28%,var(--color-line))] pt-5">
+        <dt class="text-xs uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Elkerült CO₂</dt>
+        <dd class="mt-2 font-display text-3xl font-bold tabular-nums sm:text-4xl">
+          <span data-count="co2">0</span>
+          <span class="text-xl font-semibold text-[var(--color-ink-soft)] sm:text-2xl"> t</span>
+        </dd>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">kevesebb szén-dioxid a levegőben</p>
+      </div>
+      <div class="border-t border-[color-mix(in_oklab,var(--color-leaf)_28%,var(--color-line))] pt-5">
+        <dt class="text-xs uppercase tracking-[0.14em] text-[var(--color-ink-soft)]">Faegyenérték</dt>
+        <dd class="mt-2 font-display text-3xl font-bold tabular-nums sm:text-4xl">
+          <span data-count="trees">0</span>
+          <span class="text-xl font-semibold text-[var(--color-ink-soft)] sm:text-2xl"> fa</span>
+        </dd>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">éves CO₂-elnyelésnek megfelel</p>
+      </div>
+    </dl>
+
+    <p class="mt-8 text-xs text-[var(--color-ink-soft)]">
+      Tájékoztató becslés a telepített kapacitás és ~{KWH_PER_KWP_YEAR.toLocaleString('hu-HU')}&nbsp;kWh/kWp/év hozam alapján.
+      A CO₂-számítás {CO2_KG_PER_KWH.toLocaleString('hu-HU', { minimumFractionDigits: 2 })}&nbsp;kg/kWh hálózati helyettesítéssel,
+      a faegyenérték ~{TREE_KG_CO2_PER_YEAR}&nbsp;kg CO₂/év/fa.
+    </p>
+  </div>
+</section>
+
+<script>
+  function formatHu(n: number, digits = 0): string {
+    return new Intl.NumberFormat('hu-HU', {
+      maximumFractionDigits: digits,
+      minimumFractionDigits: digits,
+    }).format(n);
+  }
+
+  function easeOutCubic(t: number): number {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function computeImpact(root: HTMLElement) {
+    const kwp = Number(root.dataset.kwp);
+    const yieldPerYear = Number(root.dataset.yield);
+    const co2PerKwh = Number(root.dataset.co2);
+    const treeKg = Number(root.dataset.tree);
+    const epoch = Date.parse(root.dataset.epoch || '');
+    const years = Math.max(0, (Date.now() - epoch) / (365.25 * 24 * 3600 * 1000));
+    const kwh = kwp * yieldPerYear * years;
+    const co2Kg = kwh * co2PerKwh;
+    return {
+      mwh: kwh / 1000,
+      co2T: co2Kg / 1000,
+      trees: co2Kg / treeKg,
+      kwhPerSec: (kwp * yieldPerYear) / (365.25 * 24 * 3600),
+    };
+  }
+
+  function mount(root: HTMLElement) {
+    const elMwh = root.querySelector<HTMLElement>('[data-count="mwh"]');
+    const elCo2 = root.querySelector<HTMLElement>('[data-count="co2"]');
+    const elTrees = root.querySelector<HTMLElement>('[data-count="trees"]');
+    if (!elMwh || !elCo2 || !elTrees) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let animated = false;
+    let base = computeImpact(root);
+    let display = { mwh: 0, co2T: 0, trees: 0 };
+
+    const paint = () => {
+      elMwh.textContent = formatHu(display.mwh, display.mwh >= 1000 ? 0 : 1);
+      elCo2.textContent = formatHu(display.co2T, display.co2T >= 1000 ? 0 : 1);
+      elTrees.textContent = formatHu(Math.round(display.trees));
+    };
+
+    const runIntro = () => {
+      if (animated) return;
+      animated = true;
+      base = computeImpact(root);
+      if (reduced) {
+        display = { ...base };
+        paint();
+        return;
+      }
+      const duration = 1600;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / duration);
+        const e = easeOutCubic(t);
+        display = {
+          mwh: base.mwh * e,
+          co2T: base.co2T * e,
+          trees: base.trees * e,
+        };
+        paint();
+        if (t < 1) requestAnimationFrame(tick);
+        else startLive();
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const startLive = () => {
+      // Lassú, élő növekedés — másodpercenként frissül
+      setInterval(() => {
+        base = computeImpact(root);
+        display = { ...base };
+        paint();
+      }, 2000);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            runIntro();
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(root);
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-green-impact]').forEach(mount);
+</script>
