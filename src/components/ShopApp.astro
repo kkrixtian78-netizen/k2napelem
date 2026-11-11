@@ -7,70 +7,87 @@ interface Props {
 }
 
 const { items = products, showFilters = true } = Astro.props;
+
+const categories = [
+  { id: 'napelem' as const, label: 'Napelemes rendszerhez' },
+  { id: 'ev' as const, label: 'EV töltők' },
+  { id: 'futes' as const, label: 'Elektromos fűtés' },
+];
+
+const sections = categories
+  .map((c) => ({ ...c, items: items.filter((p) => p.category === c.id) }))
+  .filter((s) => s.items.length > 0);
+
+const defaultCat = sections[0]?.id ?? 'napelem';
 ---
 
-<div data-shop>
+<div data-shop data-default-cat={defaultCat}>
   {
     showFilters && (
       <div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Kategóriák">
-        <button
-          type="button"
-          class="rounded-md border border-[var(--color-ink)] bg-[var(--color-ink)] px-3 py-2 text-sm font-semibold text-white"
-          data-filter="futes"
-        >
-          Elektromos fűtés
-        </button>
-        <button
-          type="button"
-          class="rounded-md border border-[var(--color-line)] bg-white/70 px-3 py-2 text-sm font-semibold"
-          data-filter="napelem"
-        >
-          Napelemes rendszerhez
-        </button>
-        <button
-          type="button"
-          class="rounded-md border border-[var(--color-line)] bg-white/70 px-3 py-2 text-sm font-semibold"
-          data-filter="ev"
-        >
-          EV töltők
-        </button>
+        {sections.map((s) => (
+          <button
+            type="button"
+            class:list={[
+              'rounded-md border px-3 py-2 text-sm font-semibold',
+              s.id === defaultCat
+                ? 'border-[var(--color-ink)] bg-[var(--color-ink)] text-white'
+                : 'border-[var(--color-line)] bg-white/70',
+            ]}
+            data-filter={s.id}
+            aria-selected={s.id === defaultCat ? 'true' : 'false'}
+          >
+            {s.label}
+          </button>
+        ))}
       </div>
     )
   }
 
-  <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      items.map((p) => (
-        <li class="flex flex-col" data-product-card data-category={p.category}>
-          <a href={`/bolt/${p.slug}`} class="group block no-underline">
-            <div class="overflow-hidden rounded-xl bg-white/50">
-              <img
-                src={p.image}
-                alt={p.name}
-                class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            </div>
-            <h2 class="mt-4 font-display text-xl font-bold">{p.name}</h2>
-            <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{p.short}</p>
-            <p class="mt-3 text-sm font-semibold leading-snug">
-              {formatProductPrice(p.priceFrom, p.priceTo)}
-            </p>
-          </a>
-          <button
-            type="button"
-            class="mt-4 inline-flex w-fit rounded-md border border-[var(--color-line)] bg-white/80 px-3 py-2 text-sm font-semibold transition hover:border-[var(--color-sky-deep)]"
-            data-add-to-inquiry
-            data-id={p.id}
-            data-name={p.name}
-            data-price={p.priceFrom}
-          >
-            Érdeklődéshez adom
-          </button>
-        </li>
-      ))
-    }
-  </ul>
+  {
+    sections.map((s) => (
+      <section
+        class="mb-4"
+        data-category-section={s.id}
+        hidden={showFilters && s.id !== defaultCat}
+      >
+        {!showFilters && (
+          <h2 class="mb-6 font-display text-2xl font-bold">{s.label}</h2>
+        )}
+        <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {s.items.map((p) => (
+            <li class="flex flex-col" data-product-card data-category={p.category}>
+              <a href={`/bolt/${p.slug}`} class="group block no-underline">
+                <div class="overflow-hidden rounded-xl bg-white/50">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+                <h2 class="mt-4 font-display text-xl font-bold">{p.name}</h2>
+                <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{p.short}</p>
+                <p class="mt-3 text-sm font-semibold leading-snug">
+                  {formatProductPrice(p.priceFrom, p.priceTo)}
+                </p>
+              </a>
+              <button
+                type="button"
+                class="mt-4 inline-flex w-fit rounded-md border border-[var(--color-line)] bg-white/80 px-3 py-2 text-sm font-semibold transition hover:border-[var(--color-sky-deep)]"
+                data-add-to-inquiry
+                data-id={p.id}
+                data-name={p.name}
+                data-price={p.priceFrom}
+              >
+                Érdeklődéshez adom
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 
   <div class="fixed bottom-20 right-4 z-40 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 md:bottom-4" data-inquiry-root>
     <div
@@ -104,6 +121,7 @@ const { items = products, showFilters = true } = Astro.props;
 <script is:inline>
   (function () {
     var KEY = 'k2-inquiry-cart';
+    var shop = document.querySelector('[data-shop]');
     function read() {
       try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
     }
@@ -114,6 +132,25 @@ const { items = products, showFilters = true } = Astro.props;
     function fmtNetVat(n) {
       var gross = Math.round(n * 1.27);
       return fmt(n) + ' + ÁFA (' + fmt(gross) + ')';
+    }
+    function setCategory(cat) {
+      if (!shop) return;
+      shop.querySelectorAll('[data-filter]').forEach(function (b) {
+        var active = b.getAttribute('data-filter') === cat;
+        b.classList.toggle('bg-[var(--color-ink)]', active);
+        b.classList.toggle('text-white', active);
+        b.classList.toggle('border-[var(--color-ink)]', active);
+        b.classList.toggle('bg-white/70', !active);
+        b.classList.toggle('border-[var(--color-line)]', !active);
+        b.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      shop.querySelectorAll('[data-category-section]').forEach(function (sec) {
+        if (sec.getAttribute('data-category-section') === cat) {
+          sec.removeAttribute('hidden');
+        } else {
+          sec.setAttribute('hidden', '');
+        }
+      });
     }
     function render() {
       var items = read();
@@ -138,7 +175,6 @@ const { items = products, showFilters = true } = Astro.props;
     document.addEventListener('click', function (e) {
       var t = e.target;
       if (!(t instanceof Element)) return;
-      var shop = document.querySelector('[data-shop]');
       var addBtn = t.closest('[data-add-to-inquiry]');
       if (addBtn) {
         var items = read();
@@ -199,26 +235,12 @@ const { items = products, showFilters = true } = Astro.props;
       }
       var filterBtn = t.closest('[data-filter]');
       if (filterBtn && shop) {
-        var cat = filterBtn.getAttribute('data-filter') || 'futes';
-        shop.querySelectorAll('[data-filter]').forEach(function (b) {
-          var active = b === filterBtn;
-          b.classList.toggle('bg-[var(--color-ink)]', active);
-          b.classList.toggle('text-white', active);
-          b.classList.toggle('border-[var(--color-ink)]', active);
-          b.classList.toggle('bg-white/70', !active);
-          b.classList.toggle('border-[var(--color-line)]', !active);
-        });
-        shop.querySelectorAll('[data-product-card]').forEach(function (card) {
-          card.style.display = card.getAttribute('data-category') === cat ? '' : 'none';
-        });
+        setCategory(filterBtn.getAttribute('data-filter') || shop.getAttribute('data-default-cat') || 'napelem');
       }
     });
 
-    // Alapból csak az első kategória (elektromos fűtés)
     if (shop) {
-      shop.querySelectorAll('[data-product-card]').forEach(function (card) {
-        card.style.display = card.getAttribute('data-category') === 'futes' ? '' : 'none';
-      });
+      setCategory(shop.getAttribute('data-default-cat') || 'napelem');
     }
     render();
   })();
