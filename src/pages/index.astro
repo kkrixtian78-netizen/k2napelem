@@ -4,10 +4,8 @@ import QuoteForm from '../components/QuoteForm.astro';
 import GrantBanner from '../components/GrantBanner.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import { gallery, site } from '../data/site';
-import { formatHuf, products } from '../data/products';
 
 const previewGallery = gallery.slice(0, 6);
-const shopPreview = products.filter((p) => p.category === 'futes').slice(0, 3);
 ---
 
 <BaseLayout
@@ -105,33 +103,6 @@ const shopPreview = products.filter((p) => p.category === 'futes').slice(0, 3);
         width="600"
         height="450"
       />
-    </div>
-  </section>
-
-  <section class="bg-[color-mix(in_oklab,var(--color-mist)_65%,transparent)] py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <h2 class="font-display text-3xl font-bold sm:text-4xl">Bolt — fűtési válogatás</h2>
-          <p class="mt-3 text-[var(--color-ink-soft)]">A régi oldal termékáraival, egyszerű érdeklődési listával.</p>
-        </div>
-        <a href="/bolt" class="text-sm font-semibold text-[var(--color-sky-deep)]">Teljes bolt</a>
-      </div>
-      <ul class="mt-10 grid gap-8 sm:grid-cols-3">
-        {
-          shopPreview.map((p) => (
-            <li>
-              <a href={`/bolt/${p.slug}`} class="group block no-underline">
-                <div class="overflow-hidden rounded-xl">
-                  <img src={p.image} alt={p.name} class="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
-                </div>
-                <h3 class="mt-4 font-display text-lg font-bold">{p.name}</h3>
-                <p class="mt-1 text-sm font-semibold">{formatHuf(p.priceFrom)}-tól</p>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
     </div>
   </section>
 
