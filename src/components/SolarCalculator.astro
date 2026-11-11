@@ -1,7 +1,8 @@
 ---
 /**
- * Orientáló napelem-kalkulátor a régi oldal számítási logikája alapján:
- * ~1225 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel, ~385 e Ft/kWp tájékoztató költség.
+ * Orientáló napelem-kalkulátor:
+ * ~1150 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel, ~385 e Ft/kWp,
+ * hibridnél +~1 M Ft (~10 kWh tároló).
  */
 ---
 
@@ -138,8 +139,8 @@
   </div>
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
-    A kalkulátor tájékoztató. A régi oldalon használt arányokon alapul (kb. 1200–1250 kWh/kWp/év, ~420 W panel).
-    A tényleges méret és ár a tető, árnyék, hálózat és elszámolás függvénye — ezért adunk felmérés után pontos ajánlatot.
+    A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~420 W panel.
+    Hibridnél a tároló tájékoztató pluszköltsége ~1 M Ft (~10 kWh). A tényleges méret és ár felmérés után pontosodik.
   </p>
 </div>
 
@@ -191,18 +192,17 @@
       }
 
       const annualKwh = monthlyKwh * 12;
-      const yieldPerKwp = 1225 * orientation;
+      const yieldPerKwp = 1150 * orientation;
       const kwp = Math.max(1, annualKwh / yieldPerKwp);
       const panelW = 0.42;
       const panels = Math.ceil(kwp / panelW);
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
 
-      // Cost heuristics from legacy examples
+      // ~385 e Ft/kWp; hibridnél +~1 M Ft (~10 kWh tároló)
       let cost = roundedKwp * 385000;
       if (systemType === 'hybrid') {
-        // Rough bridge between 5kWp/4.45M and 10kWp/6.5M
-        cost = 2400000 + roundedKwp * 410000;
+        cost += 1_000_000;
       }
 
       const annualBill = monthlyBill * 12;
@@ -218,8 +218,8 @@
         paybackYears > 0 ? `~${paybackYears.toFixed(1).replace('.', ',')} év` : '—';
       out.note.textContent =
         systemType === 'hybrid'
-          ? 'Hibridnél a tároló növeli a saját felhasználást; a megtérülés az energiaáraktól és a fogyasztási szokásoktól erősen függ.'
-          : 'Hagyományos rendszernél a megtérülés az elszámolási módtól függ. A 60 000 Ft/hó példa a régi oldalon ~10 kWp / ~3,85 M Ft sávban mozgott.';
+          ? 'Hibridnél a tároló (~10 kWh, tájékoztatóan +1 M Ft) növeli a saját felhasználást; a megtérülés az energiaáraktól és a fogyasztási szokásoktól függ.'
+          : 'Hagyományos rendszernél a megtérülés az elszámolási módtól függ. A számok tájékoztatók — felmérés után pontosítunk.';
 
       const params = new URLSearchParams({
         kwp: String(roundedKwp),
