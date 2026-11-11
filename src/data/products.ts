@@ -2,7 +2,7 @@ export type Product = {
   id: string;
   slug: string;
   name: string;
-  category: 'futes' | 'csomag';
+  category: 'futes' | 'napelem' | 'ev';
   priceFrom: number;
   priceTo?: number;
   unit?: string;
@@ -157,7 +157,7 @@ export const products: Product[] = [
     id: 'hibrid-5',
     slug: 'hibrid-csomag-5kwp',
     name: 'Hibrid csomag 5 kWp + 5 kWh',
-    category: 'csomag',
+    category: 'napelem',
     priceFrom: 4450000,
     unit: 'rendszer',
     short: '5 kWp napelem + Sofar hybrid inverter + 5 kW akkupakk — tájékoztató ár.',
@@ -170,13 +170,52 @@ export const products: Product[] = [
     id: 'hibrid-10',
     slug: 'hibrid-csomag-10kwp',
     name: 'Hibrid csomag 10 kWp + 10 kWh',
-    category: 'csomag',
+    category: 'napelem',
     priceFrom: 6500000,
     unit: 'rendszer',
     short: '10 kWp napelem + Sofar hybrid + 10 kW akkupakk — tájékoztató ár.',
     description: 'Nagyobb háztartásokhoz / magasabb fogyasztáshoz. Felmérés után pontosítjuk.',
     image: '/images/services/hybrid.webp',
     highlights: ['10 kWp', 'Sofar hybrid', '10 kWh tároló'],
+  },
+  {
+    id: 'ev-7',
+    slug: 'ev-tolto-7kw',
+    name: 'AC EV töltő 7,4 kW',
+    category: 'ev',
+    priceFrom: 280000,
+    unit: 'db',
+    short: 'Otthoni fali töltő egypólusú / egyfázisú csatlakozáshoz — érdeklődésre pontos ajánlat.',
+    description:
+      'Lakossági AC wallbox 7,4 kW. Telepítéssel és villamos előkészítéssel együtt kérhető. A pontos típus és ár egyeztetés után.',
+    image: '/images/services/electrical.webp',
+    highlights: ['7,4 kW', 'AC wallbox', 'Otthoni töltés'],
+  },
+  {
+    id: 'ev-11',
+    slug: 'ev-tolto-11kw',
+    name: 'AC EV töltő 11 kW',
+    category: 'ev',
+    priceFrom: 350000,
+    unit: 'db',
+    short: 'Háromfázisú otthoni / kisüzemi fali töltő — érdeklődésre pontos ajánlat.',
+    description:
+      'AC wallbox 11 kW, tipikusan háromfázisú csatlakozáshoz. Kivitelezéssel és engedélyezési tanácsadással.',
+    image: '/images/services/electrical.webp',
+    highlights: ['11 kW', '3 fázis', 'Fali töltő'],
+  },
+  {
+    id: 'ev-22',
+    slug: 'ev-tolto-22kw',
+    name: 'AC EV töltő 22 kW',
+    category: 'ev',
+    priceFrom: 480000,
+    unit: 'db',
+    short: 'Gyorsabb AC töltés otthonra vagy telephelyre — érdeklődésre pontos ajánlat.',
+    description:
+      'AC wallbox 22 kW. Nagyobb teljesítményű csatlakozás és megfelelő villamos hálózat mellett. Felmérés után ajánlunk típust.',
+    image: '/images/services/electrical.webp',
+    highlights: ['22 kW', 'AC', 'Telepítéssel'],
   },
 ];
 
