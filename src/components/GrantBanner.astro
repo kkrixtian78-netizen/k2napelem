@@ -1,18 +1,18 @@
 ---
 /**
- * Pályázati státusz — manuálisan frissítendő, amikor a hivatalos ablak változik.
+ * Pályázati státusz — manuálisan frissítendő.
  * status: 'open' | 'upcoming' | 'closed'
  */
 const status = 'upcoming' as 'open' | 'upcoming' | 'closed';
 
 const copy = {
   open: {
-    label: 'Nyitva',
-    text: 'Az Otthoni Energiatároló Program pályázati ablaka jelenleg nyitva van — segítünk a benyújtásban és a kivitelezésben.',
+    label: 'Aktuális',
+    text: 'Pályázati lehetőségek: OETP igazolási szakasz és Wekerle+ energetikai felújítás — segítünk az eligazodásban.',
   },
   upcoming: {
-    label: 'Közeleg',
-    text: 'Otthoni Energiatároló Program: benyújtás várhatóan 2026. február–március. Most érdemes előkészíteni a papírokat — max. 2,5 M Ft támogatás.',
+    label: 'Figyelem',
+    text: 'OETP: igazolási szakasz a megfelelt pályázóknak. Wekerle+ Családi Ház Program: várhatóan 2027. február.',
   },
   closed: {
     label: 'Zárva',
@@ -30,7 +30,7 @@ const copy = {
       {copy.text}
     </p>
     <a
-      href="/#palyazat"
+      href="/palyazati-lehetosegek"
       class="shrink-0 text-sm font-semibold text-[var(--color-sun-deep)] no-underline"
     >
       Pályázati lehetőségek →

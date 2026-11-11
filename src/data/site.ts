@@ -34,8 +34,9 @@ export const footerNav = [
   { href: '/hibrid-sziget', label: 'Hibrid / sziget' },
   { href: '/villanyszereles', label: 'Villanyszerelés' },
   { href: '/elektromos-futes', label: 'E-fűtés' },
-  { href: '/palyazatiras', label: 'Pályázat' },
-  { href: '/otthoni-energiatarolo', label: 'Energiatároló program' },
+  { href: '/palyazati-lehetosegek', label: 'Pályázati lehetőségek' },
+  { href: '/palyazatiras', label: 'Pályázatírás' },
+  { href: '/otthoni-energiatarolo', label: 'OETP' },
   { href: '/adatvedelem', label: 'Adatvédelem' },
   { href: '/sutik', label: 'Sütik' },
 ] as const;
@@ -66,6 +67,12 @@ export const services = [
     image: '/images/services/heating.webp',
   },
   {
+    href: '/palyazati-lehetosegek',
+    title: 'Pályázati lehetőségek',
+    lead: 'OETP energiatároló és Wekerle+ energetikai felújítás — egy helyen.',
+    image: '/images/services/storage.jpeg',
+  },
+  {
     href: '/palyazatiras',
     title: 'Pályázatírás',
     lead: 'Lakossági és céges energetikai támogatások — előkészítéstől a zárásig.',
@@ -74,7 +81,7 @@ export const services = [
   {
     href: '/otthoni-energiatarolo',
     title: 'Otthoni Energiatároló Program',
-    lead: 'Akár 2 500 000 Ft vissza nem térítendő támogatás energiatárolóra.',
+    lead: 'OETP: igazolási szakasz és max. 2,5 M Ft támogatás tájékoztatója.',
     image: '/images/services/about.webp',
   },
 ] as const;

@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import GrantBanner from '../components/GrantBanner.astro';
-import GrantOpportunities from '../components/GrantOpportunities.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import { site } from '../data/site';
 ---
@@ -79,10 +78,12 @@ import { site } from '../data/site';
         <h2 class="font-display text-2xl font-bold">Bolt</h2>
         <p class="mt-2 text-sm text-[var(--color-ink-soft)]">Ha csak néhány összetevőre van szükséged, nem egy egész rendszerre — érdeklődés egy kattintással.</p>
       </a>
-    </div>
-
-    <div class="mt-6">
-      <GrantOpportunities />
+      <a href="/palyazati-lehetosegek" class="rounded-2xl border border-[var(--color-line)] bg-white/70 p-6 no-underline transition hover:bg-white md:col-span-3 md:max-w-none">
+        <h2 class="font-display text-2xl font-bold">Pályázati lehetőségek</h2>
+        <p class="mt-2 text-sm text-[var(--color-ink-soft)]">
+          OETP energiatároló támogatás és a nem sokára induló Wekerle+ energetikai felújítás — egy helyen.
+        </p>
+      </a>
     </div>
   </section>
 

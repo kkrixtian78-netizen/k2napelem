@@ -5,17 +5,21 @@ import GrantBanner from '../components/GrantBanner.astro';
 ---
 
 <BaseLayout
-  title="Otthoni Energiatároló Program"
-  description="Akár 2 500 000 Ft vissza nem térítendő támogatás lakossági energiatárolóra. Feltételek, ütemezés és segítség a K2Napelemtől."
+  title="Otthoni Energiatároló Program (OETP)"
+  description="OETP: max. 2,5 M Ft új rendszer+tárolóra, 1,8 M Ft meglévő HMKE fejlesztésre. Igazolási szakasz a megfelelt pályázóknak — segítség a K2Napelemtől."
   ogImage="/images/services/storage.jpeg"
+  canonicalPath="/otthoni-energiatarolo"
 >
   <GrantBanner />
   <section class="mx-auto max-w-6xl px-4 pb-10 pt-14 sm:px-6">
-    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Pályázat</p>
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">OETP</p>
     <h1 class="mt-3 font-display text-4xl font-bold sm:text-5xl">Otthoni Energiatároló Program</h1>
     <p class="mt-4 max-w-2xl text-lg text-[var(--color-ink-soft)]">
-      A program lakossági energiatároló rendszerek létesítését támogatja. A sikeres pályázók legfeljebb
-      <strong class="text-[var(--color-ink)]">2 500 000 Ft</strong> vissza nem térítendő támogatásban részesülhetnek.
+      Lakossági energiatároló rendszerek támogatása. Új támogatási kérelem jelenleg nem indítható;
+      a „megfelelt” státuszú pályázók az <strong class="text-[var(--color-ink)]">igazolási szakaszban</strong> haladhatnak tovább.
+    </p>
+    <p class="mt-4">
+      <a href="/palyazati-lehetosegek" class="text-sm font-semibold text-[var(--color-sky-deep)]">← Összes pályázati lehetőség</a>
     </p>
   </section>
 
@@ -29,32 +33,35 @@ import GrantBanner from '../components/GrantBanner.astro';
 
   <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
     <article>
-      <h2 class="font-display text-2xl font-bold">Mit érdemes tudni?</h2>
+      <h2 class="font-display text-2xl font-bold">Támogatási összegek</h2>
       <ul class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
-        <li>Elsősorban legalább 10 kWh kapacitású lakossági energiatárolókra</li>
+        <li>Új HMKE napelemes rendszer tárolóval: legfeljebb <strong class="text-[var(--color-ink)]">2 500 000 Ft</strong></li>
+        <li>Meglévő HMKE fejlesztése tárolóval: legfeljebb <strong class="text-[var(--color-ink)]">1 800 000 Ft</strong></li>
         <li>Feltétel: meglévő vagy vállaltan telepítendő napelemes rendszer</li>
-        <li>Előnyt élvezhetnek a szaldóból kikerülő és a 5000 fő alatti településen élő pályázók</li>
-        <li>Hivatalos felület: <a href="https://www.otthonienergiatarolo.gov.hu" rel="noopener noreferrer" target="_blank">otthonienergiatarolo.gov.hu</a></li>
+        <li>
+          Hivatalos felület:
+          <a href="https://otthonienergiatarolo.neuzrt.hu/" rel="noopener noreferrer" target="_blank">otthonienergiatarolo.neuzrt.hu</a>
+        </li>
       </ul>
     </article>
     <article>
-      <h2 class="font-display text-2xl font-bold">Ütemezés (tájékoztató)</h2>
+      <h2 class="font-display text-2xl font-bold">Igazolási szakasz</h2>
       <ul class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
-        <li>Felhívás megjelenése: 2026. január 15.</li>
-        <li>Benyújtás: 2026. február 1. – március 15.</li>
-        <li>Értékelés: 2026. március 15. – május 31.</li>
-        <li>Megvalósítás: a támogatói okirat után legfeljebb 24 hónap</li>
+        <li>Csak „megfelelt” státuszú pályázók számára</li>
+        <li>Benyújtási határidő: <strong class="text-[var(--color-ink)]">2027. február 26. 16:00</strong></li>
+        <li>A beadási sorrend nem döntő — a határidőig beérkező kérelmeket elbírálják</li>
+        <li>Most a megfelelő rendszer, kivitelező és dokumentáció a lényeg</li>
       </ul>
       <p class="mt-4 text-xs text-[var(--color-ink-soft)]">
-        A feltételek és határidők változhatnak — a hivatalos felhívás az irányadó. Segítünk eligazodni.
+        A feltételek változhatnak — a hivatalos felhívás és a NEU Zrt. tájékoztatója az irányadó.
       </p>
     </article>
   </section>
 
   <section class="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
     <QuoteForm
-      heading="Érdekel a program?"
-      intro="Töltse ki az űrlapot — felvesszük a kapcsolatot, és személyre szabott tájékoztatást adunk."
+      heading="OETP — keressen minket"
+      intro="Ha megfelelt a pályázata, vagy tárolós rendszert tervez pályázat nélkül is — felvesszük a kapcsolatot."
     />
   </section>
 </BaseLayout>

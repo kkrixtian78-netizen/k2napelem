@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import GrantBanner from '../components/GrantBanner.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Pályázati lehetőségek — OETP és Wekerle Plusz"
+  description="Otthoni Energiatároló Program (OETP) és a hamarosan induló Wekerle+ energetikai felújítás — tájékoztató és segítség a K2Napelemtől."
+  ogImage="/images/services/storage.jpeg"
+  canonicalPath="/palyazati-lehetosegek"
+>
+  <GrantBanner />
+  <PageHero
+    eyebrow="Pályázatok"
+    title="Pályázati lehetőségek"
+    lead="Két aktuális irány: az Otthoni Energiatároló Program (OETP), és a nem sokára induló Wekerle+ energetikai felújítás. Segítünk eligazodni, és a kivitelezést egy kézben tartani."
+  />
+
+  <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <a href="#oetp" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 text-sm font-semibold no-underline hover:bg-white">
+        OETP — Otthoni Energiatároló →
+      </a>
+      <a href="#wekerle" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 text-sm font-semibold no-underline hover:bg-white">
+        Wekerle+ — energetikai felújítás →
+      </a>
+    </div>
+  </section>
+
+  <!-- OETP -->
+  <section id="oetp" class="scroll-mt-24 border-y border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-mist)_55%,transparent)] py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sun-deep)]">OETP</p>
+          <h2 class="mt-2 font-display text-3xl font-bold sm:text-4xl">Otthoni Energiatároló Program</h2>
+          <p class="mt-3 text-[var(--color-ink-soft)]">
+            Lakossági energiatároló (és szükség szerint napelem) állami támogatással. Új támogatási kérelem jelenleg nem indítható —
+            a „megfelelt” státuszú pályázóknak az <strong class="text-[var(--color-ink)]">igazolási szakasz</strong> a következő lépés.
+          </p>
+        </div>
+        <p class="font-display text-3xl font-bold text-[var(--color-sun-deep)]">
+          max. 2,5&nbsp;M&nbsp;Ft
+          <span class="mt-1 block text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-ink-soft)]">
+            új rendszer + tároló
+          </span>
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-10 lg:grid-cols-2">
+        <article>
+          <h3 class="font-display text-xl font-bold">Hol tart most?</h3>
+          <ul class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
+            <li>A benyújtási szakasz lezárult — új pályázat jelenleg nem adható be.</li>
+            <li>
+              „Megfelelt” státusz esetén az igazolási kérelem benyújtható
+              <strong class="text-[var(--color-ink)]">2027. február 26. 16:00-ig</strong>.
+            </li>
+            <li>Új HMKE + tároló: legfeljebb <strong class="text-[var(--color-ink)]">2 500 000 Ft</strong>.</li>
+            <li>Meglévő HMKE fejlesztése tárolóval: legfeljebb <strong class="text-[var(--color-ink)]">1 800 000 Ft</strong>.</li>
+            <li>
+              Hivatalos felület:
+              <a href="https://otthonienergiatarolo.neuzrt.hu/" rel="noopener noreferrer" target="_blank">otthonienergiatarolo.neuzrt.hu</a>
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h3 class="font-display text-xl font-bold">Miben segítünk?</h3>
+          <ol class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
+            <li><span class="font-semibold text-[var(--color-ink)]">1.</span> Státusz és dokumentumok átnézése</li>
+            <li><span class="font-semibold text-[var(--color-ink)]">2.</span> Kompatibilis tároló / inverter kiválasztása</li>
+            <li><span class="font-semibold text-[var(--color-ink)]">3.</span> Igazolási kérelemhez szükséges műszaki előkészítés</li>
+            <li><span class="font-semibold text-[var(--color-ink)]">4.</span> Kivitelezés és záró dokumentumok egy kézben</li>
+          </ol>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/otthoni-energiatarolo"
+              class="rounded-md border border-[var(--color-line)] bg-white px-4 py-2.5 text-sm font-semibold no-underline hover:bg-[var(--color-mist)]"
+            >
+              OETP részletek
+            </a>
+            <a
+              href="/kapcsolat#ajanlat"
+              class="rounded-md bg-[var(--color-sun)] px-4 py-2.5 text-sm font-semibold text-white no-underline hover:bg-[var(--color-sun-deep)]"
+            >
+              Érdekel, keressetek
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wekerle -->
+  <section id="wekerle" class="scroll-mt-24 py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Wekerle Plusz</p>
+          <h2 class="mt-2 font-display text-3xl font-bold sm:text-4xl">Wekerle+ energetikai felújítás</h2>
+          <p class="mt-3 text-[var(--color-ink-soft)]">
+            Nem sokára indul a lakossági energetikai korszerűsítés:
+            kedvezményes hitel + vissza nem térítendő támogatás. Napelem a támogatás
+            <strong class="text-[var(--color-ink)]">legfeljebb 20%-áig</strong> számolható el —
+            hőszivattyú és egyéb korszerűsítés mellett.
+          </p>
+        </div>
+        <p class="rounded-md bg-[color-mix(in_oklab,var(--color-sky)_18%,white)] px-3 py-2 text-sm font-semibold text-[var(--color-sky-deep)]">
+          Családi ház: 2027. február
+        </p>
+      </div>
+
+      <div class="mt-10 grid gap-10 lg:grid-cols-2">
+        <article>
+          <h3 class="font-display text-xl font-bold">Családi Ház Program</h3>
+          <ul class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
+            <li>Indulás: <strong class="text-[var(--color-ink)]">2027. február</strong> — életkortól függetlenül.</li>
+            <li>Max. <strong class="text-[var(--color-ink)]">15 millió Ft</strong> hitel, 15 év, fix 3% kamat.</li>
+            <li>30–50% vissza nem térítendő támogatás a felújítás előtti besorolás szerint.</li>
+            <li>Felhasználható pl.: hőszigetelés, nyílászáró, hőszivattyú, HMV — <strong class="text-[var(--color-ink)]">napelem max. 20%</strong>.</li>
+            <li>Önerő: 5%, legfeljebb 500 ezer Ft a hitelösszegen felül.</li>
+          </ul>
+        </article>
+        <article>
+          <h3 class="font-display text-xl font-bold">Társasházi és Panel Program</h3>
+          <ul class="mt-4 space-y-3 text-sm text-[var(--color-ink-soft)]">
+            <li>Indulás: <strong class="text-[var(--color-ink)]">2027. március</strong>.</li>
+            <li>Panel: max. 4 M Ft / lakás; tégla: max. 5 M Ft / lakás — kamatmentes hitel.</li>
+            <li>30–50% vissza nem térítendő támogatás a besorolás szerint.</li>
+            <li>Napelem itt is a támogatás max. 20%-áig számolható.</li>
+            <li>Önerő: 200 000 Ft / lakás.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="mt-10 max-w-3xl">
+        <h3 class="font-display text-xl font-bold">Miért érdemes most egyeztetni?</h3>
+        <p class="mt-3 text-sm text-[var(--color-ink-soft)]">
+          A program indulása előtt jól jön az energetikai állapot felmérése, a lehetséges műszaki csomag
+          (hőszivattyú, napelem arány, tároló) és a várható saját erő előzetes számítása.
+          Így a nyitás után nem az alapoknál kell kapkodni.
+        </p>
+        <p class="mt-3 text-xs text-[var(--color-ink-soft)]">
+          A feltételek változhatnak — a hivatalos tájékoztató:
+          <a href="https://wekerle.kormany.hu/" rel="noopener noreferrer" target="_blank">wekerle.kormany.hu</a>.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href="/kapcsolat#ajanlat"
+            class="rounded-md bg-[var(--color-sun)] px-4 py-2.5 text-sm font-semibold text-white no-underline hover:bg-[var(--color-sun-deep)]"
+          >
+            Előkészítést kérek
+          </a>
+          <a
+            href="/palyazatiras"
+            class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-2.5 text-sm font-semibold no-underline hover:bg-white"
+          >
+            Pályázatírás szolgáltatás
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-24 pt-4 sm:px-6">
+    <QuoteForm
+      heading="Melyik program érdekel?"
+      intro="Írja meg, OETP-ről vagy Wekerle+ felújításról van-e szó — visszahívjuk, és személyre szabottan tájékoztatunk."
+    />
+  </section>
+</BaseLayout>
