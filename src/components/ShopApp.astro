@@ -16,16 +16,9 @@ const { items = products, showFilters = true } = Astro.props;
         <button
           type="button"
           class="rounded-md border border-[var(--color-ink)] bg-[var(--color-ink)] px-3 py-2 text-sm font-semibold text-white"
-          data-filter="all"
-        >
-          Összes
-        </button>
-        <button
-          type="button"
-          class="rounded-md border border-[var(--color-line)] bg-white/70 px-3 py-2 text-sm font-semibold"
           data-filter="futes"
         >
-          Fűtés
+          Elektromos fűtés
         </button>
         <button
           type="button"
@@ -206,21 +199,27 @@ const { items = products, showFilters = true } = Astro.props;
       }
       var filterBtn = t.closest('[data-filter]');
       if (filterBtn && shop) {
-        var cat = filterBtn.getAttribute('data-filter') || 'all';
+        var cat = filterBtn.getAttribute('data-filter') || 'futes';
         shop.querySelectorAll('[data-filter]').forEach(function (b) {
           var active = b === filterBtn;
           b.classList.toggle('bg-[var(--color-ink)]', active);
           b.classList.toggle('text-white', active);
           b.classList.toggle('border-[var(--color-ink)]', active);
           b.classList.toggle('bg-white/70', !active);
+          b.classList.toggle('border-[var(--color-line)]', !active);
         });
         shop.querySelectorAll('[data-product-card]').forEach(function (card) {
-          var show = cat === 'all' || card.getAttribute('data-category') === cat;
-          card.style.display = show ? '' : 'none';
+          card.style.display = card.getAttribute('data-category') === cat ? '' : 'none';
         });
       }
     });
 
+    // Alapból csak az első kategória (elektromos fűtés)
+    if (shop) {
+      shop.querySelectorAll('[data-product-card]').forEach(function (card) {
+        card.style.display = card.getAttribute('data-category') === 'futes' ? '' : 'none';
+      });
+    }
     render();
   })();
 </script>
