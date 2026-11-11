@@ -110,7 +110,7 @@ export const references = [
     place: 'Pest megye',
     stats: [
       { label: 'Méret', value: '10 kWp' },
-      { label: 'Panelek', value: '~24 db' },
+      { label: 'Típus', value: 'Visszatáplálós' },
       { label: 'Havi számla előtte', value: '~60 000 Ft' },
       { label: 'Havi megtakarítás', value: '~45–55 000 Ft' },
     ],
@@ -121,7 +121,7 @@ export const references = [
     place: 'TreeSystem tartószerkezet',
     stats: [
       { label: 'Méret', value: '12,3 kWp' },
-      { label: 'Típus', value: 'N-cellás' },
+      { label: 'Típus', value: 'Sziget üzemű' },
       { label: 'Havi megtakarítás', value: '~50–65 000 Ft' },
     ],
     note: 'Ahol a tető nem volt ideális — földre telepített, saját kivitelezés.',
@@ -131,7 +131,7 @@ export const references = [
     place: 'Lapostető',
     stats: [
       { label: 'Méret', value: '50 kWp' },
-      { label: 'Ügyfél', value: 'vállalkozás' },
+      { label: 'Típus', value: 'Visszatáplálós' },
       { label: 'Havi megtakarítás', value: '~200–280 000 Ft' },
     ],
     note: 'Nagyobb teljesítmény, engedélyeztetéssel és átadással — a megtakarítás a fogyasztástól függ.',
