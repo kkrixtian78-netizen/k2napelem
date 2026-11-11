@@ -25,6 +25,8 @@
     { "source": "/bolt/bvf-ng-700", "destination": "/bolt/bvf-ng-600", "permanent": true },
     { "source": "/bolt/futoszonyeg-100", "destination": "/bolt/bvf-h-mat-100", "permanent": true },
     { "source": "/bolt/futoszonyeg-150", "destination": "/bolt/bvf-h-mat-150", "permanent": true },
-    { "source": "/bolt/futokabel-10w", "destination": "/bolt/bvf-wfd-10w", "permanent": true }
+    { "source": "/bolt/futokabel-10w", "destination": "/bolt/bvf-wfd-10w", "permanent": true },
+    { "source": "/bolt/hibrid-csomag-5kwp", "destination": "/bolt?cat=napelem", "permanent": true },
+    { "source": "/bolt/hibrid-csomag-10kwp", "destination": "/bolt?cat=napelem", "permanent": true }
   ]
 }
