@@ -14,7 +14,7 @@ export const site = {
   whatsapp: '+36 30 2677 665',
   whatsappHref: 'https://wa.me/36302677665',
   serviceArea: 'Országos lefedettség — központ: Pócsmegyer',
-  gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-542MMSL',
+  gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-M6LP3FTV',
   // Formspree AJAX endpoint (overridable on Vercel via FORM_ENDPOINT).
   formEndpoint:
     (typeof process !== 'undefined' && process.env.FORM_ENDPOINT) ||

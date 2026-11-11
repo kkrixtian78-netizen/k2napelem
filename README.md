@@ -24,7 +24,7 @@ npm run preview
 |---|---|
 | `FORM_ENDPOINT` | Recommended on Vercel. Formspree / Basin / Getform POST URL for the quote form. |
 | `PUBLIC_FORM_ENDPOINT` | Optional fallback (same purpose as `FORM_ENDPOINT`). If both empty, the form falls back to a `mailto:k2@k2napelem.hu` draft. |
-| `PUBLIC_GTM_ID` | Google Tag Manager ID (default in code: `GTM-542MMSL`). |
+| `PUBLIC_GTM_ID` | Google Tag Manager ID (default in code: `GTM-M6LP3FTV`). |
 
 ## Contact (from live site)
 
@@ -74,7 +74,7 @@ Set `FORM_ENDPOINT` (and optionally `PUBLIC_GTM_ID`) in the host’s env setting
 2. Lower DNS TTL ahead of time.
 3. Point `k2napelem.hu` / `www` A/CNAME to Cloudflare Pages or Vercel.
 4. Enforce one canonical host (apex **or** www) with HTTPS redirect.
-5. Keep GTM (`GTM-542MMSL`) and confirm conversion events on form submit.
+5. Keep GTM (`GTM-M6LP3FTV`) and confirm conversion events on form submit.
 6. Submit the new sitemap (`/sitemap-index.xml`) in Google Search Console.
 7. Replace privacy/cookie stubs with lawyer-approved text before heavy ads traffic.
 
