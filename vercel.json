@@ -17,6 +17,14 @@
     { "source": "/adatvedelmi-szabalyzat", "destination": "/adatvedelem", "permanent": true },
     { "source": "/adatvedelmi-szabalyzat/", "destination": "/adatvedelem", "permanent": true },
     { "source": "/felhasznalasi-feltetelek", "destination": "/adatvedelem", "permanent": true },
-    { "source": "/felhasznalasi-feltetelek/", "destination": "/adatvedelem", "permanent": true }
+    { "source": "/felhasznalasi-feltetelek/", "destination": "/adatvedelem", "permanent": true },
+    { "source": "/bolt/noirot-spot-d", "destination": "/bolt/intuis-tactic", "permanent": true },
+    { "source": "/bolt/bvf-kobe-torolkozoszariito", "destination": "/bolt/intuis-ezybain-500", "permanent": true },
+    { "source": "/bolt/bvf-ng-350", "destination": "/bolt/bvf-ng-450", "permanent": true },
+    { "source": "/bolt/bvf-ng-500", "destination": "/bolt/bvf-ng-450", "permanent": true },
+    { "source": "/bolt/bvf-ng-700", "destination": "/bolt/bvf-ng-600", "permanent": true },
+    { "source": "/bolt/futoszonyeg-100", "destination": "/bolt/bvf-h-mat-100", "permanent": true },
+    { "source": "/bolt/futoszonyeg-150", "destination": "/bolt/bvf-h-mat-150", "permanent": true },
+    { "source": "/bolt/futokabel-10w", "destination": "/bolt/bvf-wfd-10w", "permanent": true }
   ]
 }
