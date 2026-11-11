@@ -24,11 +24,16 @@ import GrantBanner from '../components/GrantBanner.astro';
   </section>
 
   <section class="mx-auto max-w-6xl px-4 sm:px-6">
-    <img
-      src="/images/services/storage.jpeg"
-      alt="Energiatárolós napelemes rendszer"
-      class="max-h-[26rem] w-full rounded-2xl object-cover"
-    />
+    <div class="mx-auto max-w-xl overflow-hidden rounded-xl">
+      <img
+        src="/images/services/storage.jpeg"
+        alt="Energiatárolós napelemes rendszer"
+        class="aspect-[16/10] w-full object-cover"
+        loading="lazy"
+        width="720"
+        height="450"
+      />
+    </div>
   </section>
 
   <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
