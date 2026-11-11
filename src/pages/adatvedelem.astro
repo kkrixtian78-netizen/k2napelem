@@ -1,48 +1,215 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
+
+const updated = '2026. november 11.';
 ---
 
 <BaseLayout
-  title="Adatvédelem"
-  description="Adatvédelmi tájékoztató helyőrző — jogász által véglegesítendő szöveg a K2Napelem weboldalához."
+  title="Adatvédelmi tájékoztató"
+  description="Adatvédelmi tájékoztató a K2Napelem (Kántor Krisztián EV) weboldalához: kapcsolatfelvétel, Formspree, Vercel, analitika."
 >
   <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
     <h1 class="font-display text-4xl font-bold sm:text-5xl">Adatvédelmi tájékoztató</h1>
-    <p class="mt-6 rounded-xl border border-[var(--color-sun)]/35 bg-[color-mix(in_oklab,var(--color-sun)_10%,white)] px-4 py-3 text-sm">
-      Ez az oldal <strong>helyőrző</strong>. A végleges, jogszabályoknak megfelelő szöveghez ügyvédi / adatvédelmi szakértői
-      közreműködés szükséges. Az alábbi pontok a tervezett tartalom vázát jelölik — nem helyettesítik a hivatalos tájékoztatót.
+    <p class="mt-3 text-sm text-[var(--color-ink-soft)]">Hatálybalépés / utolsó frissítés: {updated}</p>
+    <p class="mt-6 rounded-xl border border-[var(--color-line)] bg-white/70 px-4 py-3 text-sm text-[var(--color-ink-soft)]">
+      Ez a tájékoztató a {site.name} weboldal ({site.url}) jelenlegi működéséhez készült, a GDPR (EU 2016/679) és az Info tv.
+      elvei szerint. Nem minősül jogi tanácsadásnak; egyedi szerződéses vagy pályázati ügyekben indokolt lehet ügyvédi egyeztetés.
     </p>
 
-    <div class="prose-like mt-10 space-y-6 text-[var(--color-ink-soft)]">
+    <div class="mt-10 space-y-10 text-[var(--color-ink-soft)] leading-relaxed">
       <section>
-        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">Adatkezelő</h2>
-        <p class="mt-2">
-          {site.legalName}<br />
-          {site.address}<br />
-          E-mail: {site.email}<br />
-          Telefon: {site.phone}
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">1. Adatkezelő</h2>
+        <p class="mt-3">
+          <strong class="text-[var(--color-ink)]">{site.legalName}</strong> (egyéni vállalkozó)<br />
+          Székhely / levelezési cím: {site.address}<br />
+          E-mail: <a href={site.emailHref}>{site.email}</a><br />
+          Telefon: <a href={site.phoneHref}>{site.phone}</a><br />
+          Weboldal: <a href={site.url}>{site.url}</a>
+        </p>
+        <p class="mt-3 text-sm">
+          Adatvédelmi tisztviselő kinevezése a tevékenység jellegére tekintettel jelenleg nem kötelező; az érintetti
+          megkereséseket a fenti elérhetőségeken fogadjuk.
         </p>
       </section>
+
       <section>
-        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">Milyen adatokat kezelünk?</h2>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">2. Milyen adatokat kezelünk?</h2>
+        <h3 class="mt-4 font-display text-lg font-bold text-[var(--color-ink)]">2.1. Kapcsolat / árajánlat űrlap</h3>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>név</li>
+          <li>telefonszám</li>
+          <li>e-mail-cím</li>
+          <li>település / cím (ha megadja)</li>
+          <li>havi fogyasztás becslés (ha megadja)</li>
+          <li>tető / telepítés típusa (ha megadja)</li>
+          <li>érdeklődés típusa (árajánlat, konzultáció, pályázat, bolt)</li>
+          <li>szabad szöveges üzenet</li>
+          <li>a küldés technikai metaadatai (pl. időpont, böngésző / IP a Formspree oldalán)</li>
+        </ul>
+
+        <h3 class="mt-6 font-display text-lg font-bold text-[var(--color-ink)]">2.2. Bolt érdeklődési lista</h3>
         <p class="mt-2">
-          Az árajánlat- / kapcsolatfelvételi űrlapon megadott név, telefon, e-mail, cím/település, érdeklődés típusa és üzenet.
-          Webanalitika (pl. Google Tag Manager) esetén technikai és használati adatok is keletkezhetnek — a végleges listát a jogi szövegnek kell tartalmaznia.
+          A böngészőben (localStorage) ideiglenesen tárolhatjuk az Ön által a listára tett termékeket. Ezt az adatot
+          csak az Ön gépén őrizzük, amíg elküldi érdeklődésként, vagy törli. Az e-mailes továbbításkor a kiválasztott
+          termékek a 2.1. pont szerinti üzenet részeként kerülhetnek hozzánk.
+        </p>
+
+        <h3 class="mt-6 font-display text-lg font-bold text-[var(--color-ink)]">2.3. Weboldal-használat / analitika</h3>
+        <p class="mt-2">
+          Ha Ön elfogadja a statisztikai sütiket, a Google Tag Manager (`{site.gtmId}`) révén kapcsolódó Google-szolgáltatások
+          (pl. Google Analytics, ha be van kötve a GTM-konténerbe) technikai és használati adatokat gyűjthetnek:
+          IP-cím (rövidített / feldolgozott formában), eszköz- és böngészőadatok, oldalmegtekintések, hozzávetőleges
+          földrajzi hely, forgalmi forrás. Részletek: <a href="/sutik">Süti tájékoztató</a>.
+        </p>
+
+        <h3 class="mt-6 font-display text-lg font-bold text-[var(--color-ink)]">2.4. Szerver / tárhely naplók</h3>
+        <p class="mt-2">
+          A Vercel tárhelyszolgáltató a szolgáltatás működtetéséhez technikai naplókat (pl. IP, időbélyeg, kért URL)
+          kezelhet a saját adatkezelési feltételei szerint.
         </p>
       </section>
+
       <section>
-        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">Cél és jogalap</h2>
-        <p class="mt-2">
-          Az érdeklődés megválaszolása, árajánlatadás, szerződéskötés előkészítése. A pontos jogalapokat (pl. szerződéses lépések,
-          jogos érdek, hozzájárulás) a végleges tájékoztatónak kell rögzítenie.
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">3. Az adatkezelés célja és jogalapja</h2>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full min-w-[36rem] border-collapse text-left text-sm">
+            <thead>
+              <tr class="border-b border-[var(--color-line)] text-[var(--color-ink)]">
+                <th class="py-2 pr-3 font-semibold">Cél</th>
+                <th class="py-2 pr-3 font-semibold">Jogalap</th>
+                <th class="py-2 font-semibold">Adatkör</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-[var(--color-line)] align-top">
+                <td class="py-3 pr-3">Érdeklődés megválaszolása, visszahívás, árajánlat / konzultáció</td>
+                <td class="py-3 pr-3">GDPR 6. cikk (1) b) – szerződéskötést megelőző lépések az érintett kérésére; illetve (1) a) hozzájárulás az űrlap elküldésével</td>
+                <td class="py-3">2.1., 2.2.</td>
+              </tr>
+              <tr class="border-b border-[var(--color-line)] align-top">
+                <td class="py-3 pr-3">Kapcsolattartás meglévő / folyamatban lévő ügyben</td>
+                <td class="py-3 pr-3">GDPR 6. cikk (1) b) és/vagy (1) f) jogos érdek (üzleti kapcsolattartás)</td>
+                <td class="py-3">név, elérhetőség, ügy tartalma</td>
+              </tr>
+              <tr class="border-b border-[var(--color-line)] align-top">
+                <td class="py-3 pr-3">Weboldal működtetése, biztonság</td>
+                <td class="py-3 pr-3">GDPR 6. cikk (1) f) jogos érdek</td>
+                <td class="py-3">2.4.</td>
+              </tr>
+              <tr class="align-top">
+                <td class="py-3 pr-3">Látogatottsági statisztika, marketingmérés</td>
+                <td class="py-3 pr-3">GDPR 6. cikk (1) a) hozzájárulás (süti banner)</td>
+                <td class="py-3">2.3.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">4. Adattovábbítás, adatfeldolgozók</h2>
+        <p class="mt-3">Az alábbi szolgáltatókat vesszük igénybe a weboldal és az űrlap működtetéséhez:</p>
+        <ul class="mt-3 list-disc space-y-2 pl-5">
+          <li>
+            <strong class="text-[var(--color-ink)]">Formspree, Inc.</strong> — űrlapfogadás és e-mail értesítés
+            (<a href="https://formspree.io/legal/privacy-policy/" rel="noopener noreferrer" target="_blank">adatvédelmi tájékoztató</a>
+          </li>
+          <li>
+            <strong class="text-[var(--color-ink)]">Vercel Inc.</strong> — weboldal-tárhely / CDN
+            <a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer" target="_blank">adatvédelmi tájékoztató</a>
+          </li>
+          <li>
+            <strong class="text-[var(--color-ink)]">Google Ireland Ltd. / Google LLC</strong> — Google Tag Manager és kapcsolódó mérőeszközök (csak hozzájárulás után)
+            <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a>
+          </li>
+        </ul>
+        <p class="mt-3 text-sm">
+          Egyes szolgáltatók az EGT-n kívül (pl. Egyesült Államok) is tárolhatnak / feldolgozhatnak adatokat. Ilyen esetben
+          a továbbítás megfelelő garanciák mellett történik (pl. EU–US Data Privacy Framework és/vagy standard szerződéses
+          rendelkezések), a szolgáltató saját feltételei szerint.
+        </p>
+        <p class="mt-3 text-sm">
+          Harmadik félnek marketingcélú listát nem adunk el. Hatósági megkeresés esetén a jogszabályban előírt mértékben
+          adatszolgáltatásra kötelezettek lehetünk.
         </p>
       </section>
+
       <section>
-        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">Megőrzés, továbbítás, jogok</h2>
-        <p class="mt-2">
-          Ide kerülnek majd: megőrzési idők, esetleges adatfeldolgozók (űrlap-/e-mail szolgáltató, tárhely), érintetti jogok
-          (hozzáférés, törlés, tiltakozás stb.) és a hatósági panasz lehetősége (NAIH).
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">5. Megőrzési idő</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5">
+          <li>
+            <strong class="text-[var(--color-ink)]">Árajánlat- / kapcsolatfelvétel:</strong> az ügy megválaszolásáig, de
+            legfeljebb 24 hónapig, ha nem jön létre szerződés; szerződés esetén a polgári jogi / számviteli megőrzési
+            kötelezettségek szerint.
+          </li>
+          <li>
+            <strong class="text-[var(--color-ink)]">Formspree tárolás:</strong> a Formspree fiók beállításai és csomagja szerint;
+            a beérkező leveleket a saját levelezőrendszerünkben is megőrizzük a fenti elv szerint.
+          </li>
+          <li>
+            <strong class="text-[var(--color-ink)]">Analitika:</strong> a Google / GTM beállítások szerinti megőrzés
+            (általában hónapok–évek; a Google fiókban korlátozható).
+          </li>
+          <li>
+            <strong class="text-[var(--color-ink)]">Süti hozzájárulás:</strong> a választását a böngésző localStorage-ében
+            tároljuk (lásd süti tájékoztató).
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">6. Az érintett jogai</h2>
+        <p class="mt-3">Ön jogosult:</p>
+        <ul class="mt-2 list-disc space-y-1 pl-5">
+          <li>tájékoztatást kérni a rá vonatkozó adatkezelésről</li>
+          <li>hozzáférést kérni az adatokhoz</li>
+          <li>helyesbítést kérni</li>
+          <li>törlést kérni („elfeledtetés”), ha a feltételek fennállnak</li>
+          <li>az adatkezelés korlátozását kérni</li>
+          <li>tiltakozni a jogos érdeken alapuló kezelés ellen</li>
+          <li>hozzájárulását bármikor visszavonni (ez nem érinti a visszavonás előtti jogszerűséget)</li>
+          <li>adathordozhatóságot kérni, ahol alkalmazható</li>
+        </ul>
+        <p class="mt-3">
+          Kérelmét a <a href={site.emailHref}>{site.email}</a> címre küldheti. A választ legfeljebb 30 napon belül adjuk meg
+          (indokolt esetben ez meghosszabbítható a GDPR szerint).
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">7. Panasztétel</h2>
+        <p class="mt-3">
+          Panasszal fordulhat a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH):<br />
+          1055 Budapest, Falk Miksa utca 9–11.<br />
+          Levelezési cím: 1363 Budapest, Pf. 9.<br />
+          Web: <a href="https://www.naih.hu" rel="noopener noreferrer" target="_blank">www.naih.hu</a><br />
+          E-mail: ugyfelszolgalat@naih.hu
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">8. Adatbiztonság</h2>
+        <p class="mt-3">
+          Az oldalt HTTPS-en keresztül szolgáljuk ki. Az űrlapadatokat megbízható szolgáltatókon (Formspree, e-mail)
+          keresztül fogadjuk. Teljes biztonságot egyetlen rendszer sem garantálhat; gyanús incidens esetén a jogszabály
+          szerinti tájékoztatást megtesszük.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">9. Kiskorúak</h2>
+        <p class="mt-3">
+          A weboldal nem 16 év alattiaknak szól. Ha tudomásunkra jut, hogy kiskorú önállóan adott meg személyes adatot,
+          az adatokat töröljük.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-bold text-[var(--color-ink)]">10. Változások</h2>
+        <p class="mt-3">
+          A tájékoztatót a szolgáltatás változásakor frissíthetjük. A hatályos verzió mindig ezen az oldalon érhető el;
+          lényeges változásról a weboldalon tájékoztatunk.
         </p>
       </section>
     </div>
