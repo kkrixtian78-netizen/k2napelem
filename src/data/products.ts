@@ -241,19 +241,6 @@ export const products: Product[] = [
     highlights: ['10 kW', 'SG05LP3-SM2', '3 fázis LV'],
   },
   {
-    id: 'deye-se-f51',
-    slug: 'deye-se-f-5-1-pro-c',
-    name: 'Deye SE-F 5.1 Pro-C 5,12 kWh',
-    category: 'napelem',
-    priceFrom: 291300,
-    unit: 'db',
-    short: 'LV LiFePO4 energiatároló kijelzővel — stackelhető.',
-    description:
-      'Deye SE-F 5.1 Pro-C LV akkumulátor, 5,12 kWh, kijelzővel. Ár: EPV Solar −2,5%.',
-    image: '/images/shop/pv/deye-se-f51.webp',
-    highlights: ['5,12 kWh', 'LV', 'Pro-C'],
-  },
-  {
     id: 'deye-se-f12',
     slug: 'deye-se-f12-c',
     name: 'Deye SE-F12-C 11,8 kWh',

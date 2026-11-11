@@ -31,6 +31,7 @@
     { "source": "/bolt/qcells-qpeak-410w", "destination": "/bolt/canadiansolar-hiku6-420w", "permanent": true },
     { "source": "/bolt/das-solar-450w", "destination": "/bolt/astronergy-chsm54rn-515w", "permanent": true },
     { "source": "/bolt/deye-sun-5k-sg05lp3", "destination": "/bolt/deye-sun-5k-sg06lp3", "permanent": true },
-    { "source": "/bolt/deye-sun-10k-sg02hp3", "destination": "/bolt/deye-sun-10k-sg05lp3-sm2", "permanent": true }
+    { "source": "/bolt/deye-sun-10k-sg02hp3", "destination": "/bolt/deye-sun-10k-sg05lp3-sm2", "permanent": true },
+    { "source": "/bolt/deye-se-f-5-1-pro-c", "destination": "/bolt/deye-se-f12-c", "permanent": true }
   ]
 }
