@@ -1,7 +1,8 @@
 ---
 /**
  * Orientáló napelem-kalkulátor:
- * ~1150 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel, ~385 e Ft/kWp,
+ * ~1150 kWh/kWp/év, ~420 W panel, ~2,17 m²/panel,
+ * ár: 450 e Ft/kWp 5 kWp-ig, felette minden további kW-nál 5%-kal alacsonyabb fajlagos,
  * hibridnél +~1 M Ft (~10 kWh tároló).
  */
 ---
@@ -140,7 +141,8 @@
 
   <p class="mt-6 text-xs text-[var(--color-ink-soft)]">
     A kalkulátor tájékoztató. Becsült hozam kb. 1150 kWh/kWp/év (dél), ~420 W panel.
-    Hibridnél a tároló tájékoztató pluszköltsége ~1 M Ft (~10 kWh). A tényleges méret és ár felmérés után pontosodik.
+    Beruházás: ~450 000 Ft/kWp 5 kWp-ig; felette a fajlagos költség kilowattonként ~5%-kal csökken.
+    Hibridnél +~1 M Ft (~10 kWh tároló). A tényleges méret és ár felmérés után pontosodik.
   </p>
 </div>
 
@@ -162,6 +164,22 @@
 
     const fmt = (n: number) =>
       new Intl.NumberFormat('hu-HU', { style: 'currency', currency: 'HUF', maximumFractionDigits: 0 }).format(n);
+
+    /** 5 kWp-ig 450 e Ft/kWp; minden további kW fajlagosa 5%-kal alacsonyabb. */
+    const pvCost = (kwp: number) => {
+      const base = 450_000;
+      if (kwp <= 5) return kwp * base;
+      let cost = 5 * base;
+      let remaining = kwp - 5;
+      let step = 1;
+      while (remaining > 1e-9) {
+        const chunk = Math.min(1, remaining);
+        cost += chunk * base * Math.pow(0.95, step);
+        remaining -= chunk;
+        step += 1;
+      }
+      return cost;
+    };
 
     const syncMode = () => {
       const mode = (form.elements.namedItem('mode') as RadioNodeList).value;
@@ -199,8 +217,8 @@
       const area = panels * (52 / 24); // old-site example ratio
       const roundedKwp = Math.round(kwp * 10) / 10;
 
-      // ~385 e Ft/kWp; hibridnél +~1 M Ft (~10 kWh tároló)
-      let cost = roundedKwp * 385000;
+      // 450 e Ft/kWp ≤5 kWp; felette kW-onként −5% fajlagos; hibrid +~1 M Ft
+      let cost = pvCost(roundedKwp);
       if (systemType === 'hybrid') {
         cost += 1_000_000;
       }
