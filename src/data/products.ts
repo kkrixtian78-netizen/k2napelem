@@ -217,15 +217,15 @@ export const products: Product[] = [
   {
     id: 'deye-5k-sg06lp3',
     slug: 'deye-sun-5k-sg06lp3',
-    name: 'Deye SUN-5K-SG06LP3 hibrid 5 kW',
+    name: 'Deye SUN-5K-SG06LP3-EU-BM2 hibrid 5 kW',
     category: 'napelem',
     priceFrom: 390000,
     unit: 'db',
-    short: '3 fázisú LV (LP3) hibrid inverter — 390 000 Ft + ÁFA.',
+    short: '3 fázisú LV (SG06 LP3) hibrid inverter — 390 000 Ft + ÁFA.',
     description:
-      'Deye SUN-5K-SG06LP3, 5 kW, 3 fázis, alacsony feszültségű (LP) hibrid inverter. Nettó 390 000 Ft + ÁFA.',
-    image: '/images/shop/pv/deye-5k-lp3.webp',
-    highlights: ['5 kW', 'SG06 LP3', '3 fázis LV'],
+      'Deye SUN-5K-SG06LP3-EU-BM2, 5 kW, 3 fázis, alacsony feszültségű (LP) hibrid inverter. Nettó 390 000 Ft + ÁFA.',
+    image: '/images/shop/pv/deye-5k-sg06lp3.webp',
+    highlights: ['5 kW', 'SG06LP3-EU-BM2', '3 fázis LV'],
   },
   {
     id: 'deye-10k-lp3',
