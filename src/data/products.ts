@@ -368,6 +368,19 @@ export const products: Product[] = [
     highlights: ['2 string', 'SPD', 'DC MCB'],
   },
   {
+    id: 'deye-evse11',
+    slug: 'deye-sun-evse11k01-eu',
+    name: 'Deye SUN-EVSE11K01-EU 11 kW AC',
+    category: 'ev',
+    priceFrom: 174900,
+    unit: 'db',
+    short: '3 fázisú AC elektromos autótöltő — 174 900 Ft + ÁFA.',
+    description:
+      'Deye SUN-EVSE11K01-EU 11 kW AC elektromos autótöltő, 3 fázis. Nettó 174 900 Ft + ÁFA.',
+    image: '/images/shop/ev/deye-evse11.webp',
+    highlights: ['11 kW', '3 fázis', 'AC EVSE'],
+  },
+  {
     id: 'besen-smart-74',
     slug: 'besen-smart-74kw',
     name: 'Besen SMART fali töltő 7,4 kW',
