@@ -63,12 +63,6 @@ const BASE_KWH = Math.round(DAILY_KWH * 365.25 * 15 * 0.5);
         <p class="mt-2 text-sm text-[var(--color-ink-soft)]">éves CO₂-elnyelésnek megfelel</p>
       </div>
     </dl>
-
-    <p class="mt-8 text-xs text-[var(--color-ink-soft)]">
-      Tájékoztató becslés: jelenlegi napi ~{DAILY_KWH.toLocaleString('hu-HU')}&nbsp;kWh termelésből,
-      15 éves lineáris kapacitásnövekedéssel. CO₂: {CO2_KG_PER_KWH.toLocaleString('hu-HU', { minimumFractionDigits: 2 })}&nbsp;kg/kWh;
-      faegyenérték ~{TREE_KG_CO2_PER_YEAR}&nbsp;kg CO₂/év/fa.
-    </p>
   </div>
 </section>
 
