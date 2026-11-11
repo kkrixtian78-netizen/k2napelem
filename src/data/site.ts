@@ -112,6 +112,7 @@ export const references = [
       { label: 'Méret', value: '10 kWp' },
       { label: 'Panelek', value: '~24 db' },
       { label: 'Havi számla előtte', value: '~60 000 Ft' },
+      { label: 'Havi megtakarítás', value: '~45–55 000 Ft' },
     ],
     note: 'Villany + fűtés áram kiváltására méretezve, teljes ügyintézéssel.',
   },
@@ -121,7 +122,7 @@ export const references = [
     stats: [
       { label: 'Méret', value: '12,3 kWp' },
       { label: 'Típus', value: 'N-cellás' },
-      { label: 'Helyszín', value: 'udvar / telek' },
+      { label: 'Havi megtakarítás', value: '~50–65 000 Ft' },
     ],
     note: 'Ahol a tető nem volt ideális — földre telepített, saját kivitelezés.',
   },
@@ -131,9 +132,9 @@ export const references = [
     stats: [
       { label: 'Méret', value: '50 kWp' },
       { label: 'Ügyfél', value: 'vállalkozás' },
-      { label: 'Kivitelezés', value: 'egy kézből' },
+      { label: 'Havi megtakarítás', value: '~200–280 000 Ft' },
     ],
-    note: 'Nagyobb teljesítmény, engedélyeztetéssel és átadással.',
+    note: 'Nagyobb teljesítmény, engedélyeztetéssel és átadással — a megtakarítás a fogyasztástól függ.',
   },
 ] as const;
 
