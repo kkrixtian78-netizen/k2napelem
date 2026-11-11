@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileCta from '../components/MobileCta.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import GrantBanner from '../components/GrantBanner.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -100,6 +101,7 @@ const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
   </head>
   <body>
     <Header />
+    <GrantBanner />
     <main id="tartalom" class="pb-20 md:pb-0">
       <slot />
     </main>

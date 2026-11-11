@@ -1,39 +1,61 @@
 ---
-/**
- * Pályázati státusz — manuálisan frissítendő.
- * status: 'open' | 'upcoming' | 'closed'
- */
-const status = 'upcoming' as 'open' | 'upcoming' | 'closed';
+import { bannerMode, grantsForBanner, grantStatusMeta } from '../data/grants';
 
-const copy = {
-  open: {
-    label: 'Aktuális',
-    text: 'Pályázati lehetőségek: OETP igazolási szakasz és Wekerle+ energetikai felújítás — segítünk az eligazodásban.',
-  },
-  upcoming: {
-    label: 'Figyelem',
-    text: 'OETP: igazolási szakasz a megfelelt pályázóknak. Wekerle+ Családi Ház Program: várhatóan 2027. február.',
-  },
-  closed: {
-    label: 'Zárva',
-    text: 'Az aktuális pályázati ablak zárva van. Írjon nekünk — jelezzük a következő lehetőségeket.',
-  },
-}[status];
+const visible = grantsForBanner();
+const mode = bannerMode(visible);
+const href = visible[0]?.href ?? '/palyazati-lehetosegek';
+
+const shell =
+  mode === 'active'
+    ? 'border-b border-[color-mix(in_oklab,var(--color-sun)_35%,var(--color-line))] bg-[color-mix(in_oklab,var(--color-sun)_18%,white)]'
+    : mode === 'soft'
+      ? 'border-b border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-sun)_10%,white)]'
+      : 'border-b border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-mist)_70%,white)]';
+
+const ctaClass =
+  mode === 'active'
+    ? 'shrink-0 rounded-md bg-[var(--color-sun)] px-3 py-1.5 text-sm font-semibold text-white no-underline hover:bg-[var(--color-sun-deep)]'
+    : 'shrink-0 text-sm font-semibold text-[var(--color-sun-deep)] no-underline';
 ---
 
-<aside class="border-b border-[var(--color-line)] bg-[color-mix(in_oklab,var(--color-sun)_12%,white)]">
-  <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-    <p class="text-sm text-[var(--color-ink)]">
-      <span class="mr-2 inline-flex rounded-md bg-[var(--color-sun)] px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-white">
-        {copy.label}
-      </span>
-      {copy.text}
-    </p>
-    <a
-      href="/palyazati-lehetosegek"
-      class="shrink-0 text-sm font-semibold text-[var(--color-sun-deep)] no-underline"
-    >
-      Pályázati lehetőségek →
-    </a>
-  </div>
-</aside>
+{
+  mode === 'quiet' ? (
+    <aside class={shell} aria-label="Pályázati státusz">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p class="text-sm text-[var(--color-ink-soft)]">Jelenleg nincs nyitott felhívás.</p>
+        <a href="/palyazati-lehetosegek" class={ctaClass}>
+          Pályázati lehetőségek →
+        </a>
+      </div>
+    </aside>
+  ) : (
+    <aside class={shell} aria-label="Pályázati státusz">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div class="space-y-1.5 text-sm text-[var(--color-ink)]">
+          {visible.map((g) => {
+            const meta = grantStatusMeta[g.status];
+            return (
+              <p>
+                <span
+                  class:list={[
+                    'mr-2 inline-flex rounded-md px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-white',
+                    meta.tone === 'active' ? 'bg-[var(--color-sun)]' : 'bg-[var(--color-sun-deep)]',
+                  ]}
+                >
+                  {meta.badge}
+                </span>
+                <span class="font-semibold">{g.name}:</span> {g.bannerText}
+                {g.deadline ? (
+                  <span class="text-[var(--color-ink-soft)]"> — {g.deadline}</span>
+                ) : null}
+              </p>
+            );
+          })}
+        </div>
+        <a href={href} class={ctaClass}>
+          {mode === 'active' ? 'Megnézem' : 'Pályázati lehetőségek →'}
+        </a>
+      </div>
+    </aside>
+  )
+}

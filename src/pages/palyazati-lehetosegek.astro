@@ -1,8 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
-import GrantBanner from '../components/GrantBanner.astro';
 import PageHero from '../components/PageHero.astro';
+import { grants, grantStatusMeta } from '../data/grants';
+
+const oetp = grants.find((g) => g.id === 'oetp')!;
+const wekerle = grants.find((g) => g.id === 'wekerle')!;
+
+function badgeClass(status: typeof oetp.status) {
+  const tone = grantStatusMeta[status].tone;
+  if (tone === 'active') return 'bg-[var(--color-sun)] text-white';
+  if (tone === 'soft') return 'bg-[color-mix(in_oklab,var(--color-sky)_22%,white)] text-[var(--color-sky-deep)]';
+  return 'bg-[color-mix(in_oklab,var(--color-ink)_10%,white)] text-[var(--color-ink-soft)]';
+}
 ---
 
 <BaseLayout
@@ -11,7 +21,6 @@ import PageHero from '../components/PageHero.astro';
   ogImage="/images/services/storage.jpeg"
   canonicalPath="/palyazati-lehetosegek"
 >
-  <GrantBanner />
   <PageHero
     eyebrow="Pályázatok"
     title="Pályázati lehetőségek"
@@ -20,11 +29,23 @@ import PageHero from '../components/PageHero.astro';
 
   <section class="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
     <div class="grid gap-4 sm:grid-cols-2">
-      <a href="#oetp" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 text-sm font-semibold no-underline hover:bg-white">
-        OETP — Otthoni Energiatároló →
+      <a href="#oetp" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 no-underline hover:bg-white">
+        <span class="flex flex-wrap items-center gap-2">
+          <span class="text-sm font-semibold">OETP — Otthoni Energiatároló</span>
+          <span class:list={['inline-flex rounded-md px-2 py-0.5 text-xs font-bold uppercase tracking-wide', badgeClass(oetp.status)]}>
+            {grantStatusMeta[oetp.status].badge}
+          </span>
+        </span>
+        <span class="mt-1 block text-xs text-[var(--color-ink-soft)]">{oetp.label}{oetp.deadline ? ` · ${oetp.deadline}` : ''}</span>
       </a>
-      <a href="#wekerle" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 text-sm font-semibold no-underline hover:bg-white">
-        Wekerle+ — energetikai felújítás →
+      <a href="#wekerle" class="rounded-md border border-[var(--color-line)] bg-white/70 px-4 py-3 no-underline hover:bg-white">
+        <span class="flex flex-wrap items-center gap-2">
+          <span class="text-sm font-semibold">Wekerle+ — energetikai felújítás</span>
+          <span class:list={['inline-flex rounded-md px-2 py-0.5 text-xs font-bold uppercase tracking-wide', badgeClass(wekerle.status)]}>
+            {grantStatusMeta[wekerle.status].badge}
+          </span>
+        </span>
+        <span class="mt-1 block text-xs text-[var(--color-ink-soft)]">{wekerle.label}{wekerle.deadline ? ` · ${wekerle.deadline}` : ''}</span>
       </a>
     </div>
   </section>
@@ -34,7 +55,12 @@ import PageHero from '../components/PageHero.astro';
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sun-deep)]">OETP</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sun-deep)]">OETP</p>
+            <span class:list={['inline-flex rounded-md px-2 py-0.5 text-xs font-bold uppercase tracking-wide', badgeClass(oetp.status)]}>
+              {grantStatusMeta[oetp.status].badge}
+            </span>
+          </div>
           <h2 class="mt-2 font-display text-3xl font-bold sm:text-4xl">Otthoni Energiatároló Program</h2>
           <p class="mt-3 text-[var(--color-ink-soft)]">
             Lakossági energiatároló (és szükség szerint napelem) állami támogatással. Új támogatási kérelem jelenleg nem indítható —
@@ -98,7 +124,12 @@ import PageHero from '../components/PageHero.astro';
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Wekerle Plusz</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-sky-deep)]">Wekerle Plusz</p>
+            <span class:list={['inline-flex rounded-md px-2 py-0.5 text-xs font-bold uppercase tracking-wide', badgeClass(wekerle.status)]}>
+              {grantStatusMeta[wekerle.status].badge}
+            </span>
+          </div>
           <h2 class="mt-2 font-display text-3xl font-bold sm:text-4xl">Wekerle+ energetikai felújítás</h2>
           <p class="mt-3 text-[var(--color-ink-soft)]">
             Nem sokára indul a lakossági energetikai korszerűsítés:
