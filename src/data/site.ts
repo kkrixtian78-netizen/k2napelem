@@ -10,12 +10,12 @@ export const site = {
   address: '2017 Pócsmegyer, Táncsics út 10.',
   hours: 'Hétfő–vasárnap 9–18',
   gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-542MMSL',
-  // Prefer FORM_ENDPOINT on Vercel (build-time). PUBLIC_FORM_ENDPOINT kept as fallback.
+  // Formspree AJAX endpoint (overridable on Vercel via FORM_ENDPOINT).
   formEndpoint:
     (typeof process !== 'undefined' && process.env.FORM_ENDPOINT) ||
     import.meta.env.FORM_ENDPOINT ||
     import.meta.env.PUBLIC_FORM_ENDPOINT ||
-    '',
+    'https://formspree.io/f/meagjleq',
 } as const;
 
 /** Primary nav — short and logical */

@@ -28,6 +28,10 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
       data-endpoint={endpoint}
       data-mailto={site.email}
     >
+      {/* Formspree helpers */}
+      <input type="hidden" name="_subject" value="Árajánlatkérés — k2napelem.hu" />
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
       <label class="grid gap-1.5 text-sm font-medium">
         Név *
         <input required name="name" autocomplete="name" class="rounded-md border border-[var(--color-line)] bg-white px-3 py-2.5 font-normal outline-none focus:border-[var(--color-sky-deep)]" />
@@ -119,6 +123,7 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
         return;
       }
 
+      // Vanilla JS / Ajax → Formspree (Accept: application/json)
       event.preventDefault();
       try {
         const res = await fetch(endpoint, {
@@ -126,7 +131,13 @@ const mailtoFallback = `mailto:${site.email}?subject=${encodeURIComponent('Áraj
           body: new FormData(form),
           headers: { Accept: 'application/json' },
         });
-        if (!res.ok) throw new Error('A küldés nem sikerült. Próbálja telefonon vagy e-mailben.');
+        const payload = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const msg =
+            (payload && (payload.error || payload.message)) ||
+            'A küldés nem sikerült. Próbálja telefonon vagy e-mailben.';
+          throw new Error(typeof msg === 'string' ? msg : 'A küldés nem sikerült.');
+        }
         window.location.href = '/koszonjuk';
       } catch (err) {
         if (error) {
