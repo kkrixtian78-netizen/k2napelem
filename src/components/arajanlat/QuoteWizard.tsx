@@ -13,6 +13,7 @@ import {
   type TopicId,
 } from '../../lib/arajanlat/types';
 import { displaySellForItem, grossFromNet } from '../../lib/arajanlat/pricing';
+import QuoteDocument, { type BrandInfo } from './QuoteDocument';
 import { formatHuf, vatFromNet, vatPercentLabel } from './format';
 
 type Preview = {
@@ -47,12 +48,21 @@ const EMPTY_HEAT_IDS: Record<HeatGroup, string> = {
   szereles: '',
 };
 
-export default function QuoteWizard() {
+const DEFAULT_BRAND: BrandInfo = {
+  name: 'K2Napelem',
+  legalName: 'Kántor Krisztián EV',
+  address: '2017 Pócsmegyer, Táncsics út 10.',
+  phone: '+36 30 2677 665',
+  email: 'k2@k2napelem.hu',
+};
+
+export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandInfo }) {
   const [topic, setTopic] = useState<TopicId | null>(null);
   const [catalog, setCatalog] = useState<CatalogItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [savedId, setSavedId] = useState<string | null>(null);
+  const [showQuotePreview, setShowQuotePreview] = useState(false);
 
   const [customerName, setCustomerName] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
@@ -730,6 +740,14 @@ export default function QuoteWizard() {
 
       <div className="flex flex-wrap gap-3 print:hidden">
         <button
+          type="button"
+          disabled={loading || !preview || !topic}
+          onClick={() => setShowQuotePreview(true)}
+          className="rounded-md border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink disabled:opacity-50"
+        >
+          Ajánlat előnézete
+        </button>
+        <button
           type="submit"
           disabled={loading || !preview}
           className="rounded-md bg-sky-deep px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
@@ -746,6 +764,74 @@ export default function QuoteWizard() {
         </button>
       </div>
 
+      {showQuotePreview && preview && topic ? (
+        <div
+          className="quote-preview-modal fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink/50 p-4 print:static print:bg-transparent print:p-0"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="quote-preview-title"
+          onClick={() => setShowQuotePreview(false)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setShowQuotePreview(false);
+          }}
+        >
+          <div
+            className="my-4 w-full max-w-3xl rounded-xl bg-mist p-4 shadow-lg sm:p-6 print:my-0 print:max-w-none print:bg-white print:p-0 print:shadow-none"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 print:hidden">
+              <h2 id="quote-preview-title" className="font-display text-xl font-bold text-ink">
+                Ajánlat előnézete
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => window.print()}
+                  className="rounded-md border border-line bg-white px-3 py-1.5 text-sm font-semibold"
+                >
+                  Nyomtatás
+                </button>
+                <button
+                  type="button"
+                  disabled={loading}
+                  onClick={(e) => {
+                    void onSave(e, 'draft');
+                    setShowQuotePreview(false);
+                  }}
+                  className="rounded-md bg-sky-deep px-3 py-1.5 text-sm font-semibold text-white disabled:opacity-50"
+                >
+                  Mentés piszkozatként
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowQuotePreview(false)}
+                  className="rounded-md border border-line px-3 py-1.5 text-sm font-semibold"
+                >
+                  Bezárás
+                </button>
+              </div>
+            </div>
+            <QuoteDocument
+              brand={brand}
+              showInternalCosts={false}
+              quote={{
+                number: 'ELŐNÉZET',
+                topic,
+                customerName,
+                customerAddress,
+                customerPhone,
+                customerEmail,
+                createdAt: new Date().toISOString(),
+                lines: preview.lines,
+                totalBuy: preview.totalBuy,
+                totalSell: preview.totalSell,
+                draftPreview: true,
+              }}
+            />
+          </div>
+        </div>
+      ) : null}
+
       <style>{`
         .field {
           width: 100%;
@@ -753,6 +839,20 @@ export default function QuoteWizard() {
           border: 1px solid var(--color-line);
           background: white;
           padding: 0.5rem 0.75rem;
+        }
+        @media print {
+          body * {
+            visibility: hidden !important;
+          }
+          .quote-preview-modal,
+          .quote-preview-modal * {
+            visibility: visible !important;
+          }
+          .quote-preview-modal {
+            position: static !important;
+            background: transparent !important;
+            inset: auto !important;
+          }
         }
       `}</style>
     </form>
