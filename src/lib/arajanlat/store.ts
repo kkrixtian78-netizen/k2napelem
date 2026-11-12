@@ -65,6 +65,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     'prot-dc-breaker',
     'prot-ac-breaker',
     'box-ac',
+    'conn-mc4',
   ]) {
     const legacy = byId.get(id);
     if (legacy && legacy.active) {

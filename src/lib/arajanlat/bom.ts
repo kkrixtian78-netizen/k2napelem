@@ -60,11 +60,7 @@ export function buildSolarBom(
   const acCable = byId(catalog, 'cable-ac-5x6');
   lines.push(lineFromCatalog(acCable, 15, true));
 
-  // MC4: ~1 pár / panel + 2 tartalék
-  const mc4 = byId(catalog, 'conn-mc4');
-  lines.push(lineFromCatalog(mc4, panels + 2, true));
-
-  for (const id of ['prot-dc-box', 'prot-ac-box', 'cons-solar-misc']) {
+  for (const id of ['prot-dc-box', 'prot-ac-box', 'cons-villany-misc', 'cons-solar-misc']) {
     lines.push(lineFromCatalog(byId(catalog, id), 1, true));
   }
 
