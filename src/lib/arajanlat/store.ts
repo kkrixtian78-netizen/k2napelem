@@ -26,9 +26,25 @@ function atomicWrite(path: string, data: QuoteStore) {
   renameSync(tmp, path);
 }
 
+/** Új seed tételek beolvasása meglévő katalógusba (id alapján, meglévőt nem írja felül). */
+function mergeMissingSeedItems(store: QuoteStore): boolean {
+  const have = new Set(store.catalog.map((c) => c.id));
+  let changed = false;
+  for (const item of SEED_CATALOG) {
+    if (!have.has(item.id)) {
+      store.catalog.push(structuredClone(item));
+      changed = true;
+    }
+  }
+  return changed;
+}
+
 function ensureStore(): QuoteStore {
   if (preferMemory) {
     if (!memoryStore) memoryStore = emptyStore();
+    else if (mergeMissingSeedItems(memoryStore)) {
+      /* keep memory */
+    }
     return memoryStore;
   }
 
@@ -47,6 +63,8 @@ function ensureStore(): QuoteStore {
     if (!parsed.catalog?.length) {
       parsed.catalog = structuredClone(SEED_CATALOG);
       atomicWrite(STORE_PATH, parsed);
+    } else if (mergeMissingSeedItems(parsed)) {
+      atomicWrite(STORE_PATH, parsed);
     }
     memoryStore = parsed;
     return parsed;
@@ -54,6 +72,7 @@ function ensureStore(): QuoteStore {
     // Read-only / serverless filesystem — keep working in memory.
     preferMemory = true;
     if (!memoryStore) memoryStore = emptyStore();
+    else mergeMissingSeedItems(memoryStore);
     return memoryStore;
   }
 }

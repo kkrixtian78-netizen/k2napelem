@@ -14,6 +14,7 @@ export type CatalogCategory =
   | 'munkadij'
   | 'fogyocikk'
   | 'foanyag'
+  | 'kiegeszito'
   | 'egyeb';
 
 export type CatalogItem = {
@@ -48,6 +49,9 @@ export type SolarSelection = {
   inverterId: string;
   storageId: string | null;
   roofTypeId: string;
+  /** Opcionális főanyagok (optimalizáló, visszwatt, stb.) */
+  extraItemIds?: string[];
+  extraQuantities?: Record<string, number>;
 };
 
 export type ManualSelection = {
@@ -102,5 +106,9 @@ export const CATEGORY_LABELS: Record<CatalogCategory, string> = {
   munkadij: 'Munkadíj',
   fogyocikk: 'Fogyóanyag',
   foanyag: 'Főanyag',
+  kiegeszito: 'Kiegészítő főanyag',
   egyeb: 'Egyéb',
 };
+
+/** Napelem választható kiegészítők (nem auto-BOM). */
+export const SOLAR_EXTRA_CATEGORIES: CatalogCategory[] = ['kiegeszito'];

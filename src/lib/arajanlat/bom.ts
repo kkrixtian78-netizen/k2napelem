@@ -70,6 +70,17 @@ export function buildSolarBom(
   }
   lines.push(lineFromCatalog(byId(catalog, 'labor-solar-comm'), 1, true));
 
+  // Választható kiegészítő főanyagok
+  const extraIds = selection.extraItemIds ?? [];
+  const extraQty = selection.extraQuantities ?? {};
+  for (const id of extraIds) {
+    const item = tryById(catalog, id);
+    if (!item || item.selectable === false) continue;
+    const defaultQty = id === 'opt-optimizer' ? panels : 1;
+    const q = Math.max(1, extraQty[id] ?? defaultQty);
+    lines.push(lineFromCatalog(item, q, false));
+  }
+
   return lines;
 }
 
@@ -155,6 +166,17 @@ export function selectableMains(catalog: CatalogItem[], topic: TopicId): Catalog
       c.active &&
       c.selectable !== false &&
       (c.topic === topic || c.topic === 'all') &&
-      (topic !== 'napelem' || ['panel', 'inverter', 'tarolo', 'tetotipus'].includes(c.category)),
+      (topic !== 'napelem' ||
+        ['panel', 'inverter', 'tarolo', 'tetotipus', 'kiegeszito'].includes(c.category)),
+  );
+}
+
+export function solarExtras(catalog: CatalogItem[]): CatalogItem[] {
+  return catalog.filter(
+    (c) =>
+      c.active &&
+      c.selectable !== false &&
+      (c.topic === 'napelem' || c.topic === 'all') &&
+      c.category === 'kiegeszito',
   );
 }

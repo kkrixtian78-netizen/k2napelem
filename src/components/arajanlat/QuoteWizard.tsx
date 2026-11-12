@@ -31,6 +31,8 @@ export default function QuoteWizard() {
   const [inverterId, setInverterId] = useState('');
   const [storageId, setStorageId] = useState('bat-none');
   const [roofTypeId, setRoofTypeId] = useState('roof-cserep');
+  /** Napelem kiegészítő főanyagok id → qty */
+  const [solarExtras, setSolarExtras] = useState<Record<string, number>>({});
 
   // Manual
   const [selectedMains, setSelectedMains] = useState<Record<string, number>>({});
@@ -44,6 +46,7 @@ export default function QuoteWizard() {
     setSavedId(null);
     setPreview(null);
     setSelectedMains({});
+    setSolarExtras({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
       .then((data) => {
@@ -68,12 +71,15 @@ export default function QuoteWizard() {
     if (!topic) return null;
     if (topic === 'napelem') {
       if (!panelId || !inverterId || !roofTypeId) return null;
+      const extraItemIds = Object.keys(solarExtras).filter((id) => (solarExtras[id] ?? 0) > 0);
       return {
         panelId,
         panelCount,
         inverterId,
         storageId: storageId === 'bat-none' ? null : storageId,
         roofTypeId,
+        extraItemIds,
+        extraQuantities: solarExtras,
       } satisfies SolarSelection;
     }
     const mainItemIds = Object.keys(selectedMains).filter((id) => (selectedMains[id] ?? 0) > 0);
@@ -109,7 +115,7 @@ export default function QuoteWizard() {
     }, 200);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic, panelId, panelCount, inverterId, storageId, roofTypeId, selectedMains]);
+  }, [topic, panelId, panelCount, inverterId, storageId, roofTypeId, solarExtras, selectedMains]);
 
   async function onSave(e: FormEvent, status: 'draft' | 'final') {
     e.preventDefault();
@@ -157,6 +163,22 @@ export default function QuoteWizard() {
     setSelectedMains((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
   }
 
+  function toggleSolarExtra(id: string) {
+    setSolarExtras((prev) => {
+      const next = { ...prev };
+      if (next[id] != null) {
+        delete next[id];
+      } else {
+        next[id] = id === 'opt-optimizer' ? Math.max(1, panelCount) : 1;
+      }
+      return next;
+    });
+  }
+
+  function setSolarExtraQty(id: string, qty: number) {
+    setSolarExtras((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
+  }
+
   if (!topic) {
     return (
       <div className="reveal">
@@ -194,6 +216,9 @@ export default function QuoteWizard() {
   const inverters = catalog.filter((c) => c.category === 'inverter');
   const storages = catalog.filter((c) => c.category === 'tarolo');
   const roofs = catalog.filter((c) => c.category === 'tetotipus');
+  const extras = catalog.filter(
+    (c) => c.selectable !== false && c.category === 'kiegeszito',
+  );
   const mains = catalog.filter(
     (c) => c.selectable !== false && c.category === 'foanyag',
   );
@@ -320,6 +345,47 @@ export default function QuoteWizard() {
                 ))}
               </select>
             </Field>
+          </div>
+
+          <div className="space-y-2 pt-2">
+            <h3 className="font-display text-lg font-bold">További főanyagok (opcionális)</h3>
+            <p className="text-sm text-ink-soft">
+              Pipáld, ha kell: optimalizáló, visszwatt, tűzvédelmi leválasztó, tervezés, kiszállás, jutalék.
+            </p>
+            <ul className="divide-y divide-line rounded-xl border border-line bg-paper/60">
+              {extras.map((item) => {
+                const on = solarExtras[item.id] != null;
+                return (
+                  <li key={item.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
+                    <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={on}
+                        onChange={() => toggleSolarExtra(item.id)}
+                        className="size-4 accent-sky-deep"
+                      />
+                      <span className="min-w-0">
+                        <span className="block font-medium text-ink">{item.name}</span>
+                        <span className="text-xs text-ink-soft">
+                          beszerzés {formatHuf(item.buyPrice)} / {item.unit}
+                          {item.notes ? ` · ${item.notes}` : ''}
+                        </span>
+                      </span>
+                    </label>
+                    {on && (
+                      <input
+                        type="number"
+                        min={1}
+                        className="w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm"
+                        value={solarExtras[item.id] ?? 1}
+                        onChange={(e) => setSolarExtraQty(item.id, Number(e.target.value) || 1)}
+                        aria-label="Mennyiség"
+                      />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </section>
       ) : (
