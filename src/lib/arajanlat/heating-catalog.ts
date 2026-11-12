@@ -10,25 +10,31 @@ type BvfProduct = {
   buyPrice: number;
   sellNetHint?: number;
   sellNet?: number;
+  variantLabel?: string;
+  parentSlug?: string;
+  variationId?: number;
 };
 
 /** BVF webshopból betöltött fűtés főanyagok (csomagajánlatok és outlet nélkül). */
 export function buildHeatingCatalogFromBvf(): CatalogItem[] {
-  return (bvfHeatingProducts as BvfProduct[]).map((p) => ({
-    id: `f-${p.slug}`.slice(0, 80),
-    name: p.name,
-    topic: 'futes' as const,
-    category: 'foanyag' as const,
-    unit: 'db',
-    buyPrice: Math.max(0, Math.round(p.buyPrice)),
-    selectable: true,
-    active: true,
-    heatGroup: p.group,
-    bvfGross: Math.max(0, Math.round(p.priceGross)),
-    notes: p.href
-      ? `Forrás: ${p.href} · Eladás: BVF bruttó −2% (nettó)`
-      : 'Eladás: BVF bruttó −2% (nettó)',
-  }));
+  return (bvfHeatingProducts as BvfProduct[]).map((p) => {
+    const id = `f-${p.slug}`.slice(0, 80);
+    return {
+      id,
+      name: p.name,
+      topic: 'futes' as const,
+      category: 'foanyag' as const,
+      unit: 'db',
+      buyPrice: Math.max(0, Math.round(p.buyPrice)),
+      selectable: true,
+      active: true,
+      heatGroup: p.group,
+      bvfGross: Math.max(0, Math.round(p.priceGross)),
+      notes: p.href
+        ? `Forrás: ${p.href} · Eladás: BVF bruttó −2% (nettó)`
+        : 'Eladás: BVF bruttó −2% (nettó)',
+    };
+  });
 }
 
 /** Régi, kézzel seedelt fűtés főanyagok — új BVF tételek javára kikapcsoljuk. */

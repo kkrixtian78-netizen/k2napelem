@@ -106,6 +106,23 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
   }
+  // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
+  const seedHeatIds = new Set(
+    SEED_CATALOG.filter((c) => c.topic === 'futes' && c.heatGroup).map((c) => c.id),
+  );
+  for (const item of store.catalog) {
+    if (
+      item.active &&
+      item.topic === 'futes' &&
+      item.heatGroup &&
+      item.selectable !== false &&
+      !seedHeatIds.has(item.id)
+    ) {
+      item.active = false;
+      item.selectable = false;
+      changed = true;
+    }
+  }
   return changed;
 }
 
