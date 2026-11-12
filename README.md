@@ -16,6 +16,16 @@ Nyisd meg:
 - Marketing: [http://localhost:4321](http://localhost:4321)
 - **Árajánlatkészítő (belső):** [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat)
 
+### Windows, saját gépen
+
+A program a gépen fut, az ajánlatok a `data/arajanlat/store.json` fájlban maradnak. Kell hozzá a [Node.js 22](https://nodejs.org) vagy újabb.
+
+1. Töltsd le a projektet, és csomagold ki.
+2. Kattints duplán az `Inditas.bat` fájlra.
+3. Megnyílik a böngésző: [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat).
+
+Az első indítás telepíti a csomagokat. Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
+
 Build:
 
 ```bash

@@ -9,6 +9,7 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://k2napelem.hu',
   trailingSlash: 'never',
+  devToolbar: { enabled: false },
   // Hybrid: marketing pages prerendered; /arajanlat + APIs are SSR (Vercel).
   output: 'static',
   adapter: vercel(),
