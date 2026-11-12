@@ -90,7 +90,8 @@ export type Quote = {
   topic: TopicId;
   customerName: string;
   customerAddress: string;
-  customerNote: string;
+  customerPhone: string;
+  customerEmail: string;
   createdAt: string;
   updatedAt: string;
   status: 'draft' | 'final';

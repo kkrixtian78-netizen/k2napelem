@@ -39,7 +39,8 @@ export default function QuoteWizard() {
 
   const [customerName, setCustomerName] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
-  const [customerNote, setCustomerNote] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
 
   // Solar
   const [panelId, setPanelId] = useState('');
@@ -173,7 +174,8 @@ export default function QuoteWizard() {
           selection,
           customerName,
           customerAddress,
-          customerNote,
+          customerPhone,
+          customerEmail,
           status,
           lines: preview?.lines,
         }),
@@ -281,7 +283,7 @@ export default function QuoteWizard() {
         )}
       </div>
 
-      <section className="grid gap-4 rounded-xl border border-line bg-paper/60 p-4 sm:grid-cols-3 sm:p-5">
+      <section className="grid gap-4 rounded-xl border border-line bg-paper/60 p-4 sm:grid-cols-2 sm:p-5">
         <label className="block text-sm">
           <span className="mb-1 block font-medium text-ink">Ügyfél neve</span>
           <input
@@ -291,7 +293,27 @@ export default function QuoteWizard() {
             placeholder="pl. Kovács János"
           />
         </label>
-        <label className="block text-sm sm:col-span-2">
+        <label className="block text-sm">
+          <span className="mb-1 block font-medium text-ink">Telefonszám</span>
+          <input
+            type="tel"
+            className="w-full rounded-md border border-line bg-white px-3 py-2"
+            value={customerPhone}
+            onChange={(e) => setCustomerPhone(e.target.value)}
+            placeholder="pl. +36 30 123 4567"
+          />
+        </label>
+        <label className="block text-sm">
+          <span className="mb-1 block font-medium text-ink">E-mail cím</span>
+          <input
+            type="email"
+            className="w-full rounded-md border border-line bg-white px-3 py-2"
+            value={customerEmail}
+            onChange={(e) => setCustomerEmail(e.target.value)}
+            placeholder="pl. ugyfel@email.hu"
+          />
+        </label>
+        <label className="block text-sm">
           <span className="mb-1 block font-medium text-ink">Cím</span>
           <input
             className="w-full rounded-md border border-line bg-white px-3 py-2"
@@ -302,16 +324,6 @@ export default function QuoteWizard() {
           <span className="mt-1 block text-xs text-ink-soft">
             Ebből számolódik automatikusan a kiszállás: Pócsmegyer → ügyfél oda-vissza × 300 Ft/km.
           </span>
-        </label>
-        <label className="block text-sm sm:col-span-3">
-          <span className="mb-1 block font-medium text-ink">Megjegyzés</span>
-          <textarea
-            className="w-full rounded-md border border-line bg-white px-3 py-2"
-            rows={2}
-            value={customerNote}
-            onChange={(e) => setCustomerNote(e.target.value)}
-            placeholder="Opcionális belső / ügyfél megjegyzés"
-          />
         </label>
       </section>
 

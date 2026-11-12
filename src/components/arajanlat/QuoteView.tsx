@@ -75,12 +75,11 @@ export default function QuoteView({ quoteId, brand }: { quoteId: string; brand: 
             <div className="font-medium">{quote.customerName || '—'}</div>
             <div className="text-ink-soft">{quote.customerAddress || ''}</div>
           </div>
-          {quote.customerNote && (
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Megjegyzés</div>
-              <div>{quote.customerNote}</div>
-            </div>
-          )}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Kapcsolat</div>
+            <div>{quote.customerPhone?.trim() || '—'}</div>
+            <div className="text-ink-soft">{quote.customerEmail?.trim() || ''}</div>
+          </div>
         </section>
 
         <div className="mt-6 overflow-x-auto">
