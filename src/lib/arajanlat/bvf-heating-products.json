@@ -5,8 +5,9 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 13000,
-    "buyPrice": 7984,
-    "sellNetHint": 9980
+    "buyPrice": 9980,
+    "sellNetHint": 10031,
+    "sellNet": 10031
   },
   {
     "group": "padlofutes",
@@ -14,8 +15,9 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 16000,
-    "buyPrice": 9826,
-    "sellNetHint": 12283
+    "buyPrice": 12283,
+    "sellNetHint": 12346,
+    "sellNet": 12346
   },
   {
     "group": "padlofutes",
@@ -23,8 +25,9 @@
     "slug": "bvf-wfd-elektromos-futokabel",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 17000,
-    "buyPrice": 10441,
-    "sellNetHint": 13051
+    "buyPrice": 13051,
+    "sellNetHint": 13118,
+    "sellNet": 13118
   },
   {
     "group": "termosztat",
@@ -32,8 +35,9 @@
     "slug": "bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez/",
     "priceGross": 40000,
-    "buyPrice": 24567,
-    "sellNetHint": 30709
+    "buyPrice": 30709,
+    "sellNetHint": 30866,
+    "sellNet": 30866
   },
   {
     "group": "termosztat",
@@ -41,8 +45,9 @@
     "slug": "eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor/",
     "priceGross": 61000,
-    "buyPrice": 37465,
-    "sellNetHint": 46831
+    "buyPrice": 46831,
+    "sellNetHint": 47071,
+    "sellNet": 47071
   },
   {
     "group": "termosztat",
@@ -50,8 +55,9 @@
     "slug": "eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor/",
     "priceGross": 68000,
-    "buyPrice": 41764,
-    "sellNetHint": 52205
+    "buyPrice": 52205,
+    "sellNetHint": 52472,
+    "sellNet": 52472
   },
   {
     "group": "termosztat",
@@ -59,8 +65,9 @@
     "slug": "etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor/",
     "priceGross": 105000,
-    "buyPrice": 64488,
-    "sellNetHint": 80610
+    "buyPrice": 80610,
+    "sellNetHint": 81024,
+    "sellNet": 81024
   },
   {
     "group": "termosztat",
@@ -68,8 +75,9 @@
     "slug": "etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere/",
     "priceGross": 124000,
-    "buyPrice": 76158,
-    "sellNetHint": 95197
+    "buyPrice": 95197,
+    "sellNetHint": 95685,
+    "sellNet": 95685
   },
   {
     "group": "termosztat",
@@ -77,8 +85,9 @@
     "slug": "etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez/",
     "priceGross": 107000,
-    "buyPrice": 65717,
-    "sellNetHint": 82146
+    "buyPrice": 82146,
+    "sellNetHint": 82567,
+    "sellNet": 82567
   },
   {
     "group": "termosztat",
@@ -86,8 +95,9 @@
     "slug": "etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor/",
     "priceGross": 212000,
-    "buyPrice": 130205,
-    "sellNetHint": 162756
+    "buyPrice": 162756,
+    "sellNetHint": 163591,
+    "sellNet": 163591
   },
   {
     "group": "termosztat",
@@ -95,8 +105,9 @@
     "slug": "etr2-termosztat-etog55-talajszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etog55-talajszenzor/",
     "priceGross": 231000,
-    "buyPrice": 141874,
-    "sellNetHint": 177343
+    "buyPrice": 177343,
+    "sellNetHint": 178252,
+    "sellNet": 178252
   },
   {
     "group": "termosztat",
@@ -104,8 +115,9 @@
     "slug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-501-wifi-szobatermosztat-3m-padloszenzor/",
     "priceGross": 19500,
-    "buyPrice": 11976,
-    "sellNetHint": 14970
+    "buyPrice": 14970,
+    "sellNetHint": 15047,
+    "sellNet": 15047
   },
   {
     "group": "termosztat",
@@ -113,8 +125,9 @@
     "slug": "bvf-801-wifi-termosztat-3m-padloszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-801-wifi-termosztat-3m-padloszenzor/",
     "priceGross": 23000,
-    "buyPrice": 14126,
-    "sellNetHint": 17657
+    "buyPrice": 17657,
+    "sellNetHint": 17748,
+    "sellNet": 17748
   },
   {
     "group": "termosztat",
@@ -122,8 +135,9 @@
     "slug": "bvf-24-f-rf-szobatermosztat-adoegyseg",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-24-f-rf-szobatermosztat-adoegyseg/",
     "priceGross": 11000,
-    "buyPrice": 6756,
-    "sellNetHint": 8445
+    "buyPrice": 8445,
+    "sellNetHint": 8488,
+    "sellNet": 8488
   },
   {
     "group": "futopanel",
@@ -131,8 +145,9 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 65000,
-    "buyPrice": 39922,
-    "sellNetHint": 49902
+    "buyPrice": 49902,
+    "sellNetHint": 50157,
+    "sellNet": 50157
   },
   {
     "group": "futopanel",
@@ -140,8 +155,9 @@
     "slug": "radialight-sirio-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
     "priceGross": 51300,
-    "buyPrice": 31507,
-    "sellNetHint": 39384
+    "buyPrice": 39384,
+    "sellNetHint": 39586,
+    "sellNet": 39586
   },
   {
     "group": "futopanel",
@@ -149,8 +165,9 @@
     "slug": "intuis-tactic-elektromos-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 57000,
-    "buyPrice": 35008,
-    "sellNetHint": 43760
+    "buyPrice": 43760,
+    "sellNetHint": 43984,
+    "sellNet": 43984
   },
   {
     "group": "futopanel",
@@ -158,8 +175,9 @@
     "slug": "intuis-tactic-wifi-elektromos-fali-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
     "priceGross": 78000,
-    "buyPrice": 47906,
-    "sellNetHint": 59882
+    "buyPrice": 59882,
+    "sellNetHint": 60189,
+    "sellNet": 60189
   },
   {
     "group": "futopanel",
@@ -167,8 +185,9 @@
     "slug": "intuis-prestance-elektromos-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-prestance-elektromos-futopanel/",
     "priceGross": 78000,
-    "buyPrice": 47906,
-    "sellNetHint": 59882
+    "buyPrice": 59882,
+    "sellNetHint": 60189,
+    "sellNet": 60189
   },
   {
     "group": "futopanel",
@@ -176,8 +195,9 @@
     "slug": "intuis-radial-infra-elektromos-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-radial-infra-elektromos-futopanel/",
     "priceGross": 94000,
-    "buyPrice": 57732,
-    "sellNetHint": 72165
+    "buyPrice": 72165,
+    "sellNetHint": 72535,
+    "sellNet": 72535
   },
   {
     "group": "futopanel",
@@ -185,8 +205,9 @@
     "slug": "radialight-kyoto-wifi-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 163900,
-    "buyPrice": 100663,
-    "sellNetHint": 125829
+    "buyPrice": 125829,
+    "sellNetHint": 126474,
+    "sellNet": 126474
   },
   {
     "group": "futopanel",
@@ -194,8 +215,9 @@
     "slug": "radialight-klima-wifi-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
     "priceGross": 145000,
-    "buyPrice": 89055,
-    "sellNetHint": 111319
+    "buyPrice": 111319,
+    "sellNetHint": 111890,
+    "sellNet": 111890
   },
   {
     "group": "futopanel",
@@ -203,8 +225,9 @@
     "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
     "priceGross": 195400,
-    "buyPrice": 120010,
-    "sellNetHint": 150012
+    "buyPrice": 150012,
+    "sellNetHint": 150781,
+    "sellNet": 150781
   },
   {
     "group": "futopanel",
@@ -212,8 +235,9 @@
     "slug": "radialight-icon-wifi-futopanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 189000,
-    "buyPrice": 116078,
-    "sellNetHint": 145098
+    "buyPrice": 145098,
+    "sellNetHint": 145843,
+    "sellNet": 145843
   },
   {
     "group": "futopanel",
@@ -221,8 +245,9 @@
     "slug": "intuis-r21-utesallo-futopanel-gyerekszobaba",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-r21-utesallo-futopanel-gyerekszobaba/",
     "priceGross": 165000,
-    "buyPrice": 101338,
-    "sellNetHint": 126673
+    "buyPrice": 126673,
+    "sellNetHint": 127323,
+    "sellNet": 127323
   },
   {
     "group": "futopanel",
@@ -230,8 +255,9 @@
     "slug": "intuis-glassance-premium-uvegpanel",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-glassance-premium-uvegpanel/",
     "priceGross": 240000,
-    "buyPrice": 147402,
-    "sellNetHint": 184252
+    "buyPrice": 184252,
+    "sellNetHint": 185197,
+    "sellNet": 185197
   },
   {
     "group": "futheto-tukor",
@@ -239,8 +265,9 @@
     "slug": "bvf-mg-tukor-infrapanel",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-mg-tukor-infrapanel/",
     "priceGross": 98000,
-    "buyPrice": 60189,
-    "sellNetHint": 75236
+    "buyPrice": 75236,
+    "sellNetHint": 75622,
+    "sellNet": 75622
   },
   {
     "group": "torolkozoszarito",
@@ -248,8 +275,9 @@
     "slug": "radialight-onsen-torolkozoszarito-radiator",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
     "priceGross": 129000,
-    "buyPrice": 79228,
-    "sellNetHint": 99035
+    "buyPrice": 99035,
+    "sellNetHint": 99543,
+    "sellNet": 99543
   },
   {
     "group": "torolkozoszarito",
@@ -257,8 +285,9 @@
     "slug": "radialight-silk-torolkozoszarito-radiator",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
     "priceGross": 155000,
-    "buyPrice": 95197,
-    "sellNetHint": 118996
+    "buyPrice": 118996,
+    "sellNetHint": 119606,
+    "sellNet": 119606
   },
   {
     "group": "torolkozoszarito",
@@ -266,8 +295,9 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
     "priceGross": 208200,
-    "buyPrice": 127871,
-    "sellNetHint": 159839
+    "buyPrice": 159839,
+    "sellNetHint": 160658,
+    "sellNet": 160658
   },
   {
     "group": "torolkozoszarito",
@@ -275,8 +305,9 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
     "priceGross": 208200,
-    "buyPrice": 127871,
-    "sellNetHint": 159839
+    "buyPrice": 159839,
+    "sellNetHint": 160658,
+    "sellNet": 160658
   },
   {
     "group": "torolkozoszarito",
@@ -284,8 +315,9 @@
     "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
     "priceGross": 139000,
-    "buyPrice": 85370,
-    "sellNetHint": 106713
+    "buyPrice": 106713,
+    "sellNetHint": 107260,
+    "sellNet": 107260
   },
   {
     "group": "torolkozoszarito",
@@ -293,8 +325,9 @@
     "slug": "intuis-nao-2-elektromos-torolkozoszarito-radiator",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-nao-2-elektromos-torolkozoszarito-radiator/",
     "priceGross": 90000,
-    "buyPrice": 55275,
-    "sellNetHint": 69094
+    "buyPrice": 69094,
+    "sellNetHint": 69449,
+    "sellNet": 69449
   },
   {
     "group": "torolkozoszarito",
@@ -302,8 +335,9 @@
     "slug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 114000,
-    "buyPrice": 70016,
-    "sellNetHint": 87520
+    "buyPrice": 87520,
+    "sellNetHint": 87969,
+    "sellNet": 87969
   },
   {
     "group": "torolkozoszarito",
@@ -311,8 +345,9 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 103000,
-    "buyPrice": 63260,
-    "sellNetHint": 79075
+    "buyPrice": 79075,
+    "sellNetHint": 79480,
+    "sellNet": 79480
   },
   {
     "group": "futheto-tukor",
@@ -320,8 +355,9 @@
     "slug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval",
     "href": "https://www.bvfheating.hu/shop/futheto-tukor/bvf-adelig-futheto-tukor-bluetooth-hangszoroval/",
     "priceGross": 94000,
-    "buyPrice": 57732,
-    "sellNetHint": 72165
+    "buyPrice": 72165,
+    "sellNetHint": 72535,
+    "sellNet": 72535
   },
   {
     "group": "kiegeszitok",
@@ -329,8 +365,9 @@
     "slug": "hoszigetelo-lap-elektromos-padlofuteshez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/hoszigetelo-lap-elektromos-padlofuteshez/",
     "priceGross": 5400,
-    "buyPrice": 3317,
-    "sellNetHint": 4146
+    "buyPrice": 4146,
+    "sellNetHint": 4167,
+    "sellNet": 4167
   },
   {
     "group": "torolkozoszarito",
@@ -338,8 +375,9 @@
     "slug": "radialight-windy-furdoszobai-futotest",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-windy-furdoszobai-futotest/",
     "priceGross": 63600,
-    "buyPrice": 39062,
-    "sellNetHint": 48827
+    "buyPrice": 48827,
+    "sellNetHint": 49077,
+    "sellNet": 49077
   },
   {
     "group": "gyorsfuto",
@@ -347,8 +385,9 @@
     "slug": "radialight-touch-furdoszobai-gyorsfuto-keszulek",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-touch-furdoszobai-gyorsfuto-keszulek/",
     "priceGross": 49900,
-    "buyPrice": 30647,
-    "sellNetHint": 38309
+    "buyPrice": 38309,
+    "sellNetHint": 38506,
+    "sellNet": 38506
   },
   {
     "group": "gyorsfuto",
@@ -356,8 +395,9 @@
     "slug": "radialight-bali-furdoszobai-futotest",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-bali-furdoszobai-futotest/",
     "priceGross": 59000,
-    "buyPrice": 36236,
-    "sellNetHint": 45295
+    "buyPrice": 45295,
+    "sellNetHint": 45528,
+    "sellNet": 45528
   },
   {
     "group": "infrapanel",
@@ -365,8 +405,9 @@
     "slug": "bvf-ng-fali-es-mennyezeti-infrapanel",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-ng-fali-es-mennyezeti-infrapanel/",
     "priceGross": 58000,
-    "buyPrice": 35622,
-    "sellNetHint": 44528
+    "buyPrice": 44528,
+    "sellNetHint": 44756,
+    "sellNet": 44756
   },
   {
     "group": "infrapanel",
@@ -374,8 +415,9 @@
     "slug": "bvf-pg-feher-uveg-infrapanel",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-feher-uveg-infrapanel/",
     "priceGross": 98000,
-    "buyPrice": 60189,
-    "sellNetHint": 75236
+    "buyPrice": 75236,
+    "sellNetHint": 75622,
+    "sellNet": 75622
   },
   {
     "group": "infrapanel",
@@ -383,8 +425,9 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-fekete-uveg-infrapanel/",
     "priceGross": 87000,
-    "buyPrice": 53433,
-    "sellNetHint": 66791
+    "buyPrice": 66791,
+    "sellNetHint": 67134,
+    "sellNet": 67134
   },
   {
     "group": "kulteri-futokabel",
@@ -392,8 +435,9 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 12000,
-    "buyPrice": 7370,
-    "sellNetHint": 9213
+    "buyPrice": 9213,
+    "sellNetHint": 9260,
+    "sellNet": 9260
   },
   {
     "group": "kulteri-futokabel",
@@ -401,8 +445,9 @@
     "slug": "bvf-srhc-onszabalyzo-futokabel",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-srhc-onszabalyzo-futokabel/",
     "priceGross": 4000,
-    "buyPrice": 2457,
-    "sellNetHint": 3071
+    "buyPrice": 3071,
+    "sellNetHint": 3087,
+    "sellNet": 3087
   },
   {
     "group": "kulteri-futokabel",
@@ -410,8 +455,9 @@
     "slug": "bvf-sx-kulteri-futokabel",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 34500,
-    "buyPrice": 21189,
-    "sellNetHint": 26486
+    "buyPrice": 26486,
+    "sellNetHint": 26622,
+    "sellNet": 26622
   },
   {
     "group": "infrasugarzo",
@@ -419,8 +465,9 @@
     "slug": "veito-aero-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-aero-infrasugarzo/",
     "priceGross": 50000,
-    "buyPrice": 30709,
-    "sellNetHint": 38386
+    "buyPrice": 38386,
+    "sellNetHint": 38583,
+    "sellNet": 38583
   },
   {
     "group": "infrasugarzo",
@@ -428,8 +475,9 @@
     "slug": "veito-blade-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-blade-infrasugarzo/",
     "priceGross": 65000,
-    "buyPrice": 39922,
-    "sellNetHint": 49902
+    "buyPrice": 49902,
+    "sellNetHint": 50157,
+    "sellNet": 50157
   },
   {
     "group": "infrasugarzo",
@@ -437,8 +485,9 @@
     "slug": "veito-space-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-space-infrasugarzo/",
     "priceGross": 89000,
-    "buyPrice": 54662,
-    "sellNetHint": 68327
+    "buyPrice": 68327,
+    "sellNetHint": 68677,
+    "sellNet": 68677
   },
   {
     "group": "infrasugarzo",
@@ -446,8 +495,9 @@
     "slug": "radialight-oasi-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-infrasugarzo/",
     "priceGross": 120000,
-    "buyPrice": 73701,
-    "sellNetHint": 92126
+    "buyPrice": 92126,
+    "sellNetHint": 92598,
+    "sellNet": 92598
   },
   {
     "group": "infrasugarzo",
@@ -455,8 +505,9 @@
     "slug": "radialight-oasi-ht-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-ht-infrasugarzo/",
     "priceGross": 120000,
-    "buyPrice": 73701,
-    "sellNetHint": 92126
+    "buyPrice": 92126,
+    "sellNetHint": 92598,
+    "sellNet": 92598
   },
   {
     "group": "infrasugarzo",
@@ -464,8 +515,9 @@
     "slug": "veito-manta-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-manta-infrasugarzo/",
     "priceGross": 149000,
-    "buyPrice": 91512,
-    "sellNetHint": 114390
+    "buyPrice": 114390,
+    "sellNetHint": 114976,
+    "sellNet": 114976
   },
   {
     "group": "infrasugarzo",
@@ -473,8 +525,9 @@
     "slug": "veito-ch1800-rt-belteri-hosugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-rt-belteri-hosugarzo/",
     "priceGross": 49000,
-    "buyPrice": 30094,
-    "sellNetHint": 37618
+    "buyPrice": 37618,
+    "sellNetHint": 37811,
+    "sellNet": 37811
   },
   {
     "group": "infrasugarzo",
@@ -482,8 +535,9 @@
     "slug": "veito-ch1200-rt-belteri-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1200-rt-belteri-infrasugarzo/",
     "priceGross": 39000,
-    "buyPrice": 23953,
-    "sellNetHint": 29941
+    "buyPrice": 29941,
+    "sellNetHint": 30094,
+    "sellNet": 30094
   },
   {
     "group": "infrasugarzo",
@@ -491,8 +545,9 @@
     "slug": "veito-ch1800-re-belteri-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-re-belteri-infrasugarzo/",
     "priceGross": 53000,
-    "buyPrice": 32551,
-    "sellNetHint": 40689
+    "buyPrice": 40689,
+    "sellNetHint": 40898,
+    "sellNet": 40898
   },
   {
     "group": "infrasugarzo",
@@ -500,8 +555,9 @@
     "slug": "veito-nevada-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-nevada-infrasugarzo/",
     "priceGross": 54000,
-    "buyPrice": 33166,
-    "sellNetHint": 41457
+    "buyPrice": 41457,
+    "sellNetHint": 41669,
+    "sellNet": 41669
   },
   {
     "group": "kiegeszitok",
@@ -509,8 +565,9 @@
     "slug": "veito-teleszkopos-allvany",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/veito-teleszkopos-allvany/",
     "priceGross": 15000,
-    "buyPrice": 9213,
-    "sellNetHint": 11516
+    "buyPrice": 11516,
+    "sellNetHint": 11575,
+    "sellNet": 11575
   },
   {
     "group": "infrasugarzo",
@@ -518,8 +575,9 @@
     "slug": "intuis-irm-mono-2000w-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/intuis-irm-mono-2000w-infrasugarzo/",
     "priceGross": 89000,
-    "buyPrice": 54662,
-    "sellNetHint": 68327
+    "buyPrice": 68327,
+    "sellNetHint": 68677,
+    "sellNet": 68677
   },
   {
     "group": "kiegeszitok",
@@ -527,8 +585,9 @@
     "slug": "allvany-radialight-oasi-infrasugarzohoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/allvany-radialight-oasi-infrasugarzohoz/",
     "priceGross": 100000,
-    "buyPrice": 61418,
-    "sellNetHint": 76772
+    "buyPrice": 76772,
+    "sellNetHint": 77165,
+    "sellNet": 77165
   },
   {
     "group": "kiegeszitok",
@@ -536,8 +595,9 @@
     "slug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 13500,
-    "buyPrice": 8291,
-    "sellNetHint": 10364
+    "buyPrice": 10364,
+    "sellNetHint": 10417,
+    "sellNet": 10417
   },
   {
     "group": "kiegeszitok",
@@ -545,8 +605,9 @@
     "slug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 5100,
-    "buyPrice": 3132,
-    "sellNetHint": 3915
+    "buyPrice": 3915,
+    "sellNetHint": 3935,
+    "sellNet": 3935
   },
   {
     "group": "kiegeszitok",
@@ -554,8 +615,9 @@
     "slug": "kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz/",
     "priceGross": 8900,
-    "buyPrice": 5466,
-    "sellNetHint": 6833
+    "buyPrice": 6833,
+    "sellNetHint": 6868,
+    "sellNet": 6868
   },
   {
     "group": "kiegeszitok",
@@ -563,8 +625,9 @@
     "slug": "kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke/",
     "priceGross": 8900,
-    "buyPrice": 5466,
-    "sellNetHint": 6833
+    "buyPrice": 6833,
+    "sellNetHint": 6868,
+    "sellNet": 6868
   },
   {
     "group": "kiegeszitok",
@@ -572,8 +635,9 @@
     "slug": "taviranyito-radialight-oasi-infrasugarzohoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/taviranyito-radialight-oasi-infrasugarzohoz/",
     "priceGross": 9500,
-    "buyPrice": 5834,
-    "sellNetHint": 7293
+    "buyPrice": 7293,
+    "sellNetHint": 7331,
+    "sellNet": 7331
   },
   {
     "group": "kiegeszitok",
@@ -581,8 +645,9 @@
     "slug": "bvf-futokabel-teszter",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-futokabel-teszter/",
     "priceGross": 6000,
-    "buyPrice": 3685,
-    "sellNetHint": 4606
+    "buyPrice": 4606,
+    "sellNetHint": 4630,
+    "sellNet": 4630
   },
   {
     "group": "kiegeszitok",
@@ -590,8 +655,9 @@
     "slug": "futokabel-rogzitoszalag",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/futokabel-rogzitoszalag/",
     "priceGross": 5000,
-    "buyPrice": 3071,
-    "sellNetHint": 3839
+    "buyPrice": 3839,
+    "sellNetHint": 3858,
+    "sellNet": 3858
   },
   {
     "group": "kiegeszitok",
@@ -599,8 +665,9 @@
     "slug": "tartalek-bvf-l-pro-aluminiumos-rogzitoszalag",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-bvf-l-pro-aluminiumos-rogzitoszalag/",
     "priceGross": 9000,
-    "buyPrice": 5527,
-    "sellNetHint": 6909
+    "buyPrice": 6909,
+    "sellNetHint": 6945,
+    "sellNet": 6945
   },
   {
     "group": "kiegeszitok",
@@ -608,8 +675,9 @@
     "slug": "bvf-srhc-futokabel-csatlakozo-szett",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-srhc-futokabel-csatlakozo-szett/",
     "priceGross": 7000,
-    "buyPrice": 4299,
-    "sellNetHint": 5374
+    "buyPrice": 5374,
+    "sellNetHint": 5402,
+    "sellNet": 5402
   },
   {
     "group": "kiegeszitok",
@@ -617,8 +685,9 @@
     "slug": "rogzitoszalag-bvf-srhc-futokabelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/rogzitoszalag-bvf-srhc-futokabelhez/",
     "priceGross": 3000,
-    "buyPrice": 1842,
-    "sellNetHint": 2303
+    "buyPrice": 2303,
+    "sellNetHint": 2315,
+    "sellNet": 2315
   },
   {
     "group": "kiegeszitok",
@@ -626,8 +695,9 @@
     "slug": "h-mat-futoszonyeg-wfd-futokabel-javitokeszlet",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/h-mat-futoszonyeg-wfd-futokabel-javitokeszlet/",
     "priceGross": 7000,
-    "buyPrice": 4299,
-    "sellNetHint": 5374
+    "buyPrice": 5374,
+    "sellNetHint": 5402,
+    "sellNet": 5402
   },
   {
     "group": "kiegeszitok",
@@ -635,8 +705,9 @@
     "slug": "l-pro-alu-futoszonyeg-javitokeszlet",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/l-pro-alu-futoszonyeg-javitokeszlet/",
     "priceGross": 9000,
-    "buyPrice": 5527,
-    "sellNetHint": 6909
+    "buyPrice": 6909,
+    "sellNetHint": 6945,
+    "sellNet": 6945
   },
   {
     "group": "kiegeszitok",
@@ -644,8 +715,9 @@
     "slug": "kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db/",
     "priceGross": 1750,
-    "buyPrice": 1075,
-    "sellNetHint": 1344
+    "buyPrice": 1344,
+    "sellNetHint": 1350,
+    "sellNet": 1350
   },
   {
     "group": "kiegeszitok",
@@ -653,8 +725,9 @@
     "slug": "kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez/",
     "priceGross": 6000,
-    "buyPrice": 3685,
-    "sellNetHint": 4606
+    "buyPrice": 4606,
+    "sellNetHint": 4630,
+    "sellNet": 4630
   },
   {
     "group": "kiegeszitok",
@@ -662,8 +735,9 @@
     "slug": "kiegeszito-gorgos-lab-radialight-sirio-futopanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-gorgos-lab-radialight-sirio-futopanelhez/",
     "priceGross": 6900,
-    "buyPrice": 4238,
-    "sellNetHint": 5297
+    "buyPrice": 5297,
+    "sellNetHint": 5324,
+    "sellNet": 5324
   },
   {
     "group": "kiegeszitok",
@@ -671,8 +745,9 @@
     "slug": "kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez/",
     "priceGross": 19200,
-    "buyPrice": 11792,
-    "sellNetHint": 14740
+    "buyPrice": 14740,
+    "sellNetHint": 14816,
+    "sellNet": 14816
   },
   {
     "group": "kiegeszitok",
@@ -680,8 +755,9 @@
     "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher/",
     "priceGross": 6000,
-    "buyPrice": 3685,
-    "sellNetHint": 4606
+    "buyPrice": 4606,
+    "sellNetHint": 4630,
+    "sellNet": 4630
   },
   {
     "group": "kiegeszitok",
@@ -689,8 +765,9 @@
     "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke/",
     "priceGross": 6000,
-    "buyPrice": 3685,
-    "sellNetHint": 4606
+    "buyPrice": 4606,
+    "sellNetHint": 4630,
+    "sellNet": 4630
   },
   {
     "group": "kiegeszitok",
@@ -698,8 +775,9 @@
     "slug": "bvf-torolkozoszarito-sin-infrapanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-torolkozoszarito-sin-infrapanelhez/",
     "priceGross": 8000,
-    "buyPrice": 4914,
-    "sellNetHint": 6142
+    "buyPrice": 6142,
+    "sellNetHint": 6173,
+    "sellNet": 6173
   },
   {
     "group": "kiegeszitok",
@@ -707,8 +785,9 @@
     "slug": "bvf-infrapanel-mobil-konzol",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-infrapanel-mobil-konzol/",
     "priceGross": 6000,
-    "buyPrice": 3685,
-    "sellNetHint": 4606
+    "buyPrice": 4606,
+    "sellNetHint": 4630,
+    "sellNet": 4630
   },
   {
     "group": "kiegeszitok",
@@ -716,8 +795,9 @@
     "slug": "bvf-mennyezeti-gyorsrogzito-infrapanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-mennyezeti-gyorsrogzito-infrapanelhez/",
     "priceGross": 4000,
-    "buyPrice": 2457,
-    "sellNetHint": 3071
+    "buyPrice": 3071,
+    "sellNetHint": 3087,
+    "sellNet": 3087
   },
   {
     "group": "kiegeszitok",
@@ -725,8 +805,9 @@
     "slug": "kontaktor-25a-teljesitmenykapcsolo-rele",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kontaktor-25a-teljesitmenykapcsolo-rele/",
     "priceGross": 10000,
-    "buyPrice": 6142,
-    "sellNetHint": 7677
+    "buyPrice": 7677,
+    "sellNetHint": 7717,
+    "sellNet": 7717
   },
   {
     "group": "kiegeszitok",
@@ -734,8 +815,9 @@
     "slug": "obo-ug-66-szerelvenydoboz-6566-mm",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/obo-ug-66-szerelvenydoboz-6566-mm/",
     "priceGross": 127,
-    "buyPrice": 78,
-    "sellNetHint": 98
+    "buyPrice": 98,
+    "sellNetHint": 98,
+    "sellNet": 98
   },
   {
     "group": "kiegeszitok",
@@ -743,8 +825,9 @@
     "slug": "tartalek-padloszenzor-szobatermosztathoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-padloszenzor-szobatermosztathoz/",
     "priceGross": 2000,
-    "buyPrice": 1228,
-    "sellNetHint": 1535
+    "buyPrice": 1535,
+    "sellNetHint": 1543,
+    "sellNet": 1543
   },
   {
     "group": "kiegeszitok",
@@ -752,8 +835,9 @@
     "slug": "termosztat-rele",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/termosztat-rele/",
     "priceGross": 7500,
-    "buyPrice": 4606,
-    "sellNetHint": 5758
+    "buyPrice": 5758,
+    "sellNetHint": 5787,
+    "sellNet": 5787
   },
   {
     "group": "kiegeszitok",
@@ -761,8 +845,9 @@
     "slug": "vedocso",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/vedocso/",
     "priceGross": 1200,
-    "buyPrice": 737,
-    "sellNetHint": 921
+    "buyPrice": 921,
+    "sellNetHint": 926,
+    "sellNet": 926
   },
   {
     "group": "kiegeszitok",
@@ -770,7 +855,8 @@
     "slug": "kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz/",
     "priceGross": 3000,
-    "buyPrice": 1842,
-    "sellNetHint": 2303
+    "buyPrice": 2303,
+    "sellNetHint": 2315,
+    "sellNet": 2315
   }
 ]

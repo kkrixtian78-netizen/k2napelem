@@ -46,6 +46,13 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.heatGroup = item.heatGroup;
       changed = true;
     }
+    if (
+      typeof item.bvfGross === 'number' &&
+      existing.bvfGross !== item.bvfGross
+    ) {
+      existing.bvfGross = item.bvfGross;
+      changed = true;
+    }
     // BVF fűtés főanyagok: név / ár / csoport frissítése a seedhez
     if (item.topic === 'futes' && item.heatGroup && item.selectable !== false) {
       if (existing.name !== item.name) {

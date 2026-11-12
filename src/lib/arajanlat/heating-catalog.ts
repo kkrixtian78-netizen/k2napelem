@@ -8,7 +8,8 @@ type BvfProduct = {
   href: string;
   priceGross: number;
   buyPrice: number;
-  sellNetHint: number;
+  sellNetHint?: number;
+  sellNet?: number;
 };
 
 /** BVF webshopból betöltött fűtés főanyagok (csomagajánlatok és outlet nélkül). */
@@ -23,7 +24,10 @@ export function buildHeatingCatalogFromBvf(): CatalogItem[] {
     selectable: true,
     active: true,
     heatGroup: p.group,
-    notes: p.href ? `Forrás: ${p.href}` : undefined,
+    bvfGross: Math.max(0, Math.round(p.priceGross)),
+    notes: p.href
+      ? `Forrás: ${p.href} · Eladás: BVF bruttó −2% (nettó)`
+      : 'Eladás: BVF bruttó −2% (nettó)',
   }));
 }
 

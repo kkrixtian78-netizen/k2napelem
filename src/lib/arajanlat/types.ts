@@ -80,6 +80,11 @@ export type CatalogItem = {
   extraGroup?: SolarExtraGroup;
   /** Elektromos fűtés legördülő csoport */
   heatGroup?: HeatGroup;
+  /**
+   * BVF webshop bruttó listaár (Ft). Ha megvan, a fűtés eladási nettó =
+   * bruttó × 0,98 / 1,27 (2%-kal olcsóbb a BVF eladási áránál) — nem a 25% árrés.
+   */
+  bvfGross?: number;
 };
 
 export type QuoteLine = {
@@ -88,7 +93,7 @@ export type QuoteLine = {
   unit: string;
   quantity: number;
   buyPrice: number;
-  /** Eladási egységár = buyPrice × 1.25 */
+  /** Eladási egységár (általában buy × 1,25; BVF fűtésnél listaár −2%) */
   sellPrice: number;
   auto: boolean;
   category: CatalogCategory;
@@ -139,6 +144,9 @@ export type QuoteStore = {
 };
 
 export const MARGIN_MULTIPLIER = 1.25;
+
+/** BVF fűtés: eladás = BVF bruttó listaár × ez a szorzó (2% kedvezmény), majd / ÁFA → nettó. */
+export const BVF_HEAT_SELL_FACTOR = 0.98;
 
 export const TOPIC_LABELS: Record<TopicId, string> = {
   napelem: 'Napelemes rendszer',

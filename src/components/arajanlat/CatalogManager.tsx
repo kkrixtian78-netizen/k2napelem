@@ -10,6 +10,7 @@ import {
   type SolarExtraGroup,
   type TopicId,
 } from '../../lib/arajanlat/types';
+import { sellPriceForItem } from '../../lib/arajanlat/pricing';
 import { formatHuf } from './format';
 
 const TOPICS: Array<TopicId | 'all'> = ['napelem', 'villany', 'futes', 'all'];
@@ -259,9 +260,30 @@ export default function CatalogManager() {
               onChange={(e) => setForm({ ...form, buyPrice: Number(e.target.value) })}
             />
             <span className="mt-1 block text-xs text-ink-soft">
-              Eladás nettó: {formatHuf(Math.round(form.buyPrice * 1.25))}
+              Eladás nettó: {formatHuf(sellPriceForItem(form))}
+              {form.bvfGross ? ' (BVF listaár −2%)' : ' (beszerzés × 1,25)'}
             </span>
           </label>
+          {(form.topic === 'futes' || form.heatGroup) && (
+            <label className="text-sm">
+              <span className="mb-1 block font-medium">BVF bruttó listaár (Ft)</span>
+              <input
+                type="number"
+                min={0}
+                className="w-full rounded-md border border-line bg-white px-3 py-2"
+                value={form.bvfGross ?? 0}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    bvfGross: Number(e.target.value) || undefined,
+                  })
+                }
+              />
+              <span className="mt-1 block text-xs text-ink-soft">
+                Ha megvan: eladás = bruttó × 0,98 / 1,27 (nem 25% árrés).
+              </span>
+            </label>
+          )}
           <label className="flex items-center gap-2 text-sm sm:col-span-1">
             <input
               type="checkbox"
@@ -349,7 +371,7 @@ export default function CatalogManager() {
                   {formatHuf(item.buyPrice)} / {item.unit}
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap font-medium text-sky-deep">
-                  {formatHuf(Math.round(item.buyPrice * 1.25))}
+                  {formatHuf(sellPriceForItem(item))}
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap text-right">
                   <button type="button" className="text-sky-deep hover:underline" onClick={() => startEdit(item)}>

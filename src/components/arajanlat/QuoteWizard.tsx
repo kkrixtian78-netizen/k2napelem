@@ -12,6 +12,7 @@ import {
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
+import { sellPriceForItem } from '../../lib/arajanlat/pricing';
 import { formatHuf, grossFromNet, vatFromNet, vatPercentLabel } from './format';
 
 type Preview = {
@@ -496,8 +497,9 @@ export default function QuoteWizard() {
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Fűtés főanyagok (BVF)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként válassz terméket. A csomagajánlatok és outlet tételek nincsenek a listában. A szerelés és
-            fogyóanyag automatikusan hozzáadódik.
+            Csoportonként válassz terméket. A BVF termékek eladási ára a BVF listaárnál 2%-kal olcsóbb (nem a 25%
+            árrés). A csomagajánlatok és outlet tételek nincsenek a listában. A szerelés és fogyóanyag automatikusan
+            hozzáadódik.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {HEAT_GROUPS.map((group) => {
@@ -515,7 +517,7 @@ export default function QuoteWizard() {
                       <option value="">Nincs</option>
                       {options.map((p) => (
                         <option key={p.id} value={p.id}>
-                          {p.name} — {formatHuf(p.buyPrice)}
+                          {p.name} — {formatHuf(sellPriceForItem(p))}
                         </option>
                       ))}
                     </select>
