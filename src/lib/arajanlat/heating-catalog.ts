@@ -22,7 +22,7 @@ export function buildHeatingCatalogFromBvf(): CatalogItem[] {
   return (bvfHeatingProducts as BvfProduct[]).map((p) => {
     const id = `f-${p.slug}`.slice(0, 80);
     const bvfGross = Math.max(0, Math.round(p.priceGross));
-    // Beszerzés = BVF bruttó −15%; eladás bruttó = BVF −2% (lásd sellPriceForItem)
+    // Beszerzés nettó = BVF bruttó × 0,85 / 1,27; eladás bruttó = BVF × 0,98
     const buyPrice = bvfGross > 0 ? buyFromBvfGross(bvfGross) : Math.max(0, Math.round(p.buyPrice));
     return {
       id,
@@ -36,8 +36,8 @@ export function buildHeatingCatalogFromBvf(): CatalogItem[] {
       heatGroup: p.group,
       bvfGross,
       notes: p.href
-        ? `Forrás: ${p.href} · Beszerzés: BVF −15% · Eladás bruttó: BVF −2%`
-        : 'Beszerzés: BVF −15% · Eladás bruttó: BVF −2%',
+        ? `Forrás: ${p.href} · Beszerzés nettó: BVF bruttó −15% / 1,27 · Eladás bruttó: BVF −2%`
+        : 'Beszerzés nettó: BVF bruttó −15% / 1,27 · Eladás bruttó: BVF −2%',
     };
   });
 }

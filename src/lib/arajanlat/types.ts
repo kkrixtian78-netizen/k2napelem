@@ -82,7 +82,8 @@ export type CatalogItem = {
   heatGroup?: HeatGroup;
   /**
    * BVF webshop bruttó listaár (Ft). Ha megvan:
-   * beszerzés = bruttó × 0,85 (−15%), eladás bruttó = bruttó × 0,98 (−2%).
+   * beszerzés nettó = bruttó × 0,85 / 1,27 (−15% a BVF bruttóhoz képest, nettóban),
+   * eladás bruttó = bruttó × 0,98 (−2%).
    */
   bvfGross?: number;
 };
@@ -148,7 +149,7 @@ export const MARGIN_MULTIPLIER = 1.25;
 /** BVF fűtés: eladási bruttó = BVF bruttó listaár × 0,98 (2%-kal olcsóbb). */
 export const BVF_HEAT_SELL_FACTOR = 0.98;
 
-/** BVF fűtés: beszerzés = BVF bruttó listaár × 0,85 (15%-kal kedvezőbb). */
+/** BVF fűtés: beszerzés kedvezmény a BVF bruttó listaárhoz képest (15%). */
 export const BVF_HEAT_BUY_FACTOR = 0.85;
 
 export const TOPIC_LABELS: Record<TopicId, string> = {

@@ -281,7 +281,7 @@ export default function CatalogManager() {
                 }
               />
               <span className="mt-1 block text-xs text-ink-soft">
-                Beszerzés = BVF bruttó −15%. Eladás bruttó = BVF −2%.
+                Beszerzés nettó = BVF bruttó × 0,85 / 1,27. Eladás bruttó = BVF × 0,98.
               </span>
             </label>
           )}

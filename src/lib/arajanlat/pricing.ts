@@ -18,9 +18,12 @@ export function sellGrossFromBvf(bvfGross: number): number {
   return Math.round(bvfGross * BVF_HEAT_SELL_FACTOR);
 }
 
-/** BVF fűtés beszerzés: BVF bruttó listaár − 15%. */
+/**
+ * BVF fűtés beszerzési nettó:
+ * BVF bruttó × 0,85 / 1,27 (15%-kal kedvezőbb a BVF bruttó eladási árnál, nettóban tárolva).
+ */
 export function buyFromBvfGross(bvfGross: number): number {
-  return Math.round(bvfGross * BVF_HEAT_BUY_FACTOR);
+  return Math.round((bvfGross * BVF_HEAT_BUY_FACTOR) / (1 + VAT_RATE));
 }
 
 /**
