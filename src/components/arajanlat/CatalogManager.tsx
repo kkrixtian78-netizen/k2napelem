@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import {
   CATEGORY_LABELS,
   HEAT_GROUPS,
@@ -35,6 +35,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
   const [editing, setEditing] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function load() {
     const res = await fetch('/api/arajanlat/catalog');
@@ -64,6 +65,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
     setEditing(true);
     setMessage(null);
     setError(null);
+    requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
 
   function startNew() {
@@ -165,6 +167,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
 
       {editing && (
         <form
+          ref={formRef}
           onSubmit={onSubmit}
           className="grid gap-3 rounded-xl border border-line bg-paper/70 p-4 sm:grid-cols-2"
         >
@@ -174,9 +177,10 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
           <label className="text-sm">
             <span className="mb-1 block font-medium">Azonosító (id)</span>
             <input
-              className="w-full rounded-md border border-line bg-white px-3 py-2"
+              className="w-full rounded-md border border-line bg-white px-3 py-2 read-only:bg-mist/60"
               value={form.id}
               onChange={(e) => setForm({ ...form, id: e.target.value.trim() })}
+              readOnly={items.some((i) => i.id === form.id)}
               required
             />
           </label>

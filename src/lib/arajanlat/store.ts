@@ -53,7 +53,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.bvfGross = item.bvfGross;
       changed = true;
     }
-    if (existing.sellPriceFixed !== item.sellPriceFixed) {
+    if (existing.sellPriceFixed !== item.sellPriceFixed && item.topic !== 'napelem') {
       existing.sellPriceFixed = item.sellPriceFixed;
       changed = true;
     }
@@ -80,42 +80,9 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
         changed = true;
       }
     }
-    if (item.topic === 'napelem') {
-      if (existing.name !== item.name) {
-        existing.name = item.name;
-        changed = true;
-      }
-      if (existing.buyPrice !== item.buyPrice) {
-        existing.buyPrice = item.buyPrice;
-        changed = true;
-      }
-      if (existing.category !== item.category) {
-        existing.category = item.category;
-        changed = true;
-      }
-      if (existing.unit !== item.unit) {
-        existing.unit = item.unit;
-        changed = true;
-      }
-      if (existing.selectable !== item.selectable) {
-        existing.selectable = item.selectable;
-        changed = true;
-      }
-      if (existing.active !== item.active) {
-        existing.active = item.active;
-        changed = true;
-      }
-      if ((existing.notes ?? '') !== (item.notes ?? '')) {
-        existing.notes = item.notes;
-        changed = true;
-      }
-      if ((existing.extraGroup ?? '') !== (item.extraGroup ?? '')) {
-        existing.extraGroup = item.extraGroup;
-        changed = true;
-      }
-    }
     // Automatikus tételek neve / ára a seedhez igazodik
-    if (item.selectable === false) {
+    // A napelemes Excel-tételek árát a felhasználó szerkesztheti, azt nem írjuk vissza.
+    if (item.selectable === false && item.topic !== 'napelem') {
       if (existing.name !== item.name) {
         existing.name = item.name;
         changed = true;
@@ -149,13 +116,43 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
   }
-  const seedSolarIds = new Set(
-    SEED_CATALOG.filter((c) => c.topic === 'napelem').map((c) => c.id),
-  );
+  const legacySolarIds = new Set([
+    'panel-cs-hiku6-420',
+    'panel-astro-515',
+    'panel-ja-570',
+    'inv-deye-5k',
+    'inv-deye-8k',
+    'inv-deye-10k',
+    'inv-huawei-6k',
+    'bat-none',
+    'bat-deye-5',
+    'bat-deye-12',
+    'roof-cserep',
+    'roof-lemezes',
+    'roof-lapos',
+    'roof-fold',
+    'mount-cserep-set',
+    'mount-lemez-set',
+    'mount-lapos-set',
+    'mount-fold-set',
+    'cable-dc-6',
+    'cable-ac-5x6',
+    'prot-dc-box',
+    'prot-ac-box',
+    'cons-villany-misc',
+    'cons-solar-misc',
+    'labor-solar-panel',
+    'labor-solar-inv',
+    'labor-solar-bat',
+    'labor-solar-comm',
+    'opt-optimizer',
+    'opt-visszwatt',
+    'opt-tuzvedelmi',
+    'opt-tervezes',
+    'opt-hozott-jutalek',
+  ]);
   const beforeSolar = store.catalog.length;
-  store.catalog = store.catalog.filter(
-    (item) => item.topic !== 'napelem' || seedSolarIds.has(item.id),
-  );
+  store.catalog = store.catalog.filter((item) => !legacySolarIds.has(item.id));
   if (store.catalog.length !== beforeSolar) changed = true;
 
   // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
