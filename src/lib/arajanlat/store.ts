@@ -26,13 +26,20 @@ function atomicWrite(path: string, data: QuoteStore) {
   renameSync(tmp, path);
 }
 
-/** Új seed tételek beolvasása meglévő katalógusba (id alapján, meglévőt nem írja felül). */
+/** Új seed tételek + hiányzó mezők (pl. extraGroup) frissítése meglévő katalógusban. */
 function mergeMissingSeedItems(store: QuoteStore): boolean {
-  const have = new Set(store.catalog.map((c) => c.id));
+  const byId = new Map(store.catalog.map((c) => [c.id, c]));
   let changed = false;
   for (const item of SEED_CATALOG) {
-    if (!have.has(item.id)) {
+    const existing = byId.get(item.id);
+    if (!existing) {
       store.catalog.push(structuredClone(item));
+      changed = true;
+      continue;
+    }
+    // Kiegészítő csoport mező pótlása / frissítése seedből
+    if (item.extraGroup && existing.extraGroup !== item.extraGroup) {
+      existing.extraGroup = item.extraGroup;
       changed = true;
     }
   }

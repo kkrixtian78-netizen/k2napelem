@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import {
   CATEGORY_LABELS,
+  SOLAR_EXTRA_GROUPS,
   TOPIC_LABELS,
   type CatalogCategory,
   type CatalogItem,
+  type SolarExtraGroup,
   type TopicId,
 } from '../../lib/arajanlat/types';
 import { formatHuf } from './format';
@@ -193,6 +195,28 @@ export default function CatalogManager() {
               ))}
             </select>
           </label>
+          {form.category === 'kiegeszito' && (
+            <label className="text-sm">
+              <span className="mb-1 block font-medium">Napelem legördülő csoport</span>
+              <select
+                className="w-full rounded-md border border-line bg-white px-3 py-2"
+                value={form.extraGroup ?? ''}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    extraGroup: (e.target.value || undefined) as SolarExtraGroup | undefined,
+                  })
+                }
+              >
+                <option value="">—</option>
+                {SOLAR_EXTRA_GROUPS.map((g) => (
+                  <option key={g.id} value={g.id}>
+                    {g.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           <label className="text-sm">
             <span className="mb-1 block font-medium">Egység</span>
             <input

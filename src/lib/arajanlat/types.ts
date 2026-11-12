@@ -17,6 +17,29 @@ export type CatalogCategory =
   | 'kiegeszito'
   | 'egyeb';
 
+/** Napelem kiegészítő főanyag-csoport (legördülő mező). */
+export type SolarExtraGroup =
+  | 'optimizer'
+  | 'visszwatt'
+  | 'tuzvedelmi'
+  | 'tervezes'
+  | 'kiszallas'
+  | 'hozott-jutalek';
+
+export const SOLAR_EXTRA_GROUPS: Array<{
+  id: SolarExtraGroup;
+  label: string;
+  /** Optimalizálónál a mennyiség mező megjelenik */
+  qtyFollowsPanels?: boolean;
+}> = [
+  { id: 'optimizer', label: 'Optimalizálók', qtyFollowsPanels: true },
+  { id: 'visszwatt', label: 'Visszwatt védelem' },
+  { id: 'tuzvedelmi', label: 'Tűzvédelmi leválasztó' },
+  { id: 'tervezes', label: 'Tervezés / engedélyeztetés' },
+  { id: 'kiszallas', label: 'Kiszállás / szállítás' },
+  { id: 'hozott-jutalek', label: 'Hozott munka — jutalék' },
+];
+
 export type CatalogItem = {
   id: string;
   name: string;
@@ -29,6 +52,8 @@ export type CatalogItem = {
   /** Ha false, csak automatikusan kerülhet ajánlatba (nem választható főanyag) */
   selectable?: boolean;
   active: boolean;
+  /** Napelem kiegészítő legördülő csoport */
+  extraGroup?: SolarExtraGroup;
 };
 
 export type QuoteLine = {

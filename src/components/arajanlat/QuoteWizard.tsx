@@ -1,10 +1,12 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import {
   CATEGORY_LABELS,
+  SOLAR_EXTRA_GROUPS,
   TOPIC_LABELS,
   type CatalogItem,
   type ManualSelection,
   type QuoteLine,
+  type SolarExtraGroup,
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
@@ -13,6 +15,15 @@ import { formatHuf } from './format';
 type Preview = { lines: QuoteLine[]; totalBuy: number; totalSell: number };
 
 const TOPICS: TopicId[] = ['napelem', 'villany', 'futes'];
+
+const EMPTY_EXTRA_IDS: Record<SolarExtraGroup, string> = {
+  optimizer: '',
+  visszwatt: '',
+  tuzvedelmi: '',
+  tervezes: '',
+  kiszallas: '',
+  'hozott-jutalek': '',
+};
 
 export default function QuoteWizard() {
   const [topic, setTopic] = useState<TopicId | null>(null);
@@ -31,8 +42,9 @@ export default function QuoteWizard() {
   const [inverterId, setInverterId] = useState('');
   const [storageId, setStorageId] = useState('bat-none');
   const [roofTypeId, setRoofTypeId] = useState('roof-cserep');
-  /** Napelem kiegészítő főanyagok id → qty */
-  const [solarExtras, setSolarExtras] = useState<Record<string, number>>({});
+  /** Csoportonként választott katalógus id ('' = nincs) */
+  const [extraIds, setExtraIds] = useState<Record<SolarExtraGroup, string>>({ ...EMPTY_EXTRA_IDS });
+  const [optimizerQty, setOptimizerQty] = useState(12);
 
   // Manual
   const [selectedMains, setSelectedMains] = useState<Record<string, number>>({});
@@ -46,7 +58,7 @@ export default function QuoteWizard() {
     setSavedId(null);
     setPreview(null);
     setSelectedMains({});
-    setSolarExtras({});
+    setExtraIds({ ...EMPTY_EXTRA_IDS });
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
       .then((data) => {
@@ -61,6 +73,7 @@ export default function QuoteWizard() {
           setInverterId(invs[0]?.id ?? '');
           setStorageId(bats.find((b) => b.id === 'bat-none')?.id ?? bats[0]?.id ?? '');
           setRoofTypeId(roofs[0]?.id ?? '');
+          setOptimizerQty(12);
         }
       })
       .catch(() => setError('Nem sikerült betölteni a katalógust.'))
@@ -71,15 +84,19 @@ export default function QuoteWizard() {
     if (!topic) return null;
     if (topic === 'napelem') {
       if (!panelId || !inverterId || !roofTypeId) return null;
-      const extraItemIds = Object.keys(solarExtras).filter((id) => (solarExtras[id] ?? 0) > 0);
+      const chosen = Object.values(extraIds).filter(Boolean);
+      const extraQuantities: Record<string, number> = {};
+      for (const id of chosen) {
+        extraQuantities[id] = id === extraIds.optimizer ? Math.max(1, optimizerQty) : 1;
+      }
       return {
         panelId,
         panelCount,
         inverterId,
         storageId: storageId === 'bat-none' ? null : storageId,
         roofTypeId,
-        extraItemIds,
-        extraQuantities: solarExtras,
+        extraItemIds: chosen,
+        extraQuantities,
       } satisfies SolarSelection;
     }
     const mainItemIds = Object.keys(selectedMains).filter((id) => (selectedMains[id] ?? 0) > 0);
@@ -109,13 +126,18 @@ export default function QuoteWizard() {
   }
 
   useEffect(() => {
+    if (extraIds.optimizer) setOptimizerQty(Math.max(1, panelCount));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelCount]);
+
+  useEffect(() => {
     if (!topic) return;
     const t = setTimeout(() => {
       void refreshPreview();
     }, 200);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic, panelId, panelCount, inverterId, storageId, roofTypeId, solarExtras, selectedMains]);
+  }, [topic, panelId, panelCount, inverterId, storageId, roofTypeId, extraIds, optimizerQty, selectedMains]);
 
   async function onSave(e: FormEvent, status: 'draft' | 'final') {
     e.preventDefault();
@@ -163,20 +185,11 @@ export default function QuoteWizard() {
     setSelectedMains((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
   }
 
-  function toggleSolarExtra(id: string) {
-    setSolarExtras((prev) => {
-      const next = { ...prev };
-      if (next[id] != null) {
-        delete next[id];
-      } else {
-        next[id] = id === 'opt-optimizer' ? Math.max(1, panelCount) : 1;
-      }
-      return next;
-    });
-  }
-
-  function setSolarExtraQty(id: string, qty: number) {
-    setSolarExtras((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
+  function setExtraGroup(group: SolarExtraGroup, id: string) {
+    setExtraIds((prev) => ({ ...prev, [group]: id }));
+    if (group === 'optimizer' && id) {
+      setOptimizerQty((q) => (q > 0 ? q : Math.max(1, panelCount)));
+    }
   }
 
   if (!topic) {
@@ -216,12 +229,15 @@ export default function QuoteWizard() {
   const inverters = catalog.filter((c) => c.category === 'inverter');
   const storages = catalog.filter((c) => c.category === 'tarolo');
   const roofs = catalog.filter((c) => c.category === 'tetotipus');
-  const extras = catalog.filter(
-    (c) => c.selectable !== false && c.category === 'kiegeszito',
-  );
   const mains = catalog.filter(
     (c) => c.selectable !== false && c.category === 'foanyag',
   );
+
+  function extrasFor(group: SolarExtraGroup) {
+    return catalog.filter(
+      (c) => c.selectable !== false && c.category === 'kiegeszito' && c.extraGroup === group,
+    );
+  }
 
   return (
     <form onSubmit={(e) => onSave(e, 'draft')} className="reveal space-y-8">
@@ -345,47 +361,40 @@ export default function QuoteWizard() {
                 ))}
               </select>
             </Field>
-          </div>
 
-          <div className="space-y-2 pt-2">
-            <h3 className="font-display text-lg font-bold">További főanyagok (opcionális)</h3>
-            <p className="text-sm text-ink-soft">
-              Pipáld, ha kell: optimalizáló, visszwatt, tűzvédelmi leválasztó, tervezés, kiszállás, jutalék.
-            </p>
-            <ul className="divide-y divide-line rounded-xl border border-line bg-paper/60">
-              {extras.map((item) => {
-                const on = solarExtras[item.id] != null;
-                return (
-                  <li key={item.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
-                    <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-3">
-                      <input
-                        type="checkbox"
-                        checked={on}
-                        onChange={() => toggleSolarExtra(item.id)}
-                        className="size-4 accent-sky-deep"
-                      />
-                      <span className="min-w-0">
-                        <span className="block font-medium text-ink">{item.name}</span>
-                        <span className="text-xs text-ink-soft">
-                          beszerzés {formatHuf(item.buyPrice)} / {item.unit}
-                          {item.notes ? ` · ${item.notes}` : ''}
-                        </span>
-                      </span>
-                    </label>
-                    {on && (
-                      <input
-                        type="number"
-                        min={1}
-                        className="w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm"
-                        value={solarExtras[item.id] ?? 1}
-                        onChange={(e) => setSolarExtraQty(item.id, Number(e.target.value) || 1)}
-                        aria-label="Mennyiség"
-                      />
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
+            {SOLAR_EXTRA_GROUPS.map((group) => {
+              const options = extrasFor(group.id);
+              if (!options.length) return null;
+              return (
+                <Field key={group.id} label={group.label}>
+                  <select
+                    className="field"
+                    value={extraIds[group.id]}
+                    onChange={(e) => setExtraGroup(group.id, e.target.value)}
+                  >
+                    <option value="">Nincs</option>
+                    {options.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.name} — {formatHuf(p.buyPrice)}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+              );
+            })}
+
+            {extraIds.optimizer ? (
+              <Field label="Optimalizálók száma">
+                <input
+                  type="number"
+                  min={1}
+                  max={500}
+                  className="field"
+                  value={optimizerQty}
+                  onChange={(e) => setOptimizerQty(Number(e.target.value) || 1)}
+                />
+              </Field>
+            ) : null}
           </div>
         </section>
       ) : (
