@@ -156,9 +156,13 @@ export function buildManualBom(
 
   if (topic === 'futes') {
     // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)
-    // Rögzítéstechnika, majd a végén a szerelési munkadíj
+    // Rögzítéstechnika: 1 készlet / fő termék (BVF termék, nem szerelési anyag)
+    const foTermekek = mains.filter((m) => m.heatGroup && m.heatGroup !== 'szereles');
+    const foQty = foTermekek.reduce((s, m) => s + Math.max(1, qtyMap[m.id] ?? 1), 0);
+    if (foQty > 0) {
+      lines.push(lineFromCatalog(byId(catalog, 'f-auto-fogyo'), foQty, true));
+    }
     if (mains.length > 0) {
-      lines.push(lineFromCatalog(byId(catalog, 'f-auto-fogyo'), 1, true));
       lines.push(lineFromCatalog(byId(catalog, 'f-labor-panel'), 1, true));
     }
   }
