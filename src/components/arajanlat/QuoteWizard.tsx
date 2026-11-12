@@ -770,51 +770,45 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
               );
               if (!options.length) return null;
               const q = (villanyQuery[group.id] ?? '').trim().toLowerCase();
-              const matches =
-                q.length < 2
-                  ? []
-                  : options
-                      .filter((p) => `${p.name} ${p.notes ?? ''}`.toLowerCase().includes(q))
-                      .slice(0, 40);
+              const matches = q
+                ? options.filter((p) => `${p.name} ${p.notes ?? ''}`.toLowerCase().includes(q))
+                : options;
               const selected = options.filter((p) => (selectedMains[p.id] ?? 0) > 0);
               return (
                 <div key={group.id} className="space-y-2">
-                  <Field label={group.label}>
+                  <Field label={`${group.label} (${options.length})`}>
                     <input
                       className="field"
-                      placeholder="Keresés (legalább 2 karakter)…"
+                      placeholder="Szűrés névre…"
                       value={villanyQuery[group.id] ?? ''}
                       onChange={(e) =>
                         setVillanyQuery((prev) => ({ ...prev, [group.id]: e.target.value }))
                       }
                     />
-                    <select
-                      className="field mt-2"
-                      value=""
-                      disabled={!matches.length}
-                      onChange={(e) => {
-                        const id = e.target.value;
-                        if (!id) return;
-                        const item = options.find((p) => p.id === id);
-                        setSelectedMains((prev) => ({
-                          ...prev,
-                          [id]: prev[id] ?? (item?.unit === 'm' ? 10 : 1),
-                        }));
-                      }}
-                    >
-                      <option value="">
-                        {q.length < 2
-                          ? `${options.length} termék — keress a névre`
-                          : matches.length
-                            ? 'Találat hozzáadása…'
-                            : 'Nincs találat'}
-                      </option>
+                    <ul className="mt-2 max-h-64 overflow-y-auto rounded-md border border-line bg-white">
                       {matches.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {p.name} — {formatHuf(p.buyPrice)} / {p.unit}
-                        </option>
+                        <li key={p.id} className="border-b border-line last:border-b-0">
+                          <button
+                            type="button"
+                            className="flex w-full items-start justify-between gap-2 px-2 py-1.5 text-left text-sm hover:bg-mist"
+                            onClick={() =>
+                              setSelectedMains((prev) => ({
+                                ...prev,
+                                [p.id]: prev[p.id] ?? (p.unit === 'm' ? 10 : 1),
+                              }))
+                            }
+                          >
+                            <span>{p.name}</span>
+                            <span className="shrink-0 text-xs text-ink-soft">
+                              {formatHuf(p.buyPrice)} / {p.unit}
+                            </span>
+                          </button>
+                        </li>
                       ))}
-                    </select>
+                      {matches.length === 0 ? (
+                        <li className="px-2 py-2 text-sm text-ink-soft">Nincs találat</li>
+                      ) : null}
+                    </ul>
                   </Field>
                   {selected.length > 0 ? (
                     <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">

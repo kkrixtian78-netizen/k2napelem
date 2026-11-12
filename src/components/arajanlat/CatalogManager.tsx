@@ -59,7 +59,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
       return true;
     });
   }, [items, topic, q]);
-  const shown = q.trim().length < 2 && filtered.length > 200 ? filtered.slice(0, 80) : filtered;
+  const shown = filtered;
 
   function startEdit(item: CatalogItem) {
     setForm({ ...item });
@@ -403,11 +403,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-ink-soft">
-        {shown.length === filtered.length
-          ? `${filtered.length} tétel`
-          : `${shown.length} / ${filtered.length} tétel — a többihez írj a keresőbe`}
-      </p>
+      <p className="text-xs text-ink-soft">{filtered.length} tétel</p>
     </div>
   );
 }
