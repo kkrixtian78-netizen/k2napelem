@@ -28,10 +28,10 @@ if errorlevel 1 goto :failinstall
 
 :run
 echo.
-echo A program indul. A bongeszo magatol megnyilik, amikor kesz.
+echo A program indul. Amint a szerver kesz, megnyilik a bongeszo.
 echo Ha nem nyilik meg, ird be ezt a cimet: http://localhost:4321/arajanlat
 echo.
-start "" /b node scripts\open-quote.js
+start /min "K2 bongeszo" cmd /c "%~dp0nyisd-meg.bat"
 call npm.cmd start
 echo.
 echo A program leallt.
