@@ -143,23 +143,6 @@ export function buildManualBom(
     lines.push(lineFromCatalog(item, q, false));
   }
 
-  if (topic === 'villany') {
-    const pointLike = mains.filter((m) =>
-      ['v-vezetek-3x15', 'v-vezetek-3x25', 'v-vezetek-5x25', 'v-kapcsolo-csalad', 'v-led-panel'].includes(m.id),
-    );
-    const pointCount = pointLike.reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0) || mains.length;
-
-    const eloszto = mains.some((m) => m.id.startsWith('v-eloszto') || m.id === 'v-kazetta');
-
-    lines.push(lineFromCatalog(byId(catalog, 'v-auto-doboz'), Math.max(4, pointCount), true));
-    lines.push(lineFromCatalog(byId(catalog, 'v-auto-szigetelo'), 1, true));
-    lines.push(lineFromCatalog(byId(catalog, 'v-auto-csatorna'), Math.max(10, pointCount * 2), true));
-    lines.push(lineFromCatalog(byId(catalog, 'v-labor-pont'), Math.max(1, pointCount), true));
-    if (eloszto) {
-      lines.push(lineFromCatalog(byId(catalog, 'v-labor-eloszto'), 1, true));
-    }
-  }
-
   if (topic === 'futes') {
     // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)
     // Rögzítéstechnika + munkadíj: 1 / fő termék; munkadíj 2 db-enként 10% olcsóbb

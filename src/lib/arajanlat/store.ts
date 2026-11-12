@@ -173,9 +173,10 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     SEED_CATALOG.map((c) => c.villanyGroup).filter((id): id is string => Boolean(id)),
   );
   const beforeVillany = store.catalog.length;
-  store.catalog = store.catalog.filter(
-    (item) => !item.villanyGroup || keptVillanyGroups.has(item.villanyGroup),
-  );
+  store.catalog = store.catalog.filter((item) => {
+    if (item.topic === 'villany' && !item.villanyGroup) return false;
+    return !item.villanyGroup || keptVillanyGroups.has(item.villanyGroup);
+  });
   if (store.catalog.length !== beforeVillany) changed = true;
 
   // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
