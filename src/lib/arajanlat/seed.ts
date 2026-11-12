@@ -232,7 +232,7 @@ export const SEED_CATALOG: CatalogItem[] = [
   },
   {
     id: 'cons-villany-misc',
-    name: 'Egyéb villanyszerelési anyagok (MC4 csatl., gégecső, vez.csatorna)',
+    name: 'Villanyszerelési anyagok (vezetékek, MC4 csatl., gégecső, vez.csatorna)',
     topic: 'napelem',
     category: 'fogyocikk',
     unit: 'készlet',
