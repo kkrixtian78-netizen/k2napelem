@@ -81,9 +81,10 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
 
   // Manual (villany checkbox)
   const [selectedMains, setSelectedMains] = useState<Record<string, number>>({});
-  // Fűtés: csoportonként egy termék + mennyiség
-  const [heatIds, setHeatIds] = useState<Record<HeatGroup, string>>({ ...EMPTY_HEAT_IDS });
-  const [heatQtys, setHeatQtys] = useState<Record<string, number>>({});
+  /** Fűtés BVF termékek: több tétel / csoport (id → mennyiség) */
+  const [heatSelected, setHeatSelected] = useState<Record<string, number>>({});
+  /** Csoportonkénti „hozzáadás” legördülő ideiglenes értéke */
+  const [heatPicker, setHeatPicker] = useState<Record<HeatGroup, string>>({ ...EMPTY_HEAT_IDS });
   /** Szerelési anyagok: több tétel egyszerre (tartó / kábel / kismegszakító) */
   const [szerelesQty, setSzerelesQty] = useState<Record<string, number>>({});
 
@@ -97,8 +98,8 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setPreview(null);
     setSelectedMains({});
     setExtraIds({ ...EMPTY_EXTRA_IDS });
-    setHeatIds({ ...EMPTY_HEAT_IDS });
-    setHeatQtys({});
+    setHeatSelected({});
+    setHeatPicker({ ...EMPTY_HEAT_IDS });
     setSzerelesQty({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
@@ -141,15 +142,13 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
       } satisfies SolarSelection;
     }
     if (topic === 'futes') {
-      const fromGroups = Object.entries(heatIds)
-        .filter(([group, id]) => group !== 'szereles' && Boolean(id))
-        .map(([, id]) => id);
+      const fromGroups = Object.keys(heatSelected).filter((id) => (heatSelected[id] ?? 0) > 0);
       const fromSzereles = Object.keys(szerelesQty).filter((id) => (szerelesQty[id] ?? 0) > 0);
       const mainItemIds = [...fromGroups, ...fromSzereles];
       if (!mainItemIds.length) return null;
       const quantities: Record<string, number> = {};
       for (const id of fromGroups) {
-        quantities[id] = Math.max(1, heatQtys[id] ?? 1);
+        quantities[id] = Math.max(1, heatSelected[id] ?? 1);
       }
       for (const id of fromSzereles) {
         quantities[id] = Math.max(1, szerelesQty[id] ?? 1);
@@ -204,8 +203,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     extraIds,
     optimizerQty,
     selectedMains,
-    heatIds,
-    heatQtys,
+    heatSelected,
     szerelesQty,
     customerAddress,
   ]);
@@ -264,25 +262,22 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     }
   }
 
-  function setHeatGroup(group: HeatGroup, id: string) {
-    setHeatIds((prev) => {
-      const prevId = prev[group];
-      if (prevId && prevId !== id) {
-        setHeatQtys((q) => {
-          const next = { ...q };
-          delete next[prevId];
-          return next;
-        });
-      }
-      return { ...prev, [group]: id };
-    });
-    if (id) {
-      setHeatQtys((q) => ({ ...q, [id]: q[id] ?? 1 }));
-    }
+  function addHeatProduct(group: HeatGroup, id: string) {
+    if (!id) return;
+    setHeatSelected((prev) => ({ ...prev, [id]: prev[id] ?? 1 }));
+    setHeatPicker((prev) => ({ ...prev, [group]: '' }));
   }
 
-  function setHeatQty(id: string, qty: number) {
-    setHeatQtys((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
+  function removeHeatProduct(id: string) {
+    setHeatSelected((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
+  }
+
+  function setHeatProductQty(id: string, qty: number) {
+    setHeatSelected((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
   }
 
   if (!topic) {
@@ -521,9 +516,8 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Fűtés főanyagok (BVF)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként válassz terméket. A BVF termékeknél a listában a bruttó eladási ár látszik (BVF − 2%).
-            Beszerzés nettó: BVF bruttó − 15% (ÁFA nélkül). A tételsorban nettó van; ÁFA / bruttó az összesenél.
-            Csomagajánlatok és outlet nincsenek a listában.
+            Csoportonként több termék is hozzáadható (pl. többféle fűtőpanel). A BVF listában bruttó eladási ár
+            látszik (BVF − 2%). A tételsorban nettó van; ÁFA / bruttó az összesenél.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {HEAT_GROUPS.map((group) => {
@@ -587,17 +581,21 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                 );
               }
 
-              const selectedId = heatIds[group.id];
+              const selectedInGroup = options.filter((p) => (heatSelected[p.id] ?? 0) > 0);
+              const available = options.filter((p) => !(heatSelected[p.id] ?? 0));
               return (
                 <div key={group.id} className="space-y-2">
                   <Field label={group.label}>
                     <select
                       className="field"
-                      value={selectedId}
-                      onChange={(e) => setHeatGroup(group.id, e.target.value)}
+                      value={heatPicker[group.id] ?? ''}
+                      onChange={(e) => addHeatProduct(group.id, e.target.value)}
+                      disabled={!available.length}
                     >
-                      <option value="">Nincs</option>
-                      {options.map((p) => {
+                      <option value="">
+                        {available.length ? 'Termék hozzáadása…' : 'Minden termék hozzáadva'}
+                      </option>
+                      {available.map((p) => {
                         const disp = displaySellForItem(p);
                         return (
                           <option key={p.id} value={p.id}>
@@ -608,17 +606,39 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                       })}
                     </select>
                   </Field>
-                  {selectedId ? (
-                    <Field label="Mennyiség">
-                      <input
-                        type="number"
-                        min={1}
-                        max={500}
-                        className="field"
-                        value={heatQtys[selectedId] ?? 1}
-                        onChange={(e) => setHeatQty(selectedId, Number(e.target.value) || 1)}
-                      />
-                    </Field>
+                  {selectedInGroup.length > 0 ? (
+                    <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">
+                      {selectedInGroup.map((p) => {
+                        const disp = displaySellForItem(p);
+                        return (
+                          <li key={p.id} className="flex flex-wrap items-center gap-2 text-sm">
+                            <span className="min-w-0 flex-1">
+                              <span className="block font-medium text-ink">{p.name}</span>
+                              <span className="text-xs text-ink-soft">
+                                {formatHuf(disp.amount)}
+                                {disp.gross ? ' bruttó' : ''}
+                              </span>
+                            </span>
+                            <input
+                              type="number"
+                              min={1}
+                              max={500}
+                              className="w-20 rounded-md border border-line px-2 py-1"
+                              value={heatSelected[p.id] ?? 1}
+                              onChange={(e) => setHeatProductQty(p.id, Number(e.target.value) || 1)}
+                              aria-label="Mennyiség"
+                            />
+                            <button
+                              type="button"
+                              className="text-xs font-semibold text-sun-deep hover:underline"
+                              onClick={() => removeHeatProduct(p.id)}
+                            >
+                              Eltávolít
+                            </button>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   ) : null}
                 </div>
               );
