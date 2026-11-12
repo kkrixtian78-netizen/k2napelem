@@ -116,9 +116,7 @@ export default function QuoteDocument({
         <div className="font-display text-2xl font-bold text-sky-deep">
           Bruttó fizetendő: {formatHuf(gross)}
         </div>
-        <p className="max-w-md text-right text-xs text-ink-soft">
-          A tételsor árak nettó Ft-ban értendők. Az árajánlat a {brand.name} belső kalkulációja alapján készült.
-        </p>
+        <p className="max-w-md text-right text-xs text-ink-soft">A tételsor árak nettó Ft-ban értendők.</p>
       </section>
     </article>
   );
