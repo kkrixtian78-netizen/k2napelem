@@ -155,32 +155,11 @@ export function buildManualBom(
   }
 
   if (topic === 'futes') {
-    const panelGroups = new Set([
-      'futopanel',
-      'infrapanel',
-      'torolkozoszarito',
-      'gyorsfuto',
-      'futheto-tukor',
-      'infrasugarzo',
-    ]);
-    const floorGroups = new Set(['padlofutes', 'kulteri-futokabel']);
-
-    const panelLike = mains.filter((m) => m.heatGroup && panelGroups.has(m.heatGroup));
-    const floorLike = mains.filter((m) => m.heatGroup && floorGroups.has(m.heatGroup));
-    const panelQty = panelLike.reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0);
-    const floorQty = floorLike.reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0);
-
     // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)
-    if (panelQty > 0) {
-      lines.push(lineFromCatalog(byId(catalog, 'f-labor-panel'), panelQty, true));
-    }
-    if (floorQty > 0) {
-      lines.push(lineFromCatalog(byId(catalog, 'f-labor-padlo'), floorQty, true));
-    }
-
-    // Rögzítéstechnika mindig, ha van bármilyen főanyag
+    // Rögzítéstechnika, majd a végén a szerelési munkadíj
     if (mains.length > 0) {
       lines.push(lineFromCatalog(byId(catalog, 'f-auto-fogyo'), 1, true));
+      lines.push(lineFromCatalog(byId(catalog, 'f-labor-panel'), 1, true));
     }
   }
 
@@ -197,7 +176,17 @@ export function buildQuoteLines(
     topic === 'napelem'
       ? buildSolarBom(catalog, selection as SolarSelection)
       : buildManualBom(catalog, topic, selection as ManualSelection);
-  return appendTravelLine(catalog, lines, options?.travelRoundTripKm);
+  const withTravel = appendTravelLine(catalog, lines, options?.travelRoundTripKm);
+  // Fűtés: szerelési munkadíj mindig a lista végén (kiszállás után is)
+  if (topic === 'futes') {
+    const laborId = 'f-labor-panel';
+    const laborIdx = withTravel.findIndex((l) => l.catalogId === laborId);
+    if (laborIdx >= 0) {
+      const [labor] = withTravel.splice(laborIdx, 1);
+      withTravel.push(labor);
+    }
+  }
+  return withTravel;
 }
 
 export function withTotals(lines: QuoteLine[]) {

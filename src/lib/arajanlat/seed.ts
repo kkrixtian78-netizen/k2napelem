@@ -566,11 +566,12 @@ export const SEED_CATALOG: CatalogItem[] = [
   },
   {
     id: 'f-labor-panel',
-    name: 'Szerelési munkadíj — infrapanel / konvektor',
+    name: 'Szerelési munkadíj',
     topic: 'futes',
     category: 'munkadij',
     unit: 'db',
-    buyPrice: 12000,
+    buyPrice: 0,
+    sellPriceFixed: 10000,
     selectable: false,
     active: true,
   },
@@ -582,7 +583,7 @@ export const SEED_CATALOG: CatalogItem[] = [
     unit: 'm²',
     buyPrice: 4500,
     selectable: false,
-    active: true,
+    active: false,
   },
 ];
 

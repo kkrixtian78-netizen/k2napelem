@@ -106,6 +106,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     'box-ac',
     'conn-mc4',
     ...LEGACY_HEATING_MAIN_IDS,
+    'f-labor-padlo',
   ]) {
     const legacy = byId.get(id);
     if (legacy && legacy.active) {
