@@ -22,7 +22,7 @@ A program a gépen fut, az ajánlatok a `data/arajanlat/store.json` fájlban mar
 
 1. Töltsd le a ZIP-et, és bontsd ki. Ne a ZIP belsejéből indítsd.
 2. A `k2napelem-cursor-arajanlat-keszito-640b` mappában kattints duplán az `Inditas.bat` fájlra.
-3. A fekete ablak nyitva marad. Az első indítás 2–5 perc, közben sorok jelennek meg. Utána megnyílik a böngésző: [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat).
+3. A fekete ablak nyitva marad. Az első indítás 2–5 perc, közben sorok jelennek meg. Utána megnyílik a böngésző: [http://127.0.0.1:4321/arajanlat](http://127.0.0.1:4321/arajanlat).
 
 Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
 

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev --port 4321",
+    "start": "astro dev --port 4321 --host 127.0.0.1",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
