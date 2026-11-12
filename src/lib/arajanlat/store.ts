@@ -53,7 +53,11 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.bvfGross = item.bvfGross;
       changed = true;
     }
-    // BVF fűtés főanyagok: név / ár / csoport frissítése a seedhez
+    if (existing.sellPriceFixed !== item.sellPriceFixed) {
+      existing.sellPriceFixed = item.sellPriceFixed;
+      changed = true;
+    }
+    // BVF / szerelés fűtés főanyagok: név / ár / csoport frissítése a seedhez
     if (item.topic === 'futes' && item.heatGroup && item.selectable !== false) {
       if (existing.name !== item.name) {
         existing.name = item.name;
@@ -69,6 +73,10 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       }
       if (existing.category !== item.category) {
         existing.category = item.category;
+        changed = true;
+      }
+      if (existing.selectable !== item.selectable) {
+        existing.selectable = item.selectable;
         changed = true;
       }
     }

@@ -169,22 +169,19 @@ export function buildManualBom(
     const floorLike = mains.filter((m) => m.heatGroup && floorGroups.has(m.heatGroup));
     const panelQty = panelLike.reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0);
     const floorQty = floorLike.reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0);
-    const otherQty = mains
-      .filter((m) => !panelLike.includes(m) && !floorLike.includes(m))
-      .reduce((s, m) => s + (qtyMap[m.id] ?? 1), 0);
 
+    // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)
     if (panelQty > 0) {
-      lines.push(lineFromCatalog(byId(catalog, 'f-auto-tarto'), panelQty, true));
       lines.push(lineFromCatalog(byId(catalog, 'f-labor-panel'), panelQty, true));
     }
     if (floorQty > 0) {
       lines.push(lineFromCatalog(byId(catalog, 'f-labor-padlo'), floorQty, true));
     }
 
-    const circuitCount = Math.max(1, panelQty + (floorQty > 0 ? 1 : 0) + (otherQty > 0 ? 1 : 0));
-    lines.push(lineFromCatalog(byId(catalog, 'f-auto-kabel'), circuitCount * 8, true));
-    lines.push(lineFromCatalog(byId(catalog, 'f-auto-vedelem'), circuitCount, true));
-    lines.push(lineFromCatalog(byId(catalog, 'f-auto-fogyo'), 1, true));
+    // Rögzítéstechnika mindig, ha van bármilyen főanyag
+    if (mains.length > 0) {
+      lines.push(lineFromCatalog(byId(catalog, 'f-auto-fogyo'), 1, true));
+    }
   }
 
   return lines;

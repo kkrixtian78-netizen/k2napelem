@@ -44,6 +44,7 @@ const EMPTY_HEAT_IDS: Record<HeatGroup, string> = {
   'futheto-tukor': '',
   infrasugarzo: '',
   kiegeszitok: '',
+  szereles: '',
 };
 
 export default function QuoteWizard() {
@@ -73,6 +74,8 @@ export default function QuoteWizard() {
   // Fűtés: csoportonként egy termék + mennyiség
   const [heatIds, setHeatIds] = useState<Record<HeatGroup, string>>({ ...EMPTY_HEAT_IDS });
   const [heatQtys, setHeatQtys] = useState<Record<string, number>>({});
+  /** Szerelési anyagok: több tétel egyszerre (tartó / kábel / kismegszakító) */
+  const [szerelesQty, setSzerelesQty] = useState<Record<string, number>>({});
 
   const [preview, setPreview] = useState<Preview | null>(null);
 
@@ -86,6 +89,7 @@ export default function QuoteWizard() {
     setExtraIds({ ...EMPTY_EXTRA_IDS });
     setHeatIds({ ...EMPTY_HEAT_IDS });
     setHeatQtys({});
+    setSzerelesQty({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
       .then((data) => {
@@ -127,11 +131,18 @@ export default function QuoteWizard() {
       } satisfies SolarSelection;
     }
     if (topic === 'futes') {
-      const mainItemIds = Object.values(heatIds).filter(Boolean);
+      const fromGroups = Object.entries(heatIds)
+        .filter(([group, id]) => group !== 'szereles' && Boolean(id))
+        .map(([, id]) => id);
+      const fromSzereles = Object.keys(szerelesQty).filter((id) => (szerelesQty[id] ?? 0) > 0);
+      const mainItemIds = [...fromGroups, ...fromSzereles];
       if (!mainItemIds.length) return null;
       const quantities: Record<string, number> = {};
-      for (const id of mainItemIds) {
+      for (const id of fromGroups) {
         quantities[id] = Math.max(1, heatQtys[id] ?? 1);
+      }
+      for (const id of fromSzereles) {
+        quantities[id] = Math.max(1, szerelesQty[id] ?? 1);
       }
       return { mainItemIds, quantities } satisfies ManualSelection;
     }
@@ -185,6 +196,7 @@ export default function QuoteWizard() {
     selectedMains,
     heatIds,
     heatQtys,
+    szerelesQty,
     customerAddress,
   ]);
 
@@ -507,6 +519,64 @@ export default function QuoteWizard() {
             {HEAT_GROUPS.map((group) => {
               const options = heatFor(group.id);
               if (!options.length) return null;
+
+              // Szerelési anyagok: több tétel is választható, mindegyik saját legördülővel
+              if (group.id === 'szereles') {
+                return (
+                  <div key={group.id} className="space-y-3 sm:col-span-2">
+                    <h3 className="text-sm font-semibold text-ink">{group.label}</h3>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      {options.map((p) => {
+                        const on = (szerelesQty[p.id] ?? 0) > 0;
+                        const disp = displaySellForItem(p);
+                        return (
+                          <div key={p.id} className="space-y-2">
+                            <Field label={p.name}>
+                              <select
+                                className="field"
+                                value={on ? p.id : ''}
+                                onChange={(e) => {
+                                  const v = e.target.value;
+                                  setSzerelesQty((prev) => {
+                                    const next = { ...prev };
+                                    if (!v) delete next[p.id];
+                                    else next[p.id] = prev[p.id] ?? (p.unit === 'm' ? 8 : 1);
+                                    return next;
+                                  });
+                                }}
+                              >
+                                <option value="">Nincs</option>
+                                <option value={p.id}>
+                                  {p.name} — {formatHuf(disp.amount)}
+                                  {disp.gross ? ' bruttó' : ''}
+                                </option>
+                              </select>
+                            </Field>
+                            {on ? (
+                              <Field label={`Mennyiség (${p.unit})`}>
+                                <input
+                                  type="number"
+                                  min={1}
+                                  max={500}
+                                  className="field"
+                                  value={szerelesQty[p.id] ?? 1}
+                                  onChange={(e) =>
+                                    setSzerelesQty((prev) => ({
+                                      ...prev,
+                                      [p.id]: Math.max(1, Number(e.target.value) || 1),
+                                    }))
+                                  }
+                                />
+                              </Field>
+                            ) : null}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+
               const selectedId = heatIds[group.id];
               return (
                 <div key={group.id} className="space-y-2">

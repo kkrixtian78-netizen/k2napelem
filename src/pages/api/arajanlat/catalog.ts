@@ -42,6 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
     extraGroup: item.extraGroup,
     heatGroup: item.heatGroup,
     bvfGross: item.bvfGross,
+    sellPriceFixed: item.sellPriceFixed,
   });
   return Response.json({ item: saved });
 };

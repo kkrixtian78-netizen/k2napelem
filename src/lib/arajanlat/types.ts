@@ -38,7 +38,7 @@ export const SOLAR_EXTRA_GROUPS: Array<{
   { id: 'hozott-jutalek', label: 'Hozott munka — jutalék' },
 ];
 
-/** Elektromos fűtés termékcsoport (BVF katalógus legördülők). */
+/** Elektromos fűtés termékcsoport (BVF + szerelési anyagok legördülők). */
 export type HeatGroup =
   | 'padlofutes'
   | 'termosztat'
@@ -49,7 +49,8 @@ export type HeatGroup =
   | 'kulteri-futokabel'
   | 'futheto-tukor'
   | 'infrasugarzo'
-  | 'kiegeszitok';
+  | 'kiegeszitok'
+  | 'szereles';
 
 export const HEAT_GROUPS: Array<{ id: HeatGroup; label: string }> = [
   { id: 'padlofutes', label: 'Elektromos padlófűtés' },
@@ -62,6 +63,7 @@ export const HEAT_GROUPS: Array<{ id: HeatGroup; label: string }> = [
   { id: 'futheto-tukor', label: 'Fűthető tükör' },
   { id: 'infrasugarzo', label: 'Infrasugárzók' },
   { id: 'kiegeszitok', label: 'Kiegészítők, alkatrészek' },
+  { id: 'szereles', label: 'Szerelési anyagok' },
 ];
 
 export type CatalogItem = {
@@ -86,6 +88,8 @@ export type CatalogItem = {
    * eladás bruttó = bruttó × 0,98 (−2%).
    */
   bvfGross?: number;
+  /** Fix eladási nettó (pl. rögzítéstechnika: 2000 Ft) — felülírja a szorzós árazást */
+  sellPriceFixed?: number;
 };
 
 export type QuoteLine = {

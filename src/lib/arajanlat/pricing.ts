@@ -32,6 +32,9 @@ export function buyFromBvfGross(bvfGross: number): number {
  * Egyébként: beszerzés × 1,25.
  */
 export function sellPriceForItem(item: CatalogItem): number {
+  if (typeof item.sellPriceFixed === 'number' && item.sellPriceFixed >= 0) {
+    return Math.round(item.sellPriceFixed);
+  }
   const gross = item.bvfGross;
   if (typeof gross === 'number' && gross > 0) {
     return Math.round(sellGrossFromBvf(gross) / (1 + VAT_RATE));
@@ -41,6 +44,9 @@ export function sellPriceForItem(item: CatalogItem): number {
 
 /** Megjelenítéshez: BVF fűtésnél bruttó eladási ár, egyébként nettó eladás. */
 export function displaySellForItem(item: CatalogItem): { amount: number; gross: boolean } {
+  if (typeof item.sellPriceFixed === 'number' && item.sellPriceFixed >= 0) {
+    return { amount: Math.round(item.sellPriceFixed), gross: false };
+  }
   const gross = item.bvfGross;
   if (typeof gross === 'number' && gross > 0) {
     return { amount: sellGrossFromBvf(gross), gross: true };
