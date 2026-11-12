@@ -239,7 +239,7 @@ export const SEED_CATALOG: CatalogItem[] = [
     buyPrice: 18500,
     selectable: false,
     active: true,
-    notes: 'MC4, gégecső, vezetékcsatorna — AC doboz alá',
+    notes: 'Alapcsomag; a BOM a DC kábel költségét (6 m/panel) is hozzáadja',
   },
   {
     id: 'cons-solar-misc',

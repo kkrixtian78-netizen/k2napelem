@@ -52,17 +52,27 @@ export function buildSolarBom(
     lines.push(lineFromCatalog(mount, panels, true));
   }
 
-  // DC kábel: ~6 m / panel (string + tartalék)
-  const dcCable = byId(catalog, 'cable-dc-6');
-  lines.push(lineFromCatalog(dcCable, panels * 6, true));
-
   // AC kábel: fix 15 m alap
   const acCable = byId(catalog, 'cable-ac-5x6');
   lines.push(lineFromCatalog(acCable, 15, true));
 
-  for (const id of ['prot-dc-box', 'prot-ac-box', 'cons-villany-misc', 'cons-solar-misc']) {
-    lines.push(lineFromCatalog(byId(catalog, id), 1, true));
-  }
+  lines.push(lineFromCatalog(byId(catalog, 'prot-dc-box'), 1, true));
+  lines.push(lineFromCatalog(byId(catalog, 'prot-ac-box'), 1, true));
+
+  // Egyéb vill. anyagok: alapcsomag + DC kábel (6 m/panel) összevonva
+  const villanyMisc = byId(catalog, 'cons-villany-misc');
+  const dcCable = tryById(catalog, 'cable-dc-6');
+  const dcCableMeters = panels * 6;
+  const dcCableBuy = (dcCable?.buyPrice ?? 420) * dcCableMeters;
+  lines.push(
+    lineFromCatalog(
+      { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy },
+      1,
+      true,
+    ),
+  );
+
+  lines.push(lineFromCatalog(byId(catalog, 'cons-solar-misc'), 1, true));
 
   lines.push(lineFromCatalog(byId(catalog, 'labor-solar-panel'), panels, true));
   lines.push(lineFromCatalog(byId(catalog, 'labor-solar-inv'), 1, true));
