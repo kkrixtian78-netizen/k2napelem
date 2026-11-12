@@ -294,6 +294,18 @@ export default function QuoteWizard() {
           />
         </label>
         <label className="block text-sm">
+          <span className="mb-1 block font-medium text-ink">Cím</span>
+          <input
+            className="w-full rounded-md border border-line bg-white px-3 py-2"
+            value={customerAddress}
+            onChange={(e) => setCustomerAddress(e.target.value)}
+            placeholder="pl. 2000 Szentendre, Fő tér 1."
+          />
+          <span className="mt-1 block text-xs text-ink-soft">
+            Ebből számolódik automatikusan a kiszállás: Pócsmegyer → ügyfél oda-vissza × 300 Ft/km.
+          </span>
+        </label>
+        <label className="block text-sm">
           <span className="mb-1 block font-medium text-ink">Telefonszám</span>
           <input
             type="tel"
@@ -312,18 +324,6 @@ export default function QuoteWizard() {
             onChange={(e) => setCustomerEmail(e.target.value)}
             placeholder="pl. ugyfel@email.hu"
           />
-        </label>
-        <label className="block text-sm">
-          <span className="mb-1 block font-medium text-ink">Cím</span>
-          <input
-            className="w-full rounded-md border border-line bg-white px-3 py-2"
-            value={customerAddress}
-            onChange={(e) => setCustomerAddress(e.target.value)}
-            placeholder="pl. 2000 Szentendre, Fő tér 1."
-          />
-          <span className="mt-1 block text-xs text-ink-soft">
-            Ebből számolódik automatikusan a kiszállás: Pócsmegyer → ügyfél oda-vissza × 300 Ft/km.
-          </span>
         </label>
       </section>
 
