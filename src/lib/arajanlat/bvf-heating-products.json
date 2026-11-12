@@ -5,12 +5,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1045",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 16500,
-    "buyPrice": 12667,
+    "buyPrice": 13922,
     "sellNet": 12732,
     "sellNetHint": 12732,
     "variantLabel": "100 W/m² / 1,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1045
+    "variationId": 1045,
+    "sellGross": 16170
   },
   {
     "group": "padlofutes",
@@ -18,12 +19,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1037",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 25000,
-    "buyPrice": 19193,
+    "buyPrice": 21094,
     "sellNet": 19291,
     "sellNetHint": 19291,
     "variantLabel": "100 W/m² / 2,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1037
+    "variationId": 1037,
+    "sellGross": 24500
   },
   {
     "group": "padlofutes",
@@ -31,12 +33,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1039",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 33000,
-    "buyPrice": 25335,
+    "buyPrice": 27844,
     "sellNet": 25465,
     "sellNetHint": 25465,
     "variantLabel": "100 W/m² / 3,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1039
+    "variationId": 1039,
+    "sellGross": 32340
   },
   {
     "group": "padlofutes",
@@ -44,12 +47,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1040",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 40000,
-    "buyPrice": 30709,
+    "buyPrice": 33750,
     "sellNet": 30866,
     "sellNetHint": 30866,
     "variantLabel": "100 W/m² / 4,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1040
+    "variationId": 1040,
+    "sellGross": 39200
   },
   {
     "group": "padlofutes",
@@ -57,12 +61,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1041",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 48000,
-    "buyPrice": 36850,
+    "buyPrice": 40500,
     "sellNet": 37039,
     "sellNetHint": 37039,
     "variantLabel": "100 W/m² / 5,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1041
+    "variationId": 1041,
+    "sellGross": 47040
   },
   {
     "group": "padlofutes",
@@ -70,12 +75,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1042",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 53000,
-    "buyPrice": 40689,
+    "buyPrice": 44719,
     "sellNet": 40898,
     "sellNetHint": 40898,
     "variantLabel": "100 W/m² / 6,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1042
+    "variationId": 1042,
+    "sellGross": 51940
   },
   {
     "group": "padlofutes",
@@ -83,12 +89,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1043",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 55000,
-    "buyPrice": 42224,
+    "buyPrice": 46406,
     "sellNet": 42441,
     "sellNetHint": 42441,
     "variantLabel": "100 W/m² / 7,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1043
+    "variationId": 1043,
+    "sellGross": 53900
   },
   {
     "group": "padlofutes",
@@ -96,12 +103,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1032",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 60000,
-    "buyPrice": 46063,
+    "buyPrice": 50625,
     "sellNet": 46299,
     "sellNetHint": 46299,
     "variantLabel": "100 W/m² / 8,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1032
+    "variationId": 1032,
+    "sellGross": 58800
   },
   {
     "group": "padlofutes",
@@ -109,12 +117,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1031",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 68000,
-    "buyPrice": 52205,
+    "buyPrice": 57375,
     "sellNet": 52472,
     "sellNetHint": 52472,
     "variantLabel": "100 W/m² / 9,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1031
+    "variationId": 1031,
+    "sellGross": 66640
   },
   {
     "group": "padlofutes",
@@ -122,12 +131,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1044",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 75000,
-    "buyPrice": 57579,
+    "buyPrice": 63281,
     "sellNet": 57874,
     "sellNetHint": 57874,
     "variantLabel": "100 W/m² / 10,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1044
+    "variationId": 1044,
+    "sellGross": 73500
   },
   {
     "group": "padlofutes",
@@ -135,12 +145,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1033",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 89000,
-    "buyPrice": 68327,
+    "buyPrice": 75094,
     "sellNet": 68677,
     "sellNetHint": 68677,
     "variantLabel": "100 W/m² / 12,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1033
+    "variationId": 1033,
+    "sellGross": 87220
   },
   {
     "group": "padlofutes",
@@ -148,12 +159,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1034",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 102500,
-    "buyPrice": 78691,
+    "buyPrice": 86484,
     "sellNet": 79094,
     "sellNetHint": 79094,
     "variantLabel": "100 W/m² / 14,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1034
+    "variationId": 1034,
+    "sellGross": 100450
   },
   {
     "group": "padlofutes",
@@ -161,12 +173,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1035",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "100 W/m² / 16,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1035
+    "variationId": 1035,
+    "sellGross": 117600
   },
   {
     "group": "padlofutes",
@@ -174,12 +187,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1036",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 131000,
-    "buyPrice": 100571,
+    "buyPrice": 110531,
     "sellNet": 101087,
     "sellNetHint": 101087,
     "variantLabel": "100 W/m² / 18,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1036
+    "variationId": 1036,
+    "sellGross": 128380
   },
   {
     "group": "padlofutes",
@@ -187,12 +201,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1038",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 140000,
-    "buyPrice": 107480,
+    "buyPrice": 118125,
     "sellNet": 108031,
     "sellNetHint": 108031,
     "variantLabel": "100 W/m² / 20,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1038
+    "variationId": 1038,
+    "sellGross": 137200
   },
   {
     "group": "padlofutes",
@@ -200,12 +215,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1030",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 13000,
-    "buyPrice": 9980,
+    "buyPrice": 10969,
     "sellNet": 10031,
     "sellNetHint": 10031,
     "variantLabel": "150 W/m² / 0,5 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1030
+    "variationId": 1030,
+    "sellGross": 12740
   },
   {
     "group": "padlofutes",
@@ -213,12 +229,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1029",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 16000,
-    "buyPrice": 12283,
+    "buyPrice": 13500,
     "sellNet": 12346,
     "sellNetHint": 12346,
     "variantLabel": "150 W/m² / 1,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1029
+    "variationId": 1029,
+    "sellGross": 15680
   },
   {
     "group": "padlofutes",
@@ -226,12 +243,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1028",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 19000,
-    "buyPrice": 14587,
+    "buyPrice": 16031,
     "sellNet": 14661,
     "sellNetHint": 14661,
     "variantLabel": "150 W/m² / 1,5 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1028
+    "variationId": 1028,
+    "sellGross": 18620
   },
   {
     "group": "padlofutes",
@@ -239,12 +257,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1024",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 23500,
-    "buyPrice": 18041,
+    "buyPrice": 19828,
     "sellNet": 18134,
     "sellNetHint": 18134,
     "variantLabel": "150 W/m² / 2,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1024
+    "variationId": 1024,
+    "sellGross": 23030
   },
   {
     "group": "padlofutes",
@@ -252,12 +271,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1025",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 28000,
-    "buyPrice": 21496,
+    "buyPrice": 23625,
     "sellNet": 21606,
     "sellNetHint": 21606,
     "variantLabel": "150 W/m² / 2,5 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1025
+    "variationId": 1025,
+    "sellGross": 27440
   },
   {
     "group": "padlofutes",
@@ -265,12 +285,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1012",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 30000,
-    "buyPrice": 23031,
+    "buyPrice": 25312,
     "sellNet": 23150,
     "sellNetHint": 23150,
     "variantLabel": "150 W/m² / 3,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1012
+    "variationId": 1012,
+    "sellGross": 29400
   },
   {
     "group": "padlofutes",
@@ -278,12 +299,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1013",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 35000,
-    "buyPrice": 26870,
+    "buyPrice": 29531,
     "sellNet": 27008,
     "sellNetHint": 27008,
     "variantLabel": "150 W/m² / 3,5 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1013
+    "variationId": 1013,
+    "sellGross": 34300
   },
   {
     "group": "padlofutes",
@@ -291,12 +313,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1014",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 40000,
-    "buyPrice": 30709,
+    "buyPrice": 33750,
     "sellNet": 30866,
     "sellNetHint": 30866,
     "variantLabel": "150 W/m² / 4,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1014
+    "variationId": 1014,
+    "sellGross": 39200
   },
   {
     "group": "padlofutes",
@@ -304,12 +327,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1015",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 44500,
-    "buyPrice": 34163,
+    "buyPrice": 37547,
     "sellNet": 34339,
     "sellNetHint": 34339,
     "variantLabel": "150 W/m² / 4,5 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1015
+    "variationId": 1015,
+    "sellGross": 43610
   },
   {
     "group": "padlofutes",
@@ -317,12 +341,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1016",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 49500,
-    "buyPrice": 38002,
+    "buyPrice": 41766,
     "sellNet": 38197,
     "sellNetHint": 38197,
     "variantLabel": "150 W/m² / 5,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1016
+    "variationId": 1016,
+    "sellGross": 48510
   },
   {
     "group": "padlofutes",
@@ -330,12 +355,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1017",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 53000,
-    "buyPrice": 40689,
+    "buyPrice": 44719,
     "sellNet": 40898,
     "sellNetHint": 40898,
     "variantLabel": "150 W/m² / 6,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1017
+    "variationId": 1017,
+    "sellGross": 51940
   },
   {
     "group": "padlofutes",
@@ -343,12 +369,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1018",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 55000,
-    "buyPrice": 42224,
+    "buyPrice": 46406,
     "sellNet": 42441,
     "sellNetHint": 42441,
     "variantLabel": "150 W/m² / 7,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1018
+    "variationId": 1018,
+    "sellGross": 53900
   },
   {
     "group": "padlofutes",
@@ -356,12 +383,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1019",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 60000,
-    "buyPrice": 46063,
+    "buyPrice": 50625,
     "sellNet": 46299,
     "sellNetHint": 46299,
     "variantLabel": "150 W/m² / 8,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1019
+    "variationId": 1019,
+    "sellGross": 58800
   },
   {
     "group": "padlofutes",
@@ -369,12 +397,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1011",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 68000,
-    "buyPrice": 52205,
+    "buyPrice": 57375,
     "sellNet": 52472,
     "sellNetHint": 52472,
     "variantLabel": "150 W/m² / 9,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1011
+    "variationId": 1011,
+    "sellGross": 66640
   },
   {
     "group": "padlofutes",
@@ -382,12 +411,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1027",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 72000,
-    "buyPrice": 55276,
+    "buyPrice": 60750,
     "sellNet": 55559,
     "sellNetHint": 55559,
     "variantLabel": "150 W/m² / 10,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1027
+    "variationId": 1027,
+    "sellGross": 70560
   },
   {
     "group": "padlofutes",
@@ -395,12 +425,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1020",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 86000,
-    "buyPrice": 66024,
+    "buyPrice": 72562,
     "sellNet": 66362,
     "sellNetHint": 66362,
     "variantLabel": "150 W/m² / 12,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1020
+    "variationId": 1020,
+    "sellGross": 84280
   },
   {
     "group": "padlofutes",
@@ -408,12 +439,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1021",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 104000,
-    "buyPrice": 79843,
+    "buyPrice": 87750,
     "sellNet": 80252,
     "sellNetHint": 80252,
     "variantLabel": "150 W/m² / 14,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1021
+    "variationId": 1021,
+    "sellGross": 101920
   },
   {
     "group": "padlofutes",
@@ -421,12 +453,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1022",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 118000,
-    "buyPrice": 90591,
+    "buyPrice": 99562,
     "sellNet": 91055,
     "sellNetHint": 91055,
     "variantLabel": "150 W/m² / 16,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1022
+    "variationId": 1022,
+    "sellGross": 115640
   },
   {
     "group": "padlofutes",
@@ -434,12 +467,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1023",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 128000,
-    "buyPrice": 98268,
+    "buyPrice": 108000,
     "sellNet": 98772,
     "sellNetHint": 98772,
     "variantLabel": "150 W/m² / 18,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1023
+    "variationId": 1023,
+    "sellGross": 125440
   },
   {
     "group": "padlofutes",
@@ -447,12 +481,13 @@
     "slug": "bvf-h-mat-elektromos-futoszonyeg--v1026",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
     "priceGross": 138000,
-    "buyPrice": 105945,
+    "buyPrice": 116438,
     "sellNet": 106488,
     "sellNetHint": 106488,
     "variantLabel": "150 W/m² / 20,0 m²",
     "parentSlug": "bvf-h-mat-elektromos-futoszonyeg",
-    "variationId": 1026
+    "variationId": 1026,
+    "sellGross": 135240
   },
   {
     "group": "padlofutes",
@@ -460,12 +495,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v967",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 16000,
-    "buyPrice": 12283,
+    "buyPrice": 13500,
     "sellNet": 12346,
     "sellNetHint": 12346,
     "variantLabel": "1,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 967
+    "variationId": 967,
+    "sellGross": 15680
   },
   {
     "group": "padlofutes",
@@ -473,12 +509,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v962",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 25000,
-    "buyPrice": 19193,
+    "buyPrice": 21094,
     "sellNet": 19291,
     "sellNetHint": 19291,
     "variantLabel": "2,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 962
+    "variationId": 962,
+    "sellGross": 24500
   },
   {
     "group": "padlofutes",
@@ -486,12 +523,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v960",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 34000,
-    "buyPrice": 26102,
+    "buyPrice": 28688,
     "sellNet": 26236,
     "sellNetHint": 26236,
     "variantLabel": "3,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 960
+    "variationId": 960,
+    "sellGross": 33320
   },
   {
     "group": "padlofutes",
@@ -499,12 +537,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v959",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 40000,
-    "buyPrice": 30709,
+    "buyPrice": 33750,
     "sellNet": 30866,
     "sellNetHint": 30866,
     "variantLabel": "4,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 959
+    "variationId": 959,
+    "sellGross": 39200
   },
   {
     "group": "padlofutes",
@@ -512,12 +551,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v958",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 47500,
-    "buyPrice": 36467,
+    "buyPrice": 40078,
     "sellNet": 36654,
     "sellNetHint": 36654,
     "variantLabel": "5,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 958
+    "variationId": 958,
+    "sellGross": 46550
   },
   {
     "group": "padlofutes",
@@ -525,12 +565,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v957",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 56000,
-    "buyPrice": 42992,
+    "buyPrice": 47250,
     "sellNet": 43213,
     "sellNetHint": 43213,
     "variantLabel": "6,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 957
+    "variationId": 957,
+    "sellGross": 54880
   },
   {
     "group": "padlofutes",
@@ -538,12 +579,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v956",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 62000,
-    "buyPrice": 47598,
+    "buyPrice": 52312,
     "sellNet": 47843,
     "sellNetHint": 47843,
     "variantLabel": "7,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 956
+    "variationId": 956,
+    "sellGross": 60760
   },
   {
     "group": "padlofutes",
@@ -551,12 +593,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v955",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 69500,
-    "buyPrice": 53356,
+    "buyPrice": 58641,
     "sellNet": 53630,
     "sellNetHint": 53630,
     "variantLabel": "8,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 955
+    "variationId": 955,
+    "sellGross": 68110
   },
   {
     "group": "padlofutes",
@@ -564,12 +607,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v954",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 75000,
-    "buyPrice": 57579,
+    "buyPrice": 63281,
     "sellNet": 57874,
     "sellNetHint": 57874,
     "variantLabel": "9,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 954
+    "variationId": 954,
+    "sellGross": 73500
   },
   {
     "group": "padlofutes",
@@ -577,12 +621,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v966",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 84000,
-    "buyPrice": 64488,
+    "buyPrice": 70875,
     "sellNet": 64819,
     "sellNetHint": 64819,
     "variantLabel": "10,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 966
+    "variationId": 966,
+    "sellGross": 82320
   },
   {
     "group": "padlofutes",
@@ -590,12 +635,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v965",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 92000,
-    "buyPrice": 70630,
+    "buyPrice": 77625,
     "sellNet": 70992,
     "sellNetHint": 70992,
     "variantLabel": "12,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 965
+    "variationId": 965,
+    "sellGross": 90160
   },
   {
     "group": "padlofutes",
@@ -603,12 +649,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v964",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 112000,
-    "buyPrice": 85984,
+    "buyPrice": 94500,
     "sellNet": 86425,
     "sellNetHint": 86425,
     "variantLabel": "14,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 964
+    "variationId": 964,
+    "sellGross": 109760
   },
   {
     "group": "padlofutes",
@@ -616,12 +663,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v963",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 133000,
-    "buyPrice": 102106,
+    "buyPrice": 112219,
     "sellNet": 102630,
     "sellNetHint": 102630,
     "variantLabel": "16,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 963
+    "variationId": 963,
+    "sellGross": 130340
   },
   {
     "group": "padlofutes",
@@ -629,12 +677,13 @@
     "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2--v961",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
     "priceGross": 169000,
-    "buyPrice": 129744,
+    "buyPrice": 142594,
     "sellNet": 130409,
     "sellNetHint": 130409,
     "variantLabel": "20,0 m²",
     "parentSlug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
-    "variationId": 961
+    "variationId": 961,
+    "sellGross": 165620
   },
   {
     "group": "padlofutes",
@@ -642,12 +691,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v930",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 24500,
-    "buyPrice": 18809,
+    "buyPrice": 20672,
     "sellNet": 18906,
     "sellNetHint": 18906,
     "variantLabel": "10 W/m / 20 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 930
+    "variationId": 930,
+    "sellGross": 24010
   },
   {
     "group": "padlofutes",
@@ -655,12 +705,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v940",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 38500,
-    "buyPrice": 29557,
+    "buyPrice": 32484,
     "sellNet": 29709,
     "sellNetHint": 29709,
     "variantLabel": "10 W/m / 40 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 940
+    "variationId": 940,
+    "sellGross": 37730
   },
   {
     "group": "padlofutes",
@@ -668,12 +719,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v941",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 56500,
-    "buyPrice": 43376,
+    "buyPrice": 47672,
     "sellNet": 43598,
     "sellNetHint": 43598,
     "variantLabel": "10 W/m / 60 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 941
+    "variationId": 941,
+    "sellGross": 55370
   },
   {
     "group": "padlofutes",
@@ -681,12 +733,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v942",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 70500,
-    "buyPrice": 54124,
+    "buyPrice": 59484,
     "sellNet": 54402,
     "sellNetHint": 54402,
     "variantLabel": "10 W/m / 80 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 942
+    "variationId": 942,
+    "sellGross": 69090
   },
   {
     "group": "padlofutes",
@@ -694,12 +747,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v946",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 84000,
-    "buyPrice": 64488,
+    "buyPrice": 70875,
     "sellNet": 64819,
     "sellNetHint": 64819,
     "variantLabel": "10 W/m / 100 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 946
+    "variationId": 946,
+    "sellGross": 82320
   },
   {
     "group": "padlofutes",
@@ -707,12 +761,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v945",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 99000,
-    "buyPrice": 76004,
+    "buyPrice": 83531,
     "sellNet": 76394,
     "sellNetHint": 76394,
     "variantLabel": "10 W/m / 120 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 945
+    "variationId": 945,
+    "sellGross": 97020
   },
   {
     "group": "padlofutes",
@@ -720,12 +775,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v944",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 116000,
-    "buyPrice": 89055,
+    "buyPrice": 97875,
     "sellNet": 89512,
     "sellNetHint": 89512,
     "variantLabel": "10 W/m / 140 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 944
+    "variationId": 944,
+    "sellGross": 113680
   },
   {
     "group": "padlofutes",
@@ -733,12 +789,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v928",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 126000,
-    "buyPrice": 96732,
+    "buyPrice": 106312,
     "sellNet": 97228,
     "sellNetHint": 97228,
     "variantLabel": "10 W/m / 160 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 928
+    "variationId": 928,
+    "sellGross": 123480
   },
   {
     "group": "padlofutes",
@@ -746,12 +803,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v929",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 132000,
-    "buyPrice": 101339,
+    "buyPrice": 111375,
     "sellNet": 101858,
     "sellNetHint": 101858,
     "variantLabel": "10 W/m / 180 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 929
+    "variationId": 929,
+    "sellGross": 129360
   },
   {
     "group": "padlofutes",
@@ -759,12 +817,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v939",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 146000,
-    "buyPrice": 112087,
+    "buyPrice": 123188,
     "sellNet": 112661,
     "sellNetHint": 112661,
     "variantLabel": "10 W/m / 200 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 939
+    "variationId": 939,
+    "sellGross": 143080
   },
   {
     "group": "padlofutes",
@@ -772,12 +831,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v943",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 17000,
-    "buyPrice": 13051,
+    "buyPrice": 14344,
     "sellNet": 13118,
     "sellNetHint": 13118,
     "variantLabel": "20 W/m / 10 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 943
+    "variationId": 943,
+    "sellGross": 16660
   },
   {
     "group": "padlofutes",
@@ -785,12 +845,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v918",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 27000,
-    "buyPrice": 20728,
+    "buyPrice": 22781,
     "sellNet": 20835,
     "sellNetHint": 20835,
     "variantLabel": "20 W/m / 20 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 918
+    "variationId": 918,
+    "sellGross": 26460
   },
   {
     "group": "padlofutes",
@@ -798,12 +859,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v919",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 32000,
-    "buyPrice": 24567,
+    "buyPrice": 27000,
     "sellNet": 24693,
     "sellNetHint": 24693,
     "variantLabel": "20 W/m / 30 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 919
+    "variationId": 919,
+    "sellGross": 31360
   },
   {
     "group": "padlofutes",
@@ -811,12 +873,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v920",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 39500,
-    "buyPrice": 30325,
+    "buyPrice": 33328,
     "sellNet": 30480,
     "sellNetHint": 30480,
     "variantLabel": "20 W/m / 40 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 920
+    "variationId": 920,
+    "sellGross": 38710
   },
   {
     "group": "padlofutes",
@@ -824,12 +887,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v921",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 43500,
-    "buyPrice": 33396,
+    "buyPrice": 36703,
     "sellNet": 33567,
     "sellNetHint": 33567,
     "variantLabel": "20 W/m / 50 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 921
+    "variationId": 921,
+    "sellGross": 42630
   },
   {
     "group": "padlofutes",
@@ -837,12 +901,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v922",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 49500,
-    "buyPrice": 38002,
+    "buyPrice": 41766,
     "sellNet": 38197,
     "sellNetHint": 38197,
     "variantLabel": "20 W/m / 60 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 922
+    "variationId": 922,
+    "sellGross": 48510
   },
   {
     "group": "padlofutes",
@@ -850,12 +915,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v923",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 56000,
-    "buyPrice": 42992,
+    "buyPrice": 47250,
     "sellNet": 43213,
     "sellNetHint": 43213,
     "variantLabel": "20 W/m / 70 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 923
+    "variationId": 923,
+    "sellGross": 54880
   },
   {
     "group": "padlofutes",
@@ -863,12 +929,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v924",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 62500,
-    "buyPrice": 47982,
+    "buyPrice": 52734,
     "sellNet": 48228,
     "sellNetHint": 48228,
     "variantLabel": "20 W/m / 80 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 924
+    "variationId": 924,
+    "sellGross": 61250
   },
   {
     "group": "padlofutes",
@@ -876,12 +943,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v914",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 66000,
-    "buyPrice": 50669,
+    "buyPrice": 55688,
     "sellNet": 50929,
     "sellNetHint": 50929,
     "variantLabel": "20 W/m / 90 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 914
+    "variationId": 914,
+    "sellGross": 64680
   },
   {
     "group": "padlofutes",
@@ -889,12 +957,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v927",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 73500,
-    "buyPrice": 56427,
+    "buyPrice": 62016,
     "sellNet": 56717,
     "sellNetHint": 56717,
     "variantLabel": "20 W/m / 100 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 927
+    "variationId": 927,
+    "sellGross": 72030
   },
   {
     "group": "padlofutes",
@@ -902,12 +971,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v926",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 80000,
-    "buyPrice": 61417,
+    "buyPrice": 67500,
     "sellNet": 61732,
     "sellNetHint": 61732,
     "variantLabel": "20 W/m / 110 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 926
+    "variationId": 926,
+    "sellGross": 78400
   },
   {
     "group": "padlofutes",
@@ -915,12 +985,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v925",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 84000,
-    "buyPrice": 64488,
+    "buyPrice": 70875,
     "sellNet": 64819,
     "sellNetHint": 64819,
     "variantLabel": "20 W/m / 120 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 925
+    "variationId": 925,
+    "sellGross": 82320
   },
   {
     "group": "padlofutes",
@@ -928,12 +999,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v915",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 87500,
-    "buyPrice": 67175,
+    "buyPrice": 73828,
     "sellNet": 67520,
     "sellNetHint": 67520,
     "variantLabel": "20 W/m / 130 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 915
+    "variationId": 915,
+    "sellGross": 85750
   },
   {
     "group": "padlofutes",
@@ -941,12 +1013,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v916",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 94500,
-    "buyPrice": 72549,
+    "buyPrice": 79734,
     "sellNet": 72921,
     "sellNetHint": 72921,
     "variantLabel": "20 W/m / 140 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 916
+    "variationId": 916,
+    "sellGross": 92610
   },
   {
     "group": "padlofutes",
@@ -954,12 +1027,13 @@
     "slug": "bvf-wfd-elektromos-futokabel--v917",
     "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
     "priceGross": 103000,
-    "buyPrice": 79075,
+    "buyPrice": 86906,
     "sellNet": 79480,
     "sellNetHint": 79480,
     "variantLabel": "20 W/m / 155 m",
     "parentSlug": "bvf-wfd-elektromos-futokabel",
-    "variationId": 917
+    "variationId": 917,
+    "sellGross": 100940
   },
   {
     "group": "termosztat",
@@ -967,11 +1041,12 @@
     "slug": "bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesit",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez/",
     "priceGross": 40000,
-    "buyPrice": 30709,
+    "buyPrice": 33750,
     "sellNet": 30866,
     "sellNetHint": 30866,
     "variantLabel": "",
-    "parentSlug": "bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez"
+    "parentSlug": "bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez",
+    "sellGross": 39200
   },
   {
     "group": "termosztat",
@@ -979,11 +1054,12 @@
     "slug": "eti-1551-termosztat-csokisero-futeshez-etf-622-hom",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor/",
     "priceGross": 61000,
-    "buyPrice": 46831,
+    "buyPrice": 51469,
     "sellNet": 47071,
     "sellNetHint": 47071,
     "variantLabel": "",
-    "parentSlug": "eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor"
+    "parentSlug": "eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor",
+    "sellGross": 59780
   },
   {
     "group": "termosztat",
@@ -991,11 +1067,12 @@
     "slug": "eti-1551-termosztat-csokisero-futeshez-etf-744-hom",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor/",
     "priceGross": 68000,
-    "buyPrice": 52205,
+    "buyPrice": 57375,
     "sellNet": 52472,
     "sellNetHint": 52472,
     "variantLabel": "",
-    "parentSlug": "eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor"
+    "parentSlug": "eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor",
+    "sellGross": 66640
   },
   {
     "group": "termosztat",
@@ -1003,11 +1080,12 @@
     "slug": "etor-55-ereszcsatorna-csapadekerzekelo-etf-744-hom",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor/",
     "priceGross": 105000,
-    "buyPrice": 80610,
+    "buyPrice": 88594,
     "sellNet": 81024,
     "sellNetHint": 81024,
     "variantLabel": "",
-    "parentSlug": "etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor"
+    "parentSlug": "etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor",
+    "sellGross": 102900
   },
   {
     "group": "termosztat",
@@ -1015,11 +1093,12 @@
     "slug": "etog-55-talajerzekelo-szenzor-csapadek-es-homersek",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere/",
     "priceGross": 124000,
-    "buyPrice": 95197,
+    "buyPrice": 104625,
     "sellNet": 95685,
     "sellNetHint": 95685,
     "variantLabel": "",
-    "parentSlug": "etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere"
+    "parentSlug": "etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere",
+    "sellGross": 121520
   },
   {
     "group": "termosztat",
@@ -1027,11 +1106,12 @@
     "slug": "etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsato",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez/",
     "priceGross": 107000,
-    "buyPrice": 82146,
+    "buyPrice": 90281,
     "sellNet": 82567,
     "sellNetHint": 82567,
     "variantLabel": "",
-    "parentSlug": "etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez"
+    "parentSlug": "etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez",
+    "sellGross": 104860
   },
   {
     "group": "termosztat",
@@ -1039,11 +1119,12 @@
     "slug": "etr2-termosztat-etor55-csapadek-szenzor-etf-744-ho",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor/",
     "priceGross": 212000,
-    "buyPrice": 162756,
+    "buyPrice": 178875,
     "sellNet": 163591,
     "sellNetHint": 163591,
     "variantLabel": "",
-    "parentSlug": "etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor"
+    "parentSlug": "etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor",
+    "sellGross": 207760
   },
   {
     "group": "termosztat",
@@ -1051,11 +1132,12 @@
     "slug": "etr2-termosztat-etog55-talajszenzor",
     "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etog55-talajszenzor/",
     "priceGross": 231000,
-    "buyPrice": 177343,
+    "buyPrice": 194906,
     "sellNet": 178252,
     "sellNetHint": 178252,
     "variantLabel": "",
-    "parentSlug": "etr2-termosztat-etog55-talajszenzor"
+    "parentSlug": "etr2-termosztat-etog55-talajszenzor",
+    "sellGross": 226380
   },
   {
     "group": "termosztat",
@@ -1063,12 +1145,13 @@
     "slug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor--v908",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-501-wifi-szobatermosztat-3m-padloszenzor/",
     "priceGross": 19500,
-    "buyPrice": 14970,
+    "buyPrice": 16453,
     "sellNet": 15047,
     "sellNetHint": 15047,
     "variantLabel": "Fehér",
     "parentSlug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor",
-    "variationId": 908
+    "variationId": 908,
+    "sellGross": 19110
   },
   {
     "group": "termosztat",
@@ -1076,12 +1159,13 @@
     "slug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor--v909",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-501-wifi-szobatermosztat-3m-padloszenzor/",
     "priceGross": 19500,
-    "buyPrice": 14970,
+    "buyPrice": 16453,
     "sellNet": 15047,
     "sellNetHint": 15047,
     "variantLabel": "Fekete",
     "parentSlug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor",
-    "variationId": 909
+    "variationId": 909,
+    "sellGross": 19110
   },
   {
     "group": "termosztat",
@@ -1089,12 +1173,13 @@
     "slug": "bvf-801-wifi-termosztat-3m-padloszenzor--v100040966",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-801-wifi-termosztat-3m-padloszenzor/",
     "priceGross": 23000,
-    "buyPrice": 17657,
+    "buyPrice": 19406,
     "sellNet": 17748,
     "sellNetHint": 17748,
     "variantLabel": "Fehér",
     "parentSlug": "bvf-801-wifi-termosztat-3m-padloszenzor",
-    "variationId": 100040966
+    "variationId": 100040966,
+    "sellGross": 22540
   },
   {
     "group": "termosztat",
@@ -1102,12 +1187,13 @@
     "slug": "bvf-801-wifi-termosztat-3m-padloszenzor--v100040967",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-801-wifi-termosztat-3m-padloszenzor/",
     "priceGross": 23000,
-    "buyPrice": 17657,
+    "buyPrice": 19406,
     "sellNet": 17748,
     "sellNetHint": 17748,
     "variantLabel": "Fekete",
     "parentSlug": "bvf-801-wifi-termosztat-3m-padloszenzor",
-    "variationId": 100040967
+    "variationId": 100040967,
+    "sellGross": 22540
   },
   {
     "group": "termosztat",
@@ -1115,11 +1201,12 @@
     "slug": "bvf-24-f-rf-szobatermosztat-adoegyseg",
     "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-24-f-rf-szobatermosztat-adoegyseg/",
     "priceGross": 11000,
-    "buyPrice": 8445,
+    "buyPrice": 9281,
     "sellNet": 8488,
     "sellNetHint": 8488,
     "variantLabel": "",
-    "parentSlug": "bvf-24-f-rf-szobatermosztat-adoegyseg"
+    "parentSlug": "bvf-24-f-rf-szobatermosztat-adoegyseg",
+    "sellGross": 10780
   },
   {
     "group": "futopanel",
@@ -1127,12 +1214,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v372",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 32500,
-    "buyPrice": 24951,
+    "buyPrice": 27422,
     "sellNet": 25079,
     "sellNetHint": 25079,
     "variantLabel": "1000 W / Fehér",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 372
+    "variationId": 372,
+    "sellGross": 31850
   },
   {
     "group": "futopanel",
@@ -1140,12 +1228,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v370",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 35750,
-    "buyPrice": 27446,
+    "buyPrice": 30164,
     "sellNet": 27587,
     "sellNetHint": 27587,
     "variantLabel": "1500 W / Fehér",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 370
+    "variationId": 370,
+    "sellGross": 35035
   },
   {
     "group": "futopanel",
@@ -1153,12 +1242,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v371",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 39000,
-    "buyPrice": 29941,
+    "buyPrice": 32906,
     "sellNet": 30094,
     "sellNetHint": 30094,
     "variantLabel": "2000 W / Fehér",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 371
+    "variationId": 371,
+    "sellGross": 38220
   },
   {
     "group": "futopanel",
@@ -1166,12 +1256,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v308",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 32500,
-    "buyPrice": 24951,
+    "buyPrice": 27422,
     "sellNet": 25079,
     "sellNetHint": 25079,
     "variantLabel": "1000 W / Arzénszürke",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 308
+    "variationId": 308,
+    "sellGross": 31850
   },
   {
     "group": "futopanel",
@@ -1179,12 +1270,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v309",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 35750,
-    "buyPrice": 27446,
+    "buyPrice": 30164,
     "sellNet": 27587,
     "sellNetHint": 27587,
     "variantLabel": "1500 W / Arzénszürke",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 309
+    "variationId": 309,
+    "sellGross": 35035
   },
   {
     "group": "futopanel",
@@ -1192,12 +1284,13 @@
     "slug": "bvf-cp1-wifi-elektromos-futopanel--v369",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
     "priceGross": 39000,
-    "buyPrice": 29941,
+    "buyPrice": 32906,
     "sellNet": 30094,
     "sellNetHint": 30094,
     "variantLabel": "2000 W / Arzénszürke",
     "parentSlug": "bvf-cp1-wifi-elektromos-futopanel",
-    "variationId": 369
+    "variationId": 369,
+    "sellGross": 38220
   },
   {
     "group": "futopanel",
@@ -1205,12 +1298,13 @@
     "slug": "radialight-sirio-futopanel--v825",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
     "priceGross": 51300,
-    "buyPrice": 39384,
+    "buyPrice": 43284,
     "sellNet": 39586,
     "sellNetHint": 39586,
     "variantLabel": "500 W",
     "parentSlug": "radialight-sirio-futopanel",
-    "variationId": 825
+    "variationId": 825,
+    "sellGross": 50274
   },
   {
     "group": "futopanel",
@@ -1218,12 +1312,13 @@
     "slug": "radialight-sirio-futopanel--v823",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
     "priceGross": 60999,
-    "buyPrice": 46830,
+    "buyPrice": 51468,
     "sellNet": 47070,
     "sellNetHint": 47070,
     "variantLabel": "1000 W",
     "parentSlug": "radialight-sirio-futopanel",
-    "variationId": 823
+    "variationId": 823,
+    "sellGross": 59779
   },
   {
     "group": "futopanel",
@@ -1231,12 +1326,13 @@
     "slug": "radialight-sirio-futopanel--v824",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
     "priceGross": 69200,
-    "buyPrice": 53126,
+    "buyPrice": 58388,
     "sellNet": 53398,
     "sellNetHint": 53398,
     "variantLabel": "1500 W",
     "parentSlug": "radialight-sirio-futopanel",
-    "variationId": 824
+    "variationId": 824,
+    "sellGross": 67816
   },
   {
     "group": "futopanel",
@@ -1244,12 +1340,13 @@
     "slug": "radialight-sirio-futopanel--v822",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
     "priceGross": 77901,
-    "buyPrice": 59806,
+    "buyPrice": 65729,
     "sellNet": 60113,
     "sellNetHint": 60113,
     "variantLabel": "2000 W",
     "parentSlug": "radialight-sirio-futopanel",
-    "variationId": 822
+    "variationId": 822,
+    "sellGross": 76343
   },
   {
     "group": "futopanel",
@@ -1257,12 +1354,13 @@
     "slug": "intuis-tactic-elektromos-futopanel--v295",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 57000,
-    "buyPrice": 43760,
+    "buyPrice": 48094,
     "sellNet": 43984,
     "sellNetHint": 43984,
     "variantLabel": "500 W",
     "parentSlug": "intuis-tactic-elektromos-futopanel",
-    "variationId": 295
+    "variationId": 295,
+    "sellGross": 55860
   },
   {
     "group": "futopanel",
@@ -1270,12 +1368,13 @@
     "slug": "intuis-tactic-elektromos-futopanel--v296",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 64000,
-    "buyPrice": 49134,
+    "buyPrice": 54000,
     "sellNet": 49386,
     "sellNetHint": 49386,
     "variantLabel": "1000 W",
     "parentSlug": "intuis-tactic-elektromos-futopanel",
-    "variationId": 296
+    "variationId": 296,
+    "sellGross": 62720
   },
   {
     "group": "futopanel",
@@ -1283,12 +1382,13 @@
     "slug": "intuis-tactic-elektromos-futopanel--v297",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 70000,
-    "buyPrice": 53740,
+    "buyPrice": 59062,
     "sellNet": 54016,
     "sellNetHint": 54016,
     "variantLabel": "1500 W",
     "parentSlug": "intuis-tactic-elektromos-futopanel",
-    "variationId": 297
+    "variationId": 297,
+    "sellGross": 68600
   },
   {
     "group": "futopanel",
@@ -1296,12 +1396,13 @@
     "slug": "intuis-tactic-elektromos-futopanel--v298",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 77500,
-    "buyPrice": 59498,
+    "buyPrice": 65391,
     "sellNet": 59803,
     "sellNetHint": 59803,
     "variantLabel": "2000 W",
     "parentSlug": "intuis-tactic-elektromos-futopanel",
-    "variationId": 298
+    "variationId": 298,
+    "sellGross": 75950
   },
   {
     "group": "futopanel",
@@ -1309,12 +1410,13 @@
     "slug": "intuis-tactic-elektromos-futopanel--v294",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
     "priceGross": 85500,
-    "buyPrice": 65640,
+    "buyPrice": 72141,
     "sellNet": 65976,
     "sellNetHint": 65976,
     "variantLabel": "2500 W",
     "parentSlug": "intuis-tactic-elektromos-futopanel",
-    "variationId": 294
+    "variationId": 294,
+    "sellGross": 83790
   },
   {
     "group": "futopanel",
@@ -1322,12 +1424,13 @@
     "slug": "intuis-tactic-wifi-elektromos-fali-futopanel--v421",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
     "priceGross": 78000,
-    "buyPrice": 59882,
+    "buyPrice": 65812,
     "sellNet": 60189,
     "sellNetHint": 60189,
     "variantLabel": "1000 W",
     "parentSlug": "intuis-tactic-wifi-elektromos-fali-futopanel",
-    "variationId": 421
+    "variationId": 421,
+    "sellGross": 76440
   },
   {
     "group": "futopanel",
@@ -1335,12 +1438,13 @@
     "slug": "intuis-tactic-wifi-elektromos-fali-futopanel--v394",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
     "priceGross": 84000,
-    "buyPrice": 64488,
+    "buyPrice": 70875,
     "sellNet": 64819,
     "sellNetHint": 64819,
     "variantLabel": "1500 W",
     "parentSlug": "intuis-tactic-wifi-elektromos-fali-futopanel",
-    "variationId": 394
+    "variationId": 394,
+    "sellGross": 82320
   },
   {
     "group": "futopanel",
@@ -1348,12 +1452,13 @@
     "slug": "intuis-tactic-wifi-elektromos-fali-futopanel--v395",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
     "priceGross": 90000,
-    "buyPrice": 69094,
+    "buyPrice": 75938,
     "sellNet": 69449,
     "sellNetHint": 69449,
     "variantLabel": "2000 W",
     "parentSlug": "intuis-tactic-wifi-elektromos-fali-futopanel",
-    "variationId": 395
+    "variationId": 395,
+    "sellGross": 88200
   },
   {
     "group": "futopanel",
@@ -1361,12 +1466,13 @@
     "slug": "intuis-tactic-wifi-elektromos-fali-futopanel--v396",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
     "priceGross": 100000,
-    "buyPrice": 76772,
+    "buyPrice": 84375,
     "sellNet": 77165,
     "sellNetHint": 77165,
     "variantLabel": "2500 W",
     "parentSlug": "intuis-tactic-wifi-elektromos-fali-futopanel",
-    "variationId": 396
+    "variationId": 396,
+    "sellGross": 98000
   },
   {
     "group": "futopanel",
@@ -1374,12 +1480,13 @@
     "slug": "intuis-prestance-elektromos-futopanel--v772",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-prestance-elektromos-futopanel/",
     "priceGross": 78000,
-    "buyPrice": 59882,
+    "buyPrice": 65812,
     "sellNet": 60189,
     "sellNetHint": 60189,
     "variantLabel": "1000 W",
     "parentSlug": "intuis-prestance-elektromos-futopanel",
-    "variationId": 772
+    "variationId": 772,
+    "sellGross": 76440
   },
   {
     "group": "futopanel",
@@ -1387,12 +1494,13 @@
     "slug": "intuis-prestance-elektromos-futopanel--v771",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-prestance-elektromos-futopanel/",
     "priceGross": 92000,
-    "buyPrice": 70630,
+    "buyPrice": 77625,
     "sellNet": 70992,
     "sellNetHint": 70992,
     "variantLabel": "2000 W",
     "parentSlug": "intuis-prestance-elektromos-futopanel",
-    "variationId": 771
+    "variationId": 771,
+    "sellGross": 90160
   },
   {
     "group": "futopanel",
@@ -1400,12 +1508,13 @@
     "slug": "intuis-radial-infra-elektromos-futopanel--v770",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-radial-infra-elektromos-futopanel/",
     "priceGross": 94000,
-    "buyPrice": 72165,
+    "buyPrice": 79312,
     "sellNet": 72535,
     "sellNetHint": 72535,
     "variantLabel": "1000 W",
     "parentSlug": "intuis-radial-infra-elektromos-futopanel",
-    "variationId": 770
+    "variationId": 770,
+    "sellGross": 92120
   },
   {
     "group": "futopanel",
@@ -1413,12 +1522,13 @@
     "slug": "intuis-radial-infra-elektromos-futopanel--v769",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-radial-infra-elektromos-futopanel/",
     "priceGross": 102000,
-    "buyPrice": 78307,
+    "buyPrice": 86062,
     "sellNet": 78709,
     "sellNetHint": 78709,
     "variantLabel": "1500 W",
     "parentSlug": "intuis-radial-infra-elektromos-futopanel",
-    "variationId": 769
+    "variationId": 769,
+    "sellGross": 99960
   },
   {
     "group": "futopanel",
@@ -1426,12 +1536,13 @@
     "slug": "intuis-radial-infra-elektromos-futopanel--v768",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-radial-infra-elektromos-futopanel/",
     "priceGross": 118000,
-    "buyPrice": 90591,
+    "buyPrice": 99562,
     "sellNet": 91055,
     "sellNetHint": 91055,
     "variantLabel": "2000 W",
     "parentSlug": "intuis-radial-infra-elektromos-futopanel",
-    "variationId": 768
+    "variationId": 768,
+    "sellGross": 115640
   },
   {
     "group": "futopanel",
@@ -1439,12 +1550,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v864",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 144000,
-    "buyPrice": 110551,
+    "buyPrice": 121500,
     "sellNet": 111118,
     "sellNetHint": 111118,
     "variantLabel": "750 W / Fehér",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 864
+    "variationId": 864,
+    "sellGross": 141120
   },
   {
     "group": "futopanel",
@@ -1452,12 +1564,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v868",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 152999,
-    "buyPrice": 117460,
+    "buyPrice": 129093,
     "sellNet": 118062,
     "sellNetHint": 118062,
     "variantLabel": "1000 W / Fehér",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 868
+    "variationId": 868,
+    "sellGross": 149939
   },
   {
     "group": "futopanel",
@@ -1465,12 +1578,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v865",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 171000,
-    "buyPrice": 131280,
+    "buyPrice": 144281,
     "sellNet": 131953,
     "sellNetHint": 131953,
     "variantLabel": "1500 W / Fehér",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 865
+    "variationId": 865,
+    "sellGross": 167580
   },
   {
     "group": "futopanel",
@@ -1478,12 +1592,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v861",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 187000,
-    "buyPrice": 143563,
+    "buyPrice": 157781,
     "sellNet": 144299,
     "sellNetHint": 144299,
     "variantLabel": "2000 W / Fehér",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 861
+    "variationId": 861,
+    "sellGross": 183260
   },
   {
     "group": "futopanel",
@@ -1491,12 +1606,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v863",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 144000,
-    "buyPrice": 110551,
+    "buyPrice": 121500,
     "sellNet": 111118,
     "sellNetHint": 111118,
     "variantLabel": "750 W / Antracit",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 863
+    "variationId": 863,
+    "sellGross": 141120
   },
   {
     "group": "futopanel",
@@ -1504,12 +1620,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v866",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 152999,
-    "buyPrice": 117460,
+    "buyPrice": 129093,
     "sellNet": 118062,
     "sellNetHint": 118062,
     "variantLabel": "1000 W / Antracit",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 866
+    "variationId": 866,
+    "sellGross": 149939
   },
   {
     "group": "futopanel",
@@ -1517,12 +1634,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v867",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 171000,
-    "buyPrice": 131280,
+    "buyPrice": 144281,
     "sellNet": 131953,
     "sellNetHint": 131953,
     "variantLabel": "1500 W / Antracit",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 867
+    "variationId": 867,
+    "sellGross": 167580
   },
   {
     "group": "futopanel",
@@ -1530,12 +1648,13 @@
     "slug": "radialight-kyoto-wifi-futopanel--v862",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
     "priceGross": 187000,
-    "buyPrice": 143563,
+    "buyPrice": 157781,
     "sellNet": 144299,
     "sellNetHint": 144299,
     "variantLabel": "2000 W / Antracit",
     "parentSlug": "radialight-kyoto-wifi-futopanel",
-    "variationId": 862
+    "variationId": 862,
+    "sellGross": 183260
   },
   {
     "group": "futopanel",
@@ -1543,12 +1662,13 @@
     "slug": "radialight-klima-wifi-futopanel--v829",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
     "priceGross": 145000,
-    "buyPrice": 111319,
+    "buyPrice": 122344,
     "sellNet": 111890,
     "sellNetHint": 111890,
     "variantLabel": "750 W",
     "parentSlug": "radialight-klima-wifi-futopanel",
-    "variationId": 829
+    "variationId": 829,
+    "sellGross": 142100
   },
   {
     "group": "futopanel",
@@ -1556,12 +1676,13 @@
     "slug": "radialight-klima-wifi-futopanel--v828",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
     "priceGross": 171900,
-    "buyPrice": 131970,
+    "buyPrice": 145041,
     "sellNet": 132647,
     "sellNetHint": 132647,
     "variantLabel": "1000 W",
     "parentSlug": "radialight-klima-wifi-futopanel",
-    "variationId": 828
+    "variationId": 828,
+    "sellGross": 168462
   },
   {
     "group": "futopanel",
@@ -1569,12 +1690,13 @@
     "slug": "radialight-klima-wifi-futopanel--v826",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
     "priceGross": 188799,
-    "buyPrice": 144944,
+    "buyPrice": 159299,
     "sellNet": 145687,
     "sellNetHint": 145687,
     "variantLabel": "1500 W",
     "parentSlug": "radialight-klima-wifi-futopanel",
-    "variationId": 826
+    "variationId": 826,
+    "sellGross": 185023
   },
   {
     "group": "futopanel",
@@ -1582,12 +1704,13 @@
     "slug": "radialight-klima-wifi-futopanel--v827",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
     "priceGross": 206800,
-    "buyPrice": 158764,
+    "buyPrice": 174488,
     "sellNet": 159578,
     "sellNetHint": 159578,
     "variantLabel": "2000 W",
     "parentSlug": "radialight-klima-wifi-futopanel",
-    "variationId": 827
+    "variationId": 827,
+    "sellGross": 202664
   },
   {
     "group": "futopanel",
@@ -1595,12 +1718,13 @@
     "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal--v860",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
     "priceGross": 175500,
-    "buyPrice": 134734,
+    "buyPrice": 148078,
     "sellNet": 135425,
     "sellNetHint": 135425,
     "variantLabel": "1000 W / Fehér",
     "parentSlug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
-    "variationId": 860
+    "variationId": 860,
+    "sellGross": 171990
   },
   {
     "group": "futopanel",
@@ -1608,12 +1732,13 @@
     "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal--v857",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
     "priceGross": 202300,
-    "buyPrice": 155309,
+    "buyPrice": 170691,
     "sellNet": 156106,
     "sellNetHint": 156106,
     "variantLabel": "1500 W / Fehér",
     "parentSlug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
-    "variationId": 857
+    "variationId": 857,
+    "sellGross": 198254
   },
   {
     "group": "futopanel",
@@ -1621,12 +1746,13 @@
     "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal--v858",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
     "priceGross": 175500,
-    "buyPrice": 134734,
+    "buyPrice": 148078,
     "sellNet": 135425,
     "sellNetHint": 135425,
     "variantLabel": "1000 W / Fekete",
     "parentSlug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
-    "variationId": 858
+    "variationId": 858,
+    "sellGross": 171990
   },
   {
     "group": "futopanel",
@@ -1634,12 +1760,13 @@
     "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal--v859",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
     "priceGross": 202300,
-    "buyPrice": 155309,
+    "buyPrice": 170691,
     "sellNet": 156106,
     "sellNetHint": 156106,
     "variantLabel": "1500 W / Fekete",
     "parentSlug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
-    "variationId": 859
+    "variationId": 859,
+    "sellGross": 198254
   },
   {
     "group": "futopanel",
@@ -1647,12 +1774,13 @@
     "slug": "radialight-icon-wifi-futopanel--v821",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 189000,
-    "buyPrice": 145098,
+    "buyPrice": 159469,
     "sellNet": 145843,
     "sellNetHint": 145843,
     "variantLabel": "750 W / Fehér",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 821
+    "variationId": 821,
+    "sellGross": 185220
   },
   {
     "group": "futopanel",
@@ -1660,12 +1788,13 @@
     "slug": "radialight-icon-wifi-futopanel--v819",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 205000,
-    "buyPrice": 157382,
+    "buyPrice": 172969,
     "sellNet": 158189,
     "sellNetHint": 158189,
     "variantLabel": "1000 W / Fehér",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 819
+    "variationId": 819,
+    "sellGross": 200900
   },
   {
     "group": "futopanel",
@@ -1673,12 +1802,13 @@
     "slug": "radialight-icon-wifi-futopanel--v814",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 235000,
-    "buyPrice": 180413,
+    "buyPrice": 198281,
     "sellNet": 181339,
     "sellNetHint": 181339,
     "variantLabel": "1500 W / Fehér",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 814
+    "variationId": 814,
+    "sellGross": 230300
   },
   {
     "group": "futopanel",
@@ -1686,12 +1816,13 @@
     "slug": "radialight-icon-wifi-futopanel--v815",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 256000,
-    "buyPrice": 196535,
+    "buyPrice": 216000,
     "sellNet": 197543,
     "sellNetHint": 197543,
     "variantLabel": "2000 W / Fehér",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 815
+    "variationId": 815,
+    "sellGross": 250880
   },
   {
     "group": "futopanel",
@@ -1699,12 +1830,13 @@
     "slug": "radialight-icon-wifi-futopanel--v820",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 189000,
-    "buyPrice": 145098,
+    "buyPrice": 159469,
     "sellNet": 145843,
     "sellNetHint": 145843,
     "variantLabel": "750 W / Antracit",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 820
+    "variationId": 820,
+    "sellGross": 185220
   },
   {
     "group": "futopanel",
@@ -1712,12 +1844,13 @@
     "slug": "radialight-icon-wifi-futopanel--v816",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 205000,
-    "buyPrice": 157382,
+    "buyPrice": 172969,
     "sellNet": 158189,
     "sellNetHint": 158189,
     "variantLabel": "1000 W / Antracit",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 816
+    "variationId": 816,
+    "sellGross": 200900
   },
   {
     "group": "futopanel",
@@ -1725,12 +1858,13 @@
     "slug": "radialight-icon-wifi-futopanel--v817",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 235000,
-    "buyPrice": 180413,
+    "buyPrice": 198281,
     "sellNet": 181339,
     "sellNetHint": 181339,
     "variantLabel": "1500 W / Antracit",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 817
+    "variationId": 817,
+    "sellGross": 230300
   },
   {
     "group": "futopanel",
@@ -1738,12 +1872,13 @@
     "slug": "radialight-icon-wifi-futopanel--v818",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
     "priceGross": 256000,
-    "buyPrice": 196535,
+    "buyPrice": 216000,
     "sellNet": 197543,
     "sellNetHint": 197543,
     "variantLabel": "2000 W / Antracit",
     "parentSlug": "radialight-icon-wifi-futopanel",
-    "variationId": 818
+    "variationId": 818,
+    "sellGross": 250880
   },
   {
     "group": "futopanel",
@@ -1751,12 +1886,13 @@
     "slug": "intuis-r21-utesallo-futopanel-gyerekszobaba--v903",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-r21-utesallo-futopanel-gyerekszobaba/",
     "priceGross": 165000,
-    "buyPrice": 126673,
+    "buyPrice": 139219,
     "sellNet": 127323,
     "sellNetHint": 127323,
     "variantLabel": "1000 W",
     "parentSlug": "intuis-r21-utesallo-futopanel-gyerekszobaba",
-    "variationId": 903
+    "variationId": 903,
+    "sellGross": 161700
   },
   {
     "group": "futopanel",
@@ -1764,12 +1900,13 @@
     "slug": "intuis-r21-utesallo-futopanel-gyerekszobaba--v902",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-r21-utesallo-futopanel-gyerekszobaba/",
     "priceGross": 225000,
-    "buyPrice": 172736,
+    "buyPrice": 189844,
     "sellNet": 173622,
     "sellNetHint": 173622,
     "variantLabel": "2000 W",
     "parentSlug": "intuis-r21-utesallo-futopanel-gyerekszobaba",
-    "variationId": 902
+    "variationId": 902,
+    "sellGross": 220500
   },
   {
     "group": "futopanel",
@@ -1777,12 +1914,13 @@
     "slug": "intuis-glassance-premium-uvegpanel--v777",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-glassance-premium-uvegpanel/",
     "priceGross": 240000,
-    "buyPrice": 184252,
+    "buyPrice": 202500,
     "sellNet": 185197,
     "sellNetHint": 185197,
     "variantLabel": "Fehér",
     "parentSlug": "intuis-glassance-premium-uvegpanel",
-    "variationId": 777
+    "variationId": 777,
+    "sellGross": 235200
   },
   {
     "group": "futopanel",
@@ -1790,12 +1928,13 @@
     "slug": "intuis-glassance-premium-uvegpanel--v776",
     "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-glassance-premium-uvegpanel/",
     "priceGross": 240000,
-    "buyPrice": 184252,
+    "buyPrice": 202500,
     "sellNet": 185197,
     "sellNetHint": 185197,
     "variantLabel": "Fekete",
     "parentSlug": "intuis-glassance-premium-uvegpanel",
-    "variationId": 776
+    "variationId": 776,
+    "sellGross": 235200
   },
   {
     "group": "futheto-tukor",
@@ -1803,12 +1942,13 @@
     "slug": "bvf-mg-tukor-infrapanel--v156",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-mg-tukor-infrapanel/",
     "priceGross": 98000,
-    "buyPrice": 75236,
+    "buyPrice": 82688,
     "sellNet": 75622,
     "sellNetHint": 75622,
     "variantLabel": "400 W",
     "parentSlug": "bvf-mg-tukor-infrapanel",
-    "variationId": 156
+    "variationId": 156,
+    "sellGross": 96040
   },
   {
     "group": "futheto-tukor",
@@ -1816,12 +1956,13 @@
     "slug": "bvf-mg-tukor-infrapanel--v157",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-mg-tukor-infrapanel/",
     "priceGross": 134000,
-    "buyPrice": 102874,
+    "buyPrice": 113062,
     "sellNet": 103402,
     "sellNetHint": 103402,
     "variantLabel": "600 W",
     "parentSlug": "bvf-mg-tukor-infrapanel",
-    "variationId": 157
+    "variationId": 157,
+    "sellGross": 131320
   },
   {
     "group": "futheto-tukor",
@@ -1829,12 +1970,13 @@
     "slug": "bvf-mg-tukor-infrapanel--v158",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-mg-tukor-infrapanel/",
     "priceGross": 156000,
-    "buyPrice": 119764,
+    "buyPrice": 131625,
     "sellNet": 120378,
     "sellNetHint": 120378,
     "variantLabel": "800 W",
     "parentSlug": "bvf-mg-tukor-infrapanel",
-    "variationId": 158
+    "variationId": 158,
+    "sellGross": 152880
   },
   {
     "group": "torolkozoszarito",
@@ -1842,12 +1984,13 @@
     "slug": "radialight-onsen-torolkozoszarito-radiator--v850",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
     "priceGross": 129000,
-    "buyPrice": 99035,
+    "buyPrice": 108844,
     "sellNet": 99543,
     "sellNetHint": 99543,
     "variantLabel": "Onsen - 750 W / Fehér",
     "parentSlug": "radialight-onsen-torolkozoszarito-radiator",
-    "variationId": 850
+    "variationId": 850,
+    "sellGross": 126420
   },
   {
     "group": "torolkozoszarito",
@@ -1855,12 +1998,13 @@
     "slug": "radialight-onsen-torolkozoszarito-radiator--v832",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
     "priceGross": 129000,
-    "buyPrice": 99035,
+    "buyPrice": 108844,
     "sellNet": 99543,
     "sellNetHint": 99543,
     "variantLabel": "Onsen - 750 W / Antracit",
     "parentSlug": "radialight-onsen-torolkozoszarito-radiator",
-    "variationId": 832
+    "variationId": 832,
+    "sellGross": 126420
   },
   {
     "group": "torolkozoszarito",
@@ -1868,12 +2012,13 @@
     "slug": "radialight-onsen-torolkozoszarito-radiator--v831",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
     "priceGross": 149000,
-    "buyPrice": 114390,
+    "buyPrice": 125719,
     "sellNet": 114976,
     "sellNetHint": 114976,
     "variantLabel": "Onsen EVO - 1000 W / Fehér",
     "parentSlug": "radialight-onsen-torolkozoszarito-radiator",
-    "variationId": 831
+    "variationId": 831,
+    "sellGross": 146020
   },
   {
     "group": "torolkozoszarito",
@@ -1881,12 +2026,13 @@
     "slug": "radialight-onsen-torolkozoszarito-radiator--v830",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
     "priceGross": 149000,
-    "buyPrice": 114390,
+    "buyPrice": 125719,
     "sellNet": 114976,
     "sellNetHint": 114976,
     "variantLabel": "Onsen EVO - 1000 W / Antracit",
     "parentSlug": "radialight-onsen-torolkozoszarito-radiator",
-    "variationId": 830
+    "variationId": 830,
+    "sellGross": 146020
   },
   {
     "group": "torolkozoszarito",
@@ -1894,12 +2040,13 @@
     "slug": "radialight-silk-torolkozoszarito-radiator--v856",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
     "priceGross": 155000,
-    "buyPrice": 118996,
+    "buyPrice": 130781,
     "sellNet": 119606,
     "sellNetHint": 119606,
     "variantLabel": "Silk - 750 W / Fehér",
     "parentSlug": "radialight-silk-torolkozoszarito-radiator",
-    "variationId": 856
+    "variationId": 856,
+    "sellGross": 151900
   },
   {
     "group": "torolkozoszarito",
@@ -1907,12 +2054,13 @@
     "slug": "radialight-silk-torolkozoszarito-radiator--v855",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
     "priceGross": 155000,
-    "buyPrice": 118996,
+    "buyPrice": 130781,
     "sellNet": 119606,
     "sellNetHint": 119606,
     "variantLabel": "Silk - 750 W / Antracit",
     "parentSlug": "radialight-silk-torolkozoszarito-radiator",
-    "variationId": 855
+    "variationId": 855,
+    "sellGross": 151900
   },
   {
     "group": "torolkozoszarito",
@@ -1920,12 +2068,13 @@
     "slug": "radialight-silk-torolkozoszarito-radiator--v854",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
     "priceGross": 179000,
-    "buyPrice": 137421,
+    "buyPrice": 151031,
     "sellNet": 138126,
     "sellNetHint": 138126,
     "variantLabel": "Silk EVO - 1000 W / Fehér",
     "parentSlug": "radialight-silk-torolkozoszarito-radiator",
-    "variationId": 854
+    "variationId": 854,
+    "sellGross": 175420
   },
   {
     "group": "torolkozoszarito",
@@ -1933,12 +2082,13 @@
     "slug": "radialight-silk-torolkozoszarito-radiator--v853",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
     "priceGross": 179000,
-    "buyPrice": 137421,
+    "buyPrice": 151031,
     "sellNet": 138126,
     "sellNetHint": 138126,
     "variantLabel": "Silk EVO - 1000 W / Antracit",
     "parentSlug": "radialight-silk-torolkozoszarito-radiator",
-    "variationId": 853
+    "variationId": 853,
+    "sellGross": 175420
   },
   {
     "group": "torolkozoszarito",
@@ -1946,12 +2096,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-ant--v820",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
     "priceGross": 189000,
-    "buyPrice": 145098,
+    "buyPrice": 159469,
     "sellNet": 145843,
     "sellNetHint": 145843,
     "variantLabel": "750 W / Antracit",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
-    "variationId": 820
+    "variationId": 820,
+    "sellGross": 185220
   },
   {
     "group": "torolkozoszarito",
@@ -1959,12 +2110,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-ant--v816",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
     "priceGross": 205000,
-    "buyPrice": 157382,
+    "buyPrice": 172969,
     "sellNet": 158189,
     "sellNetHint": 158189,
     "variantLabel": "1000 W / Antracit",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
-    "variationId": 816
+    "variationId": 816,
+    "sellGross": 200900
   },
   {
     "group": "torolkozoszarito",
@@ -1972,12 +2124,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-ant--v817",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
     "priceGross": 235000,
-    "buyPrice": 180413,
+    "buyPrice": 198281,
     "sellNet": 181339,
     "sellNetHint": 181339,
     "variantLabel": "1500 W / Antracit",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
-    "variationId": 817
+    "variationId": 817,
+    "sellGross": 230300
   },
   {
     "group": "torolkozoszarito",
@@ -1985,12 +2138,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-ant--v818",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
     "priceGross": 256000,
-    "buyPrice": 196535,
+    "buyPrice": 216000,
     "sellNet": 197543,
     "sellNetHint": 197543,
     "variantLabel": "2000 W / Antracit",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
-    "variationId": 818
+    "variationId": 818,
+    "sellGross": 250880
   },
   {
     "group": "torolkozoszarito",
@@ -1998,12 +2152,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feh--v821",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
     "priceGross": 189000,
-    "buyPrice": 145098,
+    "buyPrice": 159469,
     "sellNet": 145843,
     "sellNetHint": 145843,
     "variantLabel": "750 W / Fehér",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
-    "variationId": 821
+    "variationId": 821,
+    "sellGross": 185220
   },
   {
     "group": "torolkozoszarito",
@@ -2011,12 +2166,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feh--v819",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
     "priceGross": 205000,
-    "buyPrice": 157382,
+    "buyPrice": 172969,
     "sellNet": 158189,
     "sellNetHint": 158189,
     "variantLabel": "1000 W / Fehér",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
-    "variationId": 819
+    "variationId": 819,
+    "sellGross": 200900
   },
   {
     "group": "torolkozoszarito",
@@ -2024,12 +2180,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feh--v814",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
     "priceGross": 235000,
-    "buyPrice": 180413,
+    "buyPrice": 198281,
     "sellNet": 181339,
     "sellNetHint": 181339,
     "variantLabel": "1500 W / Fehér",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
-    "variationId": 814
+    "variationId": 814,
+    "sellGross": 230300
   },
   {
     "group": "torolkozoszarito",
@@ -2037,12 +2194,13 @@
     "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feh--v815",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
     "priceGross": 256000,
-    "buyPrice": 196535,
+    "buyPrice": 216000,
     "sellNet": 197543,
     "sellNetHint": 197543,
     "variantLabel": "2000 W / Fehér",
     "parentSlug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
-    "variationId": 815
+    "variationId": 815,
+    "sellGross": 250880
   },
   {
     "group": "torolkozoszarito",
@@ -2050,12 +2208,13 @@
     "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiato--v911",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
     "priceGross": 139000,
-    "buyPrice": 106713,
+    "buyPrice": 117281,
     "sellNet": 107260,
     "sellNetHint": 107260,
     "variantLabel": "500 W / Fekete",
     "parentSlug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
-    "variationId": 911
+    "variationId": 911,
+    "sellGross": 136220
   },
   {
     "group": "torolkozoszarito",
@@ -2063,12 +2222,13 @@
     "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiato--v910",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
     "priceGross": 147000,
-    "buyPrice": 112854,
+    "buyPrice": 124031,
     "sellNet": 113433,
     "sellNetHint": 113433,
     "variantLabel": "750 W / Fekete",
     "parentSlug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
-    "variationId": 910
+    "variationId": 910,
+    "sellGross": 144060
   },
   {
     "group": "torolkozoszarito",
@@ -2076,12 +2236,13 @@
     "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiato--v912",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
     "priceGross": 139000,
-    "buyPrice": 106713,
+    "buyPrice": 117281,
     "sellNet": 107260,
     "sellNetHint": 107260,
     "variantLabel": "500 W / Fehér",
     "parentSlug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
-    "variationId": 912
+    "variationId": 912,
+    "sellGross": 136220
   },
   {
     "group": "torolkozoszarito",
@@ -2089,12 +2250,13 @@
     "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiato--v913",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
     "priceGross": 147000,
-    "buyPrice": 112854,
+    "buyPrice": 124031,
     "sellNet": 113433,
     "sellNetHint": 113433,
     "variantLabel": "750 W / Fehér",
     "parentSlug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
-    "variationId": 913
+    "variationId": 913,
+    "sellGross": 144060
   },
   {
     "group": "torolkozoszarito",
@@ -2102,12 +2264,13 @@
     "slug": "intuis-nao-2-elektromos-torolkozoszarito-radiator--v775",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-nao-2-elektromos-torolkozoszarito-radiator/",
     "priceGross": 90000,
-    "buyPrice": 69094,
+    "buyPrice": 75938,
     "sellNet": 69449,
     "sellNetHint": 69449,
     "variantLabel": "300 W",
     "parentSlug": "intuis-nao-2-elektromos-torolkozoszarito-radiator",
-    "variationId": 775
+    "variationId": 775,
+    "sellGross": 88200
   },
   {
     "group": "torolkozoszarito",
@@ -2115,12 +2278,13 @@
     "slug": "intuis-nao-2-elektromos-torolkozoszarito-radiator--v774",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-nao-2-elektromos-torolkozoszarito-radiator/",
     "priceGross": 105000,
-    "buyPrice": 80610,
+    "buyPrice": 88594,
     "sellNet": 81024,
     "sellNetHint": 81024,
     "variantLabel": "750 W",
     "parentSlug": "intuis-nao-2-elektromos-torolkozoszarito-radiator",
-    "variationId": 774
+    "variationId": 774,
+    "sellGross": 102900
   },
   {
     "group": "torolkozoszarito",
@@ -2128,12 +2292,13 @@
     "slug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinn--v718",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 98000,
-    "buyPrice": 75236,
+    "buyPrice": 82688,
     "sellNet": 75622,
     "sellNetHint": 75622,
     "variantLabel": "600 W",
     "parentSlug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel",
-    "variationId": 718
+    "variationId": 718,
+    "sellGross": 96040
   },
   {
     "group": "torolkozoszarito",
@@ -2141,12 +2306,13 @@
     "slug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinn--v717",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 126000,
-    "buyPrice": 96732,
+    "buyPrice": 106312,
     "sellNet": 97228,
     "sellNetHint": 97228,
     "variantLabel": "800 W",
     "parentSlug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel",
-    "variationId": 717
+    "variationId": 717,
+    "sellGross": 123480
   },
   {
     "group": "torolkozoszarito",
@@ -2154,12 +2320,13 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sin--v716",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 87000,
-    "buyPrice": 66791,
+    "buyPrice": 73406,
     "sellNet": 67134,
     "sellNetHint": 67134,
     "variantLabel": "600 W",
     "parentSlug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel",
-    "variationId": 716
+    "variationId": 716,
+    "sellGross": 85260
   },
   {
     "group": "torolkozoszarito",
@@ -2167,12 +2334,13 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sin--v651",
     "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "800 W",
     "parentSlug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel",
-    "variationId": 651
+    "variationId": 651,
+    "sellGross": 117600
   },
   {
     "group": "futheto-tukor",
@@ -2180,12 +2348,13 @@
     "slug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval--v300",
     "href": "https://www.bvfheating.hu/shop/futheto-tukor/bvf-adelig-futheto-tukor-bluetooth-hangszoroval/",
     "priceGross": 49000,
-    "buyPrice": 37618,
+    "buyPrice": 41344,
     "sellNet": 37811,
     "sellNetHint": 37811,
     "variantLabel": "60x60cm - 200 W",
     "parentSlug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval",
-    "variationId": 300
+    "variationId": 300,
+    "sellGross": 48020
   },
   {
     "group": "futheto-tukor",
@@ -2193,12 +2362,13 @@
     "slug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval--v299",
     "href": "https://www.bvfheating.hu/shop/futheto-tukor/bvf-adelig-futheto-tukor-bluetooth-hangszoroval/",
     "priceGross": 59000,
-    "buyPrice": 45295,
+    "buyPrice": 49781,
     "sellNet": 45528,
     "sellNetHint": 45528,
     "variantLabel": "100x60cm - 350 W",
     "parentSlug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval",
-    "variationId": 299
+    "variationId": 299,
+    "sellGross": 57820
   },
   {
     "group": "kiegeszitok",
@@ -2206,12 +2376,13 @@
     "slug": "hoszigetelo-lap-elektromos-padlofuteshez--v877",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/hoszigetelo-lap-elektromos-padlofuteshez/",
     "priceGross": 5400,
-    "buyPrice": 4146,
+    "buyPrice": 4556,
     "sellNet": 4167,
     "sellNetHint": 4167,
     "variantLabel": "6 mm",
     "parentSlug": "hoszigetelo-lap-elektromos-padlofuteshez",
-    "variationId": 877
+    "variationId": 877,
+    "sellGross": 5292
   },
   {
     "group": "kiegeszitok",
@@ -2219,12 +2390,13 @@
     "slug": "hoszigetelo-lap-elektromos-padlofuteshez--v876",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/hoszigetelo-lap-elektromos-padlofuteshez/",
     "priceGross": 7800,
-    "buyPrice": 5988,
+    "buyPrice": 6581,
     "sellNet": 6019,
     "sellNetHint": 6019,
     "variantLabel": "20 mm",
     "parentSlug": "hoszigetelo-lap-elektromos-padlofuteshez",
-    "variationId": 876
+    "variationId": 876,
+    "sellGross": 7644
   },
   {
     "group": "torolkozoszarito",
@@ -2232,12 +2404,13 @@
     "slug": "radialight-windy-furdoszobai-futotest--v871",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-windy-furdoszobai-futotest/",
     "priceGross": 63600,
-    "buyPrice": 48827,
+    "buyPrice": 53662,
     "sellNet": 49077,
     "sellNetHint": 49077,
     "variantLabel": "Windy",
     "parentSlug": "radialight-windy-furdoszobai-futotest",
-    "variationId": 871
+    "variationId": 871,
+    "sellGross": 62328
   },
   {
     "group": "torolkozoszarito",
@@ -2245,12 +2418,13 @@
     "slug": "radialight-windy-furdoszobai-futotest--v869",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-windy-furdoszobai-futotest/",
     "priceGross": 73301,
-    "buyPrice": 56274,
+    "buyPrice": 61848,
     "sellNet": 56563,
     "sellNetHint": 56563,
     "variantLabel": "Windy 2B",
     "parentSlug": "radialight-windy-furdoszobai-futotest",
-    "variationId": 869
+    "variationId": 869,
+    "sellGross": 71835
   },
   {
     "group": "torolkozoszarito",
@@ -2258,12 +2432,13 @@
     "slug": "radialight-windy-furdoszobai-futotest--v870",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-windy-furdoszobai-futotest/",
     "priceGross": 82000,
-    "buyPrice": 62953,
+    "buyPrice": 69188,
     "sellNet": 63276,
     "sellNetHint": 63276,
     "variantLabel": "Windy Visio",
     "parentSlug": "radialight-windy-furdoszobai-futotest",
-    "variationId": 870
+    "variationId": 870,
+    "sellGross": 80360
   },
   {
     "group": "gyorsfuto",
@@ -2271,11 +2446,12 @@
     "slug": "radialight-touch-furdoszobai-gyorsfuto-keszulek",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-touch-furdoszobai-gyorsfuto-keszulek/",
     "priceGross": 49900,
-    "buyPrice": 38309,
+    "buyPrice": 42103,
     "sellNet": 38506,
     "sellNetHint": 38506,
     "variantLabel": "",
-    "parentSlug": "radialight-touch-furdoszobai-gyorsfuto-keszulek"
+    "parentSlug": "radialight-touch-furdoszobai-gyorsfuto-keszulek",
+    "sellGross": 48902
   },
   {
     "group": "gyorsfuto",
@@ -2283,11 +2459,12 @@
     "slug": "radialight-bali-furdoszobai-futotest",
     "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-bali-furdoszobai-futotest/",
     "priceGross": 59000,
-    "buyPrice": 45295,
+    "buyPrice": 49781,
     "sellNet": 45528,
     "sellNetHint": 45528,
     "variantLabel": "",
-    "parentSlug": "radialight-bali-furdoszobai-futotest"
+    "parentSlug": "radialight-bali-furdoszobai-futotest",
+    "sellGross": 57820
   },
   {
     "group": "infrapanel",
@@ -2295,12 +2472,13 @@
     "slug": "bvf-ng-fali-es-mennyezeti-infrapanel--v901",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-ng-fali-es-mennyezeti-infrapanel/",
     "priceGross": 58000,
-    "buyPrice": 44528,
+    "buyPrice": 48938,
     "sellNet": 44756,
     "sellNetHint": 44756,
     "variantLabel": "300 W",
     "parentSlug": "bvf-ng-fali-es-mennyezeti-infrapanel",
-    "variationId": 901
+    "variationId": 901,
+    "sellGross": 56840
   },
   {
     "group": "infrapanel",
@@ -2308,12 +2486,13 @@
     "slug": "bvf-ng-fali-es-mennyezeti-infrapanel--v878",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-ng-fali-es-mennyezeti-infrapanel/",
     "priceGross": 77000,
-    "buyPrice": 59114,
+    "buyPrice": 64969,
     "sellNet": 59417,
     "sellNetHint": 59417,
     "variantLabel": "450 W",
     "parentSlug": "bvf-ng-fali-es-mennyezeti-infrapanel",
-    "variationId": 878
+    "variationId": 878,
+    "sellGross": 75460
   },
   {
     "group": "infrapanel",
@@ -2321,12 +2500,13 @@
     "slug": "bvf-ng-fali-es-mennyezeti-infrapanel--v879",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-ng-fali-es-mennyezeti-infrapanel/",
     "priceGross": 94000,
-    "buyPrice": 72165,
+    "buyPrice": 79312,
     "sellNet": 72535,
     "sellNetHint": 72535,
     "variantLabel": "600 W",
     "parentSlug": "bvf-ng-fali-es-mennyezeti-infrapanel",
-    "variationId": 879
+    "variationId": 879,
+    "sellGross": 92120
   },
   {
     "group": "infrapanel",
@@ -2334,12 +2514,13 @@
     "slug": "bvf-pg-feher-uveg-infrapanel--v718",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-feher-uveg-infrapanel/",
     "priceGross": 98000,
-    "buyPrice": 75236,
+    "buyPrice": 82688,
     "sellNet": 75622,
     "sellNetHint": 75622,
     "variantLabel": "600 W",
     "parentSlug": "bvf-pg-feher-uveg-infrapanel",
-    "variationId": 718
+    "variationId": 718,
+    "sellGross": 96040
   },
   {
     "group": "infrapanel",
@@ -2347,12 +2528,13 @@
     "slug": "bvf-pg-feher-uveg-infrapanel--v717",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-feher-uveg-infrapanel/",
     "priceGross": 126000,
-    "buyPrice": 96732,
+    "buyPrice": 106312,
     "sellNet": 97228,
     "sellNetHint": 97228,
     "variantLabel": "800 W",
     "parentSlug": "bvf-pg-feher-uveg-infrapanel",
-    "variationId": 717
+    "variationId": 717,
+    "sellGross": 123480
   },
   {
     "group": "infrapanel",
@@ -2360,12 +2542,13 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel--v716",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-fekete-uveg-infrapanel/",
     "priceGross": 87000,
-    "buyPrice": 66791,
+    "buyPrice": 73406,
     "sellNet": 67134,
     "sellNetHint": 67134,
     "variantLabel": "600 W",
     "parentSlug": "bvf-pg-fekete-uveg-infrapanel",
-    "variationId": 716
+    "variationId": 716,
+    "sellGross": 85260
   },
   {
     "group": "infrapanel",
@@ -2373,12 +2556,13 @@
     "slug": "bvf-pg-fekete-uveg-infrapanel--v651",
     "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-fekete-uveg-infrapanel/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "800 W",
     "parentSlug": "bvf-pg-fekete-uveg-infrapanel",
-    "variationId": 651
+    "variationId": 651,
+    "sellGross": 117600
   },
   {
     "group": "kulteri-futokabel",
@@ -2386,12 +2570,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047024",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 12000,
-    "buyPrice": 9213,
+    "buyPrice": 10125,
     "sellNet": 9260,
     "sellNetHint": 9260,
     "variantLabel": "1 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047024
+    "variationId": 100047024,
+    "sellGross": 11760
   },
   {
     "group": "kulteri-futokabel",
@@ -2399,12 +2584,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047027",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 14500,
-    "buyPrice": 11132,
+    "buyPrice": 12234,
     "sellNet": 11189,
     "sellNetHint": 11189,
     "variantLabel": "2 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047027
+    "variationId": 100047027,
+    "sellGross": 14210
   },
   {
     "group": "kulteri-futokabel",
@@ -2412,12 +2598,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047028",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 19000,
-    "buyPrice": 14587,
+    "buyPrice": 16031,
     "sellNet": 14661,
     "sellNetHint": 14661,
     "variantLabel": "4 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047028
+    "variationId": 100047028,
+    "sellGross": 18620
   },
   {
     "group": "kulteri-futokabel",
@@ -2425,12 +2612,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047029",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 25000,
-    "buyPrice": 19193,
+    "buyPrice": 21094,
     "sellNet": 19291,
     "sellNetHint": 19291,
     "variantLabel": "6 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047029
+    "variationId": 100047029,
+    "sellGross": 24500
   },
   {
     "group": "kulteri-futokabel",
@@ -2438,12 +2626,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047030",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 28000,
-    "buyPrice": 21496,
+    "buyPrice": 23625,
     "sellNet": 21606,
     "sellNetHint": 21606,
     "variantLabel": "8 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047030
+    "variationId": 100047030,
+    "sellGross": 27440
   },
   {
     "group": "kulteri-futokabel",
@@ -2451,12 +2640,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047031",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 31000,
-    "buyPrice": 23799,
+    "buyPrice": 26156,
     "sellNet": 23921,
     "sellNetHint": 23921,
     "variantLabel": "10 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047031
+    "variationId": 100047031,
+    "sellGross": 30380
   },
   {
     "group": "kulteri-futokabel",
@@ -2464,12 +2654,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047025",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 33000,
-    "buyPrice": 25335,
+    "buyPrice": 27844,
     "sellNet": 25465,
     "sellNetHint": 25465,
     "variantLabel": "12 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047025
+    "variationId": 100047025,
+    "sellGross": 32340
   },
   {
     "group": "kulteri-futokabel",
@@ -2477,12 +2668,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047026",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 35000,
-    "buyPrice": 26870,
+    "buyPrice": 29531,
     "sellNet": 27008,
     "sellNetHint": 27008,
     "variantLabel": "14 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047026
+    "variationId": 100047026,
+    "sellGross": 34300
   },
   {
     "group": "kulteri-futokabel",
@@ -2490,12 +2682,13 @@
     "slug": "bvf-subzero-onszabalyzo-futokabel--v100047032",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
     "priceGross": 40000,
-    "buyPrice": 30709,
+    "buyPrice": 33750,
     "sellNet": 30866,
     "sellNetHint": 30866,
     "variantLabel": "20 m",
     "parentSlug": "bvf-subzero-onszabalyzo-futokabel",
-    "variationId": 100047032
+    "variationId": 100047032,
+    "sellGross": 39200
   },
   {
     "group": "kulteri-futokabel",
@@ -2503,11 +2696,12 @@
     "slug": "bvf-srhc-onszabalyzo-futokabel",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-srhc-onszabalyzo-futokabel/",
     "priceGross": 4000,
-    "buyPrice": 3071,
+    "buyPrice": 3375,
     "sellNet": 3087,
     "sellNetHint": 3087,
     "variantLabel": "",
-    "parentSlug": "bvf-srhc-onszabalyzo-futokabel"
+    "parentSlug": "bvf-srhc-onszabalyzo-futokabel",
+    "sellGross": 3920
   },
   {
     "group": "kulteri-futokabel",
@@ -2515,12 +2709,13 @@
     "slug": "bvf-sx-kulteri-futokabel--v1086",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 34500,
-    "buyPrice": 26486,
+    "buyPrice": 29109,
     "sellNet": 26622,
     "sellNetHint": 26622,
     "variantLabel": "640 W",
     "parentSlug": "bvf-sx-kulteri-futokabel",
-    "variationId": 1086
+    "variationId": 1086,
+    "sellGross": 33810
   },
   {
     "group": "kulteri-futokabel",
@@ -2528,12 +2723,13 @@
     "slug": "bvf-sx-kulteri-futokabel--v1087",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 43000,
-    "buyPrice": 33012,
+    "buyPrice": 36281,
     "sellNet": 33181,
     "sellNetHint": 33181,
     "variantLabel": "890 W",
     "parentSlug": "bvf-sx-kulteri-futokabel",
-    "variationId": 1087
+    "variationId": 1087,
+    "sellGross": 42140
   },
   {
     "group": "kulteri-futokabel",
@@ -2541,12 +2737,13 @@
     "slug": "bvf-sx-kulteri-futokabel--v1088",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 49500,
-    "buyPrice": 38002,
+    "buyPrice": 41766,
     "sellNet": 38197,
     "sellNetHint": 38197,
     "variantLabel": "1270 W",
     "parentSlug": "bvf-sx-kulteri-futokabel",
-    "variationId": 1088
+    "variationId": 1088,
+    "sellGross": 48510
   },
   {
     "group": "kulteri-futokabel",
@@ -2554,12 +2751,13 @@
     "slug": "bvf-sx-kulteri-futokabel--v1083",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 66500,
-    "buyPrice": 51053,
+    "buyPrice": 56109,
     "sellNet": 51315,
     "sellNetHint": 51315,
     "variantLabel": "1900 W",
     "parentSlug": "bvf-sx-kulteri-futokabel",
-    "variationId": 1083
+    "variationId": 1083,
+    "sellGross": 65170
   },
   {
     "group": "kulteri-futokabel",
@@ -2567,12 +2765,13 @@
     "slug": "bvf-sx-kulteri-futokabel--v1084",
     "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
     "priceGross": 85500,
-    "buyPrice": 65640,
+    "buyPrice": 72141,
     "sellNet": 65976,
     "sellNetHint": 65976,
     "variantLabel": "2700 W",
     "parentSlug": "bvf-sx-kulteri-futokabel",
-    "variationId": 1084
+    "variationId": 1084,
+    "sellGross": 83790
   },
   {
     "group": "infrasugarzo",
@@ -2580,11 +2779,12 @@
     "slug": "veito-aero-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-aero-infrasugarzo/",
     "priceGross": 50000,
-    "buyPrice": 38386,
+    "buyPrice": 42188,
     "sellNet": 38583,
     "sellNetHint": 38583,
     "variantLabel": "",
-    "parentSlug": "veito-aero-infrasugarzo"
+    "parentSlug": "veito-aero-infrasugarzo",
+    "sellGross": 49000
   },
   {
     "group": "infrasugarzo",
@@ -2592,12 +2792,13 @@
     "slug": "veito-blade-infrasugarzo--v100043425",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-blade-infrasugarzo/",
     "priceGross": 65000,
-    "buyPrice": 49902,
+    "buyPrice": 54844,
     "sellNet": 50157,
     "sellNetHint": 50157,
     "variantLabel": "2000 W",
     "parentSlug": "veito-blade-infrasugarzo",
-    "variationId": 100043425
+    "variationId": 100043425,
+    "sellGross": 63700
   },
   {
     "group": "infrasugarzo",
@@ -2605,12 +2806,13 @@
     "slug": "veito-blade-infrasugarzo--v100043426",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-blade-infrasugarzo/",
     "priceGross": 72000,
-    "buyPrice": 55276,
+    "buyPrice": 60750,
     "sellNet": 55559,
     "sellNetHint": 55559,
     "variantLabel": "2500 W",
     "parentSlug": "veito-blade-infrasugarzo",
-    "variationId": 100043426
+    "variationId": 100043426,
+    "sellGross": 70560
   },
   {
     "group": "infrasugarzo",
@@ -2618,12 +2820,13 @@
     "slug": "veito-space-infrasugarzo--v100043416",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-space-infrasugarzo/",
     "priceGross": 89000,
-    "buyPrice": 68327,
+    "buyPrice": 75094,
     "sellNet": 68677,
     "sellNetHint": 68677,
     "variantLabel": "Fehér",
     "parentSlug": "veito-space-infrasugarzo",
-    "variationId": 100043416
+    "variationId": 100043416,
+    "sellGross": 87220
   },
   {
     "group": "infrasugarzo",
@@ -2631,12 +2834,13 @@
     "slug": "veito-space-infrasugarzo--v100043417",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-space-infrasugarzo/",
     "priceGross": 89000,
-    "buyPrice": 68327,
+    "buyPrice": 75094,
     "sellNet": 68677,
     "sellNetHint": 68677,
     "variantLabel": "Fekete",
     "parentSlug": "veito-space-infrasugarzo",
-    "variationId": 100043417
+    "variationId": 100043417,
+    "sellGross": 87220
   },
   {
     "group": "infrasugarzo",
@@ -2644,12 +2848,13 @@
     "slug": "radialight-oasi-infrasugarzo--v872",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-infrasugarzo/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "Oasi fekete",
     "parentSlug": "radialight-oasi-infrasugarzo",
-    "variationId": 872
+    "variationId": 872,
+    "sellGross": 117600
   },
   {
     "group": "infrasugarzo",
@@ -2657,12 +2862,13 @@
     "slug": "radialight-oasi-infrasugarzo--v873",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-infrasugarzo/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "Oasi fehér",
     "parentSlug": "radialight-oasi-infrasugarzo",
-    "variationId": 873
+    "variationId": 873,
+    "sellGross": 117600
   },
   {
     "group": "infrasugarzo",
@@ -2670,11 +2876,12 @@
     "slug": "radialight-oasi-ht-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-ht-infrasugarzo/",
     "priceGross": 120000,
-    "buyPrice": 92126,
+    "buyPrice": 101250,
     "sellNet": 92598,
     "sellNetHint": 92598,
     "variantLabel": "",
-    "parentSlug": "radialight-oasi-ht-infrasugarzo"
+    "parentSlug": "radialight-oasi-ht-infrasugarzo",
+    "sellGross": 117600
   },
   {
     "group": "infrasugarzo",
@@ -2682,11 +2889,12 @@
     "slug": "veito-manta-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-manta-infrasugarzo/",
     "priceGross": 149000,
-    "buyPrice": 114390,
+    "buyPrice": 125719,
     "sellNet": 114976,
     "sellNetHint": 114976,
     "variantLabel": "",
-    "parentSlug": "veito-manta-infrasugarzo"
+    "parentSlug": "veito-manta-infrasugarzo",
+    "sellGross": 146020
   },
   {
     "group": "infrasugarzo",
@@ -2694,11 +2902,12 @@
     "slug": "veito-ch1800-rt-belteri-hosugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-rt-belteri-hosugarzo/",
     "priceGross": 49000,
-    "buyPrice": 37618,
+    "buyPrice": 41344,
     "sellNet": 37811,
     "sellNetHint": 37811,
     "variantLabel": "",
-    "parentSlug": "veito-ch1800-rt-belteri-hosugarzo"
+    "parentSlug": "veito-ch1800-rt-belteri-hosugarzo",
+    "sellGross": 48020
   },
   {
     "group": "infrasugarzo",
@@ -2706,11 +2915,12 @@
     "slug": "veito-ch1200-rt-belteri-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1200-rt-belteri-infrasugarzo/",
     "priceGross": 39000,
-    "buyPrice": 29941,
+    "buyPrice": 32906,
     "sellNet": 30094,
     "sellNetHint": 30094,
     "variantLabel": "",
-    "parentSlug": "veito-ch1200-rt-belteri-infrasugarzo"
+    "parentSlug": "veito-ch1200-rt-belteri-infrasugarzo",
+    "sellGross": 38220
   },
   {
     "group": "infrasugarzo",
@@ -2718,11 +2928,12 @@
     "slug": "veito-ch1800-re-belteri-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-re-belteri-infrasugarzo/",
     "priceGross": 53000,
-    "buyPrice": 40689,
+    "buyPrice": 44719,
     "sellNet": 40898,
     "sellNetHint": 40898,
     "variantLabel": "",
-    "parentSlug": "veito-ch1800-re-belteri-infrasugarzo"
+    "parentSlug": "veito-ch1800-re-belteri-infrasugarzo",
+    "sellGross": 51940
   },
   {
     "group": "infrasugarzo",
@@ -2730,12 +2941,13 @@
     "slug": "veito-nevada-infrasugarzo--v100043431",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-nevada-infrasugarzo/",
     "priceGross": 54000,
-    "buyPrice": 41457,
+    "buyPrice": 45562,
     "sellNet": 41669,
     "sellNetHint": 41669,
     "variantLabel": "2000 W",
     "parentSlug": "veito-nevada-infrasugarzo",
-    "variationId": 100043431
+    "variationId": 100043431,
+    "sellGross": 52920
   },
   {
     "group": "infrasugarzo",
@@ -2743,12 +2955,13 @@
     "slug": "veito-nevada-infrasugarzo--v100043432",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-nevada-infrasugarzo/",
     "priceGross": 58000,
-    "buyPrice": 44528,
+    "buyPrice": 48938,
     "sellNet": 44756,
     "sellNetHint": 44756,
     "variantLabel": "2500 W",
     "parentSlug": "veito-nevada-infrasugarzo",
-    "variationId": 100043432
+    "variationId": 100043432,
+    "sellGross": 56840
   },
   {
     "group": "kiegeszitok",
@@ -2756,11 +2969,12 @@
     "slug": "veito-teleszkopos-allvany",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/veito-teleszkopos-allvany/",
     "priceGross": 15000,
-    "buyPrice": 11516,
+    "buyPrice": 12656,
     "sellNet": 11575,
     "sellNetHint": 11575,
     "variantLabel": "",
-    "parentSlug": "veito-teleszkopos-allvany"
+    "parentSlug": "veito-teleszkopos-allvany",
+    "sellGross": 14700
   },
   {
     "group": "infrasugarzo",
@@ -2768,11 +2982,12 @@
     "slug": "intuis-irm-mono-2000w-infrasugarzo",
     "href": "https://www.bvfheating.hu/shop/infrasugarzo/intuis-irm-mono-2000w-infrasugarzo/",
     "priceGross": 89000,
-    "buyPrice": 68327,
+    "buyPrice": 75094,
     "sellNet": 68677,
     "sellNetHint": 68677,
     "variantLabel": "",
-    "parentSlug": "intuis-irm-mono-2000w-infrasugarzo"
+    "parentSlug": "intuis-irm-mono-2000w-infrasugarzo",
+    "sellGross": 87220
   },
   {
     "group": "kiegeszitok",
@@ -2780,12 +2995,13 @@
     "slug": "allvany-radialight-oasi-infrasugarzohoz--v874",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/allvany-radialight-oasi-infrasugarzohoz/",
     "priceGross": 100000,
-    "buyPrice": 76772,
+    "buyPrice": 84375,
     "sellNet": 77165,
     "sellNetHint": 77165,
     "variantLabel": "Fekete",
     "parentSlug": "allvany-radialight-oasi-infrasugarzohoz",
-    "variationId": 874
+    "variationId": 874,
+    "sellGross": 98000
   },
   {
     "group": "kiegeszitok",
@@ -2793,12 +3009,13 @@
     "slug": "allvany-radialight-oasi-infrasugarzohoz--v875",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/allvany-radialight-oasi-infrasugarzohoz/",
     "priceGross": 100000,
-    "buyPrice": 76772,
+    "buyPrice": 84375,
     "sellNet": 77165,
     "sellNetHint": 77165,
     "variantLabel": "Fehér",
     "parentSlug": "allvany-radialight-oasi-infrasugarzohoz",
-    "variationId": 875
+    "variationId": 875,
+    "sellGross": 98000
   },
   {
     "group": "kiegeszitok",
@@ -2806,12 +3023,13 @@
     "slug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-to--v813",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 13500,
-    "buyPrice": 10364,
+    "buyPrice": 11391,
     "sellNet": 10417,
     "sellNetHint": 10417,
     "variantLabel": "35 cm (300 wattos törölközőszárítóhoz) / Fehér",
     "parentSlug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
-    "variationId": 813
+    "variationId": 813,
+    "sellGross": 13230
   },
   {
     "group": "kiegeszitok",
@@ -2819,12 +3037,13 @@
     "slug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-to--v811",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 14500,
-    "buyPrice": 11132,
+    "buyPrice": 12234,
     "sellNet": 11189,
     "sellNetHint": 11189,
     "variantLabel": "45 cm (500 vagy 750 wattos törölközőszárítóhoz) / Fekete",
     "parentSlug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
-    "variationId": 811
+    "variationId": 811,
+    "sellGross": 14210
   },
   {
     "group": "kiegeszitok",
@@ -2832,12 +3051,13 @@
     "slug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozo--v809",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 5100,
-    "buyPrice": 3915,
+    "buyPrice": 4303,
     "sellNet": 3935,
     "sellNetHint": 3935,
     "variantLabel": "Fehér",
     "parentSlug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
-    "variationId": 809
+    "variationId": 809,
+    "sellGross": 4998
   },
   {
     "group": "kiegeszitok",
@@ -2845,12 +3065,13 @@
     "slug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozo--v810",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
     "priceGross": 5100,
-    "buyPrice": 3915,
+    "buyPrice": 4303,
     "sellNet": 3935,
     "sellNetHint": 3935,
     "variantLabel": "Fekete",
     "parentSlug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
-    "variationId": 810
+    "variationId": 810,
+    "sellGross": 4998
   },
   {
     "group": "kiegeszitok",
@@ -2858,12 +3079,13 @@
     "slug": "kiegeszito-kampok-radialight-onsen-torolkozoszarit--v852",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz/",
     "priceGross": 8900,
-    "buyPrice": 6833,
+    "buyPrice": 7509,
     "sellNet": 6868,
     "sellNetHint": 6868,
     "variantLabel": "Fehér",
     "parentSlug": "kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz",
-    "variationId": 852
+    "variationId": 852,
+    "sellGross": 8722
   },
   {
     "group": "kiegeszitok",
@@ -2871,12 +3093,13 @@
     "slug": "kiegeszito-kampok-radialight-onsen-torolkozoszarit--v851",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz/",
     "priceGross": 8900,
-    "buyPrice": 6833,
+    "buyPrice": 7509,
     "sellNet": 6868,
     "sellNetHint": 6868,
     "variantLabel": "Antracit",
     "parentSlug": "kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz",
-    "variationId": 851
+    "variationId": 851,
+    "sellGross": 8722
   },
   {
     "group": "kiegeszitok",
@@ -2884,11 +3107,12 @@
     "slug": "kiegeszito-kampok-radialight-silk-torolkozoszarito",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke/",
     "priceGross": 8900,
-    "buyPrice": 6833,
+    "buyPrice": 7509,
     "sellNet": 6868,
     "sellNetHint": 6868,
     "variantLabel": "",
-    "parentSlug": "kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke"
+    "parentSlug": "kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke",
+    "sellGross": 8722
   },
   {
     "group": "kiegeszitok",
@@ -2896,11 +3120,12 @@
     "slug": "taviranyito-radialight-oasi-infrasugarzohoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/taviranyito-radialight-oasi-infrasugarzohoz/",
     "priceGross": 9500,
-    "buyPrice": 7293,
+    "buyPrice": 8016,
     "sellNet": 7331,
     "sellNetHint": 7331,
     "variantLabel": "",
-    "parentSlug": "taviranyito-radialight-oasi-infrasugarzohoz"
+    "parentSlug": "taviranyito-radialight-oasi-infrasugarzohoz",
+    "sellGross": 9310
   },
   {
     "group": "kiegeszitok",
@@ -2908,11 +3133,12 @@
     "slug": "bvf-futokabel-teszter",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-futokabel-teszter/",
     "priceGross": 6000,
-    "buyPrice": 4606,
+    "buyPrice": 5062,
     "sellNet": 4630,
     "sellNetHint": 4630,
     "variantLabel": "",
-    "parentSlug": "bvf-futokabel-teszter"
+    "parentSlug": "bvf-futokabel-teszter",
+    "sellGross": 5880
   },
   {
     "group": "kiegeszitok",
@@ -2920,12 +3146,13 @@
     "slug": "futokabel-rogzitoszalag--v292",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/futokabel-rogzitoszalag/",
     "priceGross": 5000,
-    "buyPrice": 3839,
+    "buyPrice": 4219,
     "sellNet": 3858,
     "sellNetHint": 3858,
     "variantLabel": "5 m",
     "parentSlug": "futokabel-rogzitoszalag",
-    "variationId": 292
+    "variationId": 292,
+    "sellGross": 4900
   },
   {
     "group": "kiegeszitok",
@@ -2933,12 +3160,13 @@
     "slug": "futokabel-rogzitoszalag--v293",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/futokabel-rogzitoszalag/",
     "priceGross": 14000,
-    "buyPrice": 10748,
+    "buyPrice": 11812,
     "sellNet": 10803,
     "sellNetHint": 10803,
     "variantLabel": "25 m",
     "parentSlug": "futokabel-rogzitoszalag",
-    "variationId": 293
+    "variationId": 293,
+    "sellGross": 13720
   },
   {
     "group": "kiegeszitok",
@@ -2946,11 +3174,12 @@
     "slug": "tartalek-bvf-l-pro-aluminiumos-rogzitoszalag",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-bvf-l-pro-aluminiumos-rogzitoszalag/",
     "priceGross": 9000,
-    "buyPrice": 6909,
+    "buyPrice": 7594,
     "sellNet": 6945,
     "sellNetHint": 6945,
     "variantLabel": "",
-    "parentSlug": "tartalek-bvf-l-pro-aluminiumos-rogzitoszalag"
+    "parentSlug": "tartalek-bvf-l-pro-aluminiumos-rogzitoszalag",
+    "sellGross": 8820
   },
   {
     "group": "kiegeszitok",
@@ -2958,11 +3187,12 @@
     "slug": "bvf-srhc-futokabel-csatlakozo-szett",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-srhc-futokabel-csatlakozo-szett/",
     "priceGross": 7000,
-    "buyPrice": 5374,
+    "buyPrice": 5906,
     "sellNet": 5402,
     "sellNetHint": 5402,
     "variantLabel": "",
-    "parentSlug": "bvf-srhc-futokabel-csatlakozo-szett"
+    "parentSlug": "bvf-srhc-futokabel-csatlakozo-szett",
+    "sellGross": 6860
   },
   {
     "group": "kiegeszitok",
@@ -2970,11 +3200,12 @@
     "slug": "rogzitoszalag-bvf-srhc-futokabelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/rogzitoszalag-bvf-srhc-futokabelhez/",
     "priceGross": 3000,
-    "buyPrice": 2303,
+    "buyPrice": 2531,
     "sellNet": 2315,
     "sellNetHint": 2315,
     "variantLabel": "",
-    "parentSlug": "rogzitoszalag-bvf-srhc-futokabelhez"
+    "parentSlug": "rogzitoszalag-bvf-srhc-futokabelhez",
+    "sellGross": 2940
   },
   {
     "group": "kiegeszitok",
@@ -2982,11 +3213,12 @@
     "slug": "h-mat-futoszonyeg-wfd-futokabel-javitokeszlet",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/h-mat-futoszonyeg-wfd-futokabel-javitokeszlet/",
     "priceGross": 7000,
-    "buyPrice": 5374,
+    "buyPrice": 5906,
     "sellNet": 5402,
     "sellNetHint": 5402,
     "variantLabel": "",
-    "parentSlug": "h-mat-futoszonyeg-wfd-futokabel-javitokeszlet"
+    "parentSlug": "h-mat-futoszonyeg-wfd-futokabel-javitokeszlet",
+    "sellGross": 6860
   },
   {
     "group": "kiegeszitok",
@@ -2994,11 +3226,12 @@
     "slug": "l-pro-alu-futoszonyeg-javitokeszlet",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/l-pro-alu-futoszonyeg-javitokeszlet/",
     "priceGross": 9000,
-    "buyPrice": 6909,
+    "buyPrice": 7594,
     "sellNet": 6945,
     "sellNetHint": 6945,
     "variantLabel": "",
-    "parentSlug": "l-pro-alu-futoszonyeg-javitokeszlet"
+    "parentSlug": "l-pro-alu-futoszonyeg-javitokeszlet",
+    "sellGross": 8820
   },
   {
     "group": "kiegeszitok",
@@ -3006,11 +3239,12 @@
     "slug": "kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db/",
     "priceGross": 1750,
-    "buyPrice": 1344,
+    "buyPrice": 1477,
     "sellNet": 1350,
     "sellNetHint": 1350,
     "variantLabel": "",
-    "parentSlug": "kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db"
+    "parentSlug": "kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db",
+    "sellGross": 1715
   },
   {
     "group": "kiegeszitok",
@@ -3018,11 +3252,12 @@
     "slug": "kerekes-lab-intuis-tactic-es-tactic-wifi-elektromo",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez/",
     "priceGross": 6000,
-    "buyPrice": 4606,
+    "buyPrice": 5062,
     "sellNet": 4630,
     "sellNetHint": 4630,
     "variantLabel": "",
-    "parentSlug": "kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez"
+    "parentSlug": "kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez",
+    "sellGross": 5880
   },
   {
     "group": "kiegeszitok",
@@ -3030,11 +3265,12 @@
     "slug": "kiegeszito-gorgos-lab-radialight-sirio-futopanelhe",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-gorgos-lab-radialight-sirio-futopanelhez/",
     "priceGross": 6900,
-    "buyPrice": 5297,
+    "buyPrice": 5822,
     "sellNet": 5324,
     "sellNetHint": 5324,
     "variantLabel": "",
-    "parentSlug": "kiegeszito-gorgos-lab-radialight-sirio-futopanelhez"
+    "parentSlug": "kiegeszito-gorgos-lab-radialight-sirio-futopanelhez",
+    "sellGross": 6762
   },
   {
     "group": "kiegeszitok",
@@ -3042,11 +3278,12 @@
     "slug": "kiegeszito-torolkozoszarito-rud-radialight-icon-fu",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez/",
     "priceGross": 19200,
-    "buyPrice": 14740,
+    "buyPrice": 16200,
     "sellNet": 14816,
     "sellNetHint": 14816,
     "variantLabel": "",
-    "parentSlug": "kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez"
+    "parentSlug": "kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez",
+    "sellGross": 18816
   },
   {
     "group": "kiegeszitok",
@@ -3054,11 +3291,12 @@
     "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher/",
     "priceGross": 6000,
-    "buyPrice": 4606,
+    "buyPrice": 5062,
     "sellNet": 4630,
     "sellNetHint": 4630,
     "variantLabel": "",
-    "parentSlug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher"
+    "parentSlug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher",
+    "sellGross": 5880
   },
   {
     "group": "kiegeszitok",
@@ -3066,11 +3304,12 @@
     "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzens",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke/",
     "priceGross": 6000,
-    "buyPrice": 4606,
+    "buyPrice": 5062,
     "sellNet": 4630,
     "sellNetHint": 4630,
     "variantLabel": "",
-    "parentSlug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke"
+    "parentSlug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke",
+    "sellGross": 5880
   },
   {
     "group": "kiegeszitok",
@@ -3078,11 +3317,12 @@
     "slug": "bvf-torolkozoszarito-sin-infrapanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-torolkozoszarito-sin-infrapanelhez/",
     "priceGross": 8000,
-    "buyPrice": 6142,
+    "buyPrice": 6750,
     "sellNet": 6173,
     "sellNetHint": 6173,
     "variantLabel": "",
-    "parentSlug": "bvf-torolkozoszarito-sin-infrapanelhez"
+    "parentSlug": "bvf-torolkozoszarito-sin-infrapanelhez",
+    "sellGross": 7840
   },
   {
     "group": "kiegeszitok",
@@ -3090,11 +3330,12 @@
     "slug": "bvf-infrapanel-mobil-konzol",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-infrapanel-mobil-konzol/",
     "priceGross": 6000,
-    "buyPrice": 4606,
+    "buyPrice": 5062,
     "sellNet": 4630,
     "sellNetHint": 4630,
     "variantLabel": "",
-    "parentSlug": "bvf-infrapanel-mobil-konzol"
+    "parentSlug": "bvf-infrapanel-mobil-konzol",
+    "sellGross": 5880
   },
   {
     "group": "kiegeszitok",
@@ -3102,11 +3343,12 @@
     "slug": "bvf-mennyezeti-gyorsrogzito-infrapanelhez",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-mennyezeti-gyorsrogzito-infrapanelhez/",
     "priceGross": 4000,
-    "buyPrice": 3071,
+    "buyPrice": 3375,
     "sellNet": 3087,
     "sellNetHint": 3087,
     "variantLabel": "",
-    "parentSlug": "bvf-mennyezeti-gyorsrogzito-infrapanelhez"
+    "parentSlug": "bvf-mennyezeti-gyorsrogzito-infrapanelhez",
+    "sellGross": 3920
   },
   {
     "group": "kiegeszitok",
@@ -3114,11 +3356,12 @@
     "slug": "kontaktor-25a-teljesitmenykapcsolo-rele",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kontaktor-25a-teljesitmenykapcsolo-rele/",
     "priceGross": 10000,
-    "buyPrice": 7677,
+    "buyPrice": 8438,
     "sellNet": 7717,
     "sellNetHint": 7717,
     "variantLabel": "",
-    "parentSlug": "kontaktor-25a-teljesitmenykapcsolo-rele"
+    "parentSlug": "kontaktor-25a-teljesitmenykapcsolo-rele",
+    "sellGross": 9800
   },
   {
     "group": "kiegeszitok",
@@ -3126,11 +3369,12 @@
     "slug": "obo-ug-66-szerelvenydoboz-6566-mm",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/obo-ug-66-szerelvenydoboz-6566-mm/",
     "priceGross": 127,
-    "buyPrice": 98,
+    "buyPrice": 107,
     "sellNet": 98,
     "sellNetHint": 98,
     "variantLabel": "",
-    "parentSlug": "obo-ug-66-szerelvenydoboz-6566-mm"
+    "parentSlug": "obo-ug-66-szerelvenydoboz-6566-mm",
+    "sellGross": 124
   },
   {
     "group": "kiegeszitok",
@@ -3138,11 +3382,12 @@
     "slug": "tartalek-padloszenzor-szobatermosztathoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-padloszenzor-szobatermosztathoz/",
     "priceGross": 2000,
-    "buyPrice": 1535,
+    "buyPrice": 1688,
     "sellNet": 1543,
     "sellNetHint": 1543,
     "variantLabel": "",
-    "parentSlug": "tartalek-padloszenzor-szobatermosztathoz"
+    "parentSlug": "tartalek-padloszenzor-szobatermosztathoz",
+    "sellGross": 1960
   },
   {
     "group": "kiegeszitok",
@@ -3150,12 +3395,13 @@
     "slug": "termosztat-rele--v301",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/termosztat-rele/",
     "priceGross": 7500,
-    "buyPrice": 5758,
+    "buyPrice": 6328,
     "sellNet": 5787,
     "sellNetHint": 5787,
     "variantLabel": "Heato7, 601, 23-X, 24-X, Netmostat N-1, Syme-E",
     "parentSlug": "termosztat-rele",
-    "variationId": 301
+    "variationId": 301,
+    "sellGross": 7350
   },
   {
     "group": "kiegeszitok",
@@ -3163,12 +3409,13 @@
     "slug": "termosztat-rele--v302",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/termosztat-rele/",
     "priceGross": 7500,
-    "buyPrice": 5758,
+    "buyPrice": 6328,
     "sellNet": 5787,
     "sellNetHint": 5787,
     "variantLabel": "Heato8, 701",
     "parentSlug": "termosztat-rele",
-    "variationId": 302
+    "variationId": 302,
+    "sellGross": 7350
   },
   {
     "group": "kiegeszitok",
@@ -3176,12 +3423,13 @@
     "slug": "termosztat-rele--v303",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/termosztat-rele/",
     "priceGross": 7500,
-    "buyPrice": 5758,
+    "buyPrice": 6328,
     "sellNet": 5787,
     "sellNetHint": 5787,
     "variantLabel": "Heato9, 501, 801",
     "parentSlug": "termosztat-rele",
-    "variationId": 303
+    "variationId": 303,
+    "sellGross": 7350
   },
   {
     "group": "kiegeszitok",
@@ -3189,11 +3437,12 @@
     "slug": "vedocso",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/vedocso/",
     "priceGross": 1200,
-    "buyPrice": 921,
+    "buyPrice": 1012,
     "sellNet": 926,
     "sellNetHint": 926,
     "variantLabel": "",
-    "parentSlug": "vedocso"
+    "parentSlug": "vedocso",
+    "sellGross": 1176
   },
   {
     "group": "kiegeszitok",
@@ -3201,10 +3450,11 @@
     "slug": "kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz",
     "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz/",
     "priceGross": 3000,
-    "buyPrice": 2303,
+    "buyPrice": 2531,
     "sellNet": 2315,
     "sellNetHint": 2315,
     "variantLabel": "",
-    "parentSlug": "kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz"
+    "parentSlug": "kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz",
+    "sellGross": 2940
   }
 ]

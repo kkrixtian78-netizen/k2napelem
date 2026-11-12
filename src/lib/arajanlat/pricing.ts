@@ -1,4 +1,5 @@
 import {
+  BVF_HEAT_BUY_FACTOR,
   BVF_HEAT_SELL_FACTOR,
   MARGIN_MULTIPLIER,
   type CatalogItem,
@@ -12,17 +13,36 @@ export function sellFromBuy(buyPrice: number): number {
   return Math.round(buyPrice * MARGIN_MULTIPLIER);
 }
 
+/** BVF fűtés eladási bruttó (listaár − 2%). */
+export function sellGrossFromBvf(bvfGross: number): number {
+  return Math.round(bvfGross * BVF_HEAT_SELL_FACTOR);
+}
+
+/** BVF fűtés beszerzés a Tactic 1000 W arányából (54k / 64k). */
+export function buyFromBvfGross(bvfGross: number): number {
+  return Math.round(bvfGross * BVF_HEAT_BUY_FACTOR);
+}
+
 /**
  * Katalógustétel eladási nettója.
- * BVF fűtés termékeknél: bruttó listaár × 0,98 / 1,27 (2%-kal olcsóbb a BVF áránál).
+ * BVF fűtésnél: (bruttó listaár × 0,98) / 1,27 — így a sor bruttója = BVF − 2%.
  * Egyébként: beszerzés × 1,25.
  */
 export function sellPriceForItem(item: CatalogItem): number {
   const gross = item.bvfGross;
   if (typeof gross === 'number' && gross > 0) {
-    return Math.round((gross * BVF_HEAT_SELL_FACTOR) / (1 + VAT_RATE));
+    return Math.round(sellGrossFromBvf(gross) / (1 + VAT_RATE));
   }
   return sellFromBuy(item.buyPrice);
+}
+
+/** Megjelenítéshez: BVF fűtésnél bruttó eladási ár, egyébként nettó eladás. */
+export function displaySellForItem(item: CatalogItem): { amount: number; gross: boolean } {
+  const gross = item.bvfGross;
+  if (typeof gross === 'number' && gross > 0) {
+    return { amount: sellGrossFromBvf(gross), gross: true };
+  }
+  return { amount: sellFromBuy(item.buyPrice), gross: false };
 }
 
 /** Nettó eladási összeg → ÁFA Ft */

@@ -1,3 +1,4 @@
+import { buyFromBvfGross } from './pricing';
 import type { CatalogItem, HeatGroup } from './types';
 import bvfHeatingProducts from './bvf-heating-products.json';
 
@@ -10,6 +11,7 @@ type BvfProduct = {
   buyPrice: number;
   sellNetHint?: number;
   sellNet?: number;
+  sellGross?: number;
   variantLabel?: string;
   parentSlug?: string;
   variationId?: number;
@@ -19,20 +21,23 @@ type BvfProduct = {
 export function buildHeatingCatalogFromBvf(): CatalogItem[] {
   return (bvfHeatingProducts as BvfProduct[]).map((p) => {
     const id = `f-${p.slug}`.slice(0, 80);
+    const bvfGross = Math.max(0, Math.round(p.priceGross));
+    // Beszerzés: Tactic 1000 W kalibráció (54 000 / 64 000 × BVF bruttó)
+    const buyPrice = bvfGross > 0 ? buyFromBvfGross(bvfGross) : Math.max(0, Math.round(p.buyPrice));
     return {
       id,
       name: p.name,
       topic: 'futes' as const,
       category: 'foanyag' as const,
       unit: 'db',
-      buyPrice: Math.max(0, Math.round(p.buyPrice)),
+      buyPrice,
       selectable: true,
       active: true,
       heatGroup: p.group,
-      bvfGross: Math.max(0, Math.round(p.priceGross)),
+      bvfGross,
       notes: p.href
-        ? `Forrás: ${p.href} · Eladás: BVF bruttó −2% (nettó)`
-        : 'Eladás: BVF bruttó −2% (nettó)',
+        ? `Forrás: ${p.href} · Eladás bruttó: BVF −2% · Beszerzés: BVF×(54k/64k)`
+        : 'Eladás bruttó: BVF −2% · Beszerzés: BVF×(54k/64k)',
     };
   });
 }

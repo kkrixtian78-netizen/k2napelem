@@ -145,8 +145,14 @@ export type QuoteStore = {
 
 export const MARGIN_MULTIPLIER = 1.25;
 
-/** BVF fűtés: eladás = BVF bruttó listaár × ez a szorzó (2% kedvezmény), majd / ÁFA → nettó. */
+/** BVF fűtés: eladási bruttó = BVF bruttó listaár × ez (2% kedvezmény). */
 export const BVF_HEAT_SELL_FACTOR = 0.98;
+
+/**
+ * BVF fűtés beszerzés / BVF bruttó listaár.
+ * Kalibráció: Intuis Tactic 1000 W → BVF 64 000 Ft bruttó, beszerzés 54 000 Ft.
+ */
+export const BVF_HEAT_BUY_FACTOR = 54000 / 64000;
 
 export const TOPIC_LABELS: Record<TopicId, string> = {
   napelem: 'Napelemes rendszer',

@@ -10,7 +10,7 @@ import {
   type SolarExtraGroup,
   type TopicId,
 } from '../../lib/arajanlat/types';
-import { sellPriceForItem } from '../../lib/arajanlat/pricing';
+import { displaySellForItem, sellPriceForItem } from '../../lib/arajanlat/pricing';
 import { formatHuf } from './format';
 
 const TOPICS: Array<TopicId | 'all'> = ['napelem', 'villany', 'futes', 'all'];
@@ -260,8 +260,9 @@ export default function CatalogManager() {
               onChange={(e) => setForm({ ...form, buyPrice: Number(e.target.value) })}
             />
             <span className="mt-1 block text-xs text-ink-soft">
-              Eladás nettó: {formatHuf(sellPriceForItem(form))}
-              {form.bvfGross ? ' (BVF listaár −2%)' : ' (beszerzés × 1,25)'}
+              {form.bvfGross
+                ? `Eladás bruttó: ${formatHuf(displaySellForItem(form).amount)} (BVF −2%) · nettó ${formatHuf(sellPriceForItem(form))}`
+                : `Eladás nettó: ${formatHuf(sellPriceForItem(form))} (beszerzés × 1,25)`}
             </span>
           </label>
           {(form.topic === 'futes' || form.heatGroup) && (
@@ -280,7 +281,7 @@ export default function CatalogManager() {
                 }
               />
               <span className="mt-1 block text-xs text-ink-soft">
-                Ha megvan: eladás = bruttó × 0,98 / 1,27 (nem 25% árrés).
+                Eladás bruttó = BVF × 0,98. Beszerzés kalibráció: Tactic 1000 W → 54k / 64k.
               </span>
             </label>
           )}
@@ -371,7 +372,10 @@ export default function CatalogManager() {
                   {formatHuf(item.buyPrice)} / {item.unit}
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap font-medium text-sky-deep">
-                  {formatHuf(sellPriceForItem(item))}
+                  {(() => {
+                    const d = displaySellForItem(item);
+                    return `${formatHuf(d.amount)}${d.gross ? ' br.' : ''}`;
+                  })()}
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap text-right">
                   <button type="button" className="text-sky-deep hover:underline" onClick={() => startEdit(item)}>

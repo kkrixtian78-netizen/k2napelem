@@ -12,8 +12,8 @@ import {
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
-import { sellPriceForItem } from '../../lib/arajanlat/pricing';
-import { formatHuf, grossFromNet, vatFromNet, vatPercentLabel } from './format';
+import { displaySellForItem, grossFromNet } from '../../lib/arajanlat/pricing';
+import { formatHuf, vatFromNet, vatPercentLabel } from './format';
 
 type Preview = {
   lines: QuoteLine[];
@@ -333,7 +333,9 @@ export default function QuoteWizard() {
           </button>
           <h1 className="font-display text-3xl font-bold text-ink">{TOPIC_LABELS[topic]}</h1>
           <p className="mt-1 text-sm text-ink-soft">
-            Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA ({vatPercentLabel()}) csak az összesenél.
+            {topic === 'futes'
+              ? `BVF termékek: eladás bruttó = BVF − 2% (a sorokban nettó). Szerelés/fogyóanyag: ×1,25. ÁFA (${vatPercentLabel()}) az összesenél.`
+              : `Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA (${vatPercentLabel()}) csak az összesenél.`}
           </p>
         </div>
         {savedId && (
@@ -497,9 +499,9 @@ export default function QuoteWizard() {
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Fűtés főanyagok (BVF)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként válassz terméket. A BVF termékek eladási ára a BVF listaárnál 2%-kal olcsóbb (nem a 25%
-            árrés). A csomagajánlatok és outlet tételek nincsenek a listában. A szerelés és fogyóanyag automatikusan
-            hozzáadódik.
+            Csoportonként válassz terméket. A BVF termékeknél a listában a bruttó eladási ár látszik (BVF − 2%, pl.
+            64&nbsp;000 → 62&nbsp;720). A tételsorban nettó van, az ÁFA / bruttó az összesenél. Csomagajánlatok és
+            outlet nincsenek a listában.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {HEAT_GROUPS.map((group) => {
@@ -515,11 +517,15 @@ export default function QuoteWizard() {
                       onChange={(e) => setHeatGroup(group.id, e.target.value)}
                     >
                       <option value="">Nincs</option>
-                      {options.map((p) => (
-                        <option key={p.id} value={p.id}>
-                          {p.name} — {formatHuf(sellPriceForItem(p))}
-                        </option>
-                      ))}
+                      {options.map((p) => {
+                        const disp = displaySellForItem(p);
+                        return (
+                          <option key={p.id} value={p.id}>
+                            {p.name} — {formatHuf(disp.amount)}
+                            {disp.gross ? ' bruttó' : ''}
+                          </option>
+                        );
+                      })}
                     </select>
                   </Field>
                   {selectedId ? (
