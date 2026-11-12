@@ -334,7 +334,7 @@ export default function QuoteWizard() {
           <h1 className="font-display text-3xl font-bold text-ink">{TOPIC_LABELS[topic]}</h1>
           <p className="mt-1 text-sm text-ink-soft">
             {topic === 'futes'
-              ? `BVF termékek: eladás bruttó = BVF − 2% (a sorokban nettó). Szerelés/fogyóanyag: ×1,25. ÁFA (${vatPercentLabel()}) az összesenél.`
+              ? `BVF termékek: beszerzés = BVF −15%, eladás bruttó = BVF −2% (a sorokban nettó). Szerelés/fogyóanyag: ×1,25. ÁFA (${vatPercentLabel()}) az összesenél.`
               : `Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA (${vatPercentLabel()}) csak az összesenél.`}
           </p>
         </div>
@@ -499,9 +499,9 @@ export default function QuoteWizard() {
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Fűtés főanyagok (BVF)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként válassz terméket. A BVF termékeknél a listában a bruttó eladási ár látszik (BVF − 2%, pl.
-            64&nbsp;000 → 62&nbsp;720). A tételsorban nettó van, az ÁFA / bruttó az összesenél. Csomagajánlatok és
-            outlet nincsenek a listában.
+            Csoportonként válassz terméket. A BVF termékeknél a listában a bruttó eladási ár látszik (BVF − 2%).
+            Beszerzés: BVF − 15%. A tételsorban nettó van; ÁFA / bruttó az összesenél. Csomagajánlatok és outlet
+            nincsenek a listában.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {HEAT_GROUPS.map((group) => {

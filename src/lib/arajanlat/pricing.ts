@@ -18,14 +18,14 @@ export function sellGrossFromBvf(bvfGross: number): number {
   return Math.round(bvfGross * BVF_HEAT_SELL_FACTOR);
 }
 
-/** BVF fűtés beszerzés a Tactic 1000 W arányából (54k / 64k). */
+/** BVF fűtés beszerzés: BVF bruttó listaár − 15%. */
 export function buyFromBvfGross(bvfGross: number): number {
   return Math.round(bvfGross * BVF_HEAT_BUY_FACTOR);
 }
 
 /**
  * Katalógustétel eladási nettója.
- * BVF fűtésnél: (bruttó listaár × 0,98) / 1,27 — így a sor bruttója = BVF − 2%.
+ * BVF fűtésnél: (bruttó listaár × 0,98) / 1,27 — sor bruttója = BVF − 2%.
  * Egyébként: beszerzés × 1,25.
  */
 export function sellPriceForItem(item: CatalogItem): number {

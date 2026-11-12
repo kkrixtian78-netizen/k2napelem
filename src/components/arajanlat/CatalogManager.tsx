@@ -281,7 +281,7 @@ export default function CatalogManager() {
                 }
               />
               <span className="mt-1 block text-xs text-ink-soft">
-                Eladás bruttó = BVF × 0,98. Beszerzés kalibráció: Tactic 1000 W → 54k / 64k.
+                Beszerzés = BVF bruttó −15%. Eladás bruttó = BVF −2%.
               </span>
             </label>
           )}

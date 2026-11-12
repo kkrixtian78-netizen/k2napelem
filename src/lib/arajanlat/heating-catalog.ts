@@ -22,7 +22,7 @@ export function buildHeatingCatalogFromBvf(): CatalogItem[] {
   return (bvfHeatingProducts as BvfProduct[]).map((p) => {
     const id = `f-${p.slug}`.slice(0, 80);
     const bvfGross = Math.max(0, Math.round(p.priceGross));
-    // Beszerzés: Tactic 1000 W kalibráció (54 000 / 64 000 × BVF bruttó)
+    // Beszerzés = BVF bruttó −15%; eladás bruttó = BVF −2% (lásd sellPriceForItem)
     const buyPrice = bvfGross > 0 ? buyFromBvfGross(bvfGross) : Math.max(0, Math.round(p.buyPrice));
     return {
       id,
@@ -36,8 +36,8 @@ export function buildHeatingCatalogFromBvf(): CatalogItem[] {
       heatGroup: p.group,
       bvfGross,
       notes: p.href
-        ? `Forrás: ${p.href} · Eladás bruttó: BVF −2% · Beszerzés: BVF×(54k/64k)`
-        : 'Eladás bruttó: BVF −2% · Beszerzés: BVF×(54k/64k)',
+        ? `Forrás: ${p.href} · Beszerzés: BVF −15% · Eladás bruttó: BVF −2%`
+        : 'Beszerzés: BVF −15% · Eladás bruttó: BVF −2%',
     };
   });
 }
