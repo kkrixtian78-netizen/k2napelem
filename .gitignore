@@ -18,3 +18,7 @@ data/arajanlat/*.tmp
 # logs / OS
 npm-debug.log*
 .DS_Store
+
+# Vercel / Astro build output
+.vercel/
+dist/
