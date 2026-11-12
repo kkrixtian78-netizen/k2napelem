@@ -81,8 +81,8 @@ export type CatalogItem = {
   /** Elektromos fűtés legördülő csoport */
   heatGroup?: HeatGroup;
   /**
-   * BVF webshop bruttó listaár (Ft). Ha megvan, a fűtés eladási nettó =
-   * bruttó × 0,98 / 1,27 (2%-kal olcsóbb a BVF eladási áránál) — nem a 25% árrés.
+   * BVF webshop bruttó listaár (Ft). Ha megvan:
+   * beszerzés = bruttó × 0,85 (−15%), eladás bruttó = bruttó × 0,98 (−2%).
    */
   bvfGross?: number;
 };
