@@ -12,7 +12,13 @@ import {
 } from '../../lib/arajanlat/types';
 import { formatHuf } from './format';
 
-type Preview = { lines: QuoteLine[]; totalBuy: number; totalSell: number };
+type Preview = {
+  lines: QuoteLine[];
+  totalBuy: number;
+  totalSell: number;
+  travel?: { oneWayKm: number; roundTripKm: number; method: string } | null;
+  travelWarning?: string | null;
+};
 
 const TOPICS: TopicId[] = ['napelem', 'villany', 'futes'];
 
@@ -21,7 +27,6 @@ const EMPTY_EXTRA_IDS: Record<SolarExtraGroup, string> = {
   visszwatt: '',
   tuzvedelmi: '',
   tervezes: '',
-  kiszallas: '',
   'hozott-jutalek': '',
 };
 
@@ -115,7 +120,7 @@ export default function QuoteWizard() {
       const res = await fetch('/api/arajanlat/preview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ topic, selection }),
+        body: JSON.stringify({ topic, selection, customerAddress }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Előnézet hiba');
@@ -134,10 +139,21 @@ export default function QuoteWizard() {
     if (!topic) return;
     const t = setTimeout(() => {
       void refreshPreview();
-    }, 200);
+    }, customerAddress.trim().length >= 5 ? 700 : 200);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic, panelId, panelCount, inverterId, storageId, roofTypeId, extraIds, optimizerQty, selectedMains]);
+  }, [
+    topic,
+    panelId,
+    panelCount,
+    inverterId,
+    storageId,
+    roofTypeId,
+    extraIds,
+    optimizerQty,
+    selectedMains,
+    customerAddress,
+  ]);
 
   async function onSave(e: FormEvent, status: 'draft' | 'final') {
     e.preventDefault();
@@ -279,8 +295,11 @@ export default function QuoteWizard() {
             className="w-full rounded-md border border-line bg-white px-3 py-2"
             value={customerAddress}
             onChange={(e) => setCustomerAddress(e.target.value)}
-            placeholder="Település, utca"
+            placeholder="pl. 2000 Szentendre, Fő tér 1."
           />
+          <span className="mt-1 block text-xs text-ink-soft">
+            Ebből számolódik automatikusan a kiszállás: Pócsmegyer → ügyfél oda-vissza × 300 Ft/km.
+          </span>
         </label>
         <label className="block text-sm sm:col-span-3">
           <span className="mb-1 block font-medium text-ink">Megjegyzés</span>
@@ -445,10 +464,24 @@ export default function QuoteWizard() {
         </p>
       )}
 
+      {preview?.travelWarning && (
+        <p className="rounded-md border border-sun/40 bg-sun/10 px-3 py-2 text-sm text-sun-deep">
+          {preview.travelWarning}
+        </p>
+      )}
+
       {preview && (
         <section className="space-y-3">
           <div className="flex flex-wrap items-end justify-between gap-2">
-            <h2 className="font-display text-xl font-bold">Automatikus tételsor</h2>
+            <div>
+              <h2 className="font-display text-xl font-bold">Automatikus tételsor</h2>
+              {preview.travel && (
+                <p className="mt-1 text-xs text-ink-soft">
+                  Kiszállás: {preview.travel.oneWayKm} km egy út · {preview.travel.roundTripKm} km
+                  oda-vissza · 300 Ft/km
+                </p>
+              )}
+            </div>
             <div className="text-right text-sm">
               <div className="text-ink-soft">Beszerzés összesen: {formatHuf(preview.totalBuy)}</div>
               <div className="text-lg font-bold text-sky-deep">

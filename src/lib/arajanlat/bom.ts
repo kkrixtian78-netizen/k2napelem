@@ -1,5 +1,6 @@
 import { ROOF_MOUNT_MAP } from './seed';
 import { lineFromCatalog, sumLines } from './pricing';
+import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
   CatalogItem,
   ManualSelection,
@@ -7,6 +8,11 @@ import type {
   SolarSelection,
   TopicId,
 } from './types';
+
+export type BomOptions = {
+  /** Oda-vissza kilométer (ügyfélcím alapján) */
+  travelRoundTripKm?: number;
+};
 
 function byId(catalog: CatalogItem[], id: string): CatalogItem {
   const item = catalog.find((c) => c.id === id && c.active);
@@ -70,10 +76,11 @@ export function buildSolarBom(
   }
   lines.push(lineFromCatalog(byId(catalog, 'labor-solar-comm'), 1, true));
 
-  // Választható kiegészítő főanyagok
+  // Választható kiegészítő főanyagok (kiszállás nem ide tartozik — auto munkadíj)
   const extraIds = selection.extraItemIds ?? [];
   const extraQty = selection.extraQuantities ?? {};
   for (const id of extraIds) {
+    if (id === 'opt-kiszallas' || id === TRAVEL_CATALOG_ID) continue;
     const item = tryById(catalog, id);
     if (!item || item.selectable === false) continue;
     const defaultQty = id === 'opt-optimizer' ? panels : 1;
@@ -81,6 +88,31 @@ export function buildSolarBom(
     lines.push(lineFromCatalog(item, q, false));
   }
 
+  return lines;
+}
+
+function appendTravelLine(
+  catalog: CatalogItem[],
+  lines: QuoteLine[],
+  travelRoundTripKm?: number,
+): QuoteLine[] {
+  const km = Math.round(travelRoundTripKm ?? 0);
+  if (km <= 0) return lines;
+  const item =
+    tryById(catalog, TRAVEL_CATALOG_ID) ??
+    ({
+      id: TRAVEL_CATALOG_ID,
+      name: 'Kiszállás / szállítás (km × 300 Ft, oda-vissza)',
+      topic: 'all',
+      category: 'munkadij',
+      unit: 'km',
+      buyPrice: TRAVEL_BUY_PER_KM,
+      selectable: false,
+      active: true,
+    } satisfies CatalogItem);
+  const line = lineFromCatalog(item, km, true);
+  line.name = `Kiszállás / szállítás (oda-vissza, ${km} km × ${item.buyPrice} Ft)`;
+  lines.push(line);
   return lines;
 }
 
@@ -149,11 +181,13 @@ export function buildQuoteLines(
   catalog: CatalogItem[],
   topic: TopicId,
   selection: SolarSelection | ManualSelection,
+  options?: BomOptions,
 ): QuoteLine[] {
-  if (topic === 'napelem') {
-    return buildSolarBom(catalog, selection as SolarSelection);
-  }
-  return buildManualBom(catalog, topic, selection as ManualSelection);
+  const lines =
+    topic === 'napelem'
+      ? buildSolarBom(catalog, selection as SolarSelection)
+      : buildManualBom(catalog, topic, selection as ManualSelection);
+  return appendTravelLine(catalog, lines, options?.travelRoundTripKm);
 }
 
 export function withTotals(lines: QuoteLine[]) {

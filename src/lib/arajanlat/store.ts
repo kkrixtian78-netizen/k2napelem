@@ -43,6 +43,13 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
   }
+  // Régi választható kiszállás tétel kikapcsolása (most auto km-díj)
+  const legacy = byId.get('opt-kiszallas');
+  if (legacy && (legacy.selectable !== false || legacy.active)) {
+    legacy.selectable = false;
+    legacy.active = false;
+    changed = true;
+  }
   return changed;
 }
 

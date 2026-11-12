@@ -10,6 +10,7 @@ import {
   listQuotes,
   saveQuote,
 } from '../../../lib/arajanlat/store';
+import { roundTripTravelKm } from '../../../lib/arajanlat/travel';
 
 export const GET: APIRoute = async ({ url }) => {
   const id = url.searchParams.get('id');
@@ -30,19 +31,29 @@ export const POST: APIRoute = async ({ request }) => {
 
   const catalog = listCatalog();
   const selection = body.selection as SolarSelection | ManualSelection;
-  const built = withTotals(buildQuoteLines(catalog, topic, selection));
+  const customerAddress = String(body.customerAddress || '');
+  const travel = customerAddress.trim().length >= 5 ? await roundTripTravelKm(customerAddress) : null;
+  const built = withTotals(
+    buildQuoteLines(catalog, topic, selection, {
+      travelRoundTripKm: travel?.roundTripKm,
+    }),
+  );
 
-  // Optional: allow line overrides from client (qty edits)
-  const lines = Array.isArray(body.lines) && body.lines.length ? body.lines : built.lines;
-  const totals = Array.isArray(body.lines) && body.lines.length
-    ? withTotals(body.lines)
-    : built;
+  // Optional: allow line overrides from client (qty edits) — de ha nincs travel a client lines-ban, a szerverét használjuk
+  let lines = Array.isArray(body.lines) && body.lines.length ? body.lines : built.lines;
+  if (Array.isArray(body.lines) && body.lines.length && travel?.roundTripKm) {
+    const hasTravel = body.lines.some(
+      (l: { catalogId?: string }) => l.catalogId === 'labor-kiszallas-km',
+    );
+    if (!hasTravel) lines = built.lines;
+  }
+  const totals = withTotals(lines);
 
   const quote = saveQuote({
     id: body.id,
     topic,
     customerName: body.customerName || '',
-    customerAddress: body.customerAddress || '',
+    customerAddress,
     customerNote: body.customerNote || '',
     status: body.status === 'final' ? 'final' : 'draft',
     selection,

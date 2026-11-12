@@ -23,7 +23,6 @@ export type SolarExtraGroup =
   | 'visszwatt'
   | 'tuzvedelmi'
   | 'tervezes'
-  | 'kiszallas'
   | 'hozott-jutalek';
 
 export const SOLAR_EXTRA_GROUPS: Array<{
@@ -36,7 +35,6 @@ export const SOLAR_EXTRA_GROUPS: Array<{
   { id: 'visszwatt', label: 'Visszwatt védelem' },
   { id: 'tuzvedelmi', label: 'Tűzvédelmi leválasztó' },
   { id: 'tervezes', label: 'Tervezés / engedélyeztetés' },
-  { id: 'kiszallas', label: 'Kiszállás / szállítás' },
   { id: 'hozott-jutalek', label: 'Hozott munka — jutalék' },
 ];
 
