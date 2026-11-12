@@ -43,6 +43,7 @@ const EXCLUDED_GROUP_LABELS = new Set([
   'Ipari kapcsolók és tartozékaik',
   'Egyéni védőfelszerelések',
   'Rögzítéstechnika: csavarok, tiplik, ragasztástechnika, kötéstechnika, kötegelők, bilincsek, konzolok',
+  'Vezérléstechnika: relék, impulzusrelék, időzítők, kapcsolóórák, alkonykapcsolók',
 ]);
 
 const excludedGroupIds = new Set(
