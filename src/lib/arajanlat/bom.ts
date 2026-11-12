@@ -164,7 +164,7 @@ export function buildManualBom(
 
       const laborBase = byId(catalog, 'f-labor-panel');
       const discountSteps = Math.floor(foQty / 2);
-      const unitSell = Math.max(0, Math.round(10000 * (1 - 0.1 * discountSteps)));
+      const unitSell = Math.max(7000, Math.round(10000 * (1 - 0.1 * discountSteps)));
       lines.push(
         lineFromCatalog(
           { ...laborBase, buyPrice: 0, sellPriceFixed: unitSell },
