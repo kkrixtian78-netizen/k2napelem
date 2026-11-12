@@ -1,7 +1,20 @@
 import { MARGIN_MULTIPLIER, type CatalogItem, type QuoteLine } from './types';
 
+/** Magyar általános ÁFA-kulcs */
+export const VAT_RATE = 0.27;
+
 export function sellFromBuy(buyPrice: number): number {
   return Math.round(buyPrice * MARGIN_MULTIPLIER);
+}
+
+/** Nettó eladási összeg → ÁFA Ft */
+export function vatFromNet(netSell: number): number {
+  return Math.round(netSell * VAT_RATE);
+}
+
+/** Nettó → bruttó (nettó + ÁFA) */
+export function grossFromNet(netSell: number): number {
+  return netSell + vatFromNet(netSell);
 }
 
 export function lineFromCatalog(

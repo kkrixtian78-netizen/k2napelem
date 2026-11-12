@@ -10,7 +10,7 @@ import {
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
-import { formatHuf } from './format';
+import { formatHuf, grossFromNet, vatFromNet, vatPercentLabel } from './format';
 
 type Preview = {
   lines: QuoteLine[];
@@ -267,7 +267,9 @@ export default function QuoteWizard() {
             ← Témakör váltása
           </button>
           <h1 className="font-display text-3xl font-bold text-ink">{TOPIC_LABELS[topic]}</h1>
-          <p className="mt-1 text-sm text-ink-soft">Eladási ár = beszerzés × 1,25 (25% árrés)</p>
+          <p className="mt-1 text-sm text-ink-soft">
+            Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA ({vatPercentLabel()}) csak az összesenél.
+          </p>
         </div>
         {savedId && (
           <a
@@ -483,9 +485,13 @@ export default function QuoteWizard() {
               )}
             </div>
             <div className="text-right text-sm">
-              <div className="text-ink-soft">Beszerzés összesen: {formatHuf(preview.totalBuy)}</div>
+              <div className="text-ink-soft">Beszerzés nettó: {formatHuf(preview.totalBuy)}</div>
+              <div className="text-ink-soft">Ajánlati nettó: {formatHuf(preview.totalSell)}</div>
+              <div className="text-ink-soft">
+                ÁFA ({vatPercentLabel()}): {formatHuf(vatFromNet(preview.totalSell))}
+              </div>
               <div className="text-lg font-bold text-sky-deep">
-                Ajánlati összesen: {formatHuf(preview.totalSell)}
+                Bruttó fizetendő: {formatHuf(grossFromNet(preview.totalSell))}
               </div>
             </div>
           </div>
@@ -495,9 +501,9 @@ export default function QuoteWizard() {
                 <tr>
                   <th className="px-3 py-2 font-semibold">Tétel</th>
                   <th className="px-3 py-2 font-semibold">Menny.</th>
-                  <th className="px-3 py-2 font-semibold">Beszerzés</th>
-                  <th className="px-3 py-2 font-semibold">Eladás</th>
-                  <th className="px-3 py-2 font-semibold">Sor össz.</th>
+                  <th className="px-3 py-2 font-semibold">Beszerzés nettó</th>
+                  <th className="px-3 py-2 font-semibold">Eladás nettó</th>
+                  <th className="px-3 py-2 font-semibold">Sor nettó</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line bg-paper/50">

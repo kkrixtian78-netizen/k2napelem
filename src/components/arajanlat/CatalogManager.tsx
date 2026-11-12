@@ -117,7 +117,7 @@ export default function CatalogManager() {
         <div>
           <h1 className="font-display text-3xl font-bold text-ink">Anyagkatalógus</h1>
           <p className="mt-1 text-sm text-ink-soft">
-            Beszerzési árak szerkesztése. Eladási ár automatikusan × 1,25.
+            Nettó beszerzési árak. Eladás nettó = beszerzés × 1,25.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -226,7 +226,7 @@ export default function CatalogManager() {
             />
           </label>
           <label className="text-sm">
-            <span className="mb-1 block font-medium">Beszerzési ár (Ft)</span>
+            <span className="mb-1 block font-medium">Beszerzési ár nettó (Ft)</span>
             <input
               type="number"
               min={0}
@@ -235,7 +235,7 @@ export default function CatalogManager() {
               onChange={(e) => setForm({ ...form, buyPrice: Number(e.target.value) })}
             />
             <span className="mt-1 block text-xs text-ink-soft">
-              Eladás: {formatHuf(Math.round(form.buyPrice * 1.25))}
+              Eladás nettó: {formatHuf(Math.round(form.buyPrice * 1.25))}
             </span>
           </label>
           <label className="flex items-center gap-2 text-sm sm:col-span-1">
@@ -305,8 +305,8 @@ export default function CatalogManager() {
               <th className="px-3 py-2">Név</th>
               <th className="px-3 py-2">Téma</th>
               <th className="px-3 py-2">Kat.</th>
-              <th className="px-3 py-2">Beszerzés</th>
-              <th className="px-3 py-2">Eladás</th>
+              <th className="px-3 py-2">Beszerzés nettó</th>
+              <th className="px-3 py-2">Eladás nettó</th>
               <th className="px-3 py-2" />
             </tr>
           </thead>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { TOPIC_LABELS, type Quote } from '../../lib/arajanlat/types';
-import { formatDate, formatHuf } from './format';
+import { formatDate, formatHuf, grossFromNet, vatFromNet, vatPercentLabel } from './format';
 
 export type BrandInfo = {
   name: string;
@@ -28,6 +28,8 @@ export default function QuoteView({ quoteId, brand }: { quoteId: string; brand: 
   if (!quote) return <p className="text-ink-soft">Betöltés…</p>;
 
   const margin = quote.totalSell - quote.totalBuy;
+  const vat = vatFromNet(quote.totalSell);
+  const gross = grossFromNet(quote.totalSell);
 
   return (
     <div className="space-y-6">
@@ -87,8 +89,8 @@ export default function QuoteView({ quoteId, brand }: { quoteId: string; brand: 
               <tr>
                 <th className="py-2 pr-2 font-semibold">Megnevezés</th>
                 <th className="py-2 px-2 font-semibold">Menny.</th>
-                <th className="py-2 px-2 font-semibold">Egységár</th>
-                <th className="py-2 pl-2 font-semibold text-right">Összesen</th>
+                <th className="py-2 px-2 font-semibold">Egységár (nettó)</th>
+                <th className="py-2 pl-2 font-semibold text-right">Összesen (nettó)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line">
@@ -110,14 +112,18 @@ export default function QuoteView({ quoteId, brand }: { quoteId: string; brand: 
 
         <section className="mt-6 flex flex-col items-end gap-1 border-t border-line pt-4 text-sm">
           <div className="text-ink-soft print:hidden">
-            Beszerzés (belső): {formatHuf(quote.totalBuy)} · Árrés: {formatHuf(margin)}
+            Beszerzés nettó (belső): {formatHuf(quote.totalBuy)} · Árrés: {formatHuf(margin)}
+          </div>
+          <div className="text-ink-soft">Nettó összesen: {formatHuf(quote.totalSell)}</div>
+          <div className="text-ink-soft">
+            ÁFA ({vatPercentLabel()}): {formatHuf(vat)}
           </div>
           <div className="font-display text-2xl font-bold text-sky-deep">
-            Ajánlati összesen (nettó): {formatHuf(quote.totalSell)}
+            Bruttó fizetendő: {formatHuf(gross)}
           </div>
           <p className="max-w-md text-right text-xs text-ink-soft">
-            Az árak tájékoztató jellegűek, nettó forintban. Az árajánlat a {brand.name} belső kalkulációja alapján
-            készült (25% árrés a beszerzési áron).
+            A tételsor árak nettó Ft-ban értendők. Az árajánlat a {brand.name} belső kalkulációja alapján készült
+            (25% árrés a nettó beszerzési áron).
           </p>
         </section>
       </article>

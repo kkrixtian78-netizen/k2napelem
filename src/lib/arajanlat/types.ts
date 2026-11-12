@@ -96,9 +96,9 @@ export type Quote = {
   status: 'draft' | 'final';
   selection: SolarSelection | ManualSelection;
   lines: QuoteLine[];
-  /** Összesített beszerzés */
+  /** Összesített nettó beszerzés */
   totalBuy: number;
-  /** Összesített eladás (25% árrés) */
+  /** Összesített nettó eladás (25% árrés); ÁFA / bruttó a megjelenítéskor számolódik */
   totalSell: number;
 };
 

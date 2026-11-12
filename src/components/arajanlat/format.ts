@@ -1,9 +1,17 @@
+import { VAT_RATE, grossFromNet, vatFromNet } from '../../lib/arajanlat/pricing';
+
 export function formatHuf(amount: number): string {
   return new Intl.NumberFormat('hu-HU', {
     style: 'currency',
     currency: 'HUF',
     maximumFractionDigits: 0,
   }).format(amount);
+}
+
+export { VAT_RATE, vatFromNet, grossFromNet };
+
+export function vatPercentLabel(): string {
+  return `${Math.round(VAT_RATE * 100)}%`;
 }
 
 export function formatDate(iso: string): string {

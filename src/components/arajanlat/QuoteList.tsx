@@ -55,7 +55,7 @@ export default function QuoteList() {
                 <th className="px-3 py-2">Szám</th>
                 <th className="px-3 py-2">Ügyfél</th>
                 <th className="px-3 py-2">Téma</th>
-                <th className="px-3 py-2">Összeg</th>
+                <th className="px-3 py-2">Nettó</th>
                 <th className="px-3 py-2">Státusz</th>
                 <th className="px-3 py-2">Dátum</th>
                 <th className="px-3 py-2" />
