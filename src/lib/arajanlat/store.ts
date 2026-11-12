@@ -46,6 +46,10 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.heatGroup = item.heatGroup;
       changed = true;
     }
+    if (item.villanyGroup && existing.villanyGroup !== item.villanyGroup) {
+      existing.villanyGroup = item.villanyGroup;
+      changed = true;
+    }
     if (
       typeof item.bvfGross === 'number' &&
       existing.bvfGross !== item.bvfGross
@@ -150,6 +154,16 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     'opt-tuzvedelmi',
     'opt-tervezes',
     'opt-hozott-jutalek',
+    'v-kazetta',
+    'v-eloszto-24',
+    'v-eloszto-36',
+    'v-vezetek-3x15',
+    'v-vezetek-3x25',
+    'v-vezetek-5x25',
+    'v-kapcsolo-csalad',
+    'v-led-panel',
+    'v-fi-rele',
+    'v-kismegszakito',
   ]);
   const beforeSolar = store.catalog.length;
   store.catalog = store.catalog.filter((item) => !legacySolarIds.has(item.id));

@@ -12,6 +12,7 @@ import {
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
+import { VILLANY_GROUPS } from '../../lib/arajanlat/onlinevill-catalog';
 import { displaySellForItem, grossFromNet } from '../../lib/arajanlat/pricing';
 import QuoteDocument, { type BrandInfo } from './QuoteDocument';
 import { formatHuf, vatFromNet, vatPercentLabel } from './format';
@@ -81,6 +82,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   /** Excelből jövő további napelemes anyagok (kábel, védelem, tartó…) */
   const [solarQty, setSolarQty] = useState<Record<string, number>>({});
   const [solarPicker, setSolarPicker] = useState<Record<string, string>>({});
+  const [villanyQuery, setVillanyQuery] = useState<Record<string, string>>({});
 
   // Manual (villany checkbox)
   const [selectedMains, setSelectedMains] = useState<Record<string, number>>({});
@@ -106,6 +108,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setSzerelesQty({});
     setSolarQty({});
     setSolarPicker({});
+    setVillanyQuery({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
       .then((data) => {
@@ -327,10 +330,6 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const inverters = catalog.filter((c) => c.category === 'inverter');
   const storages = catalog.filter((c) => c.category === 'tarolo');
   const roofs = catalog.filter((c) => c.category === 'tetotipus');
-  const mains = catalog.filter(
-    (c) => c.selectable !== false && c.category === 'foanyag',
-  );
-
   function extrasFor(group: SolarExtraGroup) {
     return catalog.filter(
       (c) => c.selectable !== false && c.category === 'kiegeszito' && c.extraGroup === group,
@@ -758,43 +757,94 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         </section>
       ) : (
         <section className="space-y-4">
-          <h2 className="font-display text-xl font-bold">Főanyagok kiválasztása</h2>
+          <h2 className="font-display text-xl font-bold">Villanyszerelés anyagok (Onlinevill)</h2>
           <p className="text-sm text-ink-soft">
-            Jelöld a szükséges főanyagokat. A kapcsolódó fogyóanyagok és munkadíjak automatikusan hozzáadódnak.
+            Csoportonként keress, és adj hozzá több terméket. Az ár a boltban kiírt online ár. A szerelvények,
+            világítás, gyengeáram, háztartási cikkek, hálózati elosztók és szerszámok nincsenek a listában.
           </p>
-          <ul className="divide-y divide-line rounded-xl border border-line bg-paper/60">
-            {mains.map((item) => {
-              const on = selectedMains[item.id] != null;
+          <div className="grid gap-4 sm:grid-cols-2">
+            {VILLANY_GROUPS.map((group) => {
+              const options = catalog.filter(
+                (c) => c.selectable !== false && c.villanyGroup === group.id,
+              );
+              if (!options.length) return null;
+              const q = (villanyQuery[group.id] ?? '').trim().toLowerCase();
+              const matches =
+                q.length < 2
+                  ? []
+                  : options
+                      .filter((p) => `${p.name} ${p.notes ?? ''}`.toLowerCase().includes(q))
+                      .slice(0, 40);
+              const selected = options.filter((p) => (selectedMains[p.id] ?? 0) > 0);
               return (
-                <li key={item.id} className="flex flex-wrap items-center gap-3 px-4 py-3">
-                  <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-3">
+                <div key={group.id} className="space-y-2">
+                  <Field label={group.label}>
                     <input
-                      type="checkbox"
-                      checked={on}
-                      onChange={() => toggleMain(item.id)}
-                      className="size-4 accent-sky-deep"
+                      className="field"
+                      placeholder="Keresés (legalább 2 karakter)…"
+                      value={villanyQuery[group.id] ?? ''}
+                      onChange={(e) =>
+                        setVillanyQuery((prev) => ({ ...prev, [group.id]: e.target.value }))
+                      }
                     />
-                    <span className="min-w-0">
-                      <span className="block font-medium text-ink">{item.name}</span>
-                      <span className="text-xs text-ink-soft">
-                        {CATEGORY_LABELS[item.category]} · beszerzés {formatHuf(item.buyPrice)} / {item.unit}
-                      </span>
-                    </span>
-                  </label>
-                  {on && (
-                    <input
-                      type="number"
-                      min={1}
-                      className="w-24 rounded-md border border-line bg-white px-2 py-1.5 text-sm"
-                      value={selectedMains[item.id] ?? 1}
-                      onChange={(e) => setMainQty(item.id, Number(e.target.value) || 1)}
-                      aria-label="Mennyiség"
-                    />
-                  )}
-                </li>
+                    <select
+                      className="field mt-2"
+                      value=""
+                      disabled={!matches.length}
+                      onChange={(e) => {
+                        const id = e.target.value;
+                        if (!id) return;
+                        const item = options.find((p) => p.id === id);
+                        setSelectedMains((prev) => ({
+                          ...prev,
+                          [id]: prev[id] ?? (item?.unit === 'm' ? 10 : 1),
+                        }));
+                      }}
+                    >
+                      <option value="">
+                        {q.length < 2
+                          ? `${options.length} termék — keress a névre`
+                          : matches.length
+                            ? 'Találat hozzáadása…'
+                            : 'Nincs találat'}
+                      </option>
+                      {matches.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.name} — {formatHuf(p.buyPrice)} / {p.unit}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                  {selected.length > 0 ? (
+                    <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">
+                      {selected.map((p) => (
+                        <li key={p.id} className="flex flex-wrap items-center gap-2 text-sm">
+                          <span className="min-w-0 flex-1 font-medium">{p.name}</span>
+                          <input
+                            type="number"
+                            min={1}
+                            max={5000}
+                            className="w-20 rounded-md border border-line px-2 py-1"
+                            value={selectedMains[p.id] ?? 1}
+                            aria-label={`Mennyiség (${p.unit})`}
+                            onChange={(e) => setMainQty(p.id, Number(e.target.value) || 1)}
+                          />
+                          <span className="text-xs text-ink-soft">{p.unit}</span>
+                          <button
+                            type="button"
+                            className="text-xs font-semibold text-sun-deep hover:underline"
+                            onClick={() => toggleMain(p.id)}
+                          >
+                            Eltávolít
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
               );
             })}
-          </ul>
+          </div>
         </section>
       )}
 

@@ -82,6 +82,8 @@ export type CatalogItem = {
   extraGroup?: SolarExtraGroup;
   /** Elektromos fűtés legördülő csoport */
   heatGroup?: HeatGroup;
+  /** Villanyszerelés legördülő csoport (Onlinevill kategória) */
+  villanyGroup?: string;
   /**
    * BVF webshop bruttó listaár (Ft). Ha megvan:
    * beszerzés nettó = bruttó × 0,85 / 1,27 (−15% a BVF bruttóhoz képest, nettóban),

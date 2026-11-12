@@ -53,12 +53,13 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
         if (item.topic !== 'napelem') return false;
       } else if (item.topic !== topic && item.topic !== 'all') return false;
       if (q) {
-        const hay = `${item.name} ${item.id}`.toLowerCase();
+        const hay = `${item.name} ${item.id} ${item.notes ?? ''}`.toLowerCase();
         if (!hay.includes(q.toLowerCase())) return false;
       }
       return true;
     });
   }, [items, topic, q]);
+  const shown = q.trim().length < 2 && filtered.length > 200 ? filtered.slice(0, 80) : filtered;
 
   function startEdit(item: CatalogItem) {
     setForm({ ...item });
@@ -362,7 +363,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
             </tr>
           </thead>
           <tbody className="divide-y divide-line bg-paper/50">
-            {filtered.map((item) => (
+            {shown.map((item) => (
               <tr key={item.id} className={!item.active ? 'opacity-50' : undefined}>
                 <td className="px-3 py-2">
                   <div className="font-medium">
@@ -402,7 +403,11 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
           </tbody>
         </table>
       </div>
-      <p className="text-xs text-ink-soft">{filtered.length} tétel</p>
+      <p className="text-xs text-ink-soft">
+        {shown.length === filtered.length
+          ? `${filtered.length} tétel`
+          : `${shown.length} / ${filtered.length} tétel — a többihez írj a keresőbe`}
+      </p>
     </div>
   );
 }
