@@ -169,6 +169,15 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
   store.catalog = store.catalog.filter((item) => !legacySolarIds.has(item.id));
   if (store.catalog.length !== beforeSolar) changed = true;
 
+  const keptVillanyGroups = new Set(
+    SEED_CATALOG.map((c) => c.villanyGroup).filter((id): id is string => Boolean(id)),
+  );
+  const beforeVillany = store.catalog.length;
+  store.catalog = store.catalog.filter(
+    (item) => !item.villanyGroup || keptVillanyGroups.has(item.villanyGroup),
+  );
+  if (store.catalog.length !== beforeVillany) changed = true;
+
   // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
   const seedHeatIds = new Set(
     SEED_CATALOG.filter((c) => c.topic === 'futes' && c.heatGroup).map((c) => c.id),

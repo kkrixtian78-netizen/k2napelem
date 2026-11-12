@@ -19,8 +19,40 @@ type OnlinevillFile = {
 
 const data = onlinevillProducts as OnlinevillFile;
 
+/** A felhasználó ezeket a Onlinevill-kategóriákat nem kéri a katalógusba. */
+const EXCLUDED_GROUP_LABELS = new Set([
+  'Feliratozás és matricázás',
+  'Gyengeáramú vezetékek és kábelek',
+  'Falon kívüli szerelvények és tartozékaik',
+  'Süllyesztett szerelvények és tartozékaik',
+  'Világítástechnika',
+  'Háztartásigép alkatrészek',
+  'Háztartási, lakossági termékek',
+  'Hálózati csatlakozók, elosztók, hosszabbítók és kábeldobok',
+  'Szerszámok és tartozékaik',
+  'Villanyszerelési mérőműszerek, fogyasztásmérők és tartozékaik',
+  'Klíma és légtechnika',
+  'Utolsó darabok, kifutó termékek',
+  'Kamerák és tartozékaik',
+  'Napelemrendszer tartozékai',
+  'Kábel TV, telefon és informatikai hálózat szerelés tartozékai',
+  'Ipari nyomógombok, vészkapcsolók és jelzőlámpák',
+  'Tápegységek, szünetmentes tápegységek',
+  'Termosztátok, vészjelzők és tűzvédelmi készülékek',
+  'Csengők és kaputelefonok',
+  'Ipari kapcsolók és tartozékaik',
+  'Egyéni védőfelszerelések',
+  'Rögzítéstechnika: csavarok, tiplik, ragasztástechnika, kötéstechnika, kötegelők, bilincsek, konzolok',
+]);
+
+const excludedGroupIds = new Set(
+  data.groups.filter((g) => EXCLUDED_GROUP_LABELS.has(g.label)).map((g) => g.id),
+);
+
 /** Onlinevill kategóriák, a kért kihagyottak nélkül. */
-export const VILLANY_GROUPS: Array<{ id: string; label: string }> = data.groups;
+export const VILLANY_GROUPS: Array<{ id: string; label: string }> = data.groups.filter(
+  (g) => !excludedGroupIds.has(g.id),
+);
 
 function catalogId(slug: string, used: Set<string>): string {
   const base = `ov-${slug}`.slice(0, 78).replace(/-+$/, '');
@@ -45,7 +77,7 @@ function unitOf(unit: string): string {
 export function buildVillanyCatalogFromOnlinevill(): CatalogItem[] {
   const used = new Set<string>();
   return data.items
-    .filter((p) => p.leaf !== 'feliratozok-es-jelolok')
+    .filter((p) => p.leaf !== 'feliratozok-es-jelolok' && !excludedGroupIds.has(p.group))
     .map((p) => ({
       id: catalogId(p.slug, used),
       name: p.name,

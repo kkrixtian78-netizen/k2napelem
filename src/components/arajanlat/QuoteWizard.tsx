@@ -759,8 +759,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Villanyszerelés anyagok (Onlinevill)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként keress, és adj hozzá több terméket. Az ár a boltban kiírt online ár. A szerelvények,
-            világítás, gyengeáram, háztartási cikkek, hálózati elosztók és szerszámok nincsenek a listában.
+            Csoportonként keress, és adj hozzá több terméket. Az ár a boltban kiírt online ár. Szerelvény,
+            világítás, gyengeáram, háztartási cikk, szerszám, rögzítéstechnika, mérőműszer, klíma, kamera és
+            kifutó termék nincs a listában.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             {VILLANY_GROUPS.map((group) => {
