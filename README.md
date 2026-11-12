@@ -20,11 +20,11 @@ Nyisd meg:
 
 A program a gépen fut, az ajánlatok a `data/arajanlat/store.json` fájlban maradnak. Kell hozzá a [Node.js 22](https://nodejs.org) vagy újabb.
 
-1. Töltsd le a projektet, és csomagold ki.
-2. Kattints duplán az `Inditas.bat` fájlra.
-3. Megnyílik a böngésző: [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat).
+1. Töltsd le a ZIP-et, és bontsd ki. Ne a ZIP belsejéből indítsd.
+2. A `k2napelem-cursor-arajanlat-keszito-640b` mappában kattints duplán az `Inditas.bat` fájlra.
+3. A fekete ablak nyitva marad. Az első indítás 2–5 perc, közben sorok jelennek meg. Utána megnyílik a böngésző: [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat).
 
-Az első indítás telepíti a csomagokat. Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
+Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
 
 Build:
 
