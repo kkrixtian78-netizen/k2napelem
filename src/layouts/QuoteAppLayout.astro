@@ -55,14 +55,33 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/arajanlat';
                   : 'text-ink-soft hover:bg-mist hover:text-ink',
               ]}>Ajánlatok</a
             >
+            <span class="ml-1 text-xs font-semibold uppercase tracking-wider text-ink-soft">Katalógus</span>
             <a
-              href="/arajanlat/katalogus"
+              href="/arajanlat/katalogus/napelem"
               class:list={[
                 'rounded-md px-3 py-1.5 no-underline transition-colors',
-                path.startsWith('/arajanlat/katalogus')
+                path.startsWith('/arajanlat/katalogus/napelem')
                   ? 'bg-sky-deep text-white'
                   : 'text-ink-soft hover:bg-mist hover:text-ink',
-              ]}>Katalógus</a
+              ]}>Napelem</a
+            >
+            <a
+              href="/arajanlat/katalogus/villany"
+              class:list={[
+                'rounded-md px-3 py-1.5 no-underline transition-colors',
+                path.startsWith('/arajanlat/katalogus/villany')
+                  ? 'bg-sky-deep text-white'
+                  : 'text-ink-soft hover:bg-mist hover:text-ink',
+              ]}>Villany</a
+            >
+            <a
+              href="/arajanlat/katalogus/futes"
+              class:list={[
+                'rounded-md px-3 py-1.5 no-underline transition-colors',
+                path.startsWith('/arajanlat/katalogus/futes')
+                  ? 'bg-sky-deep text-white'
+                  : 'text-ink-soft hover:bg-mist hover:text-ink',
+              ]}>Fűtés</a
             >
           </nav>
         </div>
