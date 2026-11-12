@@ -38,6 +38,32 @@ export const SOLAR_EXTRA_GROUPS: Array<{
   { id: 'hozott-jutalek', label: 'Hozott munka — jutalék' },
 ];
 
+/** Elektromos fűtés termékcsoport (BVF katalógus legördülők). */
+export type HeatGroup =
+  | 'padlofutes'
+  | 'termosztat'
+  | 'futopanel'
+  | 'torolkozoszarito'
+  | 'gyorsfuto'
+  | 'infrapanel'
+  | 'kulteri-futokabel'
+  | 'futheto-tukor'
+  | 'infrasugarzo'
+  | 'kiegeszitok';
+
+export const HEAT_GROUPS: Array<{ id: HeatGroup; label: string }> = [
+  { id: 'padlofutes', label: 'Elektromos padlófűtés' },
+  { id: 'termosztat', label: 'Termosztátok' },
+  { id: 'futopanel', label: 'Fűtőpanelek' },
+  { id: 'torolkozoszarito', label: 'Törölközőszárító radiátorok' },
+  { id: 'gyorsfuto', label: 'Gyorsfűtő készülékek' },
+  { id: 'infrapanel', label: 'Infrapanel' },
+  { id: 'kulteri-futokabel', label: 'Kültéri fűtőkábelek' },
+  { id: 'futheto-tukor', label: 'Fűthető tükör' },
+  { id: 'infrasugarzo', label: 'Infrasugárzók' },
+  { id: 'kiegeszitok', label: 'Kiegészítők, alkatrészek' },
+];
+
 export type CatalogItem = {
   id: string;
   name: string;
@@ -52,6 +78,8 @@ export type CatalogItem = {
   active: boolean;
   /** Napelem kiegészítő legördülő csoport */
   extraGroup?: SolarExtraGroup;
+  /** Elektromos fűtés legördülő csoport */
+  heatGroup?: HeatGroup;
 };
 
 export type QuoteLine = {

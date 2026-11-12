@@ -1,9 +1,11 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import {
   CATEGORY_LABELS,
+  HEAT_GROUPS,
   SOLAR_EXTRA_GROUPS,
   TOPIC_LABELS,
   type CatalogItem,
+  type HeatGroup,
   type ManualSelection,
   type QuoteLine,
   type SolarExtraGroup,
@@ -30,6 +32,19 @@ const EMPTY_EXTRA_IDS: Record<SolarExtraGroup, string> = {
   'hozott-jutalek': '',
 };
 
+const EMPTY_HEAT_IDS: Record<HeatGroup, string> = {
+  padlofutes: '',
+  termosztat: '',
+  futopanel: '',
+  torolkozoszarito: '',
+  gyorsfuto: '',
+  infrapanel: '',
+  'kulteri-futokabel': '',
+  'futheto-tukor': '',
+  infrasugarzo: '',
+  kiegeszitok: '',
+};
+
 export default function QuoteWizard() {
   const [topic, setTopic] = useState<TopicId | null>(null);
   const [catalog, setCatalog] = useState<CatalogItem[]>([]);
@@ -52,8 +67,11 @@ export default function QuoteWizard() {
   const [extraIds, setExtraIds] = useState<Record<SolarExtraGroup, string>>({ ...EMPTY_EXTRA_IDS });
   const [optimizerQty, setOptimizerQty] = useState(12);
 
-  // Manual
+  // Manual (villany checkbox)
   const [selectedMains, setSelectedMains] = useState<Record<string, number>>({});
+  // Fűtés: csoportonként egy termék + mennyiség
+  const [heatIds, setHeatIds] = useState<Record<HeatGroup, string>>({ ...EMPTY_HEAT_IDS });
+  const [heatQtys, setHeatQtys] = useState<Record<string, number>>({});
 
   const [preview, setPreview] = useState<Preview | null>(null);
 
@@ -65,6 +83,8 @@ export default function QuoteWizard() {
     setPreview(null);
     setSelectedMains({});
     setExtraIds({ ...EMPTY_EXTRA_IDS });
+    setHeatIds({ ...EMPTY_HEAT_IDS });
+    setHeatQtys({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
       .then((data) => {
@@ -104,6 +124,15 @@ export default function QuoteWizard() {
         extraItemIds: chosen,
         extraQuantities,
       } satisfies SolarSelection;
+    }
+    if (topic === 'futes') {
+      const mainItemIds = Object.values(heatIds).filter(Boolean);
+      if (!mainItemIds.length) return null;
+      const quantities: Record<string, number> = {};
+      for (const id of mainItemIds) {
+        quantities[id] = Math.max(1, heatQtys[id] ?? 1);
+      }
+      return { mainItemIds, quantities } satisfies ManualSelection;
     }
     const mainItemIds = Object.keys(selectedMains).filter((id) => (selectedMains[id] ?? 0) > 0);
     if (!mainItemIds.length) return null;
@@ -153,6 +182,8 @@ export default function QuoteWizard() {
     extraIds,
     optimizerQty,
     selectedMains,
+    heatIds,
+    heatQtys,
     customerAddress,
   ]);
 
@@ -210,6 +241,27 @@ export default function QuoteWizard() {
     }
   }
 
+  function setHeatGroup(group: HeatGroup, id: string) {
+    setHeatIds((prev) => {
+      const prevId = prev[group];
+      if (prevId && prevId !== id) {
+        setHeatQtys((q) => {
+          const next = { ...q };
+          delete next[prevId];
+          return next;
+        });
+      }
+      return { ...prev, [group]: id };
+    });
+    if (id) {
+      setHeatQtys((q) => ({ ...q, [id]: q[id] ?? 1 }));
+    }
+  }
+
+  function setHeatQty(id: string, qty: number) {
+    setHeatQtys((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
+  }
+
   if (!topic) {
     return (
       <div className="reveal">
@@ -234,7 +286,7 @@ export default function QuoteWizard() {
               <span className="mt-2 block text-sm text-ink-soft">
                 {id === 'napelem' && 'Panel, inverter, tároló, tető — a többi automatikus.'}
                 {id === 'villany' && 'Főanyagok kiválasztása → kapcsolódó szerelés és fogyóanyag.'}
-                {id === 'futes' && 'Infrapanel, fűtőszőnyeg, konvektor — szereléssel kiegészítve.'}
+                {id === 'futes' && 'BVF termékcsoportok legördülőből — szereléssel kiegészítve.'}
               </span>
             </button>
           ))}
@@ -254,6 +306,16 @@ export default function QuoteWizard() {
   function extrasFor(group: SolarExtraGroup) {
     return catalog.filter(
       (c) => c.selectable !== false && c.category === 'kiegeszito' && c.extraGroup === group,
+    );
+  }
+
+  function heatFor(group: HeatGroup) {
+    return catalog.filter(
+      (c) =>
+        c.selectable !== false &&
+        c.category === 'foanyag' &&
+        c.heatGroup === group &&
+        (c.topic === 'futes' || c.topic === 'all'),
     );
   }
 
@@ -428,6 +490,51 @@ export default function QuoteWizard() {
                 />
               </Field>
             ) : null}
+          </div>
+        </section>
+      ) : topic === 'futes' ? (
+        <section className="space-y-4">
+          <h2 className="font-display text-xl font-bold">Fűtés főanyagok (BVF)</h2>
+          <p className="text-sm text-ink-soft">
+            Csoportonként válassz terméket. A csomagajánlatok és outlet tételek nincsenek a listában. A szerelés és
+            fogyóanyag automatikusan hozzáadódik.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {HEAT_GROUPS.map((group) => {
+              const options = heatFor(group.id);
+              if (!options.length) return null;
+              const selectedId = heatIds[group.id];
+              return (
+                <div key={group.id} className="space-y-2">
+                  <Field label={group.label}>
+                    <select
+                      className="field"
+                      value={selectedId}
+                      onChange={(e) => setHeatGroup(group.id, e.target.value)}
+                    >
+                      <option value="">Nincs</option>
+                      {options.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.name} — {formatHuf(p.buyPrice)}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                  {selectedId ? (
+                    <Field label="Mennyiség">
+                      <input
+                        type="number"
+                        min={1}
+                        max={500}
+                        className="field"
+                        value={heatQtys[selectedId] ?? 1}
+                        onChange={(e) => setHeatQty(selectedId, Number(e.target.value) || 1)}
+                      />
+                    </Field>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         </section>
       ) : (

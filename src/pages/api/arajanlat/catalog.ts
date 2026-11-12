@@ -40,6 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
     selectable: item.selectable ?? true,
     active: item.active ?? true,
     extraGroup: item.extraGroup,
+    heatGroup: item.heatGroup,
   });
   return Response.json({ item: saved });
 };

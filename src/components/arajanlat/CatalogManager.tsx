@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import {
   CATEGORY_LABELS,
+  HEAT_GROUPS,
   SOLAR_EXTRA_GROUPS,
   TOPIC_LABELS,
   type CatalogCategory,
   type CatalogItem,
+  type HeatGroup,
   type SolarExtraGroup,
   type TopicId,
 } from '../../lib/arajanlat/types';
@@ -210,6 +212,28 @@ export default function CatalogManager() {
               >
                 <option value="">—</option>
                 {SOLAR_EXTRA_GROUPS.map((g) => (
+                  <option key={g.id} value={g.id}>
+                    {g.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          {(form.topic === 'futes' || form.topic === 'all') && form.category === 'foanyag' && (
+            <label className="text-sm">
+              <span className="mb-1 block font-medium">Fűtés legördülő csoport</span>
+              <select
+                className="w-full rounded-md border border-line bg-white px-3 py-2"
+                value={form.heatGroup ?? ''}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    heatGroup: (e.target.value || undefined) as HeatGroup | undefined,
+                  })
+                }
+              >
+                <option value="">—</option>
+                {HEAT_GROUPS.map((g) => (
                   <option key={g.id} value={g.id}>
                     {g.label}
                   </option>

@@ -1,0 +1,776 @@
+[
+  {
+    "group": "padlofutes",
+    "name": "BVF H-MAT elektromos fűtőszőnyeg",
+    "slug": "bvf-h-mat-elektromos-futoszonyeg",
+    "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-h-mat-elektromos-futoszonyeg/",
+    "priceGross": 13000,
+    "buyPrice": 7984,
+    "sellNetHint": 9980
+  },
+  {
+    "group": "padlofutes",
+    "name": "BVF L-PRO alumínium fűtőszőnyeg",
+    "slug": "bvf-lpro-aluminium-futoszonyeg-100w-m2",
+    "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-lpro-aluminium-futoszonyeg-100w-m2/",
+    "priceGross": 16000,
+    "buyPrice": 9826,
+    "sellNetHint": 12283
+  },
+  {
+    "group": "padlofutes",
+    "name": "BVF WFD elektromos fűtőkábel",
+    "slug": "bvf-wfd-elektromos-futokabel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-padlofutes/bvf-wfd-elektromos-futokabel/",
+    "priceGross": 17000,
+    "buyPrice": 10441,
+    "sellNetHint": 13051
+  },
+  {
+    "group": "termosztat",
+    "name": "BVF Lemon kültéri okostermosztát hó- és jégmentesítéshez",
+    "slug": "bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/bvf-lemon-kulteri-okostermosztat-ho-es-jegmentesiteshez/",
+    "priceGross": 40000,
+    "buyPrice": 24567,
+    "sellNetHint": 30709
+  },
+  {
+    "group": "termosztat",
+    "name": "ETI-1551 termosztát csőkísérő fűtéshez + ETF-622 hőmérsékletszenzor",
+    "slug": "eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-622-homersekletszenzor/",
+    "priceGross": 61000,
+    "buyPrice": 37465,
+    "sellNetHint": 46831
+  },
+  {
+    "group": "termosztat",
+    "name": "ETI-1551 termosztát csőkísérő fűtéshez + ETF-744 hőmérsékletszenzor",
+    "slug": "eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/eti-1551-termosztat-csokisero-futeshez-etf-744-homersekletszenzor/",
+    "priceGross": 68000,
+    "buyPrice": 41764,
+    "sellNetHint": 52205
+  },
+  {
+    "group": "termosztat",
+    "name": "ETOR-55 ereszcsatorna csapadékérzékelő + ETF-744 hőmérséklet szenzor",
+    "slug": "etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etor-55-ereszcsatorna-csapadekerzekelo-etf-744-homerseklet-szenzor/",
+    "priceGross": 105000,
+    "buyPrice": 64488,
+    "sellNetHint": 80610
+  },
+  {
+    "group": "termosztat",
+    "name": "ETOG-56 + ETOK-1 talajérzékelő szenzor csapadék és hőmérséklet érzékelésére",
+    "slug": "etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etog-55-talajerzekelo-szenzor-csapadek-es-homerseklet-erzekelesere/",
+    "priceGross": 124000,
+    "buyPrice": 76158,
+    "sellNetHint": 95197
+  },
+  {
+    "group": "termosztat",
+    "name": "ETR2-1550 termosztát gépkocsifeljáró és ereszcsatorna fűtéséhez",
+    "slug": "etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-1550-termosztat-gepkocsifeljaro-es-ereszcsatorna-futesehez/",
+    "priceGross": 107000,
+    "buyPrice": 65717,
+    "sellNetHint": 82146
+  },
+  {
+    "group": "termosztat",
+    "name": "ETR2 termosztát + ETOR55 csapadék szenzor + ETF-744 hőmérséklet szenzor",
+    "slug": "etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etor55-csapadek-szenzor-etf-744-homerseklet-szenzor/",
+    "priceGross": 212000,
+    "buyPrice": 130205,
+    "sellNetHint": 162756
+  },
+  {
+    "group": "termosztat",
+    "name": "ETR2 termosztát + ETOG56 talajszenzor szett",
+    "slug": "etr2-termosztat-etog55-talajszenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/kulteri-termosztat/etr2-termosztat-etog55-talajszenzor/",
+    "priceGross": 231000,
+    "buyPrice": 141874,
+    "sellNetHint": 177343
+  },
+  {
+    "group": "termosztat",
+    "name": "BVF 501 WiFi szobatermosztát + 3m padlószenzor",
+    "slug": "bvf-501-wifi-szobatermosztat-3m-padloszenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-501-wifi-szobatermosztat-3m-padloszenzor/",
+    "priceGross": 19500,
+    "buyPrice": 11976,
+    "sellNetHint": 14970
+  },
+  {
+    "group": "termosztat",
+    "name": "BVF 801 WiFi termosztát + 3m padlószenzor",
+    "slug": "bvf-801-wifi-termosztat-3m-padloszenzor",
+    "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-801-wifi-termosztat-3m-padloszenzor/",
+    "priceGross": 23000,
+    "buyPrice": 14126,
+    "sellNetHint": 17657
+  },
+  {
+    "group": "termosztat",
+    "name": "BVF 24-F RF szobatermosztát adóegység",
+    "slug": "bvf-24-f-rf-szobatermosztat-adoegyseg",
+    "href": "https://www.bvfheating.hu/shop/termosztat/szobatermosztat/bvf-24-f-rf-szobatermosztat-adoegyseg/",
+    "priceGross": 11000,
+    "buyPrice": 6756,
+    "sellNetHint": 8445
+  },
+  {
+    "group": "futopanel",
+    "name": "BVF CP1 WiFi elektromos fűtőpanel",
+    "slug": "bvf-cp1-wifi-elektromos-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/bvf-cp1-wifi-elektromos-futopanel/",
+    "priceGross": 65000,
+    "buyPrice": 39922,
+    "sellNetHint": 49902
+  },
+  {
+    "group": "futopanel",
+    "name": "Radialight SIRIO fűtőpanel",
+    "slug": "radialight-sirio-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-sirio-futopanel/",
+    "priceGross": 51300,
+    "buyPrice": 31507,
+    "sellNetHint": 39384
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis Tactic elektromos fűtőpanel",
+    "slug": "intuis-tactic-elektromos-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-elektromos-futopanel/",
+    "priceGross": 57000,
+    "buyPrice": 35008,
+    "sellNetHint": 43760
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis Tactic WiFi elektromos fali fűtőpanel",
+    "slug": "intuis-tactic-wifi-elektromos-fali-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-tactic-wifi-elektromos-fali-futopanel/",
+    "priceGross": 78000,
+    "buyPrice": 47906,
+    "sellNetHint": 59882
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis Prestance elektromos fűtőpanel",
+    "slug": "intuis-prestance-elektromos-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-prestance-elektromos-futopanel/",
+    "priceGross": 78000,
+    "buyPrice": 47906,
+    "sellNetHint": 59882
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis Radial infra-elektromos fűtőpanel",
+    "slug": "intuis-radial-infra-elektromos-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-radial-infra-elektromos-futopanel/",
+    "priceGross": 94000,
+    "buyPrice": 57732,
+    "sellNetHint": 72165
+  },
+  {
+    "group": "futopanel",
+    "name": "Radialight Kyoto WiFi fűtőpanel",
+    "slug": "radialight-kyoto-wifi-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-kyoto-wifi-futopanel/",
+    "priceGross": 163900,
+    "buyPrice": 100663,
+    "sellNetHint": 125829
+  },
+  {
+    "group": "futopanel",
+    "name": "Radialight Klima WiFi fűtőpanel",
+    "slug": "radialight-klima-wifi-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-klima-wifi-futopanel/",
+    "priceGross": 145000,
+    "buyPrice": 89055,
+    "sellNetHint": 111319
+  },
+  {
+    "group": "futopanel",
+    "name": "Radialight Aetherea WiFi fűtőpanel üveg előlappal",
+    "slug": "radialight-aetherea-wifi-futopanel-uveg-elolappal",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-aetherea-wifi-futopanel-uveg-elolappal/",
+    "priceGross": 195400,
+    "buyPrice": 120010,
+    "sellNetHint": 150012
+  },
+  {
+    "group": "futopanel",
+    "name": "Radialight ICON WiFi fűtőpanel",
+    "slug": "radialight-icon-wifi-futopanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/radialight-icon-wifi-futopanel/",
+    "priceGross": 189000,
+    "buyPrice": 116078,
+    "sellNetHint": 145098
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis R21 ütésálló fűtőpanel",
+    "slug": "intuis-r21-utesallo-futopanel-gyerekszobaba",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-r21-utesallo-futopanel-gyerekszobaba/",
+    "priceGross": 165000,
+    "buyPrice": 101338,
+    "sellNetHint": 126673
+  },
+  {
+    "group": "futopanel",
+    "name": "Intuis Glassance prémium üvegpanel",
+    "slug": "intuis-glassance-premium-uvegpanel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-futopanel/intuis-glassance-premium-uvegpanel/",
+    "priceGross": 240000,
+    "buyPrice": 147402,
+    "sellNetHint": 184252
+  },
+  {
+    "group": "futheto-tukor",
+    "name": "BVF MG tükör infrapanel",
+    "slug": "bvf-mg-tukor-infrapanel",
+    "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-mg-tukor-infrapanel/",
+    "priceGross": 98000,
+    "buyPrice": 60189,
+    "sellNetHint": 75236
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Radialight Onsen törölközőszárító radiátor",
+    "slug": "radialight-onsen-torolkozoszarito-radiator",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-onsen-torolkozoszarito-radiator/",
+    "priceGross": 129000,
+    "buyPrice": 79228,
+    "sellNetHint": 99035
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Radialight Silk törölközőszárító radiátor",
+    "slug": "radialight-silk-torolkozoszarito-radiator",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-silk-torolkozoszarito-radiator/",
+    "priceGross": 155000,
+    "buyPrice": 95197,
+    "sellNetHint": 118996
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Radialight ICON WiFi törölközőszárító radiátor – Antracit",
+    "slug": "radialight-icon-wifi-torolkozoszarito-radiator-antracit",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-antracit/",
+    "priceGross": 208200,
+    "buyPrice": 127871,
+    "sellNetHint": 159839
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Radialight ICON WiFi törölközőszárító radiátor – Fehér",
+    "slug": "radialight-icon-wifi-torolkozoszarito-radiator-feher",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/radialight-icon-wifi-torolkozoszarito-radiator-feher/",
+    "priceGross": 208200,
+    "buyPrice": 127871,
+    "sellNetHint": 159839
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Intuis Ezybain elektromos törölközőszárító radiátor",
+    "slug": "intuis-ezybain-elektromos-torolkozoszarito-radiator",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-ezybain-elektromos-torolkozoszarito-radiator/",
+    "priceGross": 139000,
+    "buyPrice": 85370,
+    "sellNetHint": 106713
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Intuis Nao 2 elektromos törölközőszárító radiátor",
+    "slug": "intuis-nao-2-elektromos-torolkozoszarito-radiator",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/intuis-nao-2-elektromos-torolkozoszarito-radiator/",
+    "priceGross": 90000,
+    "buyPrice": 55275,
+    "sellNetHint": 69094
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "BVF PG fehér üveg infrapanel törölközőszárító sínnel",
+    "slug": "bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-feher-uveg-infrapanel-torolkozoszarito-sinnel/",
+    "priceGross": 114000,
+    "buyPrice": 70016,
+    "sellNetHint": 87520
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "BVF PG fekete üveg infrapanel törölközőszárító sínnel",
+    "slug": "bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel",
+    "href": "https://www.bvfheating.hu/shop/elektromos-torolkozoszarito/bvf-pg-fekete-uveg-infrapanel-torolkozoszarito-sinnel/",
+    "priceGross": 103000,
+    "buyPrice": 63260,
+    "sellNetHint": 79075
+  },
+  {
+    "group": "futheto-tukor",
+    "name": "BVF ADELIG fűthető tükör Bluetooth hangszóróval",
+    "slug": "bvf-adelig-futheto-tukor-bluetooth-hangszoroval",
+    "href": "https://www.bvfheating.hu/shop/futheto-tukor/bvf-adelig-futheto-tukor-bluetooth-hangszoroval/",
+    "priceGross": 94000,
+    "buyPrice": 57732,
+    "sellNetHint": 72165
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Hőszigetelő lap elektromos padlófűtéshez",
+    "slug": "hoszigetelo-lap-elektromos-padlofuteshez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/hoszigetelo-lap-elektromos-padlofuteshez/",
+    "priceGross": 5400,
+    "buyPrice": 3317,
+    "sellNetHint": 4146
+  },
+  {
+    "group": "torolkozoszarito",
+    "name": "Radialight Windy fürdőszobai fűtőtest",
+    "slug": "radialight-windy-furdoszobai-futotest",
+    "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-windy-furdoszobai-futotest/",
+    "priceGross": 63600,
+    "buyPrice": 39062,
+    "sellNetHint": 48827
+  },
+  {
+    "group": "gyorsfuto",
+    "name": "Radialight Touch fürdőszobai gyorsfűtő készülék",
+    "slug": "radialight-touch-furdoszobai-gyorsfuto-keszulek",
+    "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-touch-furdoszobai-gyorsfuto-keszulek/",
+    "priceGross": 49900,
+    "buyPrice": 30647,
+    "sellNetHint": 38309
+  },
+  {
+    "group": "gyorsfuto",
+    "name": "Radialight Bali fürdőszobai fűtőtest",
+    "slug": "radialight-bali-furdoszobai-futotest",
+    "href": "https://www.bvfheating.hu/shop/gyorsfuto-keszulek/radialight-bali-furdoszobai-futotest/",
+    "priceGross": 59000,
+    "buyPrice": 36236,
+    "sellNetHint": 45295
+  },
+  {
+    "group": "infrapanel",
+    "name": "BVF NG fali és mennyezeti infrapanel",
+    "slug": "bvf-ng-fali-es-mennyezeti-infrapanel",
+    "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-ng-fali-es-mennyezeti-infrapanel/",
+    "priceGross": 58000,
+    "buyPrice": 35622,
+    "sellNetHint": 44528
+  },
+  {
+    "group": "infrapanel",
+    "name": "BVF PG fehér üveg infrapanel",
+    "slug": "bvf-pg-feher-uveg-infrapanel",
+    "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-feher-uveg-infrapanel/",
+    "priceGross": 98000,
+    "buyPrice": 60189,
+    "sellNetHint": 75236
+  },
+  {
+    "group": "infrapanel",
+    "name": "BVF PG fekete üveg infrapanel",
+    "slug": "bvf-pg-fekete-uveg-infrapanel",
+    "href": "https://www.bvfheating.hu/shop/infrapanel/bvf-pg-fekete-uveg-infrapanel/",
+    "priceGross": 87000,
+    "buyPrice": 53433,
+    "sellNetHint": 66791
+  },
+  {
+    "group": "kulteri-futokabel",
+    "name": "BVF Sub-Zero önszabályzó fűtőkábel termosztáttal",
+    "slug": "bvf-subzero-onszabalyzo-futokabel",
+    "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-subzero-onszabalyzo-futokabel/",
+    "priceGross": 12000,
+    "buyPrice": 7370,
+    "sellNetHint": 9213
+  },
+  {
+    "group": "kulteri-futokabel",
+    "name": "BVF SRHC 18/36W önszabályzó fűtőkábel",
+    "slug": "bvf-srhc-onszabalyzo-futokabel",
+    "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-srhc-onszabalyzo-futokabel/",
+    "priceGross": 4000,
+    "buyPrice": 2457,
+    "sellNetHint": 3071
+  },
+  {
+    "group": "kulteri-futokabel",
+    "name": "BVF SX kültéri fűtőkábel",
+    "slug": "bvf-sx-kulteri-futokabel",
+    "href": "https://www.bvfheating.hu/shop/kulteri-futokabel/bvf-sx-kulteri-futokabel/",
+    "priceGross": 34500,
+    "buyPrice": 21189,
+    "sellNetHint": 26486
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO Aero infrasugárzó",
+    "slug": "veito-aero-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-aero-infrasugarzo/",
+    "priceGross": 50000,
+    "buyPrice": 30709,
+    "sellNetHint": 38386
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO Blade infrasugárzó",
+    "slug": "veito-blade-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-blade-infrasugarzo/",
+    "priceGross": 65000,
+    "buyPrice": 39922,
+    "sellNetHint": 49902
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO Space infrasugárzó",
+    "slug": "veito-space-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-space-infrasugarzo/",
+    "priceGross": 89000,
+    "buyPrice": 54662,
+    "sellNetHint": 68327
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "Radialight Oasi infrasugárzó",
+    "slug": "radialight-oasi-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-infrasugarzo/",
+    "priceGross": 120000,
+    "buyPrice": 73701,
+    "sellNetHint": 92126
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "Radialight Oasi HT ipari infrasugárzó",
+    "slug": "radialight-oasi-ht-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/radialight-oasi-ht-infrasugarzo/",
+    "priceGross": 120000,
+    "buyPrice": 73701,
+    "sellNetHint": 92126
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO Manta infrasugárzó",
+    "slug": "veito-manta-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-manta-infrasugarzo/",
+    "priceGross": 149000,
+    "buyPrice": 91512,
+    "sellNetHint": 114390
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO CH1800 RT beltéri hősugárzó",
+    "slug": "veito-ch1800-rt-belteri-hosugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-rt-belteri-hosugarzo/",
+    "priceGross": 49000,
+    "buyPrice": 30094,
+    "sellNetHint": 37618
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO CH1200 RT beltéri infrasugárzó",
+    "slug": "veito-ch1200-rt-belteri-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1200-rt-belteri-infrasugarzo/",
+    "priceGross": 39000,
+    "buyPrice": 23953,
+    "sellNetHint": 29941
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO CH1800 RE beltéri infrasugárzó",
+    "slug": "veito-ch1800-re-belteri-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-ch1800-re-belteri-infrasugarzo/",
+    "priceGross": 53000,
+    "buyPrice": 32551,
+    "sellNetHint": 40689
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "VEITO Nevada infrasugárzó",
+    "slug": "veito-nevada-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/veito-nevada-infrasugarzo/",
+    "priceGross": 54000,
+    "buyPrice": 33166,
+    "sellNetHint": 41457
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "VEITO Teleszkópos Állvány",
+    "slug": "veito-teleszkopos-allvany",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/veito-teleszkopos-allvany/",
+    "priceGross": 15000,
+    "buyPrice": 9213,
+    "sellNetHint": 11516
+  },
+  {
+    "group": "infrasugarzo",
+    "name": "Intuis IRM Mono 2000W infrasugárzó",
+    "slug": "intuis-irm-mono-2000w-infrasugarzo",
+    "href": "https://www.bvfheating.hu/shop/infrasugarzo/intuis-irm-mono-2000w-infrasugarzo/",
+    "priceGross": 89000,
+    "buyPrice": 54662,
+    "sellNetHint": 68327
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Állvány Radialight Oasi infrasugárzóhoz",
+    "slug": "allvany-radialight-oasi-infrasugarzohoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/allvany-radialight-oasi-infrasugarzohoz/",
+    "priceGross": 100000,
+    "buyPrice": 61418,
+    "sellNetHint": 76772
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő lehajtható rúd Intuis Nao és Ezybain törölközőszárító radiátorhoz",
+    "slug": "kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-lehajthato-rud-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
+    "priceGross": 13500,
+    "buyPrice": 8291,
+    "sellNetHint": 10364
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő akasztó Intuis Nao és Ezybain törölközőszárító radiátorhoz",
+    "slug": "kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-akaszto-intuis-nao-es-ezybain-torolkozoszarito-radiatorhoz/",
+    "priceGross": 5100,
+    "buyPrice": 3132,
+    "sellNetHint": 3915
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő kampók Radialight Onsen törölközőszárítókhoz",
+    "slug": "kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-onsen-torolkozoszaritokhoz/",
+    "priceGross": 8900,
+    "buyPrice": 5466,
+    "sellNetHint": 6833
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő kampók Radialight Silk törölközőszárítókhoz (szürke)",
+    "slug": "kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-kampok-radialight-silk-torolkozoszaritokhoz-szurke/",
+    "priceGross": 8900,
+    "buyPrice": 5466,
+    "sellNetHint": 6833
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Távirányító Radialight Oasi infrasugárzóhoz",
+    "slug": "taviranyito-radialight-oasi-infrasugarzohoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/taviranyito-radialight-oasi-infrasugarzohoz/",
+    "priceGross": 9500,
+    "buyPrice": 5834,
+    "sellNetHint": 7293
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "BVF Fűtőkábel teszter",
+    "slug": "bvf-futokabel-teszter",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-futokabel-teszter/",
+    "priceGross": 6000,
+    "buyPrice": 3685,
+    "sellNetHint": 4606
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Fűtőkábel rögzítőszalag",
+    "slug": "futokabel-rogzitoszalag",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/futokabel-rogzitoszalag/",
+    "priceGross": 5000,
+    "buyPrice": 3071,
+    "sellNetHint": 3839
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Tartalék BVF L-PRO alumíniumos rögzítőszalag",
+    "slug": "tartalek-bvf-l-pro-aluminiumos-rogzitoszalag",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-bvf-l-pro-aluminiumos-rogzitoszalag/",
+    "priceGross": 9000,
+    "buyPrice": 5527,
+    "sellNetHint": 6909
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "BVF SRHC fűtőkábel csatlakozó szett",
+    "slug": "bvf-srhc-futokabel-csatlakozo-szett",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-srhc-futokabel-csatlakozo-szett/",
+    "priceGross": 7000,
+    "buyPrice": 4299,
+    "sellNetHint": 5374
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Rögzítőszalag BVF SRHC fűtőkábelhez",
+    "slug": "rogzitoszalag-bvf-srhc-futokabelhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/rogzitoszalag-bvf-srhc-futokabelhez/",
+    "priceGross": 3000,
+    "buyPrice": 1842,
+    "sellNetHint": 2303
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "H-MAT fűtőszőnyeg, WFD fűtőkábel javítókészlet",
+    "slug": "h-mat-futoszonyeg-wfd-futokabel-javitokeszlet",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/h-mat-futoszonyeg-wfd-futokabel-javitokeszlet/",
+    "priceGross": 7000,
+    "buyPrice": 4299,
+    "sellNetHint": 5374
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "L-PRO alu fűtőszőnyeg javítókészlet",
+    "slug": "l-pro-alu-futoszonyeg-javitokeszlet",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/l-pro-alu-futoszonyeg-javitokeszlet/",
+    "priceGross": 9000,
+    "buyPrice": 5527,
+    "sellNetHint": 6909
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő BVF L-PRO alu rögzítőszalag (5x15cm, 19db.)",
+    "slug": "kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-bvf-l-pro-alu-rogzitoszalag-5x15cm-19db/",
+    "priceGross": 1750,
+    "buyPrice": 1075,
+    "sellNetHint": 1344
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kerekes láb Intuis Tactic és Tactic WiFi elektromos fűtőpanelekhez",
+    "slug": "kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-intuis-tactic-es-tactic-wifi-elektromos-futopanelekhez/",
+    "priceGross": 6000,
+    "buyPrice": 3685,
+    "sellNetHint": 4606
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő görgős láb Radialight SIRIO fűtőpanelhez",
+    "slug": "kiegeszito-gorgos-lab-radialight-sirio-futopanelhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-gorgos-lab-radialight-sirio-futopanelhez/",
+    "priceGross": 6900,
+    "buyPrice": 4238,
+    "sellNetHint": 5297
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiegészítő törölközőszárító rúd Radialight ICON fűtőpanelhez",
+    "slug": "kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiegeszito-torolkozoszarito-rud-radialight-icon-futopanelhez/",
+    "priceGross": 19200,
+    "buyPrice": 11792,
+    "sellNetHint": 14740
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Egy pár kerekes láb BVF CP1 elektromos fűtőpanelhez – fehér",
+    "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-feher/",
+    "priceGross": 6000,
+    "buyPrice": 3685,
+    "sellNetHint": 4606
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Egy pár kerekes láb BVF CP1 elektromos fűtőpanelhez – arzénszürke",
+    "slug": "kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kerekes-lab-bvf-cp1-elektromos-futopanelhez-arzenszurke/",
+    "priceGross": 6000,
+    "buyPrice": 3685,
+    "sellNetHint": 4606
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "BVF törölközőszárító sín infrapanelhez",
+    "slug": "bvf-torolkozoszarito-sin-infrapanelhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-torolkozoszarito-sin-infrapanelhez/",
+    "priceGross": 8000,
+    "buyPrice": 4914,
+    "sellNetHint": 6142
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "BVF infrapanel mobil konzol",
+    "slug": "bvf-infrapanel-mobil-konzol",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-infrapanel-mobil-konzol/",
+    "priceGross": 6000,
+    "buyPrice": 3685,
+    "sellNetHint": 4606
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "BVF mennyezeti gyorsrögzítő infrapanelhez",
+    "slug": "bvf-mennyezeti-gyorsrogzito-infrapanelhez",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/bvf-mennyezeti-gyorsrogzito-infrapanelhez/",
+    "priceGross": 4000,
+    "buyPrice": 2457,
+    "sellNetHint": 3071
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kontaktor 25A teljesítménykapcsoló relé",
+    "slug": "kontaktor-25a-teljesitmenykapcsolo-rele",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kontaktor-25a-teljesitmenykapcsolo-rele/",
+    "priceGross": 10000,
+    "buyPrice": 6142,
+    "sellNetHint": 7677
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "OBO UG 66 szerelvénydoboz 65*66 mm",
+    "slug": "obo-ug-66-szerelvenydoboz-6566-mm",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/obo-ug-66-szerelvenydoboz-6566-mm/",
+    "priceGross": 127,
+    "buyPrice": 78,
+    "sellNetHint": 98
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Tartalék padlószenzor szobatermosztáthoz",
+    "slug": "tartalek-padloszenzor-szobatermosztathoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/tartalek-padloszenzor-szobatermosztathoz/",
+    "priceGross": 2000,
+    "buyPrice": 1228,
+    "sellNetHint": 1535
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Termosztát relé",
+    "slug": "termosztat-rele",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/termosztat-rele/",
+    "priceGross": 7500,
+    "buyPrice": 4606,
+    "sellNetHint": 5758
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Védőcső",
+    "slug": "vedocso",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/vedocso/",
+    "priceGross": 1200,
+    "buyPrice": 737,
+    "sellNetHint": 921
+  },
+  {
+    "group": "kiegeszitok",
+    "name": "Kiemelőkeret BVF 501 és BVF 801 termosztátokhoz",
+    "slug": "kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz",
+    "href": "https://www.bvfheating.hu/shop/kiegeszitok/kiemelokeret-bvf-501-es-bvf-801-termosztatokhoz/",
+    "priceGross": 3000,
+    "buyPrice": 1842,
+    "sellNetHint": 2303
+  }
+]

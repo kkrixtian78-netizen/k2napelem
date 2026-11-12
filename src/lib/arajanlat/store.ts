@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { LEGACY_HEATING_MAIN_IDS } from './heating-catalog';
 import { SEED_CATALOG } from './seed';
 import type { CatalogItem, Quote, QuoteStore } from './types';
 
@@ -41,6 +42,29 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.extraGroup = item.extraGroup;
       changed = true;
     }
+    if (item.heatGroup && existing.heatGroup !== item.heatGroup) {
+      existing.heatGroup = item.heatGroup;
+      changed = true;
+    }
+    // BVF fűtés főanyagok: név / ár / csoport frissítése a seedhez
+    if (item.topic === 'futes' && item.heatGroup && item.selectable !== false) {
+      if (existing.name !== item.name) {
+        existing.name = item.name;
+        changed = true;
+      }
+      if (existing.buyPrice !== item.buyPrice) {
+        existing.buyPrice = item.buyPrice;
+        changed = true;
+      }
+      if (existing.active !== item.active) {
+        existing.active = item.active;
+        changed = true;
+      }
+      if (existing.category !== item.category) {
+        existing.category = item.category;
+        changed = true;
+      }
+    }
     // Automatikus tételek neve / ára a seedhez igazodik
     if (item.selectable === false) {
       if (existing.name !== item.name) {
@@ -66,6 +90,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     'prot-ac-breaker',
     'box-ac',
     'conn-mc4',
+    ...LEGACY_HEATING_MAIN_IDS,
   ]) {
     const legacy = byId.get(id);
     if (legacy && legacy.active) {
