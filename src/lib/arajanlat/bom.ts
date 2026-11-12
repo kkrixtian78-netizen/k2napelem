@@ -156,7 +156,7 @@ export function buildManualBom(
 
   if (topic === 'futes') {
     // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)
-    // Rögzítéstechnika + munkadíj: 1 / fő termék; munkadíj 2 db-enként 5% olcsóbb
+    // Rögzítéstechnika + munkadíj: 1 / fő termék; munkadíj 2 db-enként 10% olcsóbb
     const foTermekek = mains.filter((m) => m.heatGroup && m.heatGroup !== 'szereles');
     const foQty = foTermekek.reduce((s, m) => s + Math.max(1, qtyMap[m.id] ?? 1), 0);
     if (foQty > 0) {
@@ -164,7 +164,7 @@ export function buildManualBom(
 
       const laborBase = byId(catalog, 'f-labor-panel');
       const discountSteps = Math.floor(foQty / 2);
-      const unitSell = Math.max(0, Math.round(10000 * (1 - 0.05 * discountSteps)));
+      const unitSell = Math.max(0, Math.round(10000 * (1 - 0.1 * discountSteps)));
       lines.push(
         lineFromCatalog(
           { ...laborBase, buyPrice: 0, sellPriceFixed: unitSell },
