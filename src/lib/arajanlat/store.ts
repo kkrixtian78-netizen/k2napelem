@@ -6,6 +6,10 @@ import type { CatalogItem, Quote, QuoteStore } from './types';
 const DATA_DIR = join(process.cwd(), 'data', 'arajanlat');
 const STORE_PATH = join(DATA_DIR, 'store.json');
 
+/** Serverless (Vercel) fallback — process lifetime only. */
+let memoryStore: QuoteStore | null = null;
+let preferMemory = false;
+
 function emptyStore(): QuoteStore {
   return {
     version: 1,
@@ -15,30 +19,6 @@ function emptyStore(): QuoteStore {
   };
 }
 
-function ensureStore(): QuoteStore {
-  if (!existsSync(DATA_DIR)) {
-    mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!existsSync(STORE_PATH)) {
-    const seed = emptyStore();
-    atomicWrite(STORE_PATH, seed);
-    return seed;
-  }
-  try {
-    const raw = readFileSync(STORE_PATH, 'utf8');
-    const parsed = JSON.parse(raw) as QuoteStore;
-    if (!parsed.catalog?.length) {
-      parsed.catalog = structuredClone(SEED_CATALOG);
-      atomicWrite(STORE_PATH, parsed);
-    }
-    return parsed;
-  } catch {
-    const seed = emptyStore();
-    atomicWrite(STORE_PATH, seed);
-    return seed;
-  }
-}
-
 function atomicWrite(path: string, data: QuoteStore) {
   mkdirSync(dirname(path), { recursive: true });
   const tmp = `${path}.tmp`;
@@ -46,12 +26,50 @@ function atomicWrite(path: string, data: QuoteStore) {
   renameSync(tmp, path);
 }
 
+function ensureStore(): QuoteStore {
+  if (preferMemory) {
+    if (!memoryStore) memoryStore = emptyStore();
+    return memoryStore;
+  }
+
+  try {
+    if (!existsSync(DATA_DIR)) {
+      mkdirSync(DATA_DIR, { recursive: true });
+    }
+    if (!existsSync(STORE_PATH)) {
+      const seed = emptyStore();
+      atomicWrite(STORE_PATH, seed);
+      memoryStore = seed;
+      return seed;
+    }
+    const raw = readFileSync(STORE_PATH, 'utf8');
+    const parsed = JSON.parse(raw) as QuoteStore;
+    if (!parsed.catalog?.length) {
+      parsed.catalog = structuredClone(SEED_CATALOG);
+      atomicWrite(STORE_PATH, parsed);
+    }
+    memoryStore = parsed;
+    return parsed;
+  } catch {
+    // Read-only / serverless filesystem — keep working in memory.
+    preferMemory = true;
+    if (!memoryStore) memoryStore = emptyStore();
+    return memoryStore;
+  }
+}
+
 export function readStore(): QuoteStore {
   return ensureStore();
 }
 
 export function writeStore(store: QuoteStore) {
-  atomicWrite(STORE_PATH, store);
+  memoryStore = store;
+  if (preferMemory) return;
+  try {
+    atomicWrite(STORE_PATH, store);
+  } catch {
+    preferMemory = true;
+  }
 }
 
 export function listCatalog(): CatalogItem[] {
@@ -134,5 +152,5 @@ export function deleteQuote(id: string): boolean {
 }
 
 export function storePath(): string {
-  return STORE_PATH;
+  return preferMemory ? '(memory)' : STORE_PATH;
 }

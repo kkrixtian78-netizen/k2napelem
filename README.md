@@ -16,14 +16,13 @@ Nyisd meg:
 - Marketing: [http://localhost:4321](http://localhost:4321)
 - **Árajánlatkészítő (belső):** [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat)
 
-Build + Node szerver (SSR útvonalakhoz, pl. árajánlat API):
+Build:
 
 ```bash
 npm run build
-npm start
 ```
 
-`npm run preview` a statikus marketing előnézetére való; az `/arajanlat` API-khoz használd a `dev` vagy `start` módot.
+Az `/arajanlat` oldalak SSR-rel futnak (**Vercel adapter**). Helyben: `npm run dev`.
 
 ## Árajánlatkészítő (MVP)
 
@@ -46,7 +45,7 @@ Belső eszköz három témakörre:
 
 API: `/api/arajanlat/catalog`, `/api/arajanlat/quotes`, `/api/arajanlat/preview`.
 
-**Megjegyzés:** a JSON fájl írása helyi / Node szerveren működik. Cloudflare Pages / Vercel serverless környezetben a fájlperzisztencia nem tartós — belső használatra `astro dev` vagy `npm start` ajánlott.
+**Megjegyzés:** helyi `npm run dev` alatt a store fájlba ír (`data/arajanlat/store.json`). Vercel preview/production alatt memóriában fut (a mentések a cold startig élnek) — demózáshoz elég, tartós belső használathoz később DB kell.
 
 ## Environment variables
 
