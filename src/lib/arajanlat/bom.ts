@@ -43,9 +43,8 @@ export function buildSolarBom(
     lines.push(lineFromCatalog(bat, 1, false));
   }
 
-  // Tető típus megjelenik 0 Ft-tal a dokumentáció miatt
-  const roof = byId(catalog, selection.roofTypeId);
-  lines.push(lineFromCatalog(roof, 1, false));
+  // Tetőtípus csak a tartószerkezet-választáshoz kell (0 Ft-os sort nem írunk ki)
+  byId(catalog, selection.roofTypeId);
 
   const mountId = ROOF_MOUNT_MAP[selection.roofTypeId];
   if (mountId) {
