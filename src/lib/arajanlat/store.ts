@@ -26,7 +26,7 @@ function atomicWrite(path: string, data: QuoteStore) {
   renameSync(tmp, path);
 }
 
-/** Új seed tételek + hiányzó mezők (pl. extraGroup) frissítése meglévő katalógusban. */
+/** Új seed tételek + auto-BOM / rendszer tételek névfrissítése. */
 function mergeMissingSeedItems(store: QuoteStore): boolean {
   const byId = new Map(store.catalog.map((c) => [c.id, c]));
   let changed = false;
@@ -37,18 +37,41 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
       continue;
     }
-    // Kiegészítő csoport mező pótlása / frissítése seedből
     if (item.extraGroup && existing.extraGroup !== item.extraGroup) {
       existing.extraGroup = item.extraGroup;
       changed = true;
     }
+    // Automatikus tételek neve / ára a seedhez igazodik
+    if (item.selectable === false) {
+      if (existing.name !== item.name) {
+        existing.name = item.name;
+        changed = true;
+      }
+      if (existing.buyPrice !== item.buyPrice) {
+        existing.buyPrice = item.buyPrice;
+        changed = true;
+      }
+      if (existing.active !== item.active) {
+        existing.active = item.active;
+        changed = true;
+      }
+    }
   }
-  // Régi választható kiszállás tétel kikapcsolása (most auto km-díj)
-  const legacy = byId.get('opt-kiszallas');
-  if (legacy && (legacy.selectable !== false || legacy.active)) {
-    legacy.selectable = false;
-    legacy.active = false;
-    changed = true;
+  // Régi tételek kikapcsolása
+  for (const id of [
+    'opt-kiszallas',
+    'prot-dc-spd',
+    'prot-ac-spd',
+    'prot-dc-breaker',
+    'prot-ac-breaker',
+    'box-ac',
+  ]) {
+    const legacy = byId.get(id);
+    if (legacy && legacy.active) {
+      legacy.active = false;
+      legacy.selectable = false;
+      changed = true;
+    }
   }
   return changed;
 }

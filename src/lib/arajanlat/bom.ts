@@ -64,7 +64,7 @@ export function buildSolarBom(
   const mc4 = byId(catalog, 'conn-mc4');
   lines.push(lineFromCatalog(mc4, panels + 2, true));
 
-  for (const id of ['prot-dc-spd', 'prot-ac-spd', 'prot-dc-breaker', 'prot-ac-breaker', 'box-ac', 'cons-solar-misc']) {
+  for (const id of ['prot-dc-box', 'prot-ac-box', 'cons-solar-misc']) {
     lines.push(lineFromCatalog(byId(catalog, id), 1, true));
   }
 
