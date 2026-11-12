@@ -26,6 +26,8 @@ A program a gépen fut, az ajánlatok a `data/arajanlat/store.json` fájlban mar
 
 Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
 
+A folytatáshoz elmentett állapot: [docs/arajanlat-folytatas.md](docs/arajanlat-folytatas.md).
+
 Build:
 
 ```bash
