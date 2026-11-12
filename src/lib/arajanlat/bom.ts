@@ -39,44 +39,50 @@ export function buildSolarBom(
   lines.push(lineFromCatalog(inverter, 1, false));
 
   if (selection.storageId && selection.storageId !== 'bat-none') {
-    const bat = byId(catalog, selection.storageId);
-    lines.push(lineFromCatalog(bat, 1, false));
+    const bat = tryById(catalog, selection.storageId);
+    if (bat) lines.push(lineFromCatalog(bat, 1, false));
   }
 
-  // Tetőtípus csak a tartószerkezet-választáshoz kell (0 Ft-os sort nem írunk ki)
-  byId(catalog, selection.roofTypeId);
-
-  const mountId = ROOF_MOUNT_MAP[selection.roofTypeId];
-  if (mountId) {
-    const mount = byId(catalog, mountId);
-    lines.push(lineFromCatalog(mount, panels, true));
+  // Tetőtípus és a régi összevont auto-tételek csak akkor kerülnek be, ha még a katalógusban vannak.
+  if (selection.roofTypeId) {
+    const roof = tryById(catalog, selection.roofTypeId);
+    const mountId = roof ? ROOF_MOUNT_MAP[selection.roofTypeId] : undefined;
+    if (mountId) {
+      const mount = tryById(catalog, mountId);
+      if (mount) lines.push(lineFromCatalog(mount, panels, true));
+    }
   }
 
-  lines.push(lineFromCatalog(byId(catalog, 'prot-dc-box'), 1, true));
-  lines.push(lineFromCatalog(byId(catalog, 'prot-ac-box'), 1, true));
+  const pushAuto = (id: string, qty: number) => {
+    const item = tryById(catalog, id);
+    if (item) lines.push(lineFromCatalog(item, qty, true));
+  };
 
-  // Vill. anyagok: alapcsomag + DC kábel (6 m/panel) + AC kábel (15 m) összevonva
-  const villanyMisc = byId(catalog, 'cons-villany-misc');
-  const dcCable = tryById(catalog, 'cable-dc-6');
-  const acCable = tryById(catalog, 'cable-ac-5x6');
-  const dcCableBuy = (dcCable?.buyPrice ?? 420) * panels * 6;
-  const acCableBuy = (acCable?.buyPrice ?? 980) * 15;
-  lines.push(
-    lineFromCatalog(
-      { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy + acCableBuy },
-      1,
-      true,
-    ),
-  );
+  pushAuto('prot-dc-box', 1);
+  pushAuto('prot-ac-box', 1);
 
-  lines.push(lineFromCatalog(byId(catalog, 'cons-solar-misc'), 1, true));
+  const villanyMisc = tryById(catalog, 'cons-villany-misc');
+  if (villanyMisc) {
+    const dcCable = tryById(catalog, 'cable-dc-6');
+    const acCable = tryById(catalog, 'cable-ac-5x6');
+    const dcCableBuy = (dcCable?.buyPrice ?? 0) * panels * 6;
+    const acCableBuy = (acCable?.buyPrice ?? 0) * 15;
+    lines.push(
+      lineFromCatalog(
+        { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy + acCableBuy },
+        1,
+        true,
+      ),
+    );
+  }
 
-  lines.push(lineFromCatalog(byId(catalog, 'labor-solar-panel'), panels, true));
-  lines.push(lineFromCatalog(byId(catalog, 'labor-solar-inv'), 1, true));
+  pushAuto('cons-solar-misc', 1);
+  pushAuto('labor-solar-panel', panels);
+  pushAuto('labor-solar-inv', 1);
   if (selection.storageId && selection.storageId !== 'bat-none') {
-    lines.push(lineFromCatalog(byId(catalog, 'labor-solar-bat'), 1, true));
+    pushAuto('labor-solar-bat', 1);
   }
-  lines.push(lineFromCatalog(byId(catalog, 'labor-solar-comm'), 1, true));
+  pushAuto('labor-solar-comm', 1);
 
   // Választható kiegészítő főanyagok (kiszállás nem ide tartozik — auto munkadíj)
   const extraIds = selection.extraItemIds ?? [];

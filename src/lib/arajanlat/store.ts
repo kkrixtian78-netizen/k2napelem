@@ -80,6 +80,40 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
         changed = true;
       }
     }
+    if (item.topic === 'napelem') {
+      if (existing.name !== item.name) {
+        existing.name = item.name;
+        changed = true;
+      }
+      if (existing.buyPrice !== item.buyPrice) {
+        existing.buyPrice = item.buyPrice;
+        changed = true;
+      }
+      if (existing.category !== item.category) {
+        existing.category = item.category;
+        changed = true;
+      }
+      if (existing.unit !== item.unit) {
+        existing.unit = item.unit;
+        changed = true;
+      }
+      if (existing.selectable !== item.selectable) {
+        existing.selectable = item.selectable;
+        changed = true;
+      }
+      if (existing.active !== item.active) {
+        existing.active = item.active;
+        changed = true;
+      }
+      if ((existing.notes ?? '') !== (item.notes ?? '')) {
+        existing.notes = item.notes;
+        changed = true;
+      }
+      if ((existing.extraGroup ?? '') !== (item.extraGroup ?? '')) {
+        existing.extraGroup = item.extraGroup;
+        changed = true;
+      }
+    }
     // Automatikus tételek neve / ára a seedhez igazodik
     if (item.selectable === false) {
       if (existing.name !== item.name) {
@@ -115,6 +149,15 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
   }
+  const seedSolarIds = new Set(
+    SEED_CATALOG.filter((c) => c.topic === 'napelem').map((c) => c.id),
+  );
+  const beforeSolar = store.catalog.length;
+  store.catalog = store.catalog.filter(
+    (item) => item.topic !== 'napelem' || seedSolarIds.has(item.id),
+  );
+  if (store.catalog.length !== beforeSolar) changed = true;
+
   // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
   const seedHeatIds = new Set(
     SEED_CATALOG.filter((c) => c.topic === 'futes' && c.heatGroup).map((c) => c.id),

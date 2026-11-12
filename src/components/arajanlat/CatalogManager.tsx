@@ -48,7 +48,9 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
 
   const filtered = useMemo(() => {
     return items.filter((item) => {
-      if (item.topic !== topic && item.topic !== 'all') return false;
+      if (topic === 'napelem') {
+        if (item.topic !== 'napelem') return false;
+      } else if (item.topic !== topic && item.topic !== 'all') return false;
       if (q) {
         const hay = `${item.name} ${item.id}`.toLowerCase();
         if (!hay.includes(q.toLowerCase())) return false;
