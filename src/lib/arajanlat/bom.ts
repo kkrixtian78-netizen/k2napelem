@@ -52,21 +52,18 @@ export function buildSolarBom(
     lines.push(lineFromCatalog(mount, panels, true));
   }
 
-  // AC kábel: fix 15 m alap
-  const acCable = byId(catalog, 'cable-ac-5x6');
-  lines.push(lineFromCatalog(acCable, 15, true));
-
   lines.push(lineFromCatalog(byId(catalog, 'prot-dc-box'), 1, true));
   lines.push(lineFromCatalog(byId(catalog, 'prot-ac-box'), 1, true));
 
-  // Egyéb vill. anyagok: alapcsomag + DC kábel (6 m/panel) összevonva
+  // Vill. anyagok: alapcsomag + DC kábel (6 m/panel) + AC kábel (15 m) összevonva
   const villanyMisc = byId(catalog, 'cons-villany-misc');
   const dcCable = tryById(catalog, 'cable-dc-6');
-  const dcCableMeters = panels * 6;
-  const dcCableBuy = (dcCable?.buyPrice ?? 420) * dcCableMeters;
+  const acCable = tryById(catalog, 'cable-ac-5x6');
+  const dcCableBuy = (dcCable?.buyPrice ?? 420) * panels * 6;
+  const acCableBuy = (acCable?.buyPrice ?? 980) * 15;
   lines.push(
     lineFromCatalog(
-      { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy },
+      { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy + acCableBuy },
       1,
       true,
     ),

@@ -239,7 +239,7 @@ export const SEED_CATALOG: CatalogItem[] = [
     buyPrice: 18500,
     selectable: false,
     active: true,
-    notes: 'Alapcsomag; a BOM a DC kábel költségét (6 m/panel) is hozzáadja',
+    notes: 'Alapcsomag; a BOM a DC (6 m/panel) és AC (15 m) kábel költségét is hozzáadja',
   },
   {
     id: 'cons-solar-misc',
