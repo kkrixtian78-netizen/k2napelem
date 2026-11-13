@@ -47,6 +47,15 @@ A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napele
 - Menü: `src/layouts/QuoteAppLayout.astro`
 - Windows indítás: `Inditas.bat`, `scripts/open-quote.js`, a `start` parancs a `package.json`-ban (`astro dev --port 4321 --host 127.0.0.1`)
 
+## Napelemes termelésbecslés
+
+Csak napelemes ajánlaton, az ügyféladatok alatt: névleges kWp, várható éves termelés, és ennek forint értéke. Előnézetben és a nyomtatásban is. A két feltételezés egy helyen van, `src/lib/arajanlat/solar-yield.ts`:
+
+- 1 150 kWh/kWp/év — Magyarország, déli tájolás, kb. 35° dőlés, árnyék nélkül.
+- 70 Ft/kWh — lakossági, átlagfogyasztás feletti ár nagyságrendje.
+
+A panelteljesítmény a katalógusnév watt számából jön (pl. 620W), szorozva a darabszámmal.
+
 ## Napelemes záradék az ajánlat alján
 
 Csak napelemes ajánlaton jelenik meg: EU és magyar megfelelőség, 10 napos vagy árfolyamhoz kötött érvényesség, magasemelő gép bérlése nélkül, áramszolgáltatói díjak nélkül.

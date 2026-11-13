@@ -1,5 +1,17 @@
+import { solarYieldFromLines } from '../../lib/arajanlat/solar-yield';
 import { TOPIC_LABELS, type QuoteLine, type TopicId } from '../../lib/arajanlat/types';
 import { formatDate, formatHuf, grossFromNet, vatFromNet, vatPercentLabel } from './format';
+
+function formatKwp(kwp: number): string {
+  return `${new Intl.NumberFormat('hu-HU', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(kwp)} kWp`;
+}
+
+function formatCount(value: number): string {
+  return new Intl.NumberFormat('hu-HU', { maximumFractionDigits: 0 }).format(value);
+}
 
 export type BrandInfo = {
   name: string;
@@ -36,6 +48,7 @@ export default function QuoteDocument({
   const margin = quote.totalSell - quote.totalBuy;
   const vat = vatFromNet(quote.totalSell);
   const gross = grossFromNet(quote.totalSell);
+  const solarYield = quote.topic === 'napelem' ? solarYieldFromLines(quote.lines) : null;
 
   return (
     <article className="rounded-xl border border-line bg-paper/80 p-5 sm:p-8 print:border-0 print:bg-white print:p-0">
@@ -79,6 +92,50 @@ export default function QuoteDocument({
           <div className="text-ink-soft">{quote.customerEmail?.trim() || ''}</div>
         </div>
       </section>
+
+      {solarYield ? (
+        <section className="mt-5 rounded-lg border border-line bg-white/80 p-4 print:bg-white">
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                Névleges teljesítmény
+              </div>
+              <div className="mt-1 font-display text-xl font-bold text-ink">{formatKwp(solarYield.kwp)}</div>
+              <div className="text-xs text-ink-soft">
+                {formatCount(solarYield.panelCount)} db
+                {solarYield.panelWatts ? ` × ${formatCount(solarYield.panelWatts)} W` : ''}
+              </div>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                Várható éves termelés
+              </div>
+              <div className="mt-1 font-display text-xl font-bold text-ink">
+                {formatCount(solarYield.annualKwh)} kWh
+              </div>
+              <div className="text-xs text-ink-soft">
+                {formatCount(solarYield.yieldKwhPerKwpYear)} kWh/kWp/év
+              </div>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                A termelés értéke
+              </div>
+              <div className="mt-1 font-display text-xl font-bold text-sky-deep">
+                {formatHuf(solarYield.annualValueHuf)}
+                <span className="text-base font-semibold"> / év</span>
+              </div>
+              <div className="text-xs text-ink-soft">{formatCount(solarYield.priceHufPerKwh)} Ft/kWh</div>
+            </div>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-ink-soft">
+            Tervezési becslés, nem helyszíni felmérés. Fajlagos termelés:{' '}
+            {formatCount(solarYield.yieldKwhPerKwpYear)} kWh/kWp/év (Magyarország, déli tájolás, kb. 35°
+            dőlés, árnyék nélkül). Az áram értéke: {formatCount(solarYield.priceHufPerKwh)} Ft/kWh (lakossági,
+            átlagfogyasztás feletti ár nagyságrendje).
+          </p>
+        </section>
+      ) : null}
 
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full text-left text-sm">
