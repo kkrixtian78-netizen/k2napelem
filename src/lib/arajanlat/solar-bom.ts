@@ -11,6 +11,8 @@
  * - Cserép / zsindely / hódfarkú: 2 kampó panelenként, kampónként 2 facsavar.
  * - Lemez / trapéz: 4 minisín panelenként (a csavar a minisínhez jár).
  * - Lapostető: panelenként 1 első láb, 1 hátsó láb, 1 tálca, 2 EPDM.
+ * - Földi tartószerkezet: Treesystem, két sor (N+N). A legkisebb készlet, ami lefedi a panelszámot.
+ *   56 panel felett a 28+28 készletből annyi, ahány kell. Eladás = beszerzés × 1,25.
  * - Szorítók: soronként 4 vég + 2 köztes minden panelközben, 4 végzáró kupak.
  * - Sztring: 10 panelenként egy, DC kábel 6 mm², 6 m / panel.
  * - AC kábel az inverter és az elosztó között: 15 m. Gégecső: 3 m / panel. Csatorna: 5 m.
@@ -22,12 +24,60 @@
 import { lineFromCatalog, sellFromBuy } from './pricing';
 import type { CatalogItem, QuoteLine } from './types';
 
+export const GROUND_MOUNT_ID = 'roof-foldi';
+
+/** Treesystem földi készlet: egy sor panelszáma. Két sor, tehát a kapacitás 2×N. Nettó beszerzés. */
+export const TREESYSTEM_KITS: Array<{ row: number; buyPrice: number }> = [
+  { row: 7, buyPrice: 370_000 },
+  { row: 10, buyPrice: 500_000 },
+  { row: 13, buyPrice: 650_000 },
+  { row: 16, buyPrice: 800_000 },
+  { row: 19, buyPrice: 930_000 },
+  { row: 22, buyPrice: 1_070_000 },
+  { row: 25, buyPrice: 1_220_000 },
+  { row: 28, buyPrice: 1_360_000 },
+];
+
+export function treesystemCatalogId(row: number): string {
+  return `np-treesystem-${row}-${row}`;
+}
+
+export function treesystemName(row: number): string {
+  return `Treesystem földi tartószerkezet ${row}+${row}`;
+}
+
+export const TREESYSTEM_CATALOG: CatalogItem[] = TREESYSTEM_KITS.map((kit) => ({
+  id: treesystemCatalogId(kit.row),
+  name: treesystemName(kit.row),
+  topic: 'napelem',
+  category: 'tartoszerkezet',
+  unit: 'db',
+  buyPrice: kit.buyPrice,
+  selectable: false,
+  active: true,
+  notes: `Két sor, ${kit.row}+${kit.row} panel. Automatikus, ha a tető „Földi tartószerkezet”. Eladás = beszerzés × 1,25.`,
+}));
+
+/** A legkisebb N+N készlet, ami lefedi a panelszámot. 56 felett több 28+28. */
+export function treesystemPick(panelCount: number): { row: number; buyPrice: number; quantity: number } {
+  const panels = Math.max(1, Math.floor(panelCount) || 1);
+  const fit = TREESYSTEM_KITS.find((kit) => kit.row * 2 >= panels);
+  if (fit) return { row: fit.row, buyPrice: fit.buyPrice, quantity: 1 };
+  const largest = TREESYSTEM_KITS[TREESYSTEM_KITS.length - 1];
+  return {
+    row: largest.row,
+    buyPrice: largest.buyPrice,
+    quantity: Math.ceil(panels / (largest.row * 2)),
+  };
+}
+
 export const SOLAR_ROOFS: Array<{ id: string; label: string; mountName: string }> = [
   { id: 'roof-cserep', label: 'Cserép', mountName: 'Enerack tartószerkezet rendszer cseréptetőre' },
   { id: 'roof-hodfarku', label: 'Hódfarkú cserép', mountName: 'Enerack tartószerkezet rendszer hódfarkú tetőre' },
   { id: 'roof-zsindely', label: 'Zsindely', mountName: 'Enerack tartószerkezet rendszer zsindelytetőre' },
   { id: 'roof-lemez', label: 'Lemez / trapéz', mountName: 'Enerack tartószerkezet rendszer lemeztetőre' },
   { id: 'roof-lapos', label: 'Lapostető', mountName: 'Enerack tartószerkezet rendszer lapostetőre' },
+  { id: GROUND_MOUNT_ID, label: 'Földi tartószerkezet', mountName: 'Treesystem földi tartószerkezet' },
 ];
 
 export function solarMountName(roofTypeId: string | undefined): string {
@@ -213,6 +263,23 @@ function bundle(
   };
 }
 
+function treesystemLine(catalog: CatalogItem[], panelCount: number): QuoteLine {
+  const pick = treesystemPick(panelCount);
+  const id = treesystemCatalogId(pick.row);
+  const item = catalog.find((entry) => entry.id === id && entry.active);
+  const buy = item?.buyPrice ?? pick.buyPrice;
+  return {
+    catalogId: id,
+    name: item?.name ?? treesystemName(pick.row),
+    unit: item?.unit || 'db',
+    quantity: pick.quantity,
+    buyPrice: buy,
+    sellPrice: sellFromBuy(buy),
+    auto: true,
+    category: 'tartoszerkezet',
+  };
+}
+
 function pushItem(catalog: CatalogItem[], lines: QuoteLine[], id: string, qty: number) {
   const item = catalog.find((entry) => entry.id === id && entry.active);
   if (!item || qty <= 0) return;
@@ -228,14 +295,18 @@ export function buildSolarAutoLines(
   const strings = solarStringCount(panels);
   const lines: QuoteLine[] = [];
 
-  const mount = bundle(
-    catalog,
-    'auto-solar-mount',
-    solarMountName(roofId),
-    'tartoszerkezet',
-    mountingParts(roofId, panels),
-  );
-  if (mount) lines.push(mount);
+  if (roofId === GROUND_MOUNT_ID) {
+    lines.push(treesystemLine(catalog, panels));
+  } else {
+    const mount = bundle(
+      catalog,
+      'auto-solar-mount',
+      solarMountName(roofId),
+      'tartoszerkezet',
+      mountingParts(roofId, panels),
+    );
+    if (mount) lines.push(mount);
+  }
 
   const dcId = strings <= 2 ? ID.dc2 : ID.dc4;
   const dcQty = strings <= 2 ? 1 : Math.ceil(strings / 4);

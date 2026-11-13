@@ -1,11 +1,13 @@
 import type { CatalogItem } from './types';
 import { buildHeatingCatalogFromBvf } from './heating-catalog';
+import { TREESYSTEM_CATALOG } from './solar-bom';
 import { SOLAR_MATERIAL_CATALOG } from './solar-catalog';
 import { buildVillanyCatalogFromOnlinevill } from './onlinevill-catalog';
 
 /** Realisztikus induló katalógus — magyar megnevezések, nettó beszerzési árak (Ft). */
 export const SEED_CATALOG: CatalogItem[] = [
   ...SOLAR_MATERIAL_CATALOG,
+  ...TREESYSTEM_CATALOG,
 
   {
     id: 'labor-kiszallas-km',
