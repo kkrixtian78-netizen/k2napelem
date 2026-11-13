@@ -5,6 +5,7 @@ import type { CatalogItem } from '../../../lib/arajanlat/types';
 import {
   deleteCatalogItem,
   listCatalog,
+  readStore,
   resetCatalogFromSeed,
   upsertCatalogItem,
 } from '../../../lib/arajanlat/store';
@@ -15,7 +16,7 @@ export const GET: APIRoute = async ({ url }) => {
   if (topic) {
     items = items.filter((c) => c.topic === topic || c.topic === 'all');
   }
-  return Response.json({ items });
+  return Response.json({ items, priceSync: readStore().priceSync ?? null });
 };
 
 export const POST: APIRoute = async ({ request }) => {
@@ -41,6 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
     active: item.active ?? true,
     extraGroup: item.extraGroup,
     heatGroup: item.heatGroup,
+    villanyGroup: item.villanyGroup,
     bvfGross: item.bvfGross,
     sellPriceFixed: item.sellPriceFixed,
   });

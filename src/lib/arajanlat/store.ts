@@ -10,6 +10,19 @@ const STORE_PATH = join(DATA_DIR, 'store.json');
 /** Serverless (Vercel) fallback — process lifetime only. */
 let memoryStore: QuoteStore | null = null;
 let preferMemory = false;
+let priceSyncScheduled = false;
+
+function scheduleMonthlyPriceSync() {
+  if (priceSyncScheduled || preferMemory || process.env.ARAJANLAT_SKIP_PRICE_SYNC === '1') return;
+  priceSyncScheduled = true;
+  setTimeout(() => {
+    import('./price-sync.ts')
+      .then((mod) => mod.runMonthlyPriceSyncIfDue())
+      .catch((error) => {
+        console.warn('[árfrissítés]', error instanceof Error ? error.message : error);
+      });
+  }, 1500);
+}
 
 function emptyStore(): QuoteStore {
   return {
@@ -72,7 +85,9 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
     // A villany munkadíj eladási árát a katalógusban lehet átírni, azt nem írjuk vissza.
+    // A kézzel zárolt árat sem írjuk vissza a seedre.
     if (
+      !existing.priceLocked &&
       existing.sellPriceFixed !== item.sellPriceFixed &&
       item.topic !== 'napelem' &&
       !(item.topic === 'villany' && item.category === 'munkadij')
@@ -80,14 +95,11 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.sellPriceFixed = item.sellPriceFixed;
       changed = true;
     }
-    // BVF / szerelés fűtés főanyagok: név / ár / csoport frissítése a seedhez
+    // BVF fűtés: a név és a csoport jöhet a seedből. A beszerzési árat és a BVF
+    // bruttót a havi árfrissítés vagy a kézi mentés tartja, a seed nem írja felül.
     if (item.topic === 'futes' && item.heatGroup && item.selectable !== false) {
       if (existing.name !== item.name) {
         existing.name = item.name;
-        changed = true;
-      }
-      if (existing.buyPrice !== item.buyPrice) {
-        existing.buyPrice = item.buyPrice;
         changed = true;
       }
       if (existing.active !== item.active) {
@@ -239,6 +251,7 @@ function ensureStore(): QuoteStore {
       const seed = emptyStore();
       atomicWrite(STORE_PATH, seed);
       memoryStore = seed;
+      scheduleMonthlyPriceSync();
       return seed;
     }
     const raw = readFileSync(STORE_PATH, 'utf8');
@@ -250,6 +263,7 @@ function ensureStore(): QuoteStore {
       atomicWrite(STORE_PATH, parsed);
     }
     memoryStore = parsed;
+    scheduleMonthlyPriceSync();
     return parsed;
   } catch {
     // Read-only / serverless filesystem — keep working in memory.
@@ -278,13 +292,38 @@ export function listCatalog(): CatalogItem[] {
   return readStore().catalog;
 }
 
+function sameOptional(left: number | undefined, right: number | undefined): boolean {
+  return (left ?? undefined) === (right ?? undefined);
+}
+
 export function upsertCatalogItem(item: CatalogItem): CatalogItem {
   const store = readStore();
   const idx = store.catalog.findIndex((c) => c.id === item.id);
-  if (idx >= 0) store.catalog[idx] = item;
-  else store.catalog.push(item);
+  if (idx < 0) {
+    store.catalog.push(item);
+    writeStore(store);
+    return item;
+  }
+  const prev = store.catalog[idx]!;
+  const priceChanged =
+    prev.buyPrice !== item.buyPrice ||
+    !sameOptional(prev.bvfGross, item.bvfGross) ||
+    !sameOptional(prev.sellPriceFixed, item.sellPriceFixed);
+  const seed = SEED_CATALOG.find((entry) => entry.id === item.id);
+  const matchesSeed =
+    seed != null &&
+    item.buyPrice === seed.buyPrice &&
+    sameOptional(item.bvfGross, seed.bvfGross) &&
+    sameOptional(item.sellPriceFixed, seed.sellPriceFixed);
+  const next: CatalogItem = {
+    ...prev,
+    ...item,
+    villanyGroup: item.villanyGroup ?? prev.villanyGroup,
+    priceLocked: priceChanged ? !matchesSeed : Boolean(prev.priceLocked),
+  };
+  store.catalog[idx] = next;
   writeStore(store);
-  return item;
+  return next;
 }
 
 export function deleteCatalogItem(id: string): boolean {

@@ -34,6 +34,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
   const [form, setForm] = useState<CatalogItem>(() => emptyForm(topic));
   const [editing, setEditing] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [priceSyncNote, setPriceSyncNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -41,6 +42,12 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
     const res = await fetch('/api/arajanlat/catalog');
     const data = await res.json();
     setItems(data.items ?? []);
+    const sync = data.priceSync;
+    setPriceSyncNote(
+      sync?.message
+        ? `${sync.month ? `Utolsó árfrissítés: ${sync.month}. ` : ''}${sync.message}`
+        : null,
+    );
   }
 
   useEffect(() => {
@@ -129,6 +136,7 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="font-display text-3xl font-bold text-ink">{TOPIC_LABELS[topic]} katalógus</h1>
+          {priceSyncNote ? <p className="mt-1 text-sm text-ink-soft">{priceSyncNote}</p> : null}
           <p className="mt-1 text-sm text-ink-soft">
             {topic === 'futes'
               ? 'BVF tételek: beszerzés nettó = BVF bruttó × 0,85 / 1,27, eladás bruttó = BVF × 0,98.'

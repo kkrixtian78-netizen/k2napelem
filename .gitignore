@@ -14,6 +14,8 @@ node_modules/
 data/arajanlat/store.json
 data/arajanlat/store.json.tmp
 data/arajanlat/*.tmp
+data/arajanlat/price-sync.lock
+data/arajanlat/kimeno/
 
 # logs / OS
 npm-debug.log*

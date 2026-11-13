@@ -13,6 +13,7 @@ import {
 import { VILLANY_GROUPS } from '../../lib/arajanlat/onlinevill-catalog';
 import { displaySellForItem, grossFromNet, sellPriceForItem } from '../../lib/arajanlat/pricing';
 import QuoteDocument, { type BrandInfo } from './QuoteDocument';
+import { requestQuoteEmail } from './sendQuoteMail';
 import { formatHuf, vatFromNet, vatPercentLabel } from './format';
 
 type Preview = {
@@ -54,6 +55,8 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const [error, setError] = useState<string | null>(null);
   const [savedId, setSavedId] = useState<string | null>(null);
   const [showQuotePreview, setShowQuotePreview] = useState(false);
+  const [mailNote, setMailNote] = useState<string | null>(null);
+  const [mailing, setMailing] = useState(false);
 
   const [customerName, setCustomerName] = useState('');
   const [customerAddress, setCustomerAddress] = useState('');
@@ -1018,6 +1021,33 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
               <div className="flex flex-wrap gap-2">
                 <button
                   type="button"
+                  disabled={mailing}
+                  onClick={() => {
+                    setMailing(true);
+                    setMailNote(null);
+                    void requestQuoteEmail({
+                      quote: {
+                        number: 'ELŐNÉZET',
+                        topic,
+                        customerName,
+                        customerAddress,
+                        customerPhone,
+                        customerEmail,
+                        createdAt: new Date().toISOString(),
+                        lines: preview.lines,
+                        totalSell: preview.totalSell,
+                      },
+                    })
+                      .then(setMailNote)
+                      .catch((e) => setMailNote(e instanceof Error ? e.message : 'A levél nem nyílt meg'))
+                      .finally(() => setMailing(false));
+                  }}
+                  className="rounded-md border border-sky-deep bg-white px-3 py-1.5 text-sm font-semibold text-sky-deep disabled:opacity-50"
+                >
+                  Ajánlat küldése
+                </button>
+                <button
+                  type="button"
                   onClick={() => window.print()}
                   className="rounded-md border border-line bg-white px-3 py-1.5 text-sm font-semibold"
                 >
@@ -1043,6 +1073,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                 </button>
               </div>
             </div>
+            {mailNote ? <p className="mb-3 text-sm text-ink-soft print:hidden">{mailNote}</p> : null}
             <QuoteDocument
               brand={brand}
               showInternalCosts={false}

@@ -74,6 +74,27 @@ function unitOf(unit: string): string {
   return u || 'db';
 }
 
+/** Katalógusazonosító → a havi árfrissítés ezen a slugon keresi az online árat. */
+export function onlinevillIdBySlug(): Map<string, string> {
+  const used = new Set<string>();
+  const map = new Map<string, string>();
+  for (const product of data.items) {
+    if (product.leaf === 'feliratozok-es-jelolok' || excludedGroupIds.has(product.group)) continue;
+    map.set(product.slug, catalogId(product.slug, used));
+  }
+  return map;
+}
+
+/** Levél-kategóriák, ahonnan a havi frissítés az árakat olvassa. */
+export function onlinevillSyncLeaves(): string[] {
+  const leaves = new Set<string>();
+  for (const product of data.items) {
+    if (product.leaf === 'feliratozok-es-jelolok' || excludedGroupIds.has(product.group)) continue;
+    if (product.leaf) leaves.add(product.leaf);
+  }
+  return [...leaves];
+}
+
 /** Onlinevill.hu termékek a villanyszerelés katalógusba. Az ár a boltban kiírt online ár. */
 export function buildVillanyCatalogFromOnlinevill(): CatalogItem[] {
   const used = new Set<string>();

@@ -48,6 +48,23 @@ Belső eszköz három témakörre:
 
 **Adattárolás:** `data/arajanlat/store.json` (helyi JSON). Első indításkor a seed katalógus kitöltődik. A fájl gitignore-olt; a seed forrás: `src/lib/arajanlat/seed.ts`.
 
+### Havi árfrissítés (BVF és Onlinevill)
+
+A program indításakor megnézi, hogy ebben a naptári hónapban frissült-e már az ár. Ha nem (az app a hónap 1-jén vagy később indul, és a `store.json` `priceSync.month` mezője nem az aktuális `YYYY-MM`), a háttérben újraolvassa:
+
+- a **BVF** fűtés bruttó árait a `bvfheating.hu` termékoldalairól (variáns: a oldalba ágyazott `display_price`; ebből a beszerzés nettó továbbra is bruttó × 0,85 / 1,27),
+- az **Onlinevill** villanyszerelési online árakat a kategóriaoldalakról (a polcon kiírt, nagyobb összeg marad a beszerzési ár).
+
+A napelemes Excel-árakat ez nem nyúlja. A katalógusban kézzel elmentett, a seedtől eltérő beszerzési / BVF / fix eladási ár `priceLocked`, és a frissítés kihagyja. Az első futáskor a seedtől már eltérő, de még nem jelölt árakat is zárolja, hogy a korábbi kézi módosítás megmaradjon. A seed visszaállítása törli a zárolást. A katalógus tetején látszik az utolsó futás üzenete. Internet kell hozzá; ha a bolt nem válaszol, a következő indításkor újra próbálja, és a régi ár marad.
+
+### Ajánlat küldése Thunderbirdből
+
+A mentett ajánlaton és az előnézeten az **Ajánlat küldése** gomb HTML mellékletet ír a `data/arajanlat/kimeno/` mappába (csak eladási árak), és megnyitja a Thunderbirdöt:
+
+`thunderbird -compose` címzett (az ügyfél e-mailje), tárgy (`K2 napelemes árajánlat`, villanynál és fűtésnél a témakör neve), a megadott levélszöveg és a fájl mellékletként.
+
+A Thunderbirdöt a szokásos Windows helyen keresi (`C:\Program Files\Mozilla Thunderbird\thunderbird.exe`), a PATH-on, vagy a `THUNDERBIRD_PATH` környezeti változóban. Ha nincs meg, mailto nyílik melléklet nélkül, és a képernyőn megjelenik a csatolandó fájl útvonala.
+
 | Útvonal | Funkció |
 |---|---|
 | `/arajanlat` | Új ajánlat (témakör → főanyagok → auto tételsor → mentés) |

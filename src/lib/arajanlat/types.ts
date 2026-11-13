@@ -92,6 +92,11 @@ export type CatalogItem = {
   bvfGross?: number;
   /** Fix eladási nettó (pl. rögzítéstechnika: 2000 Ft) — felülírja a szorzós árazást */
   sellPriceFixed?: number;
+  /**
+   * Kézzel átírt beszerzési / BVF / fix eladási ár.
+   * A havi BVF és Onlinevill árfrissítés ezt a tételt kihagyja.
+   */
+  priceLocked?: boolean;
 };
 
 export type QuoteLine = {
@@ -143,11 +148,23 @@ export type Quote = {
   totalSell: number;
 };
 
+export type PriceSyncInfo = {
+  /** Utolsó sikeres frissítés hónapja, YYYY-MM. */
+  month?: string;
+  at?: string;
+  status?: 'ok' | 'error';
+  bvfUpdated?: number;
+  villanyUpdated?: number;
+  preserved?: number;
+  message?: string;
+};
+
 export type QuoteStore = {
   version: 1;
   catalog: CatalogItem[];
   quotes: Quote[];
   nextQuoteSeq: number;
+  priceSync?: PriceSyncInfo;
 };
 
 export const MARGIN_MULTIPLIER = 1.25;

@@ -43,6 +43,12 @@ A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napele
 - Napelemes ajánlaton kézzel a panel, a darabszám, a tető, az inverter és a tároló választható. A tűzeseti leválasztó külön legördülő, alapból nincs az ajánlaton; ha kiválasztják, a mennyiség 2 sztringenként 1 db. A tartószerkezet, a DC/AC doboz, a villanyszerelési anyagok és az egyéb kiegészítők automatikusak (`src/lib/arajanlat/solar-bom.ts`). Az optimalizáló és az autótöltő csukott, opcionális. A tervezés/engedélyeztetés külön legördülő, alapból nincs; ha kiválasztják, beszerzés 50 000 Ft, eladás 100 000 Ft, és a munkadíj fölé kerül.
 - Fűtés: BVF termékek variánsokkal, `src/lib/arajanlat/heating-catalog.ts`. Egy csoportba többféle termék is tehető, saját mennyiséggel.
 
+## Havi árfrissítés és ajánlatküldés
+
+Minden naptári hónap első indításakor (ha a `priceSync.month` nem az aktuális hónap) a program a háttérben frissíti a BVF fűtés és az Onlinevill villany beszerzési árakat. Kód: `src/lib/arajanlat/price-sync.ts`. A kézzel átírt, `priceLocked` tétel kimarad. Az első futás a seedtől már eltérő árakat is zárolja. A napelem katalógust nem írja.
+
+Az **Ajánlat küldése** gomb a mentett lapon és az előnézeten Thunderbirdöt nyit melléklettel (`data/arajanlat/kimeno/*.html`). Napelem tárgya: `K2 napelemes árajánlat`. A levélszöveg és az aláírás: `src/lib/arajanlat/quote-mail.ts`. Ha a Thunderbird nincs a gépen, mailto nyílik, a fájlt kézzel kell csatolni. Egyedi telepítési útvonal: `THUNDERBIRD_PATH`.
+
 ## Hol kell módosítani
 
 - Ajánlat űrlap: `src/components/arajanlat/QuoteWizard.tsx`
