@@ -50,6 +50,10 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.villanyGroup = item.villanyGroup;
       changed = true;
     }
+    if (item.id === 'v-labor-kiallas' && existing.unit !== item.unit) {
+      existing.unit = item.unit;
+      changed = true;
+    }
     if (
       typeof item.bvfGross === 'number' &&
       existing.bvfGross !== item.bvfGross
@@ -117,6 +121,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
     'conn-mc4',
     ...LEGACY_HEATING_MAIN_IDS,
     'f-labor-padlo',
+    'v-labor-bovites-1f',
   ]) {
     const legacy = byId.get(id);
     if (legacy && legacy.active) {
@@ -125,6 +130,9 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       changed = true;
     }
   }
+  const beforeOnePhase = store.catalog.length;
+  store.catalog = store.catalog.filter((item) => item.id !== 'v-labor-bovites-1f');
+  if (store.catalog.length !== beforeOnePhase) changed = true;
   const legacySolarIds = new Set([
     'panel-cs-hiku6-420',
     'panel-astro-515',
