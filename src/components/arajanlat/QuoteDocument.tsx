@@ -224,13 +224,12 @@ export default function QuoteDocument({
           készül.
         </p>
         <p>
-          15+ év tapasztalat · 300+ lakossági rendszer · több tucat céges kivitelezés · nagyobb rendszerek 50 kW
-          felett. Az üzembe helyezett rendszerek együtt kb. 3 000 kWh-t termelnek naponta.
+          300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással!{' '}
+          <span className="font-semibold text-ink">15+ év tapasztalat</span>
         </p>
         <p>
-          <a href="https://k2napelem.hu" className="font-semibold text-sky-deep">
-            k2napelem.hu
-          </a>
+          Magyar családi vállalkozás vagyunk, akiknek fontos a minőségi anyagokból kivitelezett megbízható, precíz
+          munka - mert mi a tovább ajánlásokból élünk!
         </p>
         {quote.topic === 'napelem' ? (
           <>
@@ -246,6 +245,19 @@ export default function QuoteDocument({
             <p>Az árajánlat nem tartalmazza az áramszolgáltató felé fizetendő esetleges egyéb díjakat!</p>
           </>
         ) : null}
+        <p>
+          <a href="https://k2napelem.hu" className="font-semibold text-sky-deep">
+            k2napelem.hu
+          </a>
+          {' · '}
+          <a href={`mailto:${brand.email}`} className="text-sky-deep">
+            {brand.email}
+          </a>
+          {' · '}
+          <a href={`tel:${brand.phone.replace(/\s/g, '')}`} className="text-sky-deep">
+            {brand.phone}
+          </a>
+        </p>
       </footer>
     </article>
   );
