@@ -1,5 +1,6 @@
 import { ROOF_MOUNT_MAP } from './seed';
 import { lineFromCatalog, sellFromBuy, sumLines } from './pricing';
+import { SOLAR_INSTALL_LABOR_ID, solarInstallSell } from './solar-labor';
 import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
   CatalogItem,
@@ -77,12 +78,16 @@ export function buildSolarBom(
   }
 
   pushAuto('cons-solar-misc', 1);
-  pushAuto('labor-solar-panel', panels);
-  pushAuto('labor-solar-inv', 1);
-  if (selection.storageId && selection.storageId !== 'bat-none') {
-    pushAuto('labor-solar-bat', 1);
-  }
-  pushAuto('labor-solar-comm', 1);
+  lines.push({
+    catalogId: SOLAR_INSTALL_LABOR_ID,
+    name: 'Szerelési munkadíj',
+    unit: 'alkalom',
+    quantity: 1,
+    buyPrice: 0,
+    sellPrice: solarInstallSell(panels),
+    auto: true,
+    category: 'munkadij',
+  });
 
   // Választható kiegészítő főanyagok (kiszállás nem ide tartozik — auto munkadíj)
   const extraIds = selection.extraItemIds ?? [];
@@ -115,7 +120,8 @@ export function foldTravelIntoLabor(lines: QuoteLine[], travelRoundTripKm?: numb
   const extraSell = km > 0 ? sellFromBuy(extraBuy) : 0;
 
   const heatingLabor = withoutTravel.find((line) => line.catalogId === 'f-labor-panel');
-  const target = heatingLabor ?? withoutTravel.find((line) => isLaborLine(line));
+  const solarLabor = withoutTravel.find((line) => line.catalogId === SOLAR_INSTALL_LABOR_ID);
+  const target = heatingLabor ?? solarLabor ?? withoutTravel.find((line) => isLaborLine(line));
 
   if (km > 0 && !target) {
     withoutTravel.push({

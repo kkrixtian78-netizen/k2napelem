@@ -423,6 +423,10 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
       {topic === 'napelem' ? (
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Főanyagok (csak ezeket válaszd)</h2>
+          <p className="text-sm text-ink-soft">
+            Szerelési munkadíj, nettó eladás: panelszám × 25 000 Ft + 15 000 Ft az inverter szerelése. A
+            kiszállás ebbe a sorba épül.
+          </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Napelem panel">
               <select
