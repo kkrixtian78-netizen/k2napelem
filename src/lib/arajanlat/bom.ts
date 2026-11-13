@@ -1,5 +1,5 @@
-import { ROOF_MOUNT_MAP } from './seed';
 import { lineFromCatalog, sellFromBuy, sumLines } from './pricing';
+import { buildSolarAutoLines } from './solar-bom';
 import { SOLAR_INSTALL_LABOR_ID, solarInstallSell } from './solar-labor';
 import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
@@ -44,40 +44,15 @@ export function buildSolarBom(
     if (bat) lines.push(lineFromCatalog(bat, 1, false));
   }
 
-  // Tetőtípus és a régi összevont auto-tételek csak akkor kerülnek be, ha még a katalógusban vannak.
-  if (selection.roofTypeId) {
-    const roof = tryById(catalog, selection.roofTypeId);
-    const mountId = roof ? ROOF_MOUNT_MAP[selection.roofTypeId] : undefined;
-    if (mountId) {
-      const mount = tryById(catalog, mountId);
-      if (mount) lines.push(lineFromCatalog(mount, panels, true));
-    }
-  }
+  lines.push(
+    ...buildSolarAutoLines(catalog, {
+      panelCount: panels,
+      inverterName: inverter.name,
+      roofTypeId: selection.roofTypeId,
+      withStorage: Boolean(selection.storageId && selection.storageId !== 'bat-none'),
+    }),
+  );
 
-  const pushAuto = (id: string, qty: number) => {
-    const item = tryById(catalog, id);
-    if (item) lines.push(lineFromCatalog(item, qty, true));
-  };
-
-  pushAuto('prot-dc-box', 1);
-  pushAuto('prot-ac-box', 1);
-
-  const villanyMisc = tryById(catalog, 'cons-villany-misc');
-  if (villanyMisc) {
-    const dcCable = tryById(catalog, 'cable-dc-6');
-    const acCable = tryById(catalog, 'cable-ac-5x6');
-    const dcCableBuy = (dcCable?.buyPrice ?? 0) * panels * 6;
-    const acCableBuy = (acCable?.buyPrice ?? 0) * 15;
-    lines.push(
-      lineFromCatalog(
-        { ...villanyMisc, buyPrice: villanyMisc.buyPrice + dcCableBuy + acCableBuy },
-        1,
-        true,
-      ),
-    );
-  }
-
-  pushAuto('cons-solar-misc', 1);
   lines.push({
     catalogId: SOLAR_INSTALL_LABOR_ID,
     name: 'Munkadíj',
@@ -96,7 +71,9 @@ export function buildSolarBom(
     if (id === 'opt-kiszallas' || id === TRAVEL_CATALOG_ID) continue;
     const item = tryById(catalog, id);
     if (!item || item.selectable === false) continue;
-    const defaultQty = id === 'opt-optimizer' ? panels : 1;
+    if (['tartoszerkezet', 'kabel', 'vedelem', 'csatlakozo'].includes(item.category)) continue;
+    if (item.extraGroup === 'tuzvedelmi') continue;
+    const defaultQty = item.extraGroup === 'optimizer' ? panels : 1;
     const q = Math.max(1, extraQty[id] ?? defaultQty);
     lines.push(lineFromCatalog(item, q, false));
   }

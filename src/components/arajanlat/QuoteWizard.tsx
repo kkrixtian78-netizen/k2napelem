@@ -1,14 +1,12 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
+import { SOLAR_ROOFS } from '../../lib/arajanlat/solar-bom';
 import {
-  CATEGORY_LABELS,
   HEAT_GROUPS,
-  SOLAR_EXTRA_GROUPS,
   TOPIC_LABELS,
   type CatalogItem,
   type HeatGroup,
   type ManualSelection,
   type QuoteLine,
-  type SolarExtraGroup,
   type SolarSelection,
   type TopicId,
 } from '../../lib/arajanlat/types';
@@ -26,14 +24,6 @@ type Preview = {
 };
 
 const TOPICS: TopicId[] = ['napelem', 'villany', 'futes'];
-
-const EMPTY_EXTRA_IDS: Record<SolarExtraGroup, string> = {
-  optimizer: '',
-  visszwatt: '',
-  tuzvedelmi: '',
-  tervezes: '',
-  'hozott-jutalek': '',
-};
 
 const EMPTY_HEAT_IDS: Record<HeatGroup, string> = {
   padlofutes: '',
@@ -76,12 +66,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const [inverterId, setInverterId] = useState('');
   const [storageId, setStorageId] = useState('bat-none');
   const [roofTypeId, setRoofTypeId] = useState('roof-cserep');
-  /** Csoportonként választott katalógus id ('' = nincs) */
-  const [extraIds, setExtraIds] = useState<Record<SolarExtraGroup, string>>({ ...EMPTY_EXTRA_IDS });
+  const [optimizerId, setOptimizerId] = useState('');
   const [optimizerQty, setOptimizerQty] = useState(12);
-  /** Excelből jövő további napelemes anyagok (kábel, védelem, tartó…) */
-  const [solarQty, setSolarQty] = useState<Record<string, number>>({});
-  const [solarPicker, setSolarPicker] = useState<Record<string, string>>({});
+  const [chargerId, setChargerId] = useState('');
   const [villanyQuery, setVillanyQuery] = useState<Record<string, string>>({});
 
   // Manual (villany checkbox)
@@ -102,12 +89,11 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setSavedId(null);
     setPreview(null);
     setSelectedMains({});
-    setExtraIds({ ...EMPTY_EXTRA_IDS });
     setHeatSelected({});
     setHeatPicker({ ...EMPTY_HEAT_IDS });
     setSzerelesQty({});
-    setSolarQty({});
-    setSolarPicker({});
+    setOptimizerId('');
+    setChargerId('');
     setVillanyQuery({});
     fetch(`/api/arajanlat/catalog?topic=${topic}`)
       .then((r) => r.json())
@@ -118,11 +104,10 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
           const panels = items.filter((c) => c.category === 'panel');
           const invs = items.filter((c) => c.category === 'inverter');
           const bats = items.filter((c) => c.category === 'tarolo');
-          const roofs = items.filter((c) => c.category === 'tetotipus');
           setPanelId(panels[0]?.id ?? '');
           setInverterId(invs[0]?.id ?? '');
           setStorageId('bat-none');
-          setRoofTypeId(roofs[0]?.id ?? '');
+          setRoofTypeId('roof-cserep');
           setOptimizerQty(12);
         }
       })
@@ -134,22 +119,17 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     if (!topic) return null;
     if (topic === 'napelem') {
       if (!panelId || !inverterId) return null;
-      const chosen = Object.values(extraIds).filter(Boolean);
-      const more = Object.keys(solarQty).filter((id) => (solarQty[id] ?? 0) > 0);
+      const extraItemIds = [optimizerId, chargerId].filter(Boolean);
       const extraQuantities: Record<string, number> = {};
-      for (const id of chosen) {
-        extraQuantities[id] = id === extraIds.optimizer ? Math.max(1, optimizerQty) : 1;
-      }
-      for (const id of more) {
-        extraQuantities[id] = Math.max(1, solarQty[id] ?? 1);
-      }
+      if (optimizerId) extraQuantities[optimizerId] = Math.max(1, optimizerQty);
+      if (chargerId) extraQuantities[chargerId] = 1;
       return {
         panelId,
         panelCount,
         inverterId,
         storageId: storageId === 'bat-none' ? null : storageId,
         roofTypeId,
-        extraItemIds: [...chosen, ...more],
+        extraItemIds,
         extraQuantities,
       } satisfies SolarSelection;
     }
@@ -194,7 +174,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   }
 
   useEffect(() => {
-    if (extraIds.optimizer) setOptimizerQty(Math.max(1, panelCount));
+    if (optimizerId) setOptimizerQty(Math.max(1, panelCount));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [panelCount]);
 
@@ -212,9 +192,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     inverterId,
     storageId,
     roofTypeId,
-    extraIds,
+    optimizerId,
     optimizerQty,
-    solarQty,
+    chargerId,
     selectedMains,
     heatSelected,
     szerelesQty,
@@ -268,13 +248,6 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setSelectedMains((prev) => ({ ...prev, [id]: Math.max(1, qty) }));
   }
 
-  function setExtraGroup(group: SolarExtraGroup, id: string) {
-    setExtraIds((prev) => ({ ...prev, [group]: id }));
-    if (group === 'optimizer' && id) {
-      setOptimizerQty((q) => (q > 0 ? q : Math.max(1, panelCount)));
-    }
-  }
-
   function addHeatProduct(group: HeatGroup, id: string) {
     if (!id) return;
     setHeatSelected((prev) => ({ ...prev, [id]: prev[id] ?? 1 }));
@@ -315,7 +288,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                 {TOPIC_LABELS[id]}
               </span>
               <span className="mt-2 block text-sm text-ink-soft">
-                {id === 'napelem' && 'Panel, inverter, tároló, tető — a többi automatikus.'}
+                {id === 'napelem' && 'Panel, darabszám, tető, inverter és tároló. A többi anyag automatikus.'}
                 {id === 'villany' && 'Főanyagok kiválasztása → kapcsolódó szerelés és fogyóanyag.'}
                 {id === 'futes' && 'BVF termékcsoportok legördülőből — szereléssel kiegészítve.'}
               </span>
@@ -329,12 +302,10 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const panels = catalog.filter((c) => c.category === 'panel');
   const inverters = catalog.filter((c) => c.category === 'inverter');
   const storages = catalog.filter((c) => c.category === 'tarolo');
-  const roofs = catalog.filter((c) => c.category === 'tetotipus');
-  function extrasFor(group: SolarExtraGroup) {
-    return catalog.filter(
-      (c) => c.selectable !== false && c.category === 'kiegeszito' && c.extraGroup === group,
-    );
-  }
+  const optimizers = catalog.filter(
+    (c) => c.selectable !== false && c.extraGroup === 'optimizer',
+  );
+  const chargers = catalog.filter((c) => c.selectable !== false && c.category === 'egyeb');
 
   function heatFor(group: HeatGroup) {
     return catalog.filter(
@@ -422,10 +393,11 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
 
       {topic === 'napelem' ? (
         <section className="space-y-4">
-          <h2 className="font-display text-xl font-bold">Főanyagok (csak ezeket válaszd)</h2>
+          <h2 className="font-display text-xl font-bold">Napelemes rendszer</h2>
           <p className="text-sm text-ink-soft">
-            Munkadíj, nettó eladás: panelszám × 25 000 Ft + 150 000 Ft az inverter szerelése. A kiszállás
-            ebbe a sorba épül, a tételek végén.
+            A tető és a panelszám adja a tartószerkezetet, a DC és AC védelmet, a tűzeseti leválasztót,
+            a kábeleket és a kiegészítőket. A munkadíj a tételek végén van: panelszám × 25 000 Ft + 150 000 Ft,
+            a kiszállással együtt.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Napelem panel">
@@ -481,152 +453,78 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                   ))}
               </select>
             </Field>
-            {roofs.length > 0 ? (
-              <Field label="Tetőfelület típusa">
-                <select
-                  className="field"
-                  value={roofTypeId}
-                  onChange={(e) => setRoofTypeId(e.target.value)}
-                >
-                  {roofs.map((p) => (
-                    <option key={p.id} value={p.id}>
-                      {p.name}
-                    </option>
-                  ))}
-                </select>
-              </Field>
-            ) : null}
-
-            {SOLAR_EXTRA_GROUPS.map((group) => {
-              const options = extrasFor(group.id);
-              if (!options.length) return null;
-              return (
-                <Field key={group.id} label={group.label}>
-                  <select
-                    className="field"
-                    value={extraIds[group.id]}
-                    onChange={(e) => setExtraGroup(group.id, e.target.value)}
-                  >
-                    <option value="">Nincs</option>
-                    {options.map((p) => (
-                      <option key={p.id} value={p.id}>
-                        {p.name} — {formatHuf(p.buyPrice)}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-              );
-            })}
-
-            {extraIds.optimizer ? (
-              <Field label="Optimalizálók száma">
-                <input
-                  type="number"
-                  min={1}
-                  max={500}
-                  className="field"
-                  value={optimizerQty}
-                  onChange={(e) => setOptimizerQty(Number(e.target.value) || 1)}
-                />
-              </Field>
-            ) : null}
+            <Field label="Tető">
+              <select
+                className="field"
+                value={roofTypeId}
+                onChange={(e) => setRoofTypeId(e.target.value)}
+              >
+                {SOLAR_ROOFS.map((roof) => (
+                  <option key={roof.id} value={roof.id}>
+                    {roof.label}
+                  </option>
+                ))}
+              </select>
+            </Field>
           </div>
 
-          {(() => {
-            const taken = new Set(
-              [panelId, inverterId, storageId, ...Object.values(extraIds)].filter(Boolean),
-            );
-            const rest = catalog.filter(
-              (c) =>
-                c.topic === 'napelem' &&
-                c.selectable !== false &&
-                !taken.has(c.id) &&
-                !['panel', 'inverter', 'tarolo', 'tetotipus'].includes(c.category) &&
-                c.extraGroup !== 'optimizer' &&
-                c.extraGroup !== 'tuzvedelmi',
-            );
-            const groups = [...new Set(rest.map((c) => c.category))];
-            if (!groups.length) return null;
-            return (
-              <div className="space-y-4">
-                <h3 className="font-display text-lg font-bold">További anyagok az Excelből</h3>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {groups.map((category) => {
-                    const options = rest.filter((c) => c.category === category);
-                    const selected = options.filter((p) => (solarQty[p.id] ?? 0) > 0);
-                    const available = options.filter((p) => !(solarQty[p.id] ?? 0));
-                    return (
-                      <div key={category} className="space-y-2">
-                        <Field label={CATEGORY_LABELS[category]}>
-                          <select
-                            className="field"
-                            value={solarPicker[category] ?? ''}
-                            disabled={!available.length}
-                            onChange={(e) => {
-                              const id = e.target.value;
-                              if (!id) return;
-                              const item = options.find((p) => p.id === id);
-                              setSolarQty((prev) => ({
-                                ...prev,
-                                [id]: prev[id] ?? (item?.unit === 'm' ? 10 : 1),
-                              }));
-                              setSolarPicker((prev) => ({ ...prev, [category]: '' }));
-                            }}
-                          >
-                            <option value="">
-                              {available.length ? 'Termék hozzáadása…' : 'Minden termék hozzáadva'}
-                            </option>
-                            {available.map((p) => (
-                              <option key={p.id} value={p.id}>
-                                {p.name} — {formatHuf(p.buyPrice)} / {p.unit}
-                              </option>
-                            ))}
-                          </select>
-                        </Field>
-                        {selected.length > 0 ? (
-                          <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">
-                            {selected.map((p) => (
-                              <li key={p.id} className="flex flex-wrap items-center gap-2 text-sm">
-                                <span className="min-w-0 flex-1 font-medium">{p.name}</span>
-                                <input
-                                  type="number"
-                                  min={1}
-                                  max={5000}
-                                  className="w-20 rounded-md border border-line px-2 py-1"
-                                  value={solarQty[p.id] ?? 1}
-                                  aria-label={`Mennyiség (${p.unit})`}
-                                  onChange={(e) =>
-                                    setSolarQty((prev) => ({
-                                      ...prev,
-                                      [p.id]: Math.max(1, Number(e.target.value) || 1),
-                                    }))
-                                  }
-                                />
-                                <span className="text-xs text-ink-soft">{p.unit}</span>
-                                <button
-                                  type="button"
-                                  className="text-xs font-semibold text-sun-deep hover:underline"
-                                  onClick={() =>
-                                    setSolarQty((prev) => {
-                                      const next = { ...prev };
-                                      delete next[p.id];
-                                      return next;
-                                    })
-                                  }
-                                >
-                                  Eltávolít
-                                </button>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                      </div>
-                    );
-                  })}
-                </div>
+          {optimizers.length > 0 || chargers.length > 0 ? (
+            <details className="rounded-lg border border-line bg-white/60 p-4">
+              <summary className="cursor-pointer text-sm font-semibold text-ink">
+                Opcionális kiegészítők
+              </summary>
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                {optimizers.length > 0 ? (
+                  <Field label="Optimalizáló">
+                    <select
+                      className="field"
+                      value={optimizerId}
+                      onChange={(e) => {
+                        const id = e.target.value;
+                        setOptimizerId(id);
+                        if (id) setOptimizerQty((q) => (q > 0 ? q : Math.max(1, panelCount)));
+                      }}
+                    >
+                      <option value="">Nincs</option>
+                      {optimizers.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.name} — {formatHuf(p.buyPrice)}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                ) : null}
+                {optimizerId ? (
+                  <Field label="Optimalizálók száma">
+                    <input
+                      type="number"
+                      min={1}
+                      max={500}
+                      className="field"
+                      value={optimizerQty}
+                      onChange={(e) => setOptimizerQty(Number(e.target.value) || 1)}
+                    />
+                  </Field>
+                ) : null}
+                {chargers.length > 0 ? (
+                  <Field label="Autótöltő">
+                    <select
+                      className="field"
+                      value={chargerId}
+                      onChange={(e) => setChargerId(e.target.value)}
+                    >
+                      <option value="">Nincs</option>
+                      {chargers.map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.name} — {formatHuf(p.buyPrice)}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                ) : null}
               </div>
-            );
-          })()}
+            </details>
+          ) : null}
         </section>
       ) : topic === 'futes' ? (
         <section className="space-y-4">
