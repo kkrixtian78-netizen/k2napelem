@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readEmailResponse } from './email-response.ts';
 import { applySupplierPriceUpdates, priceSyncDue, syncMonth } from './price-sync-logic.ts';
 import { quoteMailBody, quoteMailSubject, thunderbirdComposeArg } from './quote-mail-text.ts';
 import { parseBvfSimplePrice, parseBvfVariationPrices, parseOnlinevillPage } from './supplier-prices.ts';
@@ -72,6 +73,13 @@ test('parsers read BVF variation gross and Onlinevill shelf price', () => {
     <a href="?page=3">3</a>`);
   assert.equal(page.prices.get('commel-kismegszakito-1p-b-16a-6ka-commel-465-116'), 650);
   assert.equal(page.maxPage, 3);
+});
+
+test('email client accepts JSON and rejects an empty body', () => {
+  assert.equal(readEmailResponse('{"message":"Megnyílt."}', true).message, 'Megnyílt.');
+  assert.throws(() => readEmailResponse('', false), /üres választ/);
+  assert.throws(() => readEmailResponse('<title>TypeError</title>', false), /nem adott érvényes választ/);
+  assert.throws(() => readEmailResponse('{"error":"Nincs ilyen ajánlat"}', false), /Nincs ilyen ajánlat/);
 });
 
 test('solar mail keeps the requested wording and Thunderbird gets the attachment', () => {

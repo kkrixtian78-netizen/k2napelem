@@ -1,3 +1,5 @@
+import { readEmailResponse } from '../../lib/arajanlat/email-response';
+
 export type QuoteMailPayload = {
   id?: string;
   quote?: {
@@ -17,13 +19,12 @@ export type QuoteMailPayload = {
 export async function requestQuoteEmail(payload: QuoteMailPayload): Promise<string> {
   const res = await fetch('/api/arajanlat/email', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(payload),
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'A levél nem nyílt meg');
-  if (data.mode === 'mailto' && typeof data.mailto === 'string') {
+  const data = readEmailResponse(await res.text(), res.ok);
+  if (data.mode === 'mailto' && data.mailto) {
     window.location.href = data.mailto;
   }
-  return String(data.message || 'A levél megnyílt.');
+  return data.message;
 }

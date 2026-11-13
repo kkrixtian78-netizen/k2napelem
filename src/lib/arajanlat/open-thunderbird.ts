@@ -21,7 +21,9 @@ export function openThunderbirdCompose(input: {
   const child = spawn(exe, ['-compose', thunderbirdComposeArg(input)], {
     detached: true,
     stdio: 'ignore',
-    windowsHide: false,
+    windowsHide: true,
   });
+  // Hibakezelő nélkül a sikertelen indítás elnyeli a HTTP-választ, és a böngésző üres JSON-t lát.
+  child.on('error', () => {});
   child.unref();
 }
