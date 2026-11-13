@@ -253,10 +253,10 @@ export function buildSolarAutoLines(
   if (villany) lines.push(villany);
 
   const misc = bundle(catalog, 'auto-solar-misc', 'Egyéb kiegészítő anyagok', 'egyeb', [
-    { id: ID.terminal, qty: 2 },
-    { id: ID.lug, qty: 4 },
-    { id: ID.ferrule, qty: 10 },
-    { id: ID.ferruleTwin, qty: 4 },
+    { id: ID.terminal, qty: 5 },
+    { id: ID.lug, qty: 10 },
+    { id: ID.ferrule, qty: 20 },
+    { id: ID.ferruleTwin, qty: 6 },
   ]);
   if (misc) lines.push(misc);
 
