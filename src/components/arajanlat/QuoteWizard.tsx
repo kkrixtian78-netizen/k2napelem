@@ -759,33 +759,70 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         </section>
       ) : (
         <section className="space-y-4">
-          <h2 className="font-display text-xl font-bold">Munkadíj</h2>
-          <p className="text-sm text-ink-soft">
-            Több tétel is hozzáadható, saját mennyiséggel. A kiszállás a címből külön, oda-vissza km × 300 Ft.
-          </p>
-          <ul className="max-h-80 overflow-y-auto rounded-md border border-line bg-white">
-            {catalog
-              .filter((c) => c.topic === 'villany' && c.category === 'munkadij' && c.selectable !== false)
-              .map((p) => (
-                <li key={p.id} className="border-b border-line last:border-b-0">
-                  <button
-                    type="button"
-                    className="flex w-full items-start justify-between gap-2 px-3 py-2 text-left text-sm hover:bg-mist"
-                    onClick={() =>
-                      setSelectedMains((prev) => ({
-                        ...prev,
-                        [p.id]: prev[p.id] ?? 1,
-                      }))
-                    }
-                  >
-                    <span>{p.name}</span>
-                    <span className="shrink-0 text-xs text-ink-soft">
-                      {formatHuf(sellPriceForItem(p))} / {p.unit}
+          <details className="rounded-md border border-line bg-white">
+            <summary className="cursor-pointer list-none px-3 py-2 font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+              <span className="flex items-center justify-between gap-2">
+                <span>
+                  Munkadíj
+                  {catalog.filter(
+                    (c) =>
+                      c.topic === 'villany' &&
+                      c.category === 'munkadij' &&
+                      c.selectable !== false &&
+                      (selectedMains[c.id] ?? 0) > 0,
+                  ).length > 0 ? (
+                    <span className="ml-2 text-xs font-semibold text-sky-deep">
+                      {
+                        catalog.filter(
+                          (c) =>
+                            c.topic === 'villany' &&
+                            c.category === 'munkadij' &&
+                            c.selectable !== false &&
+                            (selectedMains[c.id] ?? 0) > 0,
+                        ).length
+                      }{' '}
+                      kiválasztva
                     </span>
-                  </button>
-                </li>
-              ))}
-          </ul>
+                  ) : null}
+                </span>
+                <span className="shrink-0 text-xs text-ink-soft">
+                  {
+                    catalog.filter(
+                      (c) => c.topic === 'villany' && c.category === 'munkadij' && c.selectable !== false,
+                    ).length
+                  }
+                </span>
+              </span>
+            </summary>
+            <div className="border-t border-line p-2">
+              <p className="mb-2 text-sm text-ink-soft">
+                Több tétel is hozzáadható, saját mennyiséggel. A kiszállás a címből külön, oda-vissza km × 300 Ft.
+              </p>
+              <ul className="max-h-64 overflow-y-auto rounded-md border border-line bg-white">
+                {catalog
+                  .filter((c) => c.topic === 'villany' && c.category === 'munkadij' && c.selectable !== false)
+                  .map((p) => (
+                    <li key={p.id} className="border-b border-line last:border-b-0">
+                      <button
+                        type="button"
+                        className="flex w-full items-start justify-between gap-2 px-2 py-1.5 text-left text-sm hover:bg-mist"
+                        onClick={() =>
+                          setSelectedMains((prev) => ({
+                            ...prev,
+                            [p.id]: prev[p.id] ?? 1,
+                          }))
+                        }
+                      >
+                        <span>{p.name}</span>
+                        <span className="shrink-0 text-xs text-ink-soft">
+                          {formatHuf(sellPriceForItem(p))} / {p.unit}
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </details>
           {catalog.some(
             (c) =>
               c.topic === 'villany' &&
