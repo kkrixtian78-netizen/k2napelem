@@ -2,7 +2,8 @@
  * Napelemes automatikus anyaglista a katalógusból.
  *
  * Kézi választás: panel típusa, panelszám, inverter, tároló (vagy nincs), tető.
- * Ebből jön a tartószerkezet, a DC/AC védelem, a tűzeseti leválasztó,
+ * A tűzeseti leválasztó külön választható, nem kerül be magától.
+ * Ebből jön a tartószerkezet, a DC/AC védelem,
  * valamint egy összegzett villanyszerelési és egy egyéb kiegészítő sor.
  *
  * Feltételezések (itt módosítható):
@@ -62,7 +63,6 @@ const ID = {
   ac16: 'np-wattkit-eloszerelt-ac-doboz-16a-t2',
   ac25: 'np-wattkit-eloszerelt-ac-doboz-25a-t2',
   ac32: 'np-wattkit-eloszerelt-ac-doboz-32a-t2',
-  fire: 'np-thinkwe-tuzeseti-levalaszto-mc4-2-sztring',
   backup: 'np-wattkit-yradb-1-3-16a-3-fazisu-backup-ac-vedelmi-doboz-f',
   dc6: 'np-szolarkabel-6-mm2',
   ac4: 'np-mt-54-mm',
@@ -83,6 +83,16 @@ export function normalizeRoofId(roofTypeId: string | undefined): string {
   if (roofTypeId === 'roof-lemezes' || roofTypeId === 'roof-fold') return 'roof-lemez';
   if (SOLAR_ROOFS.some((roof) => roof.id === roofTypeId)) return roofTypeId as string;
   return 'roof-cserep';
+}
+
+export function solarStringCount(panelCount: number): number {
+  const panels = Math.max(1, Math.floor(panelCount) || 1);
+  return Math.max(1, Math.ceil(panels / PANELS_PER_STRING));
+}
+
+/** A ThinkWe leválasztó 2 sztringet fed le. Csak akkor kerül az ajánlatra, ha a felhasználó kiválasztja. */
+export function fireDisconnectQty(panelCount: number): number {
+  return Math.ceil(solarStringCount(panelCount) / 2);
 }
 
 function rowSizes(panels: number): number[] {
@@ -210,7 +220,7 @@ export function buildSolarAutoLines(
 ): QuoteLine[] {
   const panels = Math.max(1, Math.floor(input.panelCount) || 1);
   const roofId = normalizeRoofId(input.roofTypeId);
-  const strings = Math.max(1, Math.ceil(panels / PANELS_PER_STRING));
+  const strings = solarStringCount(panels);
   const lines: QuoteLine[] = [];
 
   const mount = bundle(catalog, 'auto-solar-mount', 'Tartószerkezet', 'tartoszerkezet', mountingParts(roofId, panels));
@@ -219,7 +229,6 @@ export function buildSolarAutoLines(
   const dcId = strings <= 2 ? ID.dc2 : ID.dc4;
   const dcQty = strings <= 2 ? 1 : Math.ceil(strings / 4);
   pushItem(catalog, lines, dcId, dcQty);
-  pushItem(catalog, lines, ID.fire, Math.ceil(strings / 2));
 
   const amps = acAmps(inverterKw(input.inverterName), inverterPhases(input.inverterName));
   const acId = amps <= 16 ? ID.ac16 : amps <= 25 ? ID.ac25 : ID.ac32;

@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
-import { SOLAR_ROOFS } from '../../lib/arajanlat/solar-bom';
+import { SOLAR_ROOFS, fireDisconnectQty } from '../../lib/arajanlat/solar-bom';
 import {
   HEAT_GROUPS,
   TOPIC_LABELS,
@@ -66,6 +66,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const [inverterId, setInverterId] = useState('');
   const [storageId, setStorageId] = useState('bat-none');
   const [roofTypeId, setRoofTypeId] = useState('roof-cserep');
+  const [fireId, setFireId] = useState('');
   const [optimizerId, setOptimizerId] = useState('');
   const [optimizerQty, setOptimizerQty] = useState(12);
   const [chargerId, setChargerId] = useState('');
@@ -92,6 +93,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setHeatSelected({});
     setHeatPicker({ ...EMPTY_HEAT_IDS });
     setSzerelesQty({});
+    setFireId('');
     setOptimizerId('');
     setChargerId('');
     setVillanyQuery({});
@@ -119,8 +121,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     if (!topic) return null;
     if (topic === 'napelem') {
       if (!panelId || !inverterId) return null;
-      const extraItemIds = [optimizerId, chargerId].filter(Boolean);
+      const extraItemIds = [fireId, optimizerId, chargerId].filter(Boolean);
       const extraQuantities: Record<string, number> = {};
+      if (fireId) extraQuantities[fireId] = fireDisconnectQty(panelCount);
       if (optimizerId) extraQuantities[optimizerId] = Math.max(1, optimizerQty);
       if (chargerId) extraQuantities[chargerId] = 1;
       return {
@@ -192,6 +195,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     inverterId,
     storageId,
     roofTypeId,
+    fireId,
     optimizerId,
     optimizerQty,
     chargerId,
@@ -302,6 +306,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const panels = catalog.filter((c) => c.category === 'panel');
   const inverters = catalog.filter((c) => c.category === 'inverter');
   const storages = catalog.filter((c) => c.category === 'tarolo');
+  const fireSwitches = catalog.filter(
+    (c) => c.selectable !== false && c.extraGroup === 'tuzvedelmi',
+  );
   const optimizers = catalog.filter(
     (c) => c.selectable !== false && c.extraGroup === 'optimizer',
   );
@@ -395,9 +402,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Napelemes rendszer</h2>
           <p className="text-sm text-ink-soft">
-            A tető és a panelszám adja a tartószerkezetet, a DC és AC védelmet, a tűzeseti leválasztót,
-            a kábeleket és a kiegészítőket. A munkadíj a tételek végén van: panelszám × 25 000 Ft + 150 000 Ft,
-            a kiszállással együtt.
+            A tető és a panelszám adja a tartószerkezetet, a DC és AC védelmet, a kábeleket és a kiegészítőket.
+            A tűzeseti leválasztó csak akkor kerül be, ha kiválasztod. A munkadíj a tételek végén van:
+            panelszám × 25 000 Ft + 150 000 Ft, a kiszállással együtt.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Napelem panel">
@@ -453,6 +460,18 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                   ))}
               </select>
             </Field>
+            {fireSwitches.length > 0 ? (
+              <Field label="Tűzeseti leválasztó">
+                <select className="field" value={fireId} onChange={(e) => setFireId(e.target.value)}>
+                  <option value="">Nincs</option>
+                  {fireSwitches.map((p) => (
+                    <option key={p.id} value={p.id}>
+                      {p.name} — {formatHuf(p.buyPrice)}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            ) : null}
             <Field label="Tető">
               <select
                 className="field"

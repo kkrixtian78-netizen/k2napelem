@@ -1,5 +1,5 @@
 import { lineFromCatalog, sellFromBuy, sumLines } from './pricing';
-import { buildSolarAutoLines } from './solar-bom';
+import { buildSolarAutoLines, fireDisconnectQty } from './solar-bom';
 import { SOLAR_INSTALL_LABOR_ID, solarInstallSell } from './solar-labor';
 import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
@@ -71,9 +71,14 @@ export function buildSolarBom(
     if (id === 'opt-kiszallas' || id === TRAVEL_CATALOG_ID) continue;
     const item = tryById(catalog, id);
     if (!item || item.selectable === false) continue;
-    if (['tartoszerkezet', 'kabel', 'vedelem', 'csatlakozo'].includes(item.category)) continue;
-    if (item.extraGroup === 'tuzvedelmi') continue;
-    const defaultQty = item.extraGroup === 'optimizer' ? panels : 1;
+    if (
+      item.extraGroup !== 'tuzvedelmi' &&
+      ['tartoszerkezet', 'kabel', 'vedelem', 'csatlakozo'].includes(item.category)
+    ) {
+      continue;
+    }
+    const defaultQty =
+      item.extraGroup === 'optimizer' ? panels : item.extraGroup === 'tuzvedelmi' ? fireDisconnectQty(panels) : 1;
     const q = Math.max(1, extraQty[id] ?? defaultQty);
     lines.push(lineFromCatalog(item, q, false));
   }
