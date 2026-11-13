@@ -59,7 +59,13 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
       return true;
     });
   }, [items, topic, q]);
-  const shown = filtered;
+  const shown = useMemo(() => {
+    if (topic !== 'villany') return filtered;
+    return [...filtered].sort((a, b) => {
+      const rank = (item: CatalogItem) => (item.category === 'munkadij' ? 0 : 1);
+      return rank(a) - rank(b);
+    });
+  }, [filtered, topic]);
 
   function startEdit(item: CatalogItem) {
     setForm({ ...item });
@@ -280,9 +286,25 @@ export default function CatalogManager({ topic }: { topic: TopicId }) {
             <span className="mt-1 block text-xs text-ink-soft">
               {form.bvfGross
                 ? `Eladás bruttó: ${formatHuf(displaySellForItem(form).amount)} (BVF −2%) · nettó ${formatHuf(sellPriceForItem(form))}`
-                : `Eladás nettó: ${formatHuf(sellPriceForItem(form))} (beszerzés × 1,25)`}
+                : form.category === 'munkadij'
+                  ? 'Munkadíjnál a beszerzés 0 Ft. Az eladást a következő mező adja meg.'
+                  : `Eladás nettó: ${formatHuf(sellPriceForItem(form))} (beszerzés × 1,25)`}
             </span>
           </label>
+          {form.category === 'munkadij' && (
+            <label className="text-sm">
+              <span className="mb-1 block font-medium">Eladási ár nettó (Ft)</span>
+              <input
+                type="number"
+                min={0}
+                className="w-full rounded-md border border-line bg-white px-3 py-2"
+                value={form.sellPriceFixed ?? 0}
+                onChange={(e) =>
+                  setForm({ ...form, sellPriceFixed: Number(e.target.value) || 0, buyPrice: 0 })
+                }
+              />
+            </label>
+          )}
           {(form.topic === 'futes' || form.heatGroup) && (
             <label className="text-sm">
               <span className="mb-1 block font-medium">BVF bruttó listaár (Ft)</span>

@@ -138,10 +138,15 @@ export function buildManualBom(
     .map((id) => tryById(catalog, id))
     .filter((x): x is CatalogItem => !!x && (x.topic === topic || x.topic === 'all'));
 
+  const laborLines: QuoteLine[] = [];
+  const materialLines: QuoteLine[] = [];
   for (const item of mains) {
     const q = Math.max(1, qtyMap[item.id] ?? 1);
-    lines.push(lineFromCatalog(item, q, false));
+    const line = lineFromCatalog(item, q, false);
+    if (item.category === 'munkadij') laborLines.push(line);
+    else materialLines.push(line);
   }
+  lines.push(...laborLines, ...materialLines);
 
   if (topic === 'futes') {
     // Tartókonzol / tápkábel / kismegszakító: felhasználó választja (szereles legördülő)

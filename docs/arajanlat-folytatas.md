@@ -35,6 +35,7 @@ A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napele
 
 - Napelem: `content/Napelem-alapanyagok.xlsx` és `src/lib/arajanlat/solar-catalog.ts`. A katalógusban mentett ár megmarad, az Excel nem írja vissza.
 - Villany: csak Onlinevill, `src/lib/arajanlat/onlinevill-catalog.ts`. A kihagyott csoportok az `EXCLUDED_GROUP_LABELS` halmazban vannak. A régi, Onlinevill előtti villanytételek kikerültek. A csoportok alapból csukva vannak; kattintásra nyílik a teljes, keresés nélkül görgethető lista.
+- Villany munkadíj az anyagok előtt, több tétel, mennyiséggel, beszerzés 0, eladás nettó a katalógusban szerkeszthető. Kiszállás továbbra is km × 300. Új árak: kiállás 8 000 Ft/alkalom (kb. 10 160 bruttó), villanyóra szabványosítás 150 000 Ft (kb. 190 500 bruttó), 3 fázis kiépítése 200 000 Ft (254 000 bruttó).
 - Fűtés: BVF termékek variánsokkal, `src/lib/arajanlat/heating-catalog.ts`. Egy csoportba többféle termék is tehető, saját mennyiséggel.
 
 ## Hol kell módosítani

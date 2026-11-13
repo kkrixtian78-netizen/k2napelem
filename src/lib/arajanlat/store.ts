@@ -57,7 +57,12 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.bvfGross = item.bvfGross;
       changed = true;
     }
-    if (existing.sellPriceFixed !== item.sellPriceFixed && item.topic !== 'napelem') {
+    // A villany munkadíj eladási árát a katalógusban lehet átírni, azt nem írjuk vissza.
+    if (
+      existing.sellPriceFixed !== item.sellPriceFixed &&
+      item.topic !== 'napelem' &&
+      !(item.topic === 'villany' && item.category === 'munkadij')
+    ) {
       existing.sellPriceFixed = item.sellPriceFixed;
       changed = true;
     }
@@ -174,7 +179,7 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
   );
   const beforeVillany = store.catalog.length;
   store.catalog = store.catalog.filter((item) => {
-    if (item.topic === 'villany' && !item.villanyGroup) return false;
+    if (item.topic === 'villany' && !item.villanyGroup && item.category !== 'munkadij') return false;
     return !item.villanyGroup || keptVillanyGroups.has(item.villanyGroup);
   });
   if (store.catalog.length !== beforeVillany) changed = true;

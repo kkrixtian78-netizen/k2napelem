@@ -13,7 +13,7 @@ import {
   type TopicId,
 } from '../../lib/arajanlat/types';
 import { VILLANY_GROUPS } from '../../lib/arajanlat/onlinevill-catalog';
-import { displaySellForItem, grossFromNet } from '../../lib/arajanlat/pricing';
+import { displaySellForItem, grossFromNet, sellPriceForItem } from '../../lib/arajanlat/pricing';
 import QuoteDocument, { type BrandInfo } from './QuoteDocument';
 import { formatHuf, vatFromNet, vatPercentLabel } from './format';
 
@@ -361,7 +361,9 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
           <p className="mt-1 text-sm text-ink-soft">
             {topic === 'futes'
               ? `BVF termékek: beszerzés nettó = BVF bruttó −15% (/ÁFA), eladás bruttó = BVF −2%. Szerelés/fogyóanyag: ×1,25. ÁFA (${vatPercentLabel()}) az összesenél.`
-              : `Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA (${vatPercentLabel()}) csak az összesenél.`}
+              : topic === 'villany'
+                ? `Anyag: eladás = beszerzés × 1,25. Munkadíj: rögzített nettó, beszerzés 0. ÁFA (${vatPercentLabel()}) csak az összesenél.`
+                : `Minden tétel nettó. Eladás = beszerzés × 1,25 · ÁFA (${vatPercentLabel()}) csak az összesenél.`}
           </p>
         </div>
         {savedId && (
@@ -757,6 +759,73 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         </section>
       ) : (
         <section className="space-y-4">
+          <h2 className="font-display text-xl font-bold">Munkadíj</h2>
+          <p className="text-sm text-ink-soft">
+            Több tétel is hozzáadható, saját mennyiséggel. A kiszállás a címből külön, oda-vissza km × 300 Ft.
+          </p>
+          <ul className="max-h-80 overflow-y-auto rounded-md border border-line bg-white">
+            {catalog
+              .filter((c) => c.topic === 'villany' && c.category === 'munkadij' && c.selectable !== false)
+              .map((p) => (
+                <li key={p.id} className="border-b border-line last:border-b-0">
+                  <button
+                    type="button"
+                    className="flex w-full items-start justify-between gap-2 px-3 py-2 text-left text-sm hover:bg-mist"
+                    onClick={() =>
+                      setSelectedMains((prev) => ({
+                        ...prev,
+                        [p.id]: prev[p.id] ?? 1,
+                      }))
+                    }
+                  >
+                    <span>{p.name}</span>
+                    <span className="shrink-0 text-xs text-ink-soft">
+                      {formatHuf(sellPriceForItem(p))} / {p.unit}
+                    </span>
+                  </button>
+                </li>
+              ))}
+          </ul>
+          {catalog.some(
+            (c) =>
+              c.topic === 'villany' &&
+              c.category === 'munkadij' &&
+              c.selectable !== false &&
+              (selectedMains[c.id] ?? 0) > 0,
+          ) ? (
+            <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">
+              {catalog
+                .filter(
+                  (c) =>
+                    c.topic === 'villany' &&
+                    c.category === 'munkadij' &&
+                    c.selectable !== false &&
+                    (selectedMains[c.id] ?? 0) > 0,
+                )
+                .map((p) => (
+                  <li key={p.id} className="flex flex-wrap items-center gap-2 text-sm">
+                    <span className="min-w-0 flex-1 font-medium">{p.name}</span>
+                    <input
+                      type="number"
+                      min={1}
+                      max={5000}
+                      className="w-24 rounded-md border border-line px-2 py-1"
+                      value={selectedMains[p.id] ?? 1}
+                      aria-label={`Mennyiség (${p.unit})`}
+                      onChange={(e) => setMainQty(p.id, Number(e.target.value) || 1)}
+                    />
+                    <span className="text-xs text-ink-soft">{p.unit}</span>
+                    <button
+                      type="button"
+                      className="text-xs font-semibold text-sun-deep hover:underline"
+                      onClick={() => toggleMain(p.id)}
+                    >
+                      Eltávolít
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          ) : null}
           <h2 className="font-display text-xl font-bold">Villanyszerelés anyagok (Onlinevill)</h2>
           <p className="text-sm text-ink-soft">
             Nyisd le a csoportot, és görgesd a termékeket. A szűrő nem kötelező. Az ár a boltban kiírt online
