@@ -59,7 +59,7 @@ A napelemes Excel-árakat ez nem nyúlja. A katalógusban kézzel elmentett, a s
 
 ### Ajánlat küldése Thunderbirdből
 
-A mentett ajánlaton és az előnézeten az **Ajánlat küldése** gomb HTML mellékletet ír a `data/arajanlat/kimeno/` mappába (csak eladási árak), és megnyitja a Thunderbirdöt:
+A mentett ajánlaton és az előnézeten az **Ajánlat küldése** gomb csak a saját gépen működik (`Inditas.bat`, `http://127.0.0.1:4321/arajanlat`). HTML mellékletet ír a projekt `data/arajanlat/kimeno/` mappájába (csak eladási árak), és megnyitja a Thunderbirdöt. A nyilvános Vercel oldalon nem hoz létre mappát, hanem jelzi, hogy helyben kell futtatni.
 
 `thunderbird -compose` címzett (az ügyfél e-mailje), tárgy (`K2 napelemes árajánlat`, villanynál és fűtésnél a témakör neve), a megadott levélszöveg és a fájl mellékletként.
 

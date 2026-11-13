@@ -3,6 +3,7 @@ export const prerender = false;
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { APIRoute } from 'astro';
+import { isServerlessMailHost, outgoingQuoteDir, SERVERLESS_MAIL_ERROR } from '../../../lib/arajanlat/outgoing-quote';
 import { openThunderbirdCompose } from '../../../lib/arajanlat/open-thunderbird';
 import {
   mailtoHref,
@@ -41,6 +42,10 @@ function asQuote(value: unknown): QuoteMailInput | null {
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    if (isServerlessMailHost()) {
+      return json({ error: SERVERLESS_MAIL_ERROR }, 400);
+    }
+
     const body = await request.json().catch(() => null);
     const fromId = typeof body?.id === 'string' ? getQuote(body.id) : undefined;
     const quote = fromId
@@ -59,7 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (!quote) return json({ error: 'Nincs ilyen ajánlat' }, 404);
 
     const safeName = quote.number.replace(/[^\w.-]+/g, '_') || 'ajanlat';
-    const dir = join(process.cwd(), 'data', 'arajanlat', 'kimeno');
+    const dir = outgoingQuoteDir();
     mkdirSync(dir, { recursive: true });
     const filePath = join(dir, `${safeName}.html`);
     writeFileSync(filePath, renderQuoteHtml(quote), 'utf8');

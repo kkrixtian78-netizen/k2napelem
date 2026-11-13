@@ -47,7 +47,7 @@ A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napele
 
 Minden naptári hónap első indításakor (ha a `priceSync.month` nem az aktuális hónap) a program a háttérben frissíti a BVF fűtés és az Onlinevill villany beszerzési árakat. Kód: `src/lib/arajanlat/price-sync.ts`. A kézzel átírt, `priceLocked` tétel kimarad. Az első futás a seedtől már eltérő árakat is zárolja. A napelem katalógust nem írja.
 
-Az **Ajánlat küldése** gomb a mentett lapon és az előnézeten Thunderbirdöt nyit melléklettel (`data/arajanlat/kimeno/*.html`). Napelem tárgya: `K2 napelemes árajánlat`. A levélszöveg és az aláírás: `src/lib/arajanlat/quote-mail.ts`. Ha a Thunderbird nincs a gépen, mailto nyílik, a fájlt kézzel kell csatolni. Egyedi telepítési útvonal: `THUNDERBIRD_PATH`.
+Az **Ajánlat küldése** gomb csak a helyi programban nyit Thunderbirdöt melléklettel (`data/arajanlat/kimeno/*.html`, a projekt mappája). Vercelen (`/var/task`) nem ír fájlt, hanem azt kéri, hogy az Inditas.bat és a localhost legyen használva. Napelem tárgya: `K2 napelemes árajánlat`. A levélszöveg és az aláírás: `src/lib/arajanlat/quote-mail.ts`. Ha a Thunderbird nincs a gépen, mailto nyílik, a fájlt kézzel kell csatolni. Egyedi telepítési útvonal: `THUNDERBIRD_PATH`.
 
 ## Hol kell módosítani
 

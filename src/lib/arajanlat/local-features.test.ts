@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readEmailResponse } from './email-response.ts';
+import { isServerlessMailHost, outgoingQuoteDir } from './outgoing-quote.ts';
 import { applySupplierPriceUpdates, priceSyncDue, syncMonth } from './price-sync-logic.ts';
 import { quoteMailBody, quoteMailSubject, thunderbirdComposeArg } from './quote-mail-text.ts';
 import { parseBvfSimplePrice, parseBvfVariationPrices, parseOnlinevillPage } from './supplier-prices.ts';
@@ -73,6 +74,15 @@ test('parsers read BVF variation gross and Onlinevill shelf price', () => {
     <a href="?page=3">3</a>`);
   assert.equal(page.prices.get('commel-kismegszakito-1p-b-16a-6ka-commel-465-116'), 650);
   assert.equal(page.maxPage, 3);
+});
+
+test('quote mail stays on the local project folder and refuses Vercel', () => {
+  assert.equal(isServerlessMailHost({ VERCEL: '1' }, '/workspace'), true);
+  assert.equal(isServerlessMailHost({ AWS_LAMBDA_FUNCTION_NAME: 'fn' }, '/workspace'), true);
+  assert.equal(isServerlessMailHost({}, '/var/task'), true);
+  assert.equal(isServerlessMailHost({}, '/var/task/apps'), true);
+  assert.equal(isServerlessMailHost({}, '/workspace'), false);
+  assert.match(outgoingQuoteDir('/workspace').replace(/\\/g, '/'), /\/workspace\/data\/arajanlat\/kimeno$/);
 });
 
 test('email client accepts JSON and rejects an empty body', () => {
