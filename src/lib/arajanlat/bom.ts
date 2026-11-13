@@ -84,6 +84,13 @@ export function buildSolarBom(
     lines.push(lineFromCatalog(item, q, false));
   }
 
+  // A tervezés a munkadíj fölé kerül (a fold a munkadíjat a lista végére teszi).
+  const designIdx = lines.findIndex((line) => line.catalogId === 'np-tervezes-engedelyeztes');
+  if (designIdx >= 0) {
+    const [design] = lines.splice(designIdx, 1);
+    lines.push(design);
+  }
+
   return lines;
 }
 

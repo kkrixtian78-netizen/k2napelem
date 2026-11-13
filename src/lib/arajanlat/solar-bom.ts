@@ -19,7 +19,7 @@
  * - MC4: 2 pár / sztring. Az előreszerelt DC/AC doboz tartalmazza a T2 levezetőt,
  *   ezért külön SPD és kismegszakító nem kerül a listára.
  * - Tárolóval együtt egy backup AC doboz is bekerül.
- * - Engedélyeztetés nincs a katalógusban, ezért nem kerül automatikus sorba.
+ * - Tervezés/engedélyeztetés opcionális (beszerzés 50 000, eladás 100 000), alapból nincs az ajánlaton.
  */
 import { lineFromCatalog, sellFromBuy } from './pricing';
 import type { CatalogItem, QuoteLine } from './types';

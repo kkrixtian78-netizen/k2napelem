@@ -8,6 +8,19 @@ import { buildVillanyCatalogFromOnlinevill } from './onlinevill-catalog';
 export const SEED_CATALOG: CatalogItem[] = [
   ...SOLAR_MATERIAL_CATALOG,
   ...TREESYSTEM_CATALOG,
+  {
+    id: 'np-tervezes-engedelyeztes',
+    name: 'Tervezés/engedélyeztetés',
+    topic: 'napelem',
+    category: 'kiegeszito',
+    extraGroup: 'tervezes',
+    unit: 'db',
+    buyPrice: 50000,
+    sellPriceFixed: 100000,
+    selectable: true,
+    active: true,
+    notes: 'Opcionális. Nettó beszerzés 50 000 Ft, nettó eladás 100 000 Ft. Alapból nincs az ajánlaton; ha kiválasztják, a munkadíj fölé kerül.',
+  },
 
   {
     id: 'labor-kiszallas-km',

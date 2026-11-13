@@ -67,6 +67,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
   const [storageId, setStorageId] = useState('bat-none');
   const [roofTypeId, setRoofTypeId] = useState('roof-cserep');
   const [fireId, setFireId] = useState('');
+  const [designId, setDesignId] = useState('');
   const [optimizerId, setOptimizerId] = useState('');
   const [optimizerQty, setOptimizerQty] = useState(12);
   const [chargerId, setChargerId] = useState('');
@@ -94,6 +95,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     setHeatPicker({ ...EMPTY_HEAT_IDS });
     setSzerelesQty({});
     setFireId('');
+    setDesignId('');
     setOptimizerId('');
     setChargerId('');
     setVillanyQuery({});
@@ -121,7 +123,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     if (!topic) return null;
     if (topic === 'napelem') {
       if (!panelId || !inverterId) return null;
-      const extraItemIds = [fireId, optimizerId, chargerId].filter(Boolean);
+      const extraItemIds = [fireId, optimizerId, chargerId, designId].filter(Boolean);
       const extraQuantities: Record<string, number> = {};
       if (fireId) extraQuantities[fireId] = fireDisconnectQty(panelCount);
       if (optimizerId) extraQuantities[optimizerId] = Math.max(1, optimizerQty);
@@ -196,6 +198,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
     storageId,
     roofTypeId,
     fireId,
+    designId,
     optimizerId,
     optimizerQty,
     chargerId,
@@ -472,6 +475,18 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                 </select>
               </Field>
             ) : null}
+            <Field label="Tervezés/engedélyeztetés">
+              <select className="field" value={designId} onChange={(e) => setDesignId(e.target.value)}>
+                <option value="">Nincs</option>
+                {catalog
+                  .filter((c) => c.selectable !== false && c.extraGroup === 'tervezes')
+                  .map((p) => (
+                    <option key={p.id} value={p.id}>
+                      {p.name} — {formatHuf(displaySellForItem(p).amount)}
+                    </option>
+                  ))}
+              </select>
+            </Field>
             <Field label="Tető">
               <select
                 className="field"
