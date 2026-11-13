@@ -99,21 +99,25 @@ export function buildSolarBom(
   return lines;
 }
 
+function isLaborLine(line: QuoteLine): boolean {
+  return line.category === 'munkadij' && line.catalogId !== TRAVEL_CATALOG_ID;
+}
+
 /**
  * Az oda-vissza km díja a munkadíj sor összegébe kerül. Külön kiszállási tétel nincs.
+ * A munkadíj sorok az ajánlat tetejére kerülnek, hogy ne vesszenek el az anyaglista alatt.
  * Ha nincs munkadíj sor, egy „Szerelési munkadíj” sor viszi az összeget.
  */
 export function foldTravelIntoLabor(lines: QuoteLine[], travelRoundTripKm?: number): QuoteLine[] {
   const withoutTravel = lines.filter((line) => line.catalogId !== TRAVEL_CATALOG_ID);
   const km = Math.round(travelRoundTripKm ?? 0);
-  if (km <= 0) return withoutTravel;
+  const extraBuy = km > 0 ? km * TRAVEL_BUY_PER_KM : 0;
+  const extraSell = km > 0 ? sellFromBuy(extraBuy) : 0;
 
-  const extraBuy = km * TRAVEL_BUY_PER_KM;
-  const extraSell = sellFromBuy(extraBuy);
   const heatingLabor = withoutTravel.find((line) => line.catalogId === 'f-labor-panel');
-  const target = heatingLabor ?? withoutTravel.find((line) => line.category === 'munkadij');
+  const target = heatingLabor ?? withoutTravel.find((line) => isLaborLine(line));
 
-  if (!target) {
+  if (km > 0 && !target) {
     withoutTravel.push({
       catalogId: 'labor-included-travel',
       name: 'Szerelési munkadíj',
@@ -124,16 +128,19 @@ export function foldTravelIntoLabor(lines: QuoteLine[], travelRoundTripKm?: numb
       auto: true,
       category: 'munkadij',
     });
-    return withoutTravel;
+  } else if (km > 0 && target) {
+    const q = Math.max(1, Math.round(target.quantity) || 1);
+    const totalBuy = target.buyPrice * q + extraBuy;
+    const totalSell = target.sellPrice * q + extraSell;
+    target.quantity = q;
+    target.buyPrice = Math.round(totalBuy / q);
+    target.sellPrice = Math.round(totalSell / q);
+    if (!target.category) target.category = 'munkadij';
   }
 
-  const q = Math.max(1, Math.round(target.quantity));
-  const totalBuy = target.buyPrice * q + extraBuy;
-  const totalSell = target.sellPrice * q + extraSell;
-  target.quantity = q;
-  target.buyPrice = Math.round(totalBuy / q);
-  target.sellPrice = Math.round(totalSell / q);
-  return withoutTravel;
+  const labor = withoutTravel.filter((line) => isLaborLine(line));
+  const rest = withoutTravel.filter((line) => !isLaborLine(line));
+  return [...labor, ...rest];
 }
 
 /**

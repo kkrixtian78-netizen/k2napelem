@@ -10,7 +10,7 @@ import {
   listQuotes,
   saveQuote,
 } from '../../../lib/arajanlat/store';
-import { roundTripTravelKm, TRAVEL_CATALOG_ID } from '../../../lib/arajanlat/travel';
+import { roundTripTravelKm } from '../../../lib/arajanlat/travel';
 
 export const GET: APIRoute = async ({ url }) => {
   const id = url.searchParams.get('id');
@@ -39,13 +39,8 @@ export const POST: APIRoute = async ({ request }) => {
     }),
   );
 
-  // Van cím és km: a szerver építi a sorokat, a km a munkadíjban van, külön kiszállási sor nincs.
-  let lines = built.lines;
-  if (Array.isArray(body.lines) && body.lines.length && !travel?.roundTripKm) {
-    lines = body.lines.filter(
-      (l: { catalogId?: string }) => l.catalogId !== TRAVEL_CATALOG_ID,
-    );
-  }
+  // Mindig a szerver sorai mentődnek: a munkadíj és a beleépített km nem eshet ki egy korábbi előnézet miatt.
+  const lines = built.lines;
   const totals = withTotals(lines);
 
   const quote = saveQuote({

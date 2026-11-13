@@ -49,6 +49,8 @@ export default function QuoteDocument({
   const vat = vatFromNet(quote.totalSell);
   const gross = grossFromNet(quote.totalSell);
   const solarYield = quote.topic === 'napelem' ? solarYieldFromLines(quote.lines) : null;
+  const laborLines = quote.lines.filter((line) => line.category === 'munkadij');
+  const productLines = quote.lines.filter((line) => line.category !== 'munkadij');
 
   return (
     <article className="rounded-xl border border-line bg-paper/80 p-5 sm:p-8 print:border-0 print:bg-white print:p-0">
@@ -137,6 +139,39 @@ export default function QuoteDocument({
         </section>
       ) : null}
 
+      {laborLines.length > 0 ? (
+        <section className="mt-5">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Munkadíj</h2>
+          <div className="mt-2 overflow-x-auto">
+            <table className="min-w-full text-left text-sm">
+              <thead className="border-b border-line text-xs uppercase tracking-wide text-ink-soft">
+                <tr>
+                  <th className="py-2 pr-2 font-semibold">Megnevezés</th>
+                  <th className="py-2 px-2 font-semibold">Menny.</th>
+                  <th className="py-2 px-2 font-semibold">Egységár (nettó)</th>
+                  <th className="py-2 pl-2 font-semibold text-right">Összesen (nettó)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-line">
+                {laborLines.map((line) => (
+                  <tr key={`${line.catalogId}-${line.name}`}>
+                    <td className="py-2 pr-2">{line.name}</td>
+                    <td className="py-2 px-2 whitespace-nowrap">
+                      {line.quantity} {line.unit}
+                    </td>
+                    <td className="py-2 px-2 whitespace-nowrap">{formatHuf(line.sellPrice)}</td>
+                    <td className="py-2 pl-2 whitespace-nowrap text-right font-medium">
+                      {formatHuf(line.sellPrice * line.quantity)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
+
+      {productLines.length > 0 ? (
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-line text-xs uppercase tracking-wide text-ink-soft">
@@ -148,7 +183,7 @@ export default function QuoteDocument({
             </tr>
           </thead>
           <tbody className="divide-y divide-line">
-            {quote.lines.map((line) => (
+            {productLines.map((line) => (
               <tr key={`${line.catalogId}-${line.name}-${line.auto ? 'a' : 'm'}`}>
                 <td className="py-2 pr-2">{line.name}</td>
                 <td className="py-2 px-2 whitespace-nowrap">
@@ -163,6 +198,7 @@ export default function QuoteDocument({
           </tbody>
         </table>
       </div>
+      ) : null}
 
       <section className="mt-6 flex flex-col items-end gap-1 border-t border-line pt-4 text-sm">
         {showInternalCosts ? (
