@@ -80,8 +80,8 @@ export function buildSolarBom(
   pushAuto('cons-solar-misc', 1);
   lines.push({
     catalogId: SOLAR_INSTALL_LABOR_ID,
-    name: 'Szerelési munkadíj',
-    unit: 'alkalom',
+    name: 'Munkadíj',
+    unit: '',
     quantity: 1,
     buyPrice: 0,
     sellPrice: solarInstallSell(panels),
@@ -146,7 +146,9 @@ export function foldTravelIntoLabor(lines: QuoteLine[], travelRoundTripKm?: numb
 
   const labor = withoutTravel.filter((line) => isLaborLine(line));
   const rest = withoutTravel.filter((line) => !isLaborLine(line));
-  return [...labor, ...rest];
+  const solarLaborLines = labor.filter((line) => line.catalogId === SOLAR_INSTALL_LABOR_ID);
+  const otherLabor = labor.filter((line) => line.catalogId !== SOLAR_INSTALL_LABOR_ID);
+  return [...otherLabor, ...rest, ...solarLaborLines];
 }
 
 /**

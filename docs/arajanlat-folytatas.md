@@ -37,7 +37,7 @@ A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napele
 - Villany: csak Onlinevill, `src/lib/arajanlat/onlinevill-catalog.ts`. A kihagyott csoportok az `EXCLUDED_GROUP_LABELS` halmazban vannak. A régi, Onlinevill előtti villanytételek kikerültek. A csoportok alapból csukva vannak; kattintásra nyílik a teljes, keresés nélkül görgethető lista.
 - Villany munkadíj az anyagok előtt, több tétel, mennyiséggel, beszerzés 0, eladás nettó a katalógusban szerkeszthető. Új árak: kiállás 8 000 Ft/db (kb. 10 160 bruttó), villanyóra szabványosítás 150 000 Ft (kb. 190 500 bruttó), 3 fázis kiépítése 200 000 Ft (254 000 bruttó). Az 1 fázisú bővítés-ügyintézés nincs a listában.
 - Kiszállás mindhárom témakörnél: Pócsmegyer ↔ ügyfél oda-vissza km × 150 Ft beszerzés, eladás × 1,25. Nincs külön „Kiszállás / szállítás” sor. Az összeg a fűtés szerelési munkadíjába, napelemnél a szerelési munkadíjba, különben az első munkadíj sorba épül. Ha nincs munkadíj, egy „Szerelési munkadíj” sor jön létre. A munkadíj az ajánlaton az ügyféladatok alatt, saját blokkban van.
-- Napelemes szerelési munkadíj, nettó eladás: panelszám × 25 000 Ft + 15 000 Ft inverter szerelés + a kiszállás eladási ára. A 25 000 és a 15 000 beszerzése 0. Kód: `src/lib/arajanlat/solar-labor.ts`.
+- Napelemes munkadíj, nettó eladás: panelszám × 25 000 Ft + 150 000 Ft inverter szerelés + a kiszállás eladási ára. A sor neve „Munkadíj”, a mennyiség simán 1, és az anyagok után áll. A 25 000 és a 150 000 beszerzése 0. Kód: `src/lib/arajanlat/solar-labor.ts`.
 - Fűtés: BVF termékek variánsokkal, `src/lib/arajanlat/heating-catalog.ts`. Egy csoportba többféle termék is tehető, saját mennyiséggel.
 
 ## Hol kell módosítani

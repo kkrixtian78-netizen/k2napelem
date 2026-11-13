@@ -424,8 +424,8 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Főanyagok (csak ezeket válaszd)</h2>
           <p className="text-sm text-ink-soft">
-            Szerelési munkadíj, nettó eladás: panelszám × 25 000 Ft + 15 000 Ft az inverter szerelése. A
-            kiszállás ebbe a sorba épül.
+            Munkadíj, nettó eladás: panelszám × 25 000 Ft + 150 000 Ft az inverter szerelése. A kiszállás
+            ebbe a sorba épül, a tételek végén.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Napelem panel">
@@ -1023,7 +1023,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
                       )}
                     </td>
                     <td className="px-3 py-2 whitespace-nowrap">
-                      {line.quantity} {line.unit}
+                      {line.unit ? `${line.quantity} ${line.unit}` : line.quantity}
                     </td>
                     <td className="px-3 py-2 whitespace-nowrap">{formatHuf(line.buyPrice)}</td>
                     <td className="px-3 py-2 whitespace-nowrap">{formatHuf(line.sellPrice)}</td>

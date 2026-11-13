@@ -51,6 +51,8 @@ export default function QuoteDocument({
   const solarYield = quote.topic === 'napelem' ? solarYieldFromLines(quote.lines) : null;
   const laborLines = quote.lines.filter((line) => line.category === 'munkadij');
   const productLines = quote.lines.filter((line) => line.category !== 'munkadij');
+  const solarLaborAtEnd = quote.topic === 'napelem';
+  const tableLines = solarLaborAtEnd ? [...productLines, ...laborLines] : productLines;
 
   return (
     <article className="rounded-xl border border-line bg-paper/80 p-5 sm:p-8 print:border-0 print:bg-white print:p-0">
@@ -139,7 +141,7 @@ export default function QuoteDocument({
         </section>
       ) : null}
 
-      {laborLines.length > 0 ? (
+      {!solarLaborAtEnd && laborLines.length > 0 ? (
         <section className="mt-5">
           <h2 className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Munkadíj</h2>
           <div className="mt-2 overflow-x-auto">
@@ -157,7 +159,7 @@ export default function QuoteDocument({
                   <tr key={`${line.catalogId}-${line.name}`}>
                     <td className="py-2 pr-2">{line.name}</td>
                     <td className="py-2 px-2 whitespace-nowrap">
-                      {line.quantity} {line.unit}
+                      {line.unit ? `${line.quantity} ${line.unit}` : line.quantity}
                     </td>
                     <td className="py-2 px-2 whitespace-nowrap">{formatHuf(line.sellPrice)}</td>
                     <td className="py-2 pl-2 whitespace-nowrap text-right font-medium">
@@ -171,7 +173,7 @@ export default function QuoteDocument({
         </section>
       ) : null}
 
-      {productLines.length > 0 ? (
+      {tableLines.length > 0 ? (
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="border-b border-line text-xs uppercase tracking-wide text-ink-soft">
@@ -183,11 +185,11 @@ export default function QuoteDocument({
             </tr>
           </thead>
           <tbody className="divide-y divide-line">
-            {productLines.map((line) => (
+            {tableLines.map((line) => (
               <tr key={`${line.catalogId}-${line.name}-${line.auto ? 'a' : 'm'}`}>
                 <td className="py-2 pr-2">{line.name}</td>
                 <td className="py-2 px-2 whitespace-nowrap">
-                  {line.quantity} {line.unit}
+                  {line.unit ? `${line.quantity} ${line.unit}` : line.quantity}
                 </td>
                 <td className="py-2 px-2 whitespace-nowrap">{formatHuf(line.sellPrice)}</td>
                 <td className="py-2 pl-2 whitespace-nowrap text-right font-medium">
