@@ -218,20 +218,35 @@ export default function QuoteDocument({
         <p className="max-w-md text-right text-xs text-ink-soft">A tételsor árak nettó Ft-ban értendők.</p>
       </section>
 
-      {quote.topic === 'napelem' ? (
-        <footer className="mt-6 space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-ink-soft">
-          <p>
-            Az árajánlatban szereplő eszközök megfelelnek a vonatkozó európai irányelveknek valamint a magyar
-            jogszabályoknak, szabványoknak és környezetvédelmi előírásoknak.
-          </p>
-          <p>Az árajánlat a kiállítástól 10 napig vagy jelentős HUF/EUR árfolyam változásig érvényes!</p>
-          <p>
-            Az árajánlat nem tartalmazza a kivitelezéshez esetlegesen szükséges magasemelő gép bérlésének
-            költségét!
-          </p>
-          <p>Az árajánlat nem tartalmazza az áramszolgáltató felé fizetendő esetleges egyéb díjakat!</p>
-        </footer>
-      ) : null}
+      <footer className="mt-6 space-y-2 border-t border-line pt-4 text-xs leading-relaxed text-ink-soft">
+        <p>
+          A beépített eszközökre a gyártói garancia vonatkozik. A kivitelezés a vonatkozó szabványok szerint
+          készül.
+        </p>
+        <p>
+          15+ év tapasztalat · 300+ lakossági rendszer · több tucat céges kivitelezés · nagyobb rendszerek 50 kW
+          felett. Az üzembe helyezett rendszerek együtt kb. 3 000 kWh-t termelnek naponta.
+        </p>
+        <p>
+          <a href="https://k2napelem.hu" className="font-semibold text-sky-deep">
+            k2napelem.hu
+          </a>
+        </p>
+        {quote.topic === 'napelem' ? (
+          <>
+            <p>
+              Az árajánlatban szereplő eszközök megfelelnek a vonatkozó európai irányelveknek valamint a magyar
+              jogszabályoknak, szabványoknak és környezetvédelmi előírásoknak.
+            </p>
+            <p>Az árajánlat a kiállítástól 10 napig vagy jelentős HUF/EUR árfolyam változásig érvényes!</p>
+            <p>
+              Az árajánlat nem tartalmazza a kivitelezéshez esetlegesen szükséges magasemelő gép bérlésének
+              költségét!
+            </p>
+            <p>Az árajánlat nem tartalmazza az áramszolgáltató felé fizetendő esetleges egyéb díjakat!</p>
+          </>
+        ) : null}
+      </footer>
     </article>
   );
 }
