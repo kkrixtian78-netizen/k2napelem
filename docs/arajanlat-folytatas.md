@@ -34,7 +34,7 @@ Az ajánlatok és a kézzel átírt katalógusárak itt vannak, és nincsenek a 
 A fejléc **Katalógus** menüjéből nyílik. A `/arajanlat/katalogus` a napelem listára visz.
 
 - Napelem: `content/Napelem-alapanyagok.xlsx` és `src/lib/arajanlat/solar-catalog.ts`. A katalógusban mentett ár megmarad, az Excel nem írja vissza.
-- Villany: csak Onlinevill, `src/lib/arajanlat/onlinevill-catalog.ts`. A kihagyott csoportok az `EXCLUDED_GROUP_LABELS` halmazban vannak. A régi, Onlinevill előtti villanytételek kikerültek. Csoportonként görgethető lista, keresés nélkül is.
+- Villany: csak Onlinevill, `src/lib/arajanlat/onlinevill-catalog.ts`. A kihagyott csoportok az `EXCLUDED_GROUP_LABELS` halmazban vannak. A régi, Onlinevill előtti villanytételek kikerültek. A csoportok alapból csukva vannak; kattintásra nyílik a teljes, keresés nélkül görgethető lista.
 - Fűtés: BVF termékek variánsokkal, `src/lib/arajanlat/heating-catalog.ts`. Egy csoportba többféle termék is tehető, saját mennyiséggel.
 
 ## Hol kell módosítani

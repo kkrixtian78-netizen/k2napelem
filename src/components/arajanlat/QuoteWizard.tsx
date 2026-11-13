@@ -759,11 +759,10 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
         <section className="space-y-4">
           <h2 className="font-display text-xl font-bold">Villanyszerelés anyagok (Onlinevill)</h2>
           <p className="text-sm text-ink-soft">
-            Csoportonként keress, és adj hozzá több terméket. Az ár a boltban kiírt online ár. Szerelvény,
-            világítás, gyengeáram, háztartási cikk, szerszám, rögzítéstechnika, mérőműszer, klíma, kamera és
-            kifutó termék nincs a listában.
+            Nyisd le a csoportot, és görgesd a termékeket. A szűrő nem kötelező. Az ár a boltban kiírt online
+            ár.
           </p>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {VILLANY_GROUPS.map((group) => {
               const options = catalog.filter(
                 (c) => c.selectable !== false && c.villanyGroup === group.id,
@@ -776,40 +775,55 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
               const selected = options.filter((p) => (selectedMains[p.id] ?? 0) > 0);
               return (
                 <div key={group.id} className="space-y-2">
-                  <Field label={`${group.label} (${options.length})`}>
-                    <input
-                      className="field"
-                      placeholder="Szűrés névre…"
-                      value={villanyQuery[group.id] ?? ''}
-                      onChange={(e) =>
-                        setVillanyQuery((prev) => ({ ...prev, [group.id]: e.target.value }))
-                      }
-                    />
-                    <ul className="mt-2 max-h-64 overflow-y-auto rounded-md border border-line bg-white">
-                      {matches.map((p) => (
-                        <li key={p.id} className="border-b border-line last:border-b-0">
-                          <button
-                            type="button"
-                            className="flex w-full items-start justify-between gap-2 px-2 py-1.5 text-left text-sm hover:bg-mist"
-                            onClick={() =>
-                              setSelectedMains((prev) => ({
-                                ...prev,
-                                [p.id]: prev[p.id] ?? (p.unit === 'm' ? 10 : 1),
-                              }))
-                            }
-                          >
-                            <span>{p.name}</span>
-                            <span className="shrink-0 text-xs text-ink-soft">
-                              {formatHuf(p.buyPrice)} / {p.unit}
+                  <details className="rounded-md border border-line bg-white">
+                    <summary className="cursor-pointer list-none px-3 py-2 font-medium marker:content-none [&::-webkit-details-marker]:hidden">
+                      <span className="flex items-center justify-between gap-2">
+                        <span>
+                          {group.label}
+                          {selected.length > 0 ? (
+                            <span className="ml-2 text-xs font-semibold text-sky-deep">
+                              {selected.length} kiválasztva
                             </span>
-                          </button>
-                        </li>
-                      ))}
-                      {matches.length === 0 ? (
-                        <li className="px-2 py-2 text-sm text-ink-soft">Nincs találat</li>
-                      ) : null}
-                    </ul>
-                  </Field>
+                          ) : null}
+                        </span>
+                        <span className="shrink-0 text-xs text-ink-soft">{options.length}</span>
+                      </span>
+                    </summary>
+                    <div className="border-t border-line p-2">
+                      <input
+                        className="field"
+                        placeholder="Szűrés névre…"
+                        value={villanyQuery[group.id] ?? ''}
+                        onChange={(e) =>
+                          setVillanyQuery((prev) => ({ ...prev, [group.id]: e.target.value }))
+                        }
+                      />
+                      <ul className="mt-2 max-h-64 overflow-y-auto rounded-md border border-line bg-white">
+                        {matches.map((p) => (
+                          <li key={p.id} className="border-b border-line last:border-b-0">
+                            <button
+                              type="button"
+                              className="flex w-full items-start justify-between gap-2 px-2 py-1.5 text-left text-sm hover:bg-mist"
+                              onClick={() =>
+                                setSelectedMains((prev) => ({
+                                  ...prev,
+                                  [p.id]: prev[p.id] ?? (p.unit === 'm' ? 10 : 1),
+                                }))
+                              }
+                            >
+                              <span>{p.name}</span>
+                              <span className="shrink-0 text-xs text-ink-soft">
+                                {formatHuf(p.buyPrice)} / {p.unit}
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                        {matches.length === 0 ? (
+                          <li className="px-2 py-2 text-sm text-ink-soft">Nincs találat</li>
+                        ) : null}
+                      </ul>
+                    </div>
+                  </details>
                   {selected.length > 0 ? (
                     <ul className="space-y-2 rounded-md border border-line bg-white/70 p-2">
                       {selected.map((p) => (
