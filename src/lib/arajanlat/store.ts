@@ -1,0 +1,397 @@
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { LEGACY_HEATING_MAIN_IDS } from './heating-catalog';
+import { SEED_CATALOG } from './seed';
+import type { CatalogItem, Quote, QuoteStore } from './types';
+
+const DATA_DIR = join(process.cwd(), 'data', 'arajanlat');
+const STORE_PATH = join(DATA_DIR, 'store.json');
+
+/** Serverless (Vercel) fallback — process lifetime only. */
+let memoryStore: QuoteStore | null = null;
+let preferMemory = false;
+let priceSyncScheduled = false;
+
+function scheduleMonthlyPriceSync() {
+  if (priceSyncScheduled || preferMemory || process.env.ARAJANLAT_SKIP_PRICE_SYNC === '1') return;
+  priceSyncScheduled = true;
+  setTimeout(() => {
+    import('./price-sync.ts')
+      .then((mod) => mod.runMonthlyPriceSyncIfDue())
+      .catch((error) => {
+        console.warn('[árfrissítés]', error instanceof Error ? error.message : error);
+      });
+  }, 1500);
+}
+
+function emptyStore(): QuoteStore {
+  return {
+    version: 1,
+    catalog: structuredClone(SEED_CATALOG),
+    quotes: [],
+    nextQuoteSeq: 1,
+  };
+}
+
+function atomicWrite(path: string, data: QuoteStore) {
+  mkdirSync(dirname(path), { recursive: true });
+  const tmp = `${path}.tmp`;
+  writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf8');
+  renameSync(tmp, path);
+}
+
+/** Új seed tételek + auto-BOM / rendszer tételek névfrissítése. */
+function mergeMissingSeedItems(store: QuoteStore): boolean {
+  const byId = new Map(store.catalog.map((c) => [c.id, c]));
+  let changed = false;
+  for (const item of SEED_CATALOG) {
+    const existing = byId.get(item.id);
+    if (!existing) {
+      store.catalog.push(structuredClone(item));
+      changed = true;
+      continue;
+    }
+    if (item.extraGroup && existing.extraGroup !== item.extraGroup) {
+      existing.extraGroup = item.extraGroup;
+      changed = true;
+    }
+    if (item.heatGroup && existing.heatGroup !== item.heatGroup) {
+      existing.heatGroup = item.heatGroup;
+      changed = true;
+    }
+    if (item.villanyGroup && existing.villanyGroup !== item.villanyGroup) {
+      existing.villanyGroup = item.villanyGroup;
+      changed = true;
+    }
+    if (item.id === 'v-labor-kiallas' && existing.unit !== item.unit) {
+      existing.unit = item.unit;
+      changed = true;
+    }
+    // A 0 Ft-os Deye 5K placeholder kapja meg a beszerzési árat. Későbbi katalógus-szerkesztést nem írjuk felül.
+    if (
+      item.id === 'np-deye-sun-5k-sg03lp1-eu' &&
+      existing.buyPrice === 0 &&
+      item.buyPrice > 0
+    ) {
+      existing.buyPrice = item.buyPrice;
+      existing.notes = item.notes;
+      changed = true;
+    }
+    if (
+      typeof item.bvfGross === 'number' &&
+      existing.bvfGross !== item.bvfGross
+    ) {
+      existing.bvfGross = item.bvfGross;
+      changed = true;
+    }
+    // A villany munkadíj eladási árát a katalógusban lehet átírni, azt nem írjuk vissza.
+    // A kézzel zárolt árat sem írjuk vissza a seedre.
+    if (
+      !existing.priceLocked &&
+      existing.sellPriceFixed !== item.sellPriceFixed &&
+      item.topic !== 'napelem' &&
+      !(item.topic === 'villany' && item.category === 'munkadij')
+    ) {
+      existing.sellPriceFixed = item.sellPriceFixed;
+      changed = true;
+    }
+    // BVF fűtés: a név és a csoport jöhet a seedből. A beszerzési árat és a BVF
+    // bruttót a havi árfrissítés vagy a kézi mentés tartja, a seed nem írja felül.
+    if (item.topic === 'futes' && item.heatGroup && item.selectable !== false) {
+      if (existing.name !== item.name) {
+        existing.name = item.name;
+        changed = true;
+      }
+      if (existing.active !== item.active) {
+        existing.active = item.active;
+        changed = true;
+      }
+      if (existing.category !== item.category) {
+        existing.category = item.category;
+        changed = true;
+      }
+      if (existing.selectable !== item.selectable) {
+        existing.selectable = item.selectable;
+        changed = true;
+      }
+    }
+    // Automatikus tételek neve / ára a seedhez igazodik
+    // A napelemes Excel-tételek árát a felhasználó szerkesztheti, azt nem írjuk vissza.
+    if (item.selectable === false && item.topic !== 'napelem') {
+      if (existing.name !== item.name) {
+        existing.name = item.name;
+        changed = true;
+      }
+      if (existing.buyPrice !== item.buyPrice) {
+        existing.buyPrice = item.buyPrice;
+        changed = true;
+      }
+      if (existing.active !== item.active) {
+        existing.active = item.active;
+        changed = true;
+      }
+    }
+  }
+  // Régi tételek kikapcsolása
+  for (const id of [
+    'opt-kiszallas',
+    'prot-dc-spd',
+    'prot-ac-spd',
+    'prot-dc-breaker',
+    'prot-ac-breaker',
+    'box-ac',
+    'conn-mc4',
+    ...LEGACY_HEATING_MAIN_IDS,
+    'f-labor-padlo',
+    'v-labor-bovites-1f',
+  ]) {
+    const legacy = byId.get(id);
+    if (legacy && legacy.active) {
+      legacy.active = false;
+      legacy.selectable = false;
+      changed = true;
+    }
+  }
+  const beforeOnePhase = store.catalog.length;
+  store.catalog = store.catalog.filter((item) => item.id !== 'v-labor-bovites-1f');
+  if (store.catalog.length !== beforeOnePhase) changed = true;
+  const legacySolarIds = new Set([
+    'panel-cs-hiku6-420',
+    'panel-astro-515',
+    'panel-ja-570',
+    'inv-deye-5k',
+    'inv-deye-8k',
+    'inv-deye-10k',
+    'inv-huawei-6k',
+    'bat-none',
+    'bat-deye-5',
+    'bat-deye-12',
+    'roof-cserep',
+    'roof-lemezes',
+    'roof-lapos',
+    'roof-fold',
+    'mount-cserep-set',
+    'mount-lemez-set',
+    'mount-lapos-set',
+    'mount-fold-set',
+    'cable-dc-6',
+    'cable-ac-5x6',
+    'prot-dc-box',
+    'prot-ac-box',
+    'cons-villany-misc',
+    'cons-solar-misc',
+    'labor-solar-panel',
+    'labor-solar-inv',
+    'labor-solar-bat',
+    'labor-solar-comm',
+    'opt-optimizer',
+    'opt-visszwatt',
+    'opt-tuzvedelmi',
+    'opt-tervezes',
+    'opt-hozott-jutalek',
+    'v-kazetta',
+    'v-eloszto-24',
+    'v-eloszto-36',
+    'v-vezetek-3x15',
+    'v-vezetek-3x25',
+    'v-vezetek-5x25',
+    'v-kapcsolo-csalad',
+    'v-led-panel',
+    'v-fi-rele',
+    'v-kismegszakito',
+  ]);
+  const beforeSolar = store.catalog.length;
+  store.catalog = store.catalog.filter((item) => !legacySolarIds.has(item.id));
+  if (store.catalog.length !== beforeSolar) changed = true;
+
+  const keptVillanyGroups = new Set(
+    SEED_CATALOG.map((c) => c.villanyGroup).filter((id): id is string => Boolean(id)),
+  );
+  const beforeVillany = store.catalog.length;
+  store.catalog = store.catalog.filter((item) => {
+    if (item.topic === 'villany' && !item.villanyGroup && item.category !== 'munkadij') return false;
+    return !item.villanyGroup || keptVillanyGroups.has(item.villanyGroup);
+  });
+  if (store.catalog.length !== beforeVillany) changed = true;
+
+  // Elavult BVF fűtés főanyagok (régi, variáns nélküli / kiesett slugok)
+  const seedHeatIds = new Set(
+    SEED_CATALOG.filter((c) => c.topic === 'futes' && c.heatGroup).map((c) => c.id),
+  );
+  for (const item of store.catalog) {
+    if (
+      item.active &&
+      item.topic === 'futes' &&
+      item.heatGroup &&
+      item.selectable !== false &&
+      !seedHeatIds.has(item.id)
+    ) {
+      item.active = false;
+      item.selectable = false;
+      changed = true;
+    }
+  }
+  return changed;
+}
+
+function ensureStore(): QuoteStore {
+  if (preferMemory) {
+    if (!memoryStore) memoryStore = emptyStore();
+    else if (mergeMissingSeedItems(memoryStore)) {
+      /* keep memory */
+    }
+    return memoryStore;
+  }
+
+  try {
+    if (!existsSync(DATA_DIR)) {
+      mkdirSync(DATA_DIR, { recursive: true });
+    }
+    if (!existsSync(STORE_PATH)) {
+      const seed = emptyStore();
+      atomicWrite(STORE_PATH, seed);
+      memoryStore = seed;
+      scheduleMonthlyPriceSync();
+      return seed;
+    }
+    const raw = readFileSync(STORE_PATH, 'utf8');
+    const parsed = JSON.parse(raw) as QuoteStore;
+    if (!parsed.catalog?.length) {
+      parsed.catalog = structuredClone(SEED_CATALOG);
+      atomicWrite(STORE_PATH, parsed);
+    } else if (mergeMissingSeedItems(parsed)) {
+      atomicWrite(STORE_PATH, parsed);
+    }
+    memoryStore = parsed;
+    scheduleMonthlyPriceSync();
+    return parsed;
+  } catch {
+    // Read-only / serverless filesystem — keep working in memory.
+    preferMemory = true;
+    if (!memoryStore) memoryStore = emptyStore();
+    else mergeMissingSeedItems(memoryStore);
+    return memoryStore;
+  }
+}
+
+export function readStore(): QuoteStore {
+  return ensureStore();
+}
+
+export function writeStore(store: QuoteStore) {
+  memoryStore = store;
+  if (preferMemory) return;
+  try {
+    atomicWrite(STORE_PATH, store);
+  } catch {
+    preferMemory = true;
+  }
+}
+
+export function listCatalog(): CatalogItem[] {
+  return readStore().catalog;
+}
+
+function sameOptional(left: number | undefined, right: number | undefined): boolean {
+  return (left ?? undefined) === (right ?? undefined);
+}
+
+export function upsertCatalogItem(item: CatalogItem): CatalogItem {
+  const store = readStore();
+  const idx = store.catalog.findIndex((c) => c.id === item.id);
+  if (idx < 0) {
+    store.catalog.push(item);
+    writeStore(store);
+    return item;
+  }
+  const prev = store.catalog[idx]!;
+  const priceChanged =
+    prev.buyPrice !== item.buyPrice ||
+    !sameOptional(prev.bvfGross, item.bvfGross) ||
+    !sameOptional(prev.sellPriceFixed, item.sellPriceFixed);
+  const seed = SEED_CATALOG.find((entry) => entry.id === item.id);
+  const matchesSeed =
+    seed != null &&
+    item.buyPrice === seed.buyPrice &&
+    sameOptional(item.bvfGross, seed.bvfGross) &&
+    sameOptional(item.sellPriceFixed, seed.sellPriceFixed);
+  const next: CatalogItem = {
+    ...prev,
+    ...item,
+    villanyGroup: item.villanyGroup ?? prev.villanyGroup,
+    priceLocked: priceChanged ? !matchesSeed : Boolean(prev.priceLocked),
+  };
+  store.catalog[idx] = next;
+  writeStore(store);
+  return next;
+}
+
+export function deleteCatalogItem(id: string): boolean {
+  const store = readStore();
+  const before = store.catalog.length;
+  store.catalog = store.catalog.filter((c) => c.id !== id);
+  writeStore(store);
+  return store.catalog.length < before;
+}
+
+export function resetCatalogFromSeed(): CatalogItem[] {
+  const store = readStore();
+  store.catalog = structuredClone(SEED_CATALOG);
+  writeStore(store);
+  return store.catalog;
+}
+
+export function listQuotes(): Quote[] {
+  return readStore().quotes.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
+export function getQuote(id: string): Quote | undefined {
+  return readStore().quotes.find((q) => q.id === id);
+}
+
+export function saveQuote(quote: Omit<Quote, 'id' | 'number' | 'createdAt' | 'updatedAt'> & { id?: string }): Quote {
+  const store = readStore();
+  const now = new Date().toISOString();
+
+  if (quote.id) {
+    const idx = store.quotes.findIndex((q) => q.id === quote.id);
+    if (idx < 0) throw new Error('Ajánlat nem található');
+    const existing = store.quotes[idx]!;
+    const updated: Quote = {
+      ...existing,
+      ...quote,
+      id: existing.id,
+      number: existing.number,
+      createdAt: existing.createdAt,
+      updatedAt: now,
+    };
+    store.quotes[idx] = updated;
+    writeStore(store);
+    return updated;
+  }
+
+  const seq = store.nextQuoteSeq++;
+  const year = new Date().getFullYear();
+  const created: Quote = {
+    ...quote,
+    id: crypto.randomUUID(),
+    number: `K2-${year}-${String(seq).padStart(4, '0')}`,
+    createdAt: now,
+    updatedAt: now,
+  };
+  store.quotes.unshift(created);
+  writeStore(store);
+  return created;
+}
+
+export function deleteQuote(id: string): boolean {
+  const store = readStore();
+  const before = store.quotes.length;
+  store.quotes = store.quotes.filter((q) => q.id !== id);
+  writeStore(store);
+  return store.quotes.length < before;
+}
+
+export function storePath(): string {
+  return preferMemory ? '(memory)' : STORE_PATH;
+}

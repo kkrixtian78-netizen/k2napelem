@@ -1,0 +1,18 @@
+---
+export const prerender = false;
+import QuoteAppLayout from '../../layouts/QuoteAppLayout.astro';
+import QuoteWizard from '../../components/arajanlat/QuoteWizard';
+import { site } from '../../data/site';
+
+const brand = {
+  name: site.name,
+  legalName: site.legalName,
+  address: site.address,
+  phone: site.phone,
+  email: site.email,
+};
+---
+
+<QuoteAppLayout title="Új árajánlat">
+  <QuoteWizard client:load brand={brand} />
+</QuoteAppLayout>

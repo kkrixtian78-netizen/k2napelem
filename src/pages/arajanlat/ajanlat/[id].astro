@@ -1,0 +1,23 @@
+---
+export const prerender = false;
+import QuoteAppLayout from '../../../layouts/QuoteAppLayout.astro';
+import QuoteView from '../../../components/arajanlat/QuoteView';
+import { site } from '../../../data/site';
+
+const { id } = Astro.params;
+if (!id) {
+  return Astro.redirect('/arajanlat/lista');
+}
+
+const brand = {
+  name: site.name,
+  legalName: site.legalName,
+  address: site.address,
+  phone: site.phone,
+  email: site.email,
+};
+---
+
+<QuoteAppLayout title={`Ajánlat ${id}`}>
+  <QuoteView client:load quoteId={id} brand={brand} />
+</QuoteAppLayout>

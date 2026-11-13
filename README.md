@@ -1,7 +1,7 @@
-# K2Napelem — marketing website
+# K2Napelem — marketing website + belső árajánlatkészítő
 
 Hungarian marketing site for **K2Napelem** (domain: [k2napelem.hu](https://k2napelem.hu)).  
-Stack: **Astro** + **Tailwind CSS**. Content salvaged from the previous Webnode site; assets re-hosted under `public/images/`.
+Stack: **Astro** + **Tailwind CSS** + **React** (árajánlat UI) + **Node adapter** (API + JSON tárolás).
 
 ## Quick start
 
@@ -11,12 +11,70 @@ cp .env.example .env
 npm run dev
 ```
 
+Nyisd meg:
+
+- Marketing: [http://localhost:4321](http://localhost:4321)
+- **Árajánlatkészítő (belső):** [http://localhost:4321/arajanlat](http://localhost:4321/arajanlat)
+
+### Windows, saját gépen
+
+A program a gépen fut, az ajánlatok a `data/arajanlat/store.json` fájlban maradnak. Kell hozzá a [Node.js 22](https://nodejs.org) vagy újabb.
+
+1. Töltsd le a ZIP-et, és bontsd ki. Ne a ZIP belsejéből indítsd.
+2. A `k2napelem-cursor-arajanlat-keszito-640b` mappában kattints duplán az `Inditas.bat` fájlra.
+3. A fekete ablak nyitva marad. Az első indítás 2–5 perc, közben sorok jelennek meg. Utána megnyílik a böngésző: [http://127.0.0.1:4321/arajanlat](http://127.0.0.1:4321/arajanlat).
+
+Leállításhoz zárd be a fekete ablakot. A nyilvános weboldalra ezt ne tedd ki.
+
+A folytatáshoz elmentett állapot: [docs/arajanlat-folytatas.md](docs/arajanlat-folytatas.md).
+
 Build:
 
 ```bash
 npm run build
-npm run preview
 ```
+
+Az `/arajanlat` oldalak SSR-rel futnak (**Vercel adapter**). Helyben: `npm run dev`.
+
+## Árajánlatkészítő (MVP)
+
+Belső eszköz három témakörre:
+
+1. **Napelemes rendszer** — felhasználó csak panelt, inverttert, energiatárolót és tetőfelületet választ; a BOM (tartószerkezet, kábel, MC4, DC/AC védelem, munkadíj) automatikus.
+2. **Villanyszerelés** — főanyagok pipálása → fogyóanyag + munkadíj.
+3. **Elektromos fűtés** — főanyagok pipálása → rögzítés, kábel, védelem, munkadíj.
+
+**Árazás:** eladási ár = beszerzési ár × **1,25** (25% árrés). A tételsoron és az összesen megjelenik.
+
+**Adattárolás:** `data/arajanlat/store.json` (helyi JSON). Első indításkor a seed katalógus kitöltődik. A fájl gitignore-olt; a seed forrás: `src/lib/arajanlat/seed.ts`.
+
+### Havi árfrissítés (BVF és Onlinevill)
+
+A program indításakor megnézi, hogy ebben a naptári hónapban frissült-e már az ár. Ha nem (az app a hónap 1-jén vagy később indul, és a `store.json` `priceSync.month` mezője nem az aktuális `YYYY-MM`), a háttérben újraolvassa:
+
+- a **BVF** fűtés bruttó árait a `bvfheating.hu` termékoldalairól (variáns: a oldalba ágyazott `display_price`; ebből a beszerzés nettó továbbra is bruttó × 0,85 / 1,27),
+- az **Onlinevill** villanyszerelési online árakat a kategóriaoldalakról (a polcon kiírt, nagyobb összeg marad a beszerzési ár).
+
+A napelemes Excel-árakat ez nem nyúlja. A katalógusban kézzel elmentett, a seedtől eltérő beszerzési / BVF / fix eladási ár `priceLocked`, és a frissítés kihagyja. Az első futáskor a seedtől már eltérő, de még nem jelölt árakat is zárolja, hogy a korábbi kézi módosítás megmaradjon. A seed visszaállítása törli a zárolást. A katalógus tetején látszik az utolsó futás üzenete. Internet kell hozzá; ha a bolt nem válaszol, a következő indításkor újra próbálja, és a régi ár marad.
+
+### Ajánlat küldése Thunderbirdből
+
+A mentett ajánlaton és az előnézeten az **Ajánlat küldése** gomb csak a saját gépen működik (`Inditas.bat`, `http://127.0.0.1:4321/arajanlat`). HTML mellékletet ír a projekt `data/arajanlat/kimeno/` mappájába (csak eladási árak), és megnyitja a Thunderbirdöt. A nyilvános Vercel oldalon nem hoz létre mappát, hanem jelzi, hogy helyben kell futtatni.
+
+`thunderbird -compose` címzett (az ügyfél e-mailje), tárgy (`K2 napelemes árajánlat`, villanynál és fűtésnél a témakör neve), a megadott levélszöveg és a fájl mellékletként.
+
+A Thunderbirdöt a szokásos Windows helyen keresi (`C:\Program Files\Mozilla Thunderbird\thunderbird.exe`), a PATH-on, vagy a `THUNDERBIRD_PATH` környezeti változóban. Ha nincs meg, mailto nyílik melléklet nélkül, és a képernyőn megjelenik a csatolandó fájl útvonala.
+
+| Útvonal | Funkció |
+|---|---|
+| `/arajanlat` | Új ajánlat (témakör → főanyagok → auto tételsor → mentés) |
+| `/arajanlat/lista` | Mentett ajánlatok |
+| `/arajanlat/ajanlat/:id` | Megtekintés / nyomtatás (PDF a böngésző Nyomtatás dialógusából) |
+| `/arajanlat/katalogus` | Katalógus szerkesztés (beszerzési ár, új tétel, seed reset) |
+
+API: `/api/arajanlat/catalog`, `/api/arajanlat/quotes`, `/api/arajanlat/preview`.
+
+**Megjegyzés:** helyi `npm run dev` alatt a store fájlba ír (`data/arajanlat/store.json`). Vercel preview/production alatt memóriában fut (a mentések a cold startig élnek) — demózáshoz elég, tartós belső használathoz később DB kell.
 
 ## Environment variables
 

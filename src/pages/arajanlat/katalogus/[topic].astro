@@ -1,0 +1,17 @@
+---
+export const prerender = false;
+import QuoteAppLayout from '../../../layouts/QuoteAppLayout.astro';
+import CatalogManager from '../../../components/arajanlat/CatalogManager';
+import { TOPIC_LABELS, type TopicId } from '../../../lib/arajanlat/types';
+
+const topic = Astro.params.topic;
+const allowed: TopicId[] = ['napelem', 'villany', 'futes'];
+if (!topic || !allowed.includes(topic as TopicId)) {
+  return Astro.redirect('/arajanlat/katalogus/napelem');
+}
+const id = topic as TopicId;
+---
+
+<QuoteAppLayout title={`${TOPIC_LABELS[id]} katalógus`}>
+  <CatalogManager client:load topic={id} />
+</QuoteAppLayout>
