@@ -39,17 +39,18 @@ export function buildSolarBom(
   const inverter = byId(catalog, selection.inverterId);
   lines.push(lineFromCatalog(inverter, 1, false));
 
-  if (selection.storageId && selection.storageId !== 'bat-none') {
-    const bat = tryById(catalog, selection.storageId);
-    if (bat) lines.push(lineFromCatalog(bat, 1, false));
-  }
+  const storage =
+    selection.storageId && selection.storageId !== 'bat-none'
+      ? tryById(catalog, selection.storageId)
+      : undefined;
+  if (storage) lines.push(lineFromCatalog(storage, 1, false));
 
   lines.push(
     ...buildSolarAutoLines(catalog, {
       panelCount: panels,
       inverterName: inverter.name,
       roofTypeId: selection.roofTypeId,
-      withStorage: Boolean(selection.storageId && selection.storageId !== 'bat-none'),
+      withStorage: Boolean(storage),
     }),
   );
 
@@ -59,7 +60,7 @@ export function buildSolarBom(
     unit: '',
     quantity: 1,
     buyPrice: 0,
-    sellPrice: solarInstallSell(panels),
+    sellPrice: solarInstallSell(panels, Boolean(storage)),
     auto: true,
     category: 'munkadij',
   });

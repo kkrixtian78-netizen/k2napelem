@@ -404,7 +404,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
           <p className="text-sm text-ink-soft">
             A tető és a panelszám adja a tartószerkezetet, a DC és AC védelmet, a kábeleket és a kiegészítőket.
             A tűzeseti leválasztó csak akkor kerül be, ha kiválasztod. A munkadíj a tételek végén van:
-            panelszám × 25 000 Ft + 150 000 Ft, a kiszállással együtt.
+            panelszám × 25 000 Ft + 150 000 Ft, tárolóval + 50 000 Ft, a kiszállással együtt.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Napelem panel">

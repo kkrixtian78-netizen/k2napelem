@@ -22,13 +22,18 @@
 import { lineFromCatalog, sellFromBuy } from './pricing';
 import type { CatalogItem, QuoteLine } from './types';
 
-export const SOLAR_ROOFS: Array<{ id: string; label: string }> = [
-  { id: 'roof-cserep', label: 'Cserép' },
-  { id: 'roof-hodfarku', label: 'Hódfarkú cserép' },
-  { id: 'roof-zsindely', label: 'Zsindely' },
-  { id: 'roof-lemez', label: 'Lemez / trapéz' },
-  { id: 'roof-lapos', label: 'Lapostető' },
+export const SOLAR_ROOFS: Array<{ id: string; label: string; mountName: string }> = [
+  { id: 'roof-cserep', label: 'Cserép', mountName: 'Enerack tartószerkezet rendszer cseréptetőre' },
+  { id: 'roof-hodfarku', label: 'Hódfarkú cserép', mountName: 'Enerack tartószerkezet rendszer hódfarkú tetőre' },
+  { id: 'roof-zsindely', label: 'Zsindely', mountName: 'Enerack tartószerkezet rendszer zsindelytetőre' },
+  { id: 'roof-lemez', label: 'Lemez / trapéz', mountName: 'Enerack tartószerkezet rendszer lemeztetőre' },
+  { id: 'roof-lapos', label: 'Lapostető', mountName: 'Enerack tartószerkezet rendszer lapostetőre' },
 ];
+
+export function solarMountName(roofTypeId: string | undefined): string {
+  const id = normalizeRoofId(roofTypeId);
+  return SOLAR_ROOFS.find((roof) => roof.id === id)?.mountName ?? SOLAR_ROOFS[0].mountName;
+}
 
 const PANEL_WIDTH_M = 1.15;
 const MAX_PANELS_PER_ROW = 8;
@@ -223,7 +228,13 @@ export function buildSolarAutoLines(
   const strings = solarStringCount(panels);
   const lines: QuoteLine[] = [];
 
-  const mount = bundle(catalog, 'auto-solar-mount', 'Tartószerkezet', 'tartoszerkezet', mountingParts(roofId, panels));
+  const mount = bundle(
+    catalog,
+    'auto-solar-mount',
+    solarMountName(roofId),
+    'tartoszerkezet',
+    mountingParts(roofId, panels),
+  );
   if (mount) lines.push(mount);
 
   const dcId = strings <= 2 ? ID.dc2 : ID.dc4;
@@ -252,7 +263,7 @@ export function buildSolarAutoLines(
   );
   if (villany) lines.push(villany);
 
-  const misc = bundle(catalog, 'auto-solar-misc', 'Egyéb kiegészítő anyagok', 'egyeb', [
+  const misc = bundle(catalog, 'auto-solar-misc', 'Egyéb kiegészítő anyagok (sorkapcsok, érvéghüvelyek, szemessaruk, stb.)', 'egyeb', [
     { id: ID.terminal, qty: 5 },
     { id: ID.lug, qty: 10 },
     { id: ID.ferrule, qty: 20 },
