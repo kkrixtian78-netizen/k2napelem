@@ -58,10 +58,10 @@ export const SOLAR_MATERIAL_CATALOG: CatalogItem[] = [
     topic: "napelem",
     category: "inverter",
     unit: "db",
-    buyPrice: 0,
+    buyPrice: 296000,
     selectable: true,
     active: true,
-    notes: "Az Excelben nincs beszerzési ár.",
+    notes: "Beszerzési nettó 296 000 Ft. Eladás = beszerzés × 1,25.",
   },
   {
     id: "np-deye-6kw-sun-6k-sg06lp1-eu-bm2-hybrid-lv-1-fazisu-invert",

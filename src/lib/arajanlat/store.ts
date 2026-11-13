@@ -54,6 +54,16 @@ function mergeMissingSeedItems(store: QuoteStore): boolean {
       existing.unit = item.unit;
       changed = true;
     }
+    // A 0 Ft-os Deye 5K placeholder kapja meg a beszerzési árat. Későbbi katalógus-szerkesztést nem írjuk felül.
+    if (
+      item.id === 'np-deye-sun-5k-sg03lp1-eu' &&
+      existing.buyPrice === 0 &&
+      item.buyPrice > 0
+    ) {
+      existing.buyPrice = item.buyPrice;
+      existing.notes = item.notes;
+      changed = true;
+    }
     if (
       typeof item.bvfGross === 'number' &&
       existing.bvfGross !== item.bvfGross
