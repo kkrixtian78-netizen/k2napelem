@@ -9,20 +9,21 @@ export const SEED_CATALOG: CatalogItem[] = [
 
   {
     id: 'labor-kiszallas-km',
-    name: 'Kiszállás / szállítás (km × 300 Ft, oda-vissza)',
+    name: 'Kiszállás (beépül a munkadíjba, nem külön tétel)',
     topic: 'all',
     category: 'munkadij',
     unit: 'km',
-    buyPrice: 300,
+    buyPrice: 150,
     selectable: false,
-    active: true,
-    notes: 'Automatikus: cégcím ↔ ügyfélcím oda-vissza km × 300 Ft',
+    active: false,
+    notes:
+      'Nem választható és nem kerül külön sorba. Pócsmegyer ↔ ügyfél oda-vissza km × 150 Ft beszerzés, eladás × 1,25, a munkadíj összegében.',
   },
   // ——— Villanyszerelés: Onlinevill termékek ———
   ...buildVillanyCatalogFromOnlinevill(),
 
   // Munkadíj: beszerzés 0, eladás rögzített nettó (katalógusban szerkeszthető).
-  // A kiszállás km külön, automatikus tétel.
+  // A kiszállás km nem külön sor: a munkadíj összegébe épül.
   {
     id: 'v-labor-ora',
     name: 'Villanyszerelői óradíj',

@@ -395,7 +395,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
             placeholder="pl. 2000 Szentendre, Fő tér 1."
           />
           <span className="mt-1 block text-xs text-ink-soft">
-            Ebből számolódik automatikusan a kiszállás: Pócsmegyer → ügyfél oda-vissza × 300 Ft/km.
+            A munkadíjba beleszámít a kiszállás: Pócsmegyer → ügyfél oda-vissza, beszerzés 150 Ft/km, eladás × 1,25. Külön tételként nem jelenik meg.
           </span>
         </label>
         <label className="block text-sm">
@@ -796,7 +796,7 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
             </summary>
             <div className="border-t border-line p-2">
               <p className="mb-2 text-sm text-ink-soft">
-                Több tétel is hozzáadható, saját mennyiséggel. A kiszállás a címből külön, oda-vissza km × 300 Ft.
+                Több tétel is hozzáadható, saját mennyiséggel. A kiszállás (oda-vissza km × 150 Ft beszerzés) a munkadíj összegébe épül, külön sor nincs.
               </p>
               <ul className="max-h-64 overflow-y-auto rounded-md border border-line bg-white">
                 {catalog
@@ -982,8 +982,8 @@ export default function QuoteWizard({ brand = DEFAULT_BRAND }: { brand?: BrandIn
               <h2 className="font-display text-xl font-bold">Automatikus tételsor</h2>
               {preview.travel && (
                 <p className="mt-1 text-xs text-ink-soft">
-                  Kiszállás: {preview.travel.oneWayKm} km egy út · {preview.travel.roundTripKm} km
-                  oda-vissza · 300 Ft/km
+                  A munkadíj tartalmazza a kiszállást: {preview.travel.oneWayKm} km egy út ·{' '}
+                  {preview.travel.roundTripKm} km oda-vissza · beszerzés 150 Ft/km
                 </p>
               )}
             </div>

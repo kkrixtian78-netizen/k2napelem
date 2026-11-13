@@ -1,5 +1,5 @@
 import { ROOF_MOUNT_MAP } from './seed';
-import { lineFromCatalog, sumLines } from './pricing';
+import { lineFromCatalog, sellFromBuy, sumLines } from './pricing';
 import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
   CatalogItem,
@@ -99,29 +99,41 @@ export function buildSolarBom(
   return lines;
 }
 
-function appendTravelLine(
-  catalog: CatalogItem[],
-  lines: QuoteLine[],
-  travelRoundTripKm?: number,
-): QuoteLine[] {
+/**
+ * Az oda-vissza km díja a munkadíj sor összegébe kerül. Külön kiszállási tétel nincs.
+ * Ha nincs munkadíj sor, egy „Szerelési munkadíj” sor viszi az összeget.
+ */
+export function foldTravelIntoLabor(lines: QuoteLine[], travelRoundTripKm?: number): QuoteLine[] {
+  const withoutTravel = lines.filter((line) => line.catalogId !== TRAVEL_CATALOG_ID);
   const km = Math.round(travelRoundTripKm ?? 0);
-  if (km <= 0) return lines;
-  const item =
-    tryById(catalog, TRAVEL_CATALOG_ID) ??
-    ({
-      id: TRAVEL_CATALOG_ID,
-      name: 'Kiszállás / szállítás (km × 300 Ft, oda-vissza)',
-      topic: 'all',
+  if (km <= 0) return withoutTravel;
+
+  const extraBuy = km * TRAVEL_BUY_PER_KM;
+  const extraSell = sellFromBuy(extraBuy);
+  const heatingLabor = withoutTravel.find((line) => line.catalogId === 'f-labor-panel');
+  const target = heatingLabor ?? withoutTravel.find((line) => line.category === 'munkadij');
+
+  if (!target) {
+    withoutTravel.push({
+      catalogId: 'labor-included-travel',
+      name: 'Szerelési munkadíj',
+      unit: 'alkalom',
+      quantity: 1,
+      buyPrice: extraBuy,
+      sellPrice: extraSell,
+      auto: true,
       category: 'munkadij',
-      unit: 'km',
-      buyPrice: TRAVEL_BUY_PER_KM,
-      selectable: false,
-      active: true,
-    } satisfies CatalogItem);
-  const line = lineFromCatalog(item, km, true);
-  line.name = `Kiszállás / szállítás (oda-vissza, ${km} km × ${item.buyPrice} Ft)`;
-  lines.push(line);
-  return lines;
+    });
+    return withoutTravel;
+  }
+
+  const q = Math.max(1, Math.round(target.quantity));
+  const totalBuy = target.buyPrice * q + extraBuy;
+  const totalSell = target.sellPrice * q + extraSell;
+  target.quantity = q;
+  target.buyPrice = Math.round(totalBuy / q);
+  target.sellPrice = Math.round(totalSell / q);
+  return withoutTravel;
 }
 
 /**
@@ -182,17 +194,16 @@ export function buildQuoteLines(
     topic === 'napelem'
       ? buildSolarBom(catalog, selection as SolarSelection)
       : buildManualBom(catalog, topic, selection as ManualSelection);
-  const withTravel = appendTravelLine(catalog, lines, options?.travelRoundTripKm);
-  // Fűtés: szerelési munkadíj mindig a lista végén (kiszállás után is)
+  // Fűtés: szerelési munkadíj a lista végén, a km díj ebbe a sorba épül.
   if (topic === 'futes') {
     const laborId = 'f-labor-panel';
-    const laborIdx = withTravel.findIndex((l) => l.catalogId === laborId);
+    const laborIdx = lines.findIndex((l) => l.catalogId === laborId);
     if (laborIdx >= 0) {
-      const [labor] = withTravel.splice(laborIdx, 1);
-      withTravel.push(labor);
+      const [labor] = lines.splice(laborIdx, 1);
+      lines.push(labor);
     }
   }
-  return withTravel;
+  return foldTravelIntoLabor(lines, options?.travelRoundTripKm);
 }
 
 export function withTotals(lines: QuoteLine[]) {

@@ -5,8 +5,11 @@ export const COMPANY_ADDRESS = '2017 Pócsmegyer, Táncsics út 10.';
 /** Nominatim / OSM — Pócsmegyer, Táncsics út */
 export const COMPANY_COORDS = { lat: 47.7144328, lon: 19.0972418 } as const;
 
-/** Beszerzési (belső) km-díj — eladás = × 1,25 */
-export const TRAVEL_BUY_PER_KM = 300;
+/**
+ * Beszerzési km-díj (nettó Ft). Eladás = × 1,25, és ez az összeg a munkadíj sorba kerül,
+ * külön „Kiszállás / szállítás” tétel nincs az ajánlaton.
+ */
+export const TRAVEL_BUY_PER_KM = 150;
 
 export const TRAVEL_CATALOG_ID = 'labor-kiszallas-km';
 

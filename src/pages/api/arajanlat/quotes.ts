@@ -10,7 +10,7 @@ import {
   listQuotes,
   saveQuote,
 } from '../../../lib/arajanlat/store';
-import { roundTripTravelKm } from '../../../lib/arajanlat/travel';
+import { roundTripTravelKm, TRAVEL_CATALOG_ID } from '../../../lib/arajanlat/travel';
 
 export const GET: APIRoute = async ({ url }) => {
   const id = url.searchParams.get('id');
@@ -39,13 +39,12 @@ export const POST: APIRoute = async ({ request }) => {
     }),
   );
 
-  // Optional: allow line overrides from client (qty edits) — de ha nincs travel a client lines-ban, a szerverét használjuk
-  let lines = Array.isArray(body.lines) && body.lines.length ? body.lines : built.lines;
-  if (Array.isArray(body.lines) && body.lines.length && travel?.roundTripKm) {
-    const hasTravel = body.lines.some(
-      (l: { catalogId?: string }) => l.catalogId === 'labor-kiszallas-km',
+  // Van cím és km: a szerver építi a sorokat, a km a munkadíjban van, külön kiszállási sor nincs.
+  let lines = built.lines;
+  if (Array.isArray(body.lines) && body.lines.length && !travel?.roundTripKm) {
+    lines = body.lines.filter(
+      (l: { catalogId?: string }) => l.catalogId !== TRAVEL_CATALOG_ID,
     );
-    if (!hasTravel) lines = built.lines;
   }
   const totals = withTotals(lines);
 
