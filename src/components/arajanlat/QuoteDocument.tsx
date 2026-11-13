@@ -238,8 +238,9 @@ export default function QuoteDocument({
           </>
         ) : null}
         <p className="pt-2 text-center text-base font-bold leading-snug text-ink">
-          300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással! 15+ év tapasztalat
+          300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással!
         </p>
+        <p className="text-center text-base font-bold leading-snug text-ink">15+ év tapasztalat.</p>
         <p className="text-center text-base font-bold leading-snug text-ink">
           Magyar családi vállalkozás vagyunk, akiknek fontos a minőségi anyagokból kivitelezett megbízható, precíz
           munka - mert mi a tovább ajánlásokból élünk!
