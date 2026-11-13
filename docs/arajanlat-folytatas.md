@@ -65,4 +65,4 @@ A panelteljesítmény a katalógusnév watt számából jön (pl. 620W), szorozv
 
 Csak napelemes ajánlaton jelenik meg: EU és magyar megfelelőség, 10 napos vagy árfolyamhoz kötött érvényesség, magasemelő gép bérlése nélkül, áramszolgáltatói díjak nélkül.
 
-Minden ügyfélnek szóló ajánlat alján (előnézet és nyomtatás): gyártói garancia és szabványos kivitelezés; „300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással!” és kiemelten a sor végén a 15+ év tapasztalat; a családi vállalkozás mondata; a napelemes jogi záradék; legvégül k2napelem.hu, k2@k2napelem.hu és +36 30 2677 665. A belső tételsorhoz ez nem tartozik.
+Minden ügyfélnek szóló ajánlat alján (előnézet és nyomtatás): gyártói garancia és szabványos kivitelezés, utána a napelemes jogi záradék, utána nagyobb félkövérrel a „300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással! 15+ év tapasztalat” sor és a családi vállalkozás mondata, legvégül k2napelem.hu, k2@k2napelem.hu és +36 30 2677 665. A belső tételsorhoz ez nem tartozik.

@@ -223,14 +223,6 @@ export default function QuoteDocument({
           A beépített eszközökre a gyártói garancia vonatkozik. A kivitelezés a vonatkozó szabványok szerint
           készül.
         </p>
-        <p>
-          300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással!{' '}
-          <span className="font-semibold text-ink">15+ év tapasztalat</span>
-        </p>
-        <p>
-          Magyar családi vállalkozás vagyunk, akiknek fontos a minőségi anyagokból kivitelezett megbízható, precíz
-          munka - mert mi a tovább ajánlásokból élünk!
-        </p>
         {quote.topic === 'napelem' ? (
           <>
             <p>
@@ -245,6 +237,13 @@ export default function QuoteDocument({
             <p>Az árajánlat nem tartalmazza az áramszolgáltató felé fizetendő esetleges egyéb díjakat!</p>
           </>
         ) : null}
+        <p className="pt-2 text-base font-bold leading-snug text-ink">
+          300+ lakossági rendszer · több tucat céges kivitelezés hiba nélkül sok ajánlással! 15+ év tapasztalat
+        </p>
+        <p className="text-base font-bold leading-snug text-ink">
+          Magyar családi vállalkozás vagyunk, akiknek fontos a minőségi anyagokból kivitelezett megbízható, precíz
+          munka - mert mi a tovább ajánlásokból élünk!
+        </p>
         <p>
           <a href="https://k2napelem.hu" className="font-semibold text-sky-deep">
             k2napelem.hu
