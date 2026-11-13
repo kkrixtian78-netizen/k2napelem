@@ -1,5 +1,5 @@
 import { lineFromCatalog, sellFromBuy, sumLines } from './pricing';
-import { buildSolarAutoLines, fireDisconnectQty } from './solar-bom';
+import { buildSolarAutoLines, fireDisconnectQty, SOLAR_WIDE_MARGIN } from './solar-bom';
 import { SOLAR_INSTALL_LABOR_ID, solarInstallSell } from './solar-labor';
 import { TRAVEL_BUY_PER_KM, TRAVEL_CATALOG_ID } from './travel';
 import type {
@@ -81,7 +81,11 @@ export function buildSolarBom(
     const defaultQty =
       item.extraGroup === 'optimizer' ? panels : item.extraGroup === 'tuzvedelmi' ? fireDisconnectQty(panels) : 1;
     const q = Math.max(1, extraQty[id] ?? defaultQty);
-    lines.push(lineFromCatalog(item, q, false));
+    const line = lineFromCatalog(item, q, false);
+    if (item.extraGroup === 'tuzvedelmi' && typeof item.sellPriceFixed !== 'number') {
+      line.sellPrice = sellFromBuy(line.buyPrice, SOLAR_WIDE_MARGIN);
+    }
+    lines.push(line);
   }
 
   // A tervezés a munkadíj fölé kerül (a fold a munkadíjat a lista végére teszi).

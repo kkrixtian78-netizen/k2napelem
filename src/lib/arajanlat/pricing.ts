@@ -9,8 +9,8 @@ import {
 /** Magyar általános ÁFA-kulcs */
 export const VAT_RATE = 0.27;
 
-export function sellFromBuy(buyPrice: number): number {
-  return Math.round(buyPrice * MARGIN_MULTIPLIER);
+export function sellFromBuy(buyPrice: number, multiplier = MARGIN_MULTIPLIER): number {
+  return Math.round(buyPrice * multiplier);
 }
 
 /** BVF fűtés eladási bruttó (listaár − 2%). */

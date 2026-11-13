@@ -25,6 +25,7 @@ Az ajánlatok és a kézzel átírt katalógusárak itt vannak, és nincsenek a 
 ## Árazás
 
 - Napelem, villany, szerelés és fogyóanyag: eladás nettó = beszerzés × 1,25. Kód: `src/lib/arajanlat/pricing.ts`.
+- Napelemes tartószerkezet (a földi Treesystem kivételével), DC és AC doboz, tűzeseti leválasztó és a villanyszerelési anyagok sora: eladás = beszerzés × 1,5. A Treesystem marad × 1,25.
 - BVF fűtés: beszerzés nettó = BVF bruttó × 0,85 / 1,27. Eladás bruttó = BVF bruttó × 0,98.
 - ÁFA 27%. A tételsor nettó, a bruttó az összesenél jelenik meg.
 - Fűtés szerelési munkadíj: 10 000 Ft, 2 db-enként −10%, minimum 7 000 Ft. Rögzítéstechnika: 1 készlet fő termékenként, beszerzés 1 000 Ft, eladás 2 000 Ft.

@@ -22,6 +22,10 @@
  * - Tervezés/engedélyeztetés opcionális (beszerzés 50 000, eladás 100 000), alapból nincs az ajánlaton.
  */
 import { lineFromCatalog, sellFromBuy } from './pricing';
+import { MARGIN_MULTIPLIER } from './types';
+
+/** Tartószerkezet (földi Treesystem kivételével), DC/AC doboz, tűzeseti leválasztó és villanyszerelési anyagok. */
+export const SOLAR_WIDE_MARGIN = 1.5;
 import type { CatalogItem, QuoteLine } from './types';
 
 export const GROUND_MOUNT_ID = 'roof-foldi';
@@ -241,6 +245,7 @@ function bundle(
   name: string,
   category: QuoteLine['category'],
   parts: Part[],
+  margin = MARGIN_MULTIPLIER,
 ): QuoteLine | null {
   let buy = 0;
   for (const part of parts) {
@@ -257,7 +262,7 @@ function bundle(
     unit: 'készlet',
     quantity: 1,
     buyPrice: rounded,
-    sellPrice: sellFromBuy(rounded),
+    sellPrice: sellFromBuy(rounded, margin),
     auto: true,
     category,
   };
@@ -280,10 +285,20 @@ function treesystemLine(catalog: CatalogItem[], panelCount: number): QuoteLine {
   };
 }
 
-function pushItem(catalog: CatalogItem[], lines: QuoteLine[], id: string, qty: number) {
+function pushItem(
+  catalog: CatalogItem[],
+  lines: QuoteLine[],
+  id: string,
+  qty: number,
+  margin = MARGIN_MULTIPLIER,
+) {
   const item = catalog.find((entry) => entry.id === id && entry.active);
   if (!item || qty <= 0) return;
-  lines.push(lineFromCatalog(item, qty, true));
+  const line = lineFromCatalog(item, qty, true);
+  if (margin !== MARGIN_MULTIPLIER && typeof item.sellPriceFixed !== 'number') {
+    line.sellPrice = sellFromBuy(line.buyPrice, margin);
+  }
+  lines.push(line);
 }
 
 export function buildSolarAutoLines(
@@ -304,17 +319,18 @@ export function buildSolarAutoLines(
       solarMountName(roofId),
       'tartoszerkezet',
       mountingParts(roofId, panels),
+      SOLAR_WIDE_MARGIN,
     );
     if (mount) lines.push(mount);
   }
 
   const dcId = strings <= 2 ? ID.dc2 : ID.dc4;
   const dcQty = strings <= 2 ? 1 : Math.ceil(strings / 4);
-  pushItem(catalog, lines, dcId, dcQty);
+  pushItem(catalog, lines, dcId, dcQty, SOLAR_WIDE_MARGIN);
 
   const amps = acAmps(inverterKw(input.inverterName), inverterPhases(input.inverterName));
   const acId = amps <= 16 ? ID.ac16 : amps <= 25 ? ID.ac25 : ID.ac32;
-  pushItem(catalog, lines, acId, 1);
+  pushItem(catalog, lines, acId, 1, SOLAR_WIDE_MARGIN);
   if (input.withStorage) pushItem(catalog, lines, ID.backup, 1);
 
   const heavy = amps > 32;
@@ -331,6 +347,7 @@ export function buildSolarAutoLines(
       { id: ID.trunk, qty: TRUNKING_M },
       { id: ID.mc4, qty: strings * 2 },
     ],
+    SOLAR_WIDE_MARGIN,
   );
   if (villany) lines.push(villany);
 
