@@ -245,7 +245,7 @@ export default function QuoteDocument({
           Magyar családi vállalkozás vagyunk, akiknek fontos a minőségi anyagokból kivitelezett megbízható, precíz
           munka - mert mi a tovább ajánlásokból élünk!
         </p>
-        <p>
+        <p className="text-center">
           <a href="https://k2napelem.hu" className="font-semibold text-sky-deep">
             k2napelem.hu
           </a>
