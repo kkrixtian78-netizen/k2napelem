@@ -41,8 +41,12 @@ export default function QuoteDocument({
     <article className="rounded-xl border border-line bg-paper/80 p-5 sm:p-8 print:border-0 print:bg-white print:p-0">
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-line pb-5">
         <div>
-          <div className="font-brand text-3xl text-sky-deep">{brand.name}</div>
-          <p className="mt-1 text-sm text-ink-soft">
+          <img
+            src="/images/brand/k2napelem-logo.png"
+            alt={brand.name}
+            className="h-14 w-auto max-w-[15rem] object-contain object-left sm:h-16"
+          />
+          <p className="mt-2 text-sm text-ink-soft">
             {brand.legalName}
             <br />
             {brand.address}
